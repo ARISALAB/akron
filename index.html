@@ -10,24 +10,97 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   </head>
+ <style>
+.top-nav .hamburger-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem; /* Μέγεθος icon */
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+  z-index: 100; /* Βεβαιωθείτε ότι είναι πάνω από άλλα στοιχεία */
+}
+
+
+/* --- Media Query για Tablet και Mobile (εδώ ενεργοποιείται το Hamburger) --- */
+@media (max-width: 768px) { /* Μπορείτε να αλλάξετε το breakpoint (π.χ. 992px αν θέλετε και τα tablets) */
+
+  .top-nav .container {
+      /* Προσαρμογή flexbox για να είναι το logo και το hamburger icon στην ίδια γραμμή */
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  /* Κρύψτε τα Nav Links στο mobile */
+  .top-nav .nav-links {
+    display: none; /* Κρύψτε το μενού από προεπιλογή */
+
+    /* Στυλ για το mobile menu (θέση, μέγεθος, χρώμα φόντου) */
+    position: absolute; /* Ή fixed αν θέλετε να μένει σταθερό στην οθόνη */
+    top: 60px; /* Απόσταση από την κορυφή (ύψος του top-nav) */
+    right: 0; /* Εμφάνιση από δεξιά */
+    width: 250px; /* Πλάτος mobile menu */
+    height: calc(60vh - 55px); /* Ύψος όσο το υπόλοιπο viewport */
+    background-color: #222; /* Χρώμα φόντου mobile menu */
+    flex-direction: column; /* Τα links το ένα κάτω από το άλλο */
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease-in-out; /* Animation κατά το άνοιγμα/κλείσιμο */
+    transform: translateX(100%); /* Μετακινήστε το εκτός οθόνης από προεπιλογή */
+    z-index: 99; /* Πάνω από το περιεχόμενο αλλά κάτω από το hamburger icon */
+    overflow-y: auto; /* Αν το menu είναι μεγάλο, να έχει κύλιση */
+  }
+
+  /* Στυλ για τα links μέσα στο mobile menu */
+  .top-nav .nav-links a {
+    padding: 15px 0; /* Κάθετο padding στα links */
+    border-bottom: 1px solid #444; /* Διαχωριστική γραμμή */
+    font-size: 1.2rem;
+    text-align: center; /* Κεντράρισμα κειμένου link */
+  }
+
+   .top-nav .nav-links a:last-child {
+       border-bottom: none; /* Όχι γραμμή στο τελευταίο link */
+   }
+
+
+  /* Εμφανίστε το Hamburger icon στο mobile */
+  .top-nav .hamburger-toggle {
+    display: block;
+  }
+
+  /* Κλάση που θα προσθέσει η JS όταν το menu είναι ανοιχτό */
+  .top-nav .nav-links.open {
+    transform: translateX(0); /* Εμφάνιση του menu */
+    display: flex; /* Εμφανίστε το μενού ως flex container */
+  }
+
+  /* Προαιρετικά: Στυλ για την "X" κατάσταση του hamburger icon όταν το menu είναι ανοιχτό */
+  /* Αυτό απαιτεί αλλαγή του περιεχομένου ή χρήση γραμμών στο HTML και animation */
+}
+
+ </style> 
 <body>
 <section class="top-nav">
   <div class="container">
     <a href="/" class="logo">
       <img src="10.jpg" alt="AR Akron Services Logo">
-            <span class="logo-text">AR Akron Services</span>
-
+      <span class="logo-text">AR Akron Services</span>
     </a>
+    <button class="hamburger-toggle" aria-label="Μενού">
+      ☰
+      </button>
+
     <nav class="nav-links">
       <a href="#services">Υπηρεσιες</a>
       <a href="#highlights">Akron</a>
-            <a href="#PARALLAX">Εργα</a>
-
+      <a href="#PARALLAX">Εργα</a>
       <a href="#contact">Επικοινωνια</a>
     </nav>
   </div>
 </section>
-
  <header class="hero">
   
   <div class="hero-overlay"></div>
