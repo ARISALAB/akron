@@ -280,7 +280,7 @@
     <div class="contact-right">
       <div class="contact-form-container">
         <h3>Επικοινωνία</h3>
-      <form class="contact-form" id="contactForm">
+    <form class="contact-form" id="contactForm">
   <input type="text" name="name" placeholder="Όνομα" required data-translate-key="form-name-placeholder">
   <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
   <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
@@ -301,18 +301,25 @@
     try {
       const res = await fetch("/.netlify/functions/send-email", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify(formData),
       });
 
       const result = await res.json();
-      document.getElementById("form-status").textContent = result.success ? "Το μήνυμα εστάλη!" : "Σφάλμα κατά την αποστολή.";
+      document.getElementById("form-status").textContent = result.success
+        ? "Το μήνυμα εστάλη!"
+        : "Σφάλμα κατά την αποστολή.";
     } catch (err) {
+      console.error("Fetch error:", err);
       document.getElementById("form-status").textContent = "Σφάλμα κατά την αποστολή.";
     }
 
     form.reset();
   });
 </script>
+
 
       </div>
     </div>
