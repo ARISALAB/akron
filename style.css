@@ -505,7 +505,6 @@ a {
   text-align: center;
   position: relative;
 }
-
 /* Ticker Banner */
 .contact .contact-intro-banner {
   position: absolute;
@@ -515,39 +514,54 @@ a {
   z-index: 10;
   overflow: hidden;
   white-space: nowrap;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 20px;
-  margin-bottom: 40px;
+  height: 50px; /* ή 40px ή 35px στις media queries */
+  line-height: 50px; /* ή 40px ή 35px στις media queries */
+  padding: 0 20px; /* ή 15px ή 10px στις media queries */
+  margin-bottom: 40px; /* Αυτό το margin είναι στο κάτω μέρος του banner, όχι στα πλάγια */
 
-  /* Η διαβάθμιση που είχατε */
-  background-image: linear-gradient(to right, #050543, #380e38, #050543); /* Προσθέτουμε το πρώτο χρώμα ξανά για πιο ομαλή επανάληψη */
-  /* Ή αν θέλετε με λευκό όπως στο σχόλιο: */
-  /* background-image: linear-gradient(to right, #000080, #800080, #FFFFFF, #800080, #000080); */
+  /* ** Η ΛΥΣΗ ΓΙΑ ΤΟ ΟΡΙΖΟΝΤΙΟ OVERFLOW ** */
+  box-sizing: border-box;
 
-  /* Κάνουμε το φόντο μεγαλύτερο από το στοιχείο για να μπορεί να κινείται */
-  background-size: 200% 100%; /* Διπλάσιο πλάτος */
-
+  /* ... υπόλοιπες ιδιότητες για background και animation ... */
+  background-image: linear-gradient(to right, #FFD700, #000000, #FFD700);
+  background-size: 200% 100%;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-
-  /* Προσθήκη για την κίνηση */
-  animation: gradient-wave 10s ease infinite; /* Όνομα animation, διάρκεια, easing, επανάληψη */
+  animation: gradient-wave 10s ease infinite;
 }
 
 /* Ορισμός του animation */
 @keyframes gradient-wave {
-  0% {
-    background-position: 0% 50%; /* Ξεκινά από αριστερά */
-  }
-  50% {
-    background-position: 100% 50%; /* Κινείται προς τα δεξιά */
-  }
-  100% {
-    background-position: 0% 50%; /* Επιστρέφει στην αρχή για ομαλό loop */
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+/* ... υπόλοιπο CSS, συμπεριλαμβανομένων των media queries ... */
+
+/* Επαναλάβετε το box-sizing και στις media queries για ασφάλεια, αν και συνήθως δεν χρειάζεται */
+@media (max-width: 768px) {
+  .contact .contact-intro-banner {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    box-sizing: border-box; /* Επανάληψη */
+  }
+  /* ... */
+}
+
+@media (max-width: 480px) {
+  .contact .contact-intro-banner {
+    height: 35px;
+    line-height: 35px;
+    padding: 0 10px;
+    box-sizing: border-box; /* Επανάληψη */
+  }
+  /* ... */
+}
+
+/* ... υπόλοιπο CSS ... */
 .contact .contact-intro-banner .ticker-content {
   display: inline-block;
   will-change: transform;
