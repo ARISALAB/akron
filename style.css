@@ -523,7 +523,7 @@ a {
   box-sizing: border-box;
 
   /* ... υπόλοιπες ιδιότητες για background και animation ... */
-  background-image: linear-gradient(to right, #FFD700, #000000, #FFD700);
+  background-image: linear-gradient(to right, #050543, #380e38, #050543); /* Προσθέτουμε το πρώτο χρώμα ξανά για πιο ομαλή επανάληψη */
   background-size: 200% 100%;
   display: flex;
   align-items: center;
