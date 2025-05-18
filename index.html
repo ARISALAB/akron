@@ -280,12 +280,40 @@
     <div class="contact-right">
       <div class="contact-form-container">
         <h3>Επικοινωνία</h3>
-        <form class="contact-form">
-          <input type="text" placeholder="Όνομα" required>
-          <input type="email" placeholder="Email" required>
-          <textarea placeholder="Το μήνυμά σας" required></textarea>
-          <button type="submit">Αποστολή</button>
-        </form>
+      <form class="contact-form" id="contactForm">
+  <input type="text" name="name" placeholder="Όνομα" required data-translate-key="form-name-placeholder">
+  <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
+  <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
+  <button type="submit" data-translate-key="form-submit-button">Αποστολή</button>
+  <p id="form-status"></p>
+</form>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+    };
+
+    try {
+      const res = await fetch("/.netlify/functions/send-email", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+      document.getElementById("form-status").textContent = result.success ? "Το μήνυμα εστάλη!" : "Σφάλμα κατά την αποστολή.";
+    } catch (err) {
+      document.getElementById("form-status").textContent = "Σφάλμα κατά την αποστολή.";
+    }
+
+    form.reset();
+  });
+</script>
+
       </div>
     </div>
   </div>
