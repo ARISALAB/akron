@@ -1,0 +1,1031 @@
+/* Βασικά */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #111;
+  color: white;
+  overflow-x: hidden; /* Αποτροπή οριζόντιου scrollbar */
+}
+
+h1, h2, h3 {
+  text-align: center;
+  /* Η γενική text-shadow για h1/h2/h3 θα αντικατασταθεί από τον πιο συγκεκριμένο κανόνα .hero h1 ή SVG filter */
+  /* text-shadow: 0 0 10px #5f2c82; */
+}
+
+p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6; /* Βελτίωση αναγνωσιμότητας */
+}
+
+.section {
+  padding: 60px 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.top-nav {
+  background-color: #000;
+  color: white;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.top-nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 40px;
+  display: block;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color:(135deg, #ffd700, #ffffff);
+}
+.nav-links a:hover {
+    /* Αφαίρεση του παλιού color: white; */
+    /* text-decoration: none; */ /* Κρατήστε άλλες ιδιότητες αν τις είχατε */
+    /* font-weight: 500; */
+
+    /* Χρησιμοποιήστε το gradient ως background */
+    background-image: linear-gradient(135deg, #ffd700, #ffffff); /* <-- Το gradient που θες */
+
+    /* Κόψε το background στο σχήμα του κειμένου */
+    background-clip: text; /* Standard ιδιότητα */
+    -webkit-background-clip: text; /* Για συμβατότητα με Webkit browsers (Chrome, Safari) */
+
+    /* Κάνε το χρώμα του κειμένου διάφανο για να φανεί το background */
+    color: transparent; /* Standard ιδιότητα */
+    -webkit-text-fill-color: transparent; /* Για συμβατότητα με Webkit browsers */
+
+    /* Η transition στην ιδιότητα 'color' μπορεί να μην έχει αποτέλεσμα εδώ */
+    /* Εάν θες animation στο hover, ίσως χρειαστείς transition σε opacity ή transform */
+    transition: none; /* Αφαίρεση transition στην 'color' */
+}
+
+
+
+
+
+
+
+.hero {
+  height: 100vh;
+  /* Αφαίρεση της background-image */
+  /* background-image: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=1920&q=80'); */
+  background-size: cover; /* Διατηρείται αν χρειαστεί fallback background-color */
+  background-attachment: fixed; /* Αυτό δεν θα έχει πλέον αποτέλεσμα στο βίντεο */
+  background-position: center; /* Διατηρείται αν χρειαστεί fallback background-color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+  overflow: hidden; /* Κρύψιμο οτιδήποτε ξεχειλίζει */
+  background-color: #111; /* Προσθήκη fallback background color αν το βίντεο δεν φορτώσει */
+  
+}
+
+/* Στυλ για το video background - ΔΙΟΡΘΩΣΗ z-index */
+#hero-video {
+    position: absolute; /* Τοποθέτηση σε σχέση με τον parent (.hero) */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Καλύπτει όλη την περιοχή διατηρώντας το aspect ratio, κόβοντας αν χρειαστεί */
+    z-index: 1; /* ΔΙΟΡΘΩΘΗΚΕ: Βάζει το βίντεο ΠΙΣΩ από το περιεχόμενο και το overlay */
+}
+
+/* Ο υπόλοιπος κώδικας για το hero παραμένει ίδιος */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.8); /* Το overlay μένει για να σκουραίνει το βίντεο */
+  z-index: 0; /* Βεβαιωθείτε ότι είναι μεταξύ video (-1) και content (1) */
+}
+
+.hero-content {
+  position: relative; /* Δώστε του position relative ή z-index > 0 για να είναι πάνω από το overlay και το βίντεο */
+  z-index: 1; /* Βεβαιωθείτε ότι είναι πάνω από το overlay (0) */
+  color: white; /* Αυτό δεν επηρεάζει το SVG */
+  max-width: 1000px;
+  padding: 20px;
+  display: flex; /* Χρησιμοποιείται για κεντράρισμα του περιεχομένου (SVG, p, cta-buttons) */
+  flex-direction: column; /* Στοιχεία σε στήλη */
+  align-items: center; /* Κεντράρισμα στοιχείων οριζόντια */
+  justify-content: center; /* Κεντράρισμα στοιχείων κατακόρυφα (αν το hero-content έχει ύψος) */
+}
+
+/* Νέος κανόνας για το SVG του τίτλου */
+#hero-title-svg {
+    display: block; /* Το κάνουμε block στοιχείο */
+    width: 100%; /* Να γεμίζει το πλάτος του parent (.hero-content) */
+    max-width: 800px; /* Προαιρετικά: Περιορίζουμε το μέγιστο πλάτος αν θέλεις */
+    height: auto; /* Να διατηρεί την αναλογία διαστάσεων */
+    margin: 0 auto; /* Να είναι κεντραρισμένο αν max-width < 100% */
+    margin-bottom: 30px; /* Προσθήκη απόστασης κάτω από το SVG πριν τον υπότιτλο */
+    overflow: visible; /* Βεβαιωθείτε ότι τα φίλτρα ή οι σκιές δεν κόβονται στις άκρες του SVG */
+    /* Ο κανόνας animated-text θα χειριστεί την opacity και transform */
+}
+
+/* Προαιρετικά: Αν θέλεις να ελέγξεις font-family ή άλλα χαρακτηριστικά κειμένου από CSS αντί SVG attributes */
+/*
+#hero-title-svg text {
+    font-family: 'Segoe UI', sans-serif; // Βεβαιώσου ότι η γραμματοσειρά φορτώνεται
+    // Άλλες ιδιότητες όπως font-size, font-weight μπορούν να μπουν εδώ
+}
+*/
+
+.hero .subtitle {
+  /* Οι υπάρχουσες ιδιότητες διατηρούνται */
+  max-width: 800px;
+  margin: 0 auto 40px; /* Διατηρείται για απόσταση από CTA buttons */
+  line-height: 1.8;
+  font-size: 1.25rem; /* Ελαφρώς μεγαλύτερο μέγεθος γραμματοσειράς */
+  letter-spacing: 0.5px; /* Διακριτική απόσταση μεταξύ των γραμμάτων */
+  text-shadow: 0 0 5px rgba(255,255,255,0.5); /* Διακριτική λευκή σκιά για απαλή λάμψη */
+
+  /* --- Προσθήκη Διάφανου Background --- */
+  background-color: rgba(0, 0, 0, 0.2); /* Μαύρο με 60% αδιαφάνεια. Ρύθμισε το 0.6 αν θες περισσότερη/λιγότερη διαφάνεια. */
+  padding: 15px 20px; /* Χώρος γύρω από το κείμενο μέσα στο background */
+  border-radius: 8px; /* Απαλές, στρογγυλεμένες γωνίες στο background */
+  /* ------------------------------------ */
+}
+
+/* Στο Responsive Design @media (max-width: 768px) */
+/* Ο κανόνας για .hero .subtitle μέσα στο media query (font-size: 1.1rem;)
+   θα παραμείνει και θα υπερισχύσει για το μέγεθος σε μικρές οθόνες.
+   Το padding και το border-radius συνήθως λειτουργούν καλά και σε μικρές οθόνες. */
+
+/* Στο Responsive Design @media (max-width: 768px) */
+/* Ο κανόνας για .hero .subtitle με font-size: 1.1rem; θα παραμείνει
+   και θα υπερισχύσει στον κανόνα αυτόν σε μικρές οθόνες,
+   κάνοντας το μέγεθος σωστό για κινητά. */
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #5f2c82, #49a09d); /* Διατηρήθηκε το υπάρχον gradient */
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(95, 44, 130, 0.4); /* Διατηρήθηκε το υπάρχον shadow */
+}
+
+.cta-button:hover {
+  transform: scale(1.08);
+}
+
+.cta-button.alt {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b); /* Διατηρήθηκε το υπάρχον gradient */
+}
+
+
+/* Cards Section */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af); /* Διατηρήθηκε το υπάρχον gradient */
+  padding: 30px;
+  border-radius: 20px;
+  width: 280px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Διατηρήθηκε το υπάρχον shadow */
+  transition: transform 0.3s ease;
+  display: flex; /* Κεντράρισμα περιεχομένου κάρτας */
+  flex-direction: column; /* Κεντράρισμα περιεχομένου κάρτας */
+  align-items: center; /* Κεντράρισμα περιεχομένου κάρτας */
+  text-align: center; /* Κεντράρισμα κειμένου κάρτας */
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-shadow: none; /* Αφαίρεση shadow για μικρούς τίτλους στις κάρτες αν δεν το θες */
+}
+
+.card p {
+    margin: 0;
+    max-width: none; /* Αφαίρεση max-width για να γεμίζει την κάρτα */
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Στο style.css - Προσθέστε ή τροποποιήστε ανάλογα */
+/* Στο style.css - Προσθέστε ή τροποποιήστε ανάλογα */
+
+/* Parallax Section (Ο υπάρχων κανόνας σου + ενσωμάτωση video background styles) */
+.parallax-section {
+    /* Αυτά αφαιρέθηκαν στην προηγούμενη αλλαγή για το βιντεο background */
+    /* background-image: url('...'); */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center center; */
+
+    /* Κανόνες από το block που έδωσες: */
+    text-shadow: 0 0 10px black; /* Shadow στο κείμενο της ενότητας (θα εφαρμοστεί στους απογόνους) */
+    display: flex; /* Για κεντράρισμα περιεχομένου */
+    align-items: center; /* Για κεντράρισμα περιεχομένου κάθετα */
+    justify-content: center; /* Για κεντράρισμα περιεχομένου οριζόντια */
+    position: relative; /* <-- Απαραίτητο για να λειτουργήσει το absolute positioning των ::before, ::after και του βίντεο */
+    overflow: hidden; /* Κρύβει μέρη του βίντεο ή του overlay που βγαίνουν εκτός */
+
+    /* Διόρθωση Ύψους: Αύξηση του ελάχιστου ύψους ή ορισμός σταθερού ύψους */
+    min-height: 500px; /* <-- ΑΥΞΗΣΗ: Μπορείς να το κάνεις και 600px ή όσο χρειάζεται */
+    /* ή αν θες σταθερό ύψος: height: 600px; min-height: 0; */
+
+    padding: 0; /* <-- Από το block που έδωσες (αφαιρεί το padding από την section) */
+    /* Το padding θα μπει στο .parallax-content */
+}
+
+/* Pseudo-element overlay (από το block που έδωσες - χρησιμοποιεί ::before) */
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Διόρθωση Ορατότητας Κειμένου: Σκούρυνση του overlay */
+    background: rgba(0,0,0,0.6); /* <-- ΑΥΞΗΣΗ opacity: Πιο σκούρο overlay για καλύτερο contrast */
+    z-index: 1; /* Πάνω από το βίντεο */
+}
+
+/* --- ΔΙΑΧΩΡΙΣΤΙΚΗ ΓΡΑΜΜΗ ΣΕ ΟΛΟ ΤΟ ΜΗΚΟΣ (χρησιμοποιώντας ::after) --- */
+.parallax-section::after {
+    content: ''; /* Απαραίτητο */
+    position: absolute; /* Για τοποθέτηση */
+    top: 0; /* <-- Τοποθέτηση στην κορυφή της ενότητας */
+    left: 0; /* <-- Ξεκινάει από την αριστερή άκρη */
+    width: 100%; /* <-- Γίνεται 100% του πλάτους του γονέα */
+    height: 4px; /* <-- ΡΥΘΜΙΣΕ: Το πάχος (ύψος) της γραμμής (π.χ. 4px όπως στην #services) */
+    background-color: #ffffff; /* <-- ΡΥΘΜΙΣΕ: Το χρώμα της γραμμής (π.χ. λευκό) */
+    z-index: 3; /* <-- Σημαντικό: Βεβαιώσου ότι είναι πάνω από το βίντεο (z-index 0), το overlay (z-index 1) και το περιεχόμενο (z-index 2) */
+}
+/* ------------------------------------------------------------------ */
+
+
+/* Στυλ για το στοιχείο του βίντεο background (από προηγούμενη διόρθωση) */
+.parallax-section .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Καλύπτει την περιοχή διατηρώντας το aspect ratio */
+    z-index: 0; /* Κάτω από overlay και γραμμή */
+}
+
+
+/* Parallax Content (από το block που έδωσες) */
+.parallax-content {
+    position: relative; /* Σημαντικό: Βεβαιώσου ότι το περιεχόμενο είναι πάνω από τα pseudo-elements και το βίντεο */
+    z-index: 2; /* Το περιεχόμενο layer */
+    color: white; /* <-- Χρώμα κειμένου (λευκό) */
+    text-align: center; /* Από το block που έδωσες */
+    max-width: 800px; /* Από το block που έδωσες */
+    padding: 20px; /* <-- Από το block που έδωσες (εσωτερικό padding στο περιεχόμενο) */
+    width: 100%; /* Συχνά χρήσιμο με flexbox centering και max-width */
+    box-sizing: border-box; /* Περιλαμβάνει το padding στο πλάτος 100% */
+
+}
+
+/* Στυλ για τους τίτλους (h2) μέσα στο parallax-content */
+.parallax-content h2 {
+    /* Διόρθωση Ορατότητας Κειμένου: Εξασφαλίστε χρώμα και shadow */
+    color: white; /* <-- Βεβαιώσου ότι είναι λευκό */
+    text-shadow: 0 0 12px rgba(0,0,0,0.8); /* <-- Shadow για καλύτερο contrast */
+    margin-bottom: 15px; /* Προσθέστε λίγο κενό κάτω από τον τίτλο */
+    /* font-size: ... κλπ */
+}
+
+/* Στυλ για τις παραγράφους (p) μέσα στο parallax-content */
+.parallax-content p {
+     /* Διόρθωση Ορατότητας Κειμένου: Εξασφαλίστε χρώμα και shadow */
+    color: white; /* <-- Βεβαιώσου ότι είναι λευκό */
+    text-shadow: 0 0 12px rgba(0,0,0,0.8); /* <-- Shadow για καλύτερο contrast */
+    line-height: 1.6; /* Βελτίωση αναγνωσιμότητας */
+  font-size: 1.25rem; /* Ελαφρώς μεγαλύτερο μέγεθος γραμματοσειράς */
+}
+/* Στο style.css */
+
+/* ... (κρατήστε τα υπάρχοντα στυλ πριν την περιοχή portfolio-previews) ... */
+
+/* Στο style.css */
+
+/* ... (κρατήστε τα υπάρχοντα στυλ πριν την περιοχή portfolio-previews) ... */
+
+/* Στο style.css - ΟΛΟ το block για την περιοχή Portfolio Previews στην ενότητα Parallax */
+
+/* --- Περιοχή Portfolio Previews Container --- */
+.parallax-content .portfolio-previews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* --- Preview Item --- */
+.parallax-content .portfolio-previews .preview-item {
+  width: calc(25% - 18px);
+  max-width: 380px;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.05);
+  position: relative;
+  cursor: default;
+  overflow-y: auto; /* <-- Scroll αν η εικόνα είναι πιο ψηλή */
+  overflow-x: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition-property: opacity, transform, box-shadow;
+  transition-duration: 0.6s, 0.6s, 0.3s;
+  transition-timing-function: ease-out, ease-out, ease;
+}
+
+/* Hover effect */
+.parallax-content .portfolio-previews .preview-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Όταν γίνει ορατό (μέσω JS) */
+.parallax-content .portfolio-previews .preview-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Εικόνα μέσα στο preview --- */
+.parallax-content .portfolio-previews .preview-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 100%; /* Επιτρέπει scroll αν είναι πιο ψηλή */
+  object-fit: unset; /* Δεν κόβει την εικόνα */
+  border: none;
+  clip-path: inset(100% 100% 0 0);
+  transition: clip-path 1.5s ease-out;
+}
+
+/* Όταν γίνει visible */
+.parallax-content .portfolio-previews .preview-item.visible img {
+  clip-path: inset(0 0 0 0);
+}
+
+/* --- Responsive: Tablets --- */
+@media (max-width: 768px) {
+  .parallax-content .portfolio-previews {
+    gap: 15px;
+    padding: 0 15px;
+  }
+
+  .parallax-content .portfolio-previews .preview-item {
+    width: calc(50% - 10px);
+    max-width: none;
+    height: 200px;
+    border-radius: 8px;
+  }
+}
+
+/* --- Responsive: Κινητά --- */
+@media (max-width: 480px) {
+  .parallax-content .portfolio-previews {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .parallax-content .portfolio-previews .preview-item {
+    width: 80%;
+    max-width: 300px;
+    height: 250px;
+    border-radius: 8px;
+  }
+}
+
+/* Απόκρυψη scrollbar από προεπιλογή */
+.preview-item::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+/* Scrollbar thumb (το "χερούλι") */
+.preview-item::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+/* Εμφάνιση scrollbar μόνο στο hover */
+.preview-item {
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Όταν είναι hover, εμφανίζουμε το scrollbar */
+.preview-item:hover {
+  scrollbar-width: thin; /* Firefox */
+}
+
+/* Μόνο στο hover εμφανίζεται scrollbar - WebKit */
+.preview-item:not(:hover)::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+
+
+
+
+
+#contact { 
+  padding: 80px 0;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+/* Ticker Banner */
+.contact .contact-intro-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  margin-bottom: 40px;
+
+  /* Η διαβάθμιση που είχατε */
+  background-image: linear-gradient(to right, #050543, #380e38, #050543); /* Προσθέτουμε το πρώτο χρώμα ξανά για πιο ομαλή επανάληψη */
+  /* Ή αν θέλετε με λευκό όπως στο σχόλιο: */
+  /* background-image: linear-gradient(to right, #000080, #800080, #FFFFFF, #800080, #000080); */
+
+  /* Κάνουμε το φόντο μεγαλύτερο από το στοιχείο για να μπορεί να κινείται */
+  background-size: 200% 100%; /* Διπλάσιο πλάτος */
+
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  /* Προσθήκη για την κίνηση */
+  animation: gradient-wave 10s ease infinite; /* Όνομα animation, διάρκεια, easing, επανάληψη */
+}
+
+/* Ορισμός του animation */
+@keyframes gradient-wave {
+  0% {
+    background-position: 0% 50%; /* Ξεκινά από αριστερά */
+  }
+  50% {
+    background-position: 100% 50%; /* Κινείται προς τα δεξιά */
+  }
+  100% {
+    background-position: 0% 50%; /* Επιστρέφει στην αρχή για ομαλό loop */
+  }
+}
+.contact .contact-intro-banner .ticker-content {
+  display: inline-block;
+  will-change: transform;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 50px;
+}
+
+.contact .contact-intro-banner .ticker-content span {
+  padding-right: 30px;
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2px; /* ή 16px για πιο "σφιχτή" στοίχιση */
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 60px;
+  text-align: left;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1 1 45%;
+}
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: right; /* Κάθετο κέντρο */
+  min-height: 100%; /* θα προσαρμοστεί με βάση το ύψος του container */
+}
+
+/* Contact Left */
+.contact-left p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-left a {
+  background: linear-gradient(135deg, #ffd700, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-left a:hover {
+  opacity: 0.8;
+}
+
+.contact-left i {
+  min-width: 20px;
+  color: #ffd700;
+}
+
+/* Logo */
+.contact-logo {
+  max-width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  display: block;
+  margin: 0 auto 30px;
+}
+
+/* Contact Form */
+.contact-form-container {
+ max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.contact-form-container h3 {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  font-size: 1rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-form button {
+  padding: 12px;
+  background: linear-gradient(135deg, #fff8dc, #ffd700);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.contact-form button:hover {
+  opacity: 0.85;
+}
+
+
+
+/* --- Responsive Styles for Tablet and Mobile --- */
+/* Εφαρμόζονται σε οθόνες με πλάτος μέχρι 768px (tablet και κάτω) */
+@media (max-width: 768px) { /* <-- ΡΥΘΜΙΣΕ breakpoint αν χρειάζεται */
+
+    .contact-grid {
+        flex-direction: column; /* <-- Στοιχειοθέτηση σε στήλη (το ένα κάτω από το άλλο) */
+        gap: 0; /* Αφαίρεση του κενού μεταξύ στηλών (desktop gap) */
+        padding: 0 15px; /* Προσαρμογή οριζόντιου padding για μικρότερες οθόνες */
+    }
+
+    .contact-grid .contact-left {
+        flex: auto; /* Επιτρέπει στο block να πάρει το πλάτος του περιέκτη */
+        width: 100%; /* <-- Να καταλαμβάνει όλο το πλάτος του γονέα (contact-grid) */
+        margin-bottom: 40px; /* <-- Προσθήκη κάθετου κενού ΜΕΤΑΞΥ των στοιβαγμένων blocks */
+        text-align: center; /* <-- Κεντράρισμα του inline/inline-block περιεχομένου μέσα στο block (κείμενο, links, icons) */
+    }
+
+    .contact-grid .contact-right {
+        flex: auto; /* Επιτρέπει στο block να πάρει το πλάτος του περιέκτη */
+        width: 100%; /* <-- Να καταλαμβάνει όλο το πλάτος του γονέα (contact-grid) */
+        /* margin-bottom: 0; */ /* Δεν χρειάζεται κενό κάτω από το τελευταίο block */
+        text-align: center; /* <-- Κεντράρισμα του inline/inline-block περιεχομένου μέσα στο block (τίτλος φόρμας) */
+    }
+
+    /* Κεντράρισμα block στοιχείων (όπως η εικόνα λογότυπου) που δεν κεντράρονται μόνο με text-align */
+    .contact-grid .contact-logo {
+        margin: 0 auto 20px; /* <-- Κεντράρισμα της εικόνας λογοτύπου οριζόντια */
+    }
+
+     /* Κεντράρισμα του περιέκτη της φόρμας αν έχει max-width */
+     .contact-grid .contact-form-container {
+         max-width: 400px; /* Διατηρεί το μέγιστο πλάτος αν οριστεί */
+         margin: 0 auto; /* <-- Κεντράρισμα του form container οριζόντια */
+     }
+
+     /* Η φόρμα (.contact-form) κεντράρεται ήδη από το margin: 0 auto; στον δικό της κανόνα */
+
+
+      /* Προσαρμογή padding στις παραγράφους μέσα στο contact-left για να μην εφάπτονται στις άκρες όταν είναι κεντραρισμένες */
+      .contact-grid .contact-left p {
+         padding: 0 10px; /* <-- Προσθέστε οριζόντιο padding */
+      }
+
+       /* Προσαρμογή απόστασης στα social icons αν είναι πολύ κοντά */
+       .contact-grid .contact-left p:last-child a {
+          margin: 0 8px; /* <-- ΡΥΘΜΙΣΕ: Ελαφρώς μεγαλύτερη απόσταση μεταξύ icons */
+       }
+
+
+}
+
+/* Διαγραφή: Αφαίρεσε τα στυλ για την παλιά δομή banner h3 και p αν υπήρχαν και δεν χρησιμοποιούνται πια */
+/* .contact .contact-intro-banner h3 { ... } */
+/* .contact .contact-intro-banner p { ... } */
+
+/* Διαγραφή: Αφαίρεσε τα στυλ για την προηγούμενη scrollable στήλη */
+/* .contact .scrollable-text-column { ... } */
+/* .contact .scrollable-text-column::-webkit-scrollbar { ... } */
+/* ... και τα άλλα scrollbar styles ... */
+
+/* ... (κρατήστε όλα τα υπόλοιπα στυλ σας) ... */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222; /* Διατηρήθηκε το υπάρχον background */
+  color: rgba(255, 255, 255, 0.8); /* Ελαφρώς πιο διαφανές χρώμα κειμένου */
+  font-size: 0.9rem;
+}
+
+/* Animations (Requires script.js) */
+/* Βεβαιώσου ότι το script.js χειρίζεται την προσθήκη της κλάσης 'visible' όταν τα στοιχεία είναι στην οθόνη */
+.animated-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+
+.animated-card {
+  opacity: 0;
+  /* Εάν θέλεις οι κάρτες να έρχονται από τα αριστερά, άλλαξε το scale σε translateX(-50px) όπως συζητήσαμε πριν */
+  /* transform: scale(0.95); */ /* Αρχική κατάσταση - μπορείς να την αλλάξεις */
+  transform: translateX(-50px); /* Παράδειγμα: έρχεται από 50px αριστερά */
+  transition: all 1s ease;
+}
+
+.visible { /* Αυτή η κλάση προστίθεται/αφαιρείται από το JavaScript */
+  opacity: 1; /* Γίνεται πλήρως ορατό */
+  transform: none; /* Επαναφέρει το transform στην αρχική του θέση (π.χ. translateX(0), scale(1)) */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 { /* Αυτός ο κανόνας μπορεί πλέον να διαγραφεί αφού χρησιμοποιούμε SVG */
+    font-size: 2.5rem; /* Μειωμένο μέγεθος για μικρές οθόνες */
+    line-height: 1.2; /* Ελαφρώς μεγαλύτερο line-height σε κινητά αν χρειαστεί */
+  }
+
+  /* Προσαρμογή απόστασης μεταξύ των h1 σε κινητά αν χρειαστεί - ΑΥΤΟΙ ΟΙ ΚΑΝΟΝΕΣ ΑΦΟΡΟΥΝ ΤΟ SVG ΤΩΡΑ */
+  /* Για να προσαρμόσεις το μέγεθος ή την απόσταση σε κινητά, θα αλλάξεις το viewBox του SVG ή το font-size των text elements */
+  /* π.χ. #hero-title-svg { max-width: 90%; } */
+  /* π.χ. #hero-title-svg text { font-size: 60px; } */
+  .hero-content h1:first-of-type { display: none; } /* Αυτοί οι κανόνες δεν ισχύουν για SVG πλέον */
+  .hero-content h1:last-of-type { display: none; } /* Αυτοί οι κανόνες δεν ισχύουν για SVG πλέον */
+
+
+  .hero .subtitle {
+    font-size: 1.1rem; /* Μειωμένο μέγεθος για μικρές οθόνες */
+    padding: 0 10px;
+  }
+
+  .cta-buttons {
+      flex-direction: column; /* Buttons stacked on small screens */
+      align-items: center;
+  }
+
+  .card {
+      width: 80%; /* Καλύτερη προσαρμογή για μικρές οθόνες */
+      max-width: 300px; /* Όριο πλάτους */
+  }
+
+  .section {
+      padding: 40px 15px; /* Μειωμένο padding σε μικρές οθόνες */
+  }
+
+  .parallax-section {
+      min-height: 300px; /* Μικρότερο ελάχιστο ύψος σε μικρές οθονες */
+      background-attachment: scroll; /* Απενεργοποίηση parallax σε κινητά για καλύτερη απόδοση */
+  }
+
+   h1 { font-size: 2em; } /* Αυτός ο κανόνας h1 είναι γενικός, ίσως τον ξεπεράσει ο .hero h1 */
+   h2 { font-size: 1.6em; }
+   h3 { font-size: 1.3em; }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 2em; } /* Αυτός ο κανόνας h1 είναι γενικός, ίσως τον ξεπεράσει ο .hero h1 */
+    .hero .subtitle { font-size: 1em; }
+    .cta-button { font-size: 1rem; padding: 12px 25px; }
+    .card { padding: 20px; }
+}
+
+/* Back to Top Button */
+#back-to-top {
+    /* Κράτα τα υπάρχοντα στυλ για θέση, μέγεθος, σχήμα, background, transition κλπ. */
+    display: flex; /* Keep as flex container to center content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #5f2c82, #49a09d);
+    border: none;
+    border-radius: 50%;
+    width: 50px; /* Button size */
+    height: 50px; /* Button size */
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    padding: 0; /* Remove default padding */
+    overflow: hidden; /* Ensure nothing goes outside the button */
+}
+
+#back-to-top:hover {
+    transform: scale(1.1);
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* SVG container for circles (positioned absolutely below the text) */
+#back-to-top .progress-circle-svg {
+    position: absolute; /* Position absolutely inside the button */
+    top: 0;
+    left: 0;
+    width: 100%; /* Fill the button */
+    height: 100%; /* Fill the button */
+    display: block;
+    overflow: visible;
+    z-index: 1; /* Ensure SVG is below the text */
+}
+
+/* Background circle */
+#back-to-top .progress-circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.2); /* Light grey/white for background */
+    stroke-width: 3; /* Thickness of the progress line */
+}
+
+/* Progress circle */
+#back-to-top .progress-circle {
+    fill: none;
+    stroke: white; /* White color for the progress */
+    stroke-width: 3; /* Thickness of the progress line */
+    stroke-linecap: round; /* Round ends for the stroke */
+    transform-origin: 50% 50%; /* Set transform origin to center */
+    transform: rotate(-90deg); /* Start stroke from the top */
+    transition: stroke-dashoffset 0.1s linear; /* Smooth movement of the progress line */
+}
+
+/* Arrow Text (positioned relatively above the SVG) */
+#back-to-top .arrow-text {
+    position: relative; /* Position relative to layer it above the SVG */
+    z-index: 2; /* Ensure text is above SVG */
+    font-size: 1.5rem; /* Adjust size as needed for the arrow character */
+    line-height: 1; /* Set line height to 1 to prevent extra space */
+    color: white; /* White color for the arrow text */
+    /* Flexbox on the button will center this text */
+}
+
+
+/* Optional: Adjust for smaller screens */
+@media (max-width: 768px) {
+    #back-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 45px; /* Smaller button size */
+        height: 45px; /* Smaller button size */
+    }
+     #back-to-top .progress-circle-bg,
+     #back-to-top .progress-circle {
+         stroke-width: 2.5; /* Slightly thinner stroke on smaller screens */
+     }
+     #back-to-top .arrow-text {
+         font-size: 1.3rem; /* Adjust text size for smaller screens */
+     }
+}
+/* Background Image for Services Section */
+/* Στο style.css */
+
+/* Background Image for Services Section (Ο υπάρχων κανόνας σου) */
+#services {
+    /* Κρατήστε το υπάρχον padding κλπ από τον γενικό κανόνα .section */
+    padding: 80px 0; /* Παράδειγμα padding */
+    background-color: #000000;
+    background-image: url('...'); /* Κρατήστε ή αλλάξτε την εικόνα αν χρειάζεται */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Εφέ parallax - η εικόνα μένει σταθερή ενώ κάνεις scroll */
+    background-repeat: no-repeat;
+    position: relative; /* Απαραίτητο για να λειτουργήσει το absolute positioning του ::before */
+    color: white; /* Εξασφαλίζει ότι το κείμενο παραμένει λευκό πάνω στην εικόνα */
+}
+
+/* Στο style.css */
+
+/* Διαχωριστική Γραμμή σε ΟΛΟ το μήκος στην κορυφή της #services */
+#services::before {
+    content: ''; /* Απαραίτητο */
+    position: absolute; /* Για τοποθέτηση */
+    top: 0; /* Στην κορυφή */
+    left: 0; /* <-- ΑΛΛΑΓΗ: Ξεκινάει από την αριστερή άκρη */
+    /* ΔΙΑΓΡΑΦΗ: δεν χρειαζόμαστε πλέον το transform: translateX(-50%); για κεντράρισμα */
+    width: 100%; /* <-- ΑΛΛΑΓΗ: Γίνεται 100% του πλάτους του γονέα (#services) */
+    height: 4px; /* <-- Κράτησε ή άλλαξε το πάχος */
+    background-color: #ffffff; /* <-- Κράτησε ή άλλαξε το χρώμα */
+    z-index: 1; /* Πάνω από το background */
+    /* border-radius: 2px; */ /* Αν είχες border-radius, μπορεί να μην έχει νόημα σε full width εκτός αν είναι μόνο οι πάνω γωνίες */
+}
+
+/* ... (κρατήστε τον υπόλοιπο κώδικα για #services, #services::after αν υπάρχει, και τα παιδιά της ενότητας) ... */
+
+/* ... (κρατήστε όλα τα υπόλοιπα στυλ σας για τα παιδιά της #services, όπως .cards, h2, h3, p) ... */
+
+/* Βεβαιωθείτε ότι το περιεχόμενο (τίτλος, κάρτες) είναι πάνω από το overlay */
+#services h2,
+#services .cards {
+    position: relative; /* Θέστε τα στοιχεία σε θέση relative */
+    z-index: 2; /* Βεβαιωθείτε ότι είναι πάνω από το overlay (z-index 1) */
+}
+
+/* Προαιρετικά: Απενεργοποίηση parallax σε κινητά για καλύτερη απόδοση */
+@media (max-width: 768px) {
+    #services {
+        background-attachment: scroll; /* Σε κινητά, η εικόνα κάνει scroll μαζί με το περιεχόμενο */
+    }
+}
+/* Remove the previous .hero::after rule */
+/*
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), #111);
+    z-index: 2;
+    pointer-events: none;
+}
+*/
+/* Στο style.css - Προσθέστε ή τροποποιήστε ανάλογα */
+
+/* ... (κρατήστε όλα τα προηγούμενα στυλ σας) ... */
+
+/* Στυλ για την ενότητα highlights */
+/* Στο style.css */
+
+/* ... (κρατήστε όλα τα προηγούμενα στυλ σας) ... */
+
+.highlights {
+    padding: 80px 0;
+    background-image: url('2.jfif'); /* <-- Βεβαιώσου ότι η διαδρομή είναι σωστή */
+    background-repeat: no-repeat; /* Να μην επαναλαμβάνεται */
+    background-position: center center; /* Αρχική θέση κέντρο (μπορεί να αλλάξει με JS) */
+    /* background-attachment: scroll; */ /* Αυτό είναι το default, βεβαιωθείτε δεν είναι fixed */
+    color: #fff; /* Χρώμα κειμένου */
+    overflow: hidden; /* Κρύβει μέρη της εικόνας που βγαίνουν εκτός */
+}
+
+/* ... (κρατήστε όλα τα υπόλοιπα στυλ σας, συμπεριλαμβανομένων των στυλ για το κείμενο σκιάς) ... */
+
+.highlights .highlights-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Απόσταση μεταξύ των σημείων */
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.highlights .highlight-point {
+  padding: 15px;
+}
+
+/* Αρχικό στυλ "σκιάς" για το κείμενο */
+/* Αυτά τα στυλ εφαρμόζονται στην αρχή. Το JS θα τα αλλάξει όταν ξεκινάει η πληκτρολόγηση */
+.highlights .highlight-heading,
+.highlights .highlight-description {
+  opacity: 0.3; /* Χαμηλή ορατότητα */
+  color: rgba(255, 255, 255, 0.4); /* Αχνό χρώμα */
+  /* ΑΦΑΙΡΕΣΤΕ οποιοδήποτε 'transition' εδώ */
+  font-size: 1.25rem; /* Ελαφρώς μεγαλύτερο μέγεθος γραμματοσειράς */
+
+}
+
+/* Βεβαιωθείτε ότι ο τίτλος της ενότητας (h2) είναι ορατός */
+.highlights h2 {
+   opacity: 1 !important;
+   color: #fff;
+   margin-bottom: 40px;
+   
+}
+
+/* ... (κρατήστε όλα τα υπόλοιπα στυλ σας) ... */
