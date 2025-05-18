@@ -560,7 +560,36 @@ a {
 .contact .contact-intro-banner .ticker-content span {
   padding-right: 30px;
 }
+/* 🔁 Responsive Styles */
+@media (max-width: 768px) {
+  .contact .contact-intro-banner {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+  }
 
+  .contact .contact-intro-banner .ticker-content {
+    font-size: 1rem;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact .contact-intro-banner {
+    height: 35px;
+    line-height: 35px;
+    padding: 0 10px;
+  }
+
+  .contact .contact-intro-banner .ticker-content {
+    font-size: 0.9rem;
+    line-height: 35px;
+  }
+
+  .contact .contact-intro-banner .ticker-content span {
+    padding-right: 20px;
+  }
+}
 /* Contact Grid */
 .contact-grid {
   display: flex;
