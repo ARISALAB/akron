@@ -152,6 +152,24 @@
 .contact-left p a br {
     display: block; /* Ensure break behaves like a new line */
 }
+/* Μέσα στο mobile menu */
+.top-nav .nav-links .language-switcher {
+  margin-top: 20px;
+  justify-content: center;
+  display: flex;
+  gap: 15px;
+}
+
+.top-nav .nav-links .language-switcher .lang-option {
+  font-size: 1.2rem;
+  color: white;
+  opacity: 0.8;
+}
+
+.top-nav .nav-links .language-switcher .lang-option.active {
+  opacity: 1;
+  font-weight: bold;
+}
 
   </style>
 <body>
@@ -162,10 +180,7 @@
       <span class="logo-text">AR Akron Services</span>
     </a>
 
-    <div class="language-switcher">
-        <a href="#" class="lang-option" data-lang="el" title="Ελληνικά">GR</a>
-        <a href="#" class="lang-option" data-lang="en" title="English">EN</a>
-        </div>
+    
 
     <button class="hamburger-toggle" aria-label="Μενού">
       ☰
@@ -176,6 +191,11 @@
       <a href="#highlights" data-translate-key="nav-highlights">Akron</a>
       <a href="#PARALLAX" data-translate-key="nav-portfolio">Εργα</a>
       <a href="#contact" data-translate-key="nav-contact">Επικοινωνια</a>
+      
+  <div class="language-switcher">
+    <a href="#" class="lang-option" data-lang="el" title="Ελληνικά">GR</a>
+    <a href="#" class="lang-option" data-lang="en" title="English">EN</a>
+  </div>
     </nav>
 
   </div>
