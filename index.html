@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   </head>
- <style>
+  <style>
+/* --- EXISTING STYLES (Hamburger Toggle) --- */
 .top-nav .hamburger-toggle {
   display: none;
   background: none;
@@ -23,14 +24,22 @@
   z-index: 100; /* Βεβαιωθείτε ότι είναι πάνω από άλλα στοιχεία */
 }
 
-
-/* --- Media Query για Tablet και Mobile (εδώ ενεργοποιείται το Hamburger) --- */
+/* --- Media Query for Tablet and Mobile (εδώ ενεργοποιείται το Hamburger) --- */
 @media (max-width: 768px) { /* Μπορείτε να αλλάξετε το breakpoint (π.χ. 992px αν θέλετε και τα tablets) */
 
   .top-nav .container {
-      /* Προσαρμογή flexbox για να είναι το logo και το hamburger icon στην ίδια γραμμή */
+      /* Προσαρμογή flexbox για να είναι το logo, language switcher και το hamburger icon στην ίδια γραμμή */
       justify-content: space-between;
       align-items: center;
+      /* Allow space between logo, switcher, and toggle */
+      flex-wrap: wrap; /* Allow wrapping if needed, though not ideal for top nav */
+  }
+
+  /* Style for the language switcher in mobile */
+  .top-nav .language-switcher {
+      /* Adjust spacing or alignment if needed in the mobile header */
+      margin-left: auto; /* Push it towards the right */
+      margin-right: 10px; /* Space before the hamburger */
   }
 
   /* Κρύψτε τα Nav Links στο mobile */
@@ -61,10 +70,9 @@
     text-align: center; /* Κεντράρισμα κειμένου link */
   }
 
-   .top-nav .nav-links a:last-child {
-       border-bottom: none; /* Όχι γραμμή στο τελευταίο link */
-   }
-
+    .top-nav .nav-links a:last-child {
+      border-bottom: none; /* Όχι γραμμή στο τελευταίο link */
+    }
 
   /* Εμφανίστε το Hamburger icon στο mobile */
   .top-nav .hamburger-toggle {
@@ -81,28 +89,99 @@
   /* Αυτό απαιτεί αλλαγή του περιεχομένου ή χρήση γραμμών στο HTML και animation */
 }
 
- </style> 
+/* --- NEW STYLES FOR LANGUAGE SWITCHER --- */
+.language-switcher {
+    display: inline-flex; /* Align flags horizontally */
+    align-items: center;
+    gap: 10px; /* Space between flags */
+    margin-left: 20px; /* Space from logo/nav links */
+    z-index: 101; /* Ensure it's above nav links and content */
+}
+
+.language-switcher .lang-option {
+    cursor: pointer;
+    font-size: 1rem; /* Adjust size as needed */
+    text-decoration: none; /* Remove underline */
+    color: white; /* Default color */
+    opacity: 0.6; /* Slightly dim inactive languages */
+    transition: opacity 0.3s ease;
+    display: flex; /* Align flag and text if both are used */
+    align-items: center;
+}
+
+.language-switcher .lang-option:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+.language-switcher .lang-option.active {
+    opacity: 1; /* Full opacity for active language */
+    /* Optional: Add a border or different color */
+    /* border-bottom: 2px solid white; */
+}
+
+.language-switcher .lang-option img {
+    width: 24px; /* Flag image size */
+    height: auto;
+    vertical-align: middle; /* Align with text */
+    margin-right: 5px; /* Space between flag and text if text is used */
+    border: 1px solid #ccc; /* Optional: Add a subtle border to flags */
+    box-shadow: 0 0 3px rgba(0,0,0,0.3); /* Optional: Add a subtle shadow */
+}
+
+/* Ensure language switcher is positioned correctly in the flex container */
+.top-nav .container {
+    display: flex; /* Already exists */
+    justify-content: space-between; /* Already exists */
+    align-items: center; /* Already exists */
+    /* Add flex properties to control space Distribution */
+    /* Example: flex-wrap: wrap; if elements might overflow */
+}
+
+/* Adjust nav-links to account for the switcher if needed */
+/* .top-nav .nav-links { flex-grow: 1; } */
+
+/* Adjust hamburger toggle margin for spacing from switcher */
+@media (max-width: 768px) {
+    .top-nav .hamburger-toggle {
+        margin-left: 10px; /* Space from the language switcher */
+    }
+}
+
+/* --- Add styling for contact address line breaks if needed for translation --- */
+/* For address to handle potential different formatting in other languages */
+.contact-left p a br {
+    display: block; /* Ensure break behaves like a new line */
+}
+
+  </style>
 <body>
 <section class="top-nav">
   <div class="container">
     <a href="/" class="logo">
-      <img src="10.jpg" alt="AR Akron Services Logo">
+      <img src="10.jpg" alt="AR Akron Services Logo" data-translate-key="logo-alt">
       <span class="logo-text">AR Akron Services</span>
     </a>
+
+    <div class="language-switcher">
+        <a href="#" class="lang-option" data-lang="el" title="Ελληνικά">GR</a>
+        <a href="#" class="lang-option" data-lang="en" title="English">EN</a>
+        </div>
+
     <button class="hamburger-toggle" aria-label="Μενού">
       ☰
       </button>
 
     <nav class="nav-links">
-      <a href="#services">Υπηρεσιες</a>
-      <a href="#highlights">Akron</a>
-      <a href="#PARALLAX">Εργα</a>
-      <a href="#contact">Επικοινωνια</a>
+      <a href="#services" data-translate-key="nav-services">Υπηρεσιες</a>
+      <a href="#highlights" data-translate-key="nav-highlights">Akron</a>
+      <a href="#PARALLAX" data-translate-key="nav-portfolio">Εργα</a>
+      <a href="#contact" data-translate-key="nav-contact">Επικοινωνια</a>
     </nav>
+
   </div>
 </section>
- <header class="hero">
-  
+  <header class="hero">
+
   <div class="hero-overlay"></div>
 
   <video autoplay loop muted playsinline id="hero-video">
@@ -111,176 +190,177 @@
     Η συσκευή σας δεν υποστηρίζει βίντεο background.
   </video>
   <div class="hero-content">
- <svg id="hero-title-svg" class="animated-text" viewBox="0 0 800 250" preserveAspectRatio="xMidYMid meet">
+  <svg id="hero-title-svg" class="animated-text" viewBox="0 0 800 250" preserveAspectRatio="xMidYMid meet">
     <defs>
-        {/* Gradient για ενιαίο χρωματισμό στις δύο γραμμές (User Space) */}
-        {/* Οι στάσεις δημιουργούν έντονες ζώνες φωτός/σκιάς. */}
-        <linearGradient id="chromeGradient" x1="0%" y1="0%" x2="100%" y2="0%"> {/* gradientUnits="objectBoundingBox" έχει αφαιρεθεί */}
-            {/* Στάσεις για πιο έντονο, "ζωνωτό" chrome εφέ */}
-            <stop offset="0%" style="stop-color:#444"/>
-            <stop offset="15%" style="stop-color:#999"/>
-            <stop offset="30%" style="stop-color:#ddd"/>
-            <stop offset="50%" style="stop-color:#fff"/>
-            <stop offset="70%" style="stop-color:#ddd"/>
-            <stop offset="85%" style="stop-color:#999"/>
-            <stop offset="100%" style="stop-color:#444"/>
+      {/* Gradient for uniform coloring across both lines (User Space) */}
+      {/* Stops create sharp light/shadow bands. */}
+      <linearGradient id="chromeGradient" x1="0%" y1="0%" x2="100%" y2="0%"> {/* gradientUnits="objectBoundingBox" removed */}
+        {/* Stops for a sharper, "banded" chrome effect */}
+        <stop offset="0%" style="stop-color:#444"/>
+        <stop offset="15%" style="stop-color:#999"/>
+        <stop offset="30%" style="stop-color:#ddd"/>
+        <stop offset="50%" style="stop-color:#fff"/>
+        <stop offset="70%" style="stop-color:#ddd"/>
+        <stop offset="85%" style="stop-color:#999"/>
+        <stop offset="100%" style="stop-color:#444"/>
 
-            {/* --- ΕΝΗΜΕΡΩΜΕΝΗ Κίνηση Gradient: Μπροστά -> Πίσω (ως ΕΝΑΣ κύκλος) --- */}
-            {/* values="-100%; 100%; -100%": Ορίζει την κίνηση από -100% σε 100% και μετά ΠΙΣΩ στο -100% ως ΕΝΑΝ κύκλο. */}
-            {/* dur="20s": Διπλάσια διάρκεια για να καλύψει την ΠΛΗΡΗ διαδρομή (μπρος + πίσω). */}
-            {/* repeatCount="indefinite": Επαναλαμβάνει αυτόν τον ΠΛΗΡΗ κύκλο ατελείωτα. */}
-            {/* **direction="alternate"** ΕΧΕΙ ΑΦΑΙΡΕΘΕΙ, καθώς η κίνηση μπρος-πίσω ορίζεται από τις values. */}
-            <animate attributeName="x1" values="-100%; 100%; -100%" dur="15s" repeatCount="indefinite" />
-            {/* x2 values διατηρούν 100% απόσταση από x1 values: 0%; 200%; 0% */}
-            <animate attributeName="x2" values="0%; 200%; 0%" dur="15s" repeatCount="indefinite" />
-            {/* ---------------------------------------------------------------------------------- */}
+        {/* --- UPDATED Gradient Animation: Forward -> Back (as ONE cycle) --- */}
+        {/* values="-100%; 100%; -100%": Defines motion from -100% to 100% and then BACK to -100% as ONE cycle. */}
+        {/* dur="20s": Double the duration to cover the FULL path (forward + back). */}
+        {/* repeatCount="indefinite": Repeats this FULL cycle indefinitely. */}
+        {/* **direction="alternate"** IS REMOVED, as forward-back motion is defined by values. */}
+        <animate attributeName="x1" values="-100%; 100%; -100%" dur="15s" repeatCount="indefinite" />
+        {/* x2 values maintain 100% distance from x1 values: 0%; 200%; 0% */}
+        <animate attributeName="x2" values="0%; 200%; 0%" dur="15s" repeatCount="indefinite" />
+        {/* ---------------------------------------------------------------------------------- */}
 
-        </linearGradient>
+      </linearGradient>
 
-         <filter id="whiteGlow">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-            <feFlood flood-color="white" flood-opacity="1" result="glowColor" />
-            <feComposite in="glowColor" operator="in" in2="blur" result="coloredBlur" />
-            <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
+        <filter id="whiteGlow">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+          <feFlood flood-color="white" flood-opacity="1" result="glowColor" />
+          <feComposite in="glowColor" operator="in" in2="blur" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
         </filter>
     </defs>
 
-    {/* Κείμενο σε SVG (παραμένει ίδιο) */}
+    {/* Text in SVG (remains the same) - Added data-translate-key */}
     <text x="50%" y="100" text-anchor="middle" font-size="80" font-weight="bold"
-          fill="url(#chromeGradient)" filter="url(#whiteGlow)">
+          fill="url(#chromeGradient)" filter="url(#whiteGlow)" data-translate-key="hero-title-line1">
         Ο Ψηφιακός σου Κόσμος
     </text>
 
-     <text x="50%" y="180" text-anchor="middle" font-size="80" font-weight="bold"
-          fill="url(#chromeGradient)" filter="url(#whiteGlow)">
+      <text x="50%" y="180" text-anchor="middle" font-size="80" font-weight="bold"
+          fill="url(#chromeGradient)" filter="url(#whiteGlow)" data-translate-key="hero-title-line2">
         Όπως τον Ονειρεύεσαι
-    </text>
+      </text>
 
 </svg>
-    <p class="animated-text subtitle">
+    <p class="animated-text subtitle" data-translate-key="hero-subtitle">
       Στην <strong>AR Akron Services</strong> μετατρέπουμε κάθε σου ιδέα σε πραγματικότητα: websites, web εφαρμογές, blogs — όλα σχεδιασμένα αποκλειστικά για εσένα, χωρίς περιορισμούς. Εδώ, δεν υπάρχουν έτοιμες λύσεις. Υπάρχει μόνο η δική σου.
     </p>
     <div class="cta-buttons">
-      <a href="#services" class="cta-button">Οι Υπηρεσίες μας</a>
-      <a href="#contact" class="cta-button alt">Ζήτα Προσφορά</a>
+      <a href="#services" class="cta-button" data-translate-key="cta-services">Οι Υπηρεσίες μας</a>
+      <a href="#contact" class="cta-button alt" data-translate-key="cta-quote">Ζήτα Προσφορά</a>
     </div>
   </div>
 </header>
 
 
- <section id="services" class="section">
-   <h2 class="animated-text">Οι Υπηρεσίες μας</h2>
+  <section id="services" class="section">
+    <h2 class="animated-text" data-translate-key="services-heading">Οι Υπηρεσίες μας</h2>
     <div class="cards">
       <div class="card animated-card">
         <img src="https://img.icons8.com/ios-filled/100/ffffff/web.png" alt="Website Icon" style="width:60px; margin-bottom: 15px;">
-        <h3>Κατασκευή Ιστοσελίδων</h3>
-        <p>Δημιουργούμε εικαστικά άρτιες και τεχνικά άψογες ιστοσελίδες, φτιαγμένες από το μηδέν – χωρίς έτοιμα templates, μόνο αυθεντικός, βελτιστοποιημένος κώδικας</p>
+        <h3 data-translate-key="card1-title">Κατασκευή Ιστοσελίδων</h3>
+        <p data-translate-key="card1-description">Δημιουργούμε εικαστικά άρτιες και τεχνικά άψογες ιστοσελίδες, φτιαγμένες από το μηδέν – χωρίς έτοιμα templates, μόνο αυθεντικός, βελτιστοποιημένος κώδικας</p>
       </div>
       <div class="card animated-card">
         <img src="https://img.icons8.com/ios-filled/100/ffffff/cloud-development.png" alt="Web App Icon" style="width:60px; margin-bottom: 15px;">
-        <h3>Web Εφαρμογές</h3>
-        <p>Αναπτύσσουμε προσαρμοσμένες εφαρμογές για την επιχείρησή σου — από συστήματα κρατήσεων μέχρι διαχείριση δεδομένων. Αξιοπιστία, ασφάλεια και λειτουργικότητα</p>
+        <h3 data-translate-key="card2-title">Web Εφαρμογές</h3>
+        <p data-translate-key="card2-description">Αναπτύσσουμε προσαρμοσμένες εφαρμογές για την επιχείρησή σου — από συστήματα κρατήσεων μέχρι διαχείριση δεδομένων. Αξιοπιστία, ασφάλεια και λειτουργικότητα</p>
       </div>
       <div class="card animated-card">
         <img src="https://img.icons8.com/ios-filled/100/ffffff/blog.png" alt="Blog Icon" style="width:60px; margin-bottom: 15px;">
-        <h3>Blogs & Προσωπικά Sites</h3>
-        <p>Εκφράσου ελεύθερα μέσα από ένα blog ή προσωπική ιστοσελίδα με μοντέρνο σχεδιασμό, ταχύτητα και δυνατότητες επέκτασης. Το περιεχόμενό σου αξίζει την καλύτερη παρουσίαση</p>
+        <h3 data-translate-key="card3-title">Blogs & Προσωπικά Sites</h3>
+        <p data-translate-key="card3-description">Εκφράσου ελεύθερα μέσα από ένα blog ή προσωπική ιστοσελίδα με μοντέρνο σχεδιασμό, ταχύτητα και δυνατότητες επέκτασης. Το περιεχόμενό σου αξίζει την καλύτερη παρουσίαση</p>
       </div>
     </div>
   </section>
 
   <section id="highlights"class="section highlights">
-    <h2 class="animated-text">Γιατί να επιλέξεις την AR Akron Services</h2>
+    <h2 class="animated-text" data-translate-key="highlights-heading">Γιατί να επιλέξεις την AR Akron Services</h2>
     <div class="highlights-content">
       <div class="highlight-point">
-        <h2 class="highlight-heading">100% Custom</h2>
-        <p class="highlight-description">Δεν χρησιμοποιούμε πλατφόρμες drag & drop. Ό,τι βλέπεις είναι γραμμένο αποκλειστικά για σένα</p>
+        <h2 class="highlight-heading" data-translate-key="highlight1-heading">100% Custom</h2>
+        <p class="highlight-description" data-translate-key="highlight1-description">Δεν χρησιμοποιούμε πλατφόρμες drag & drop. Ό,τι βλέπεις είναι γραμμένο αποκλειστικά για σένα</p>
       </div>
       <div class="highlight-point">
-        <h2 class="highlight-heading">Mobile First</h2>
-        <p class="highlight-description">Όλα μας τα έργα σχεδιάζονται πρώτα για κινητές συσκευές, ώστε να φαίνονται τέλεια παντού</p>
+        <h2 class="highlight-heading" data-translate-key="highlight2-heading">Mobile First</h2>
+        <p class="highlight-description" data-translate-key="highlight2-description">Όλα μας τα έργα σχεδιάζονται πρώτα για κινητές συσκευές, ώστε να φαίνονται τέλεια παντού</p>
       </div>
       <div class="highlight-point">
-        <h2 class="highlight-heading">Συνεργασία σε Βάθος</h2>
-        <p class="highlight-description">Μαθαίνουμε τι πραγματικά θέλεις και δημιουργούμε μαζί ένα προϊόν που σε αντιπροσωπεύει</p>
+        <h2 class="highlight-heading" data-translate-key="highlight3-heading">Συνεργασία σε Βάθος</h2>
+        <p class="highlight-description" data-translate-key="highlight3-description">Μαθαίνουμε τι πραγματικά θέλεις και δημιουργούμε μαζί ένα προϊόν που σε αντιπροσωπεύει</p>
       </div>
     </div>
   </section>
 
- <section id="PARALLAX" class="section parallax-section">
-       <video autoplay loop muted playsinline class="background-video">
-           <source src="6.mp4" type="video/mp4">
-           Η συσκευή σας δεν υποστηρίζει βίντεο background.
-       </video>
+  <section id="PARALLAX" class="section parallax-section">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="6.mp4" type="video/mp4">
+            Η συσκευή σας δεν υποστηρίζει βίντεο background.
+        </video>
 
-       <div class="parallax-content">
-           <h2 class="animated-text">Κάθε Project, Μια Νέα Πρόκληση</h2>
-           <p class="animated-text">Πιστεύουμε στην καινοτομία και στον συνεχή διάλογο μαζί σου για να δημιουργήσουμε κάτι μοναδικό</p>
+        <div class="parallax-content">
+            <h2 class="animated-text" data-translate-key="portfolio-heading">Κάθε Project, Μια Νέα Πρόκληση</h2>
+            <p class="animated-text" data-translate-key="portfolio-subtitle">Πιστεύουμε στην καινοτομία και στον συνεχή διάλογο μαζί σου για να δημιουργήσουμε κάτι μοναδικό</p>
 
-           <div class="portfolio-previews">
-               <div class="preview-item">
-                   <img src="23.PNG" alt="Screenshot amkefinal.netlify.app">
-               </div>
+            <div class="portfolio-previews">
                 <div class="preview-item">
-                   <img src="21.PNG" alt="Screenshot arakronservices.gr">
-               </div>
-                <div class="preview-item">
-                   <img src="20.PNG" alt="Screenshot arakronqrcodegenerator.netlify.app">
-               </div>
-                <div class="preview-item">
-                   <img src="22.PNG" alt="Screenshot mycashierarakron.gr">
-               </div>
-           </div>
-           </div>
-   </section>
+                    <img src="23.PNG" alt="Screenshot amkefinal.netlify.app">
+                </div>
+                 <div class="preview-item">
+                    <img src="21.PNG" alt="Screenshot arakronservices.gr">
+                </div>
+                 <div class="preview-item">
+                    <img src="20.PNG" alt="Screenshot arakronqrcodegenerator.netlify.app">
+                </div>
+                 <div class="preview-item">
+                    <img src="22.PNG" alt="Screenshot mycashierarakron.gr">
+                </div>
+            </div>
+            </div>
+    </section>
 
 <section id="contact" class="section contact">
     <div class="contact-intro-banner">
         <div class="ticker-content">
-            <span>Custom λύσεις για το ψηφιακό σου όραμα &mdash; Websites | Apps | Blogs &mdash; Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία &mdash; Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς &mdash; Επικοινώνησε για το custom project σου! &mdash;</span>
-            <span>Custom λύσεις για το ψηφιακό σου όραμα &mdash;Websites | Apps | Blogs &mdash; Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία &mdash; Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς &mdash; Επικοινώνησε για το custom project σου! &mdash;</span>
-             <span>Custom λύσεις για το ψηφιακό σου όραμα &mdash; Websites | Apps | Blogs &mdash; Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία &mdash; Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς &mdash; Επικοινώνησε για το custom project σου! &mdash;</span>
-              <span>Custom λύσεις για το ψηφιακό σου όραμα &mdash; Websites | Apps | Blogs &mdash; Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία &mdash; Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς &mdash; Επικοινώνησε για το custom project σου! &mdash;</span>
-             <span>Custom λύσεις για το ψηφιακό σου όραμα &mdash; Websites | Apps | Blogs &mdash; Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία &mdash; Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς &mdash; Επικοινώνησε για το custom project σου! &mdash;</span>
-             <span>Custom λύσεις για το ψηφιακό σου όραμα &mdash; Websites | Apps | Blogs &mdash; Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία &mdash; Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς &mdash; Επικοινώνησε για το custom project σου! &mdash;</span>
-             <span>Custom λύσεις για το ψηφιακό σου όραμα &mdash; Websites | Apps | Blogs &mdash; Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία &mdash; Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς &mdash; Επικοινώνησε για το custom project σου! &mdash;</span>
+             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα —Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
 
         </div>
         </div>
- 
+
 <id="contact">
-  <h2 class="animated-text">Επικοινωνία</h2>
-
-  <!-- Μετακινήσαμε το logo εδώ -->
+  <h2 class="animated-text" data-translate-key="contact-heading">Επικοινωνία</h2>
 
   <div class="contact-grid">
     <div class="contact-left">
-        <img src="10.jpg" alt="AR Akron Services Logo" class="contact-logo">
+        <img src="10.jpg" alt="AR Akron Services Logo" class="contact-logo" data-translate-key="logo-alt">
 
       <p><i class="fas fa-phone"></i> <a href="tel:+306983661460">+30 698 366 1460</a></p>
       <p><i class="fas fa-envelope"></i> <a href="mailto:akronservices@mail.com">akronservices@mail.com</a></p>
       <p>
         <i class="fas fa-location-dot"></i>
-        <a href="https://www.google.com/maps/place/Γρίβα+Διγενή+2,+173+42+Άγιος+Δημήτριος" target="_blank">
-          Γρίβα Διγενή 2, 17342<br>
-          Αγ Δημητρίος, Αττική
+        <a href="https://www.google.com/maps/place/Γρίβα+Διγενή+2,+173+42+Άγιος+Δημήτριος" target="_blank" data-translate-key="contact-address">
+          Γρίβα Διγενή 2,<br>
+          17342 Αγ Δημήτριος,<br>
+          Αττική
         </a>
       </p>
       <p>
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-  <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="#" target="_blank"><i class="fab fa-google"></i></a>
-  <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a> 
+      <p>
+        <a href="https://www.facebook.com/arakronservices" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.instagram.com/arakronservices/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.google.com/search?sca_esv=84558b4239d0d7dc&sxsrf=AHTn8zof9JG0TaZcMxCIeoAXP7gNchPLVA:1743496777569&kgmid=/g/11v601wnh4&q=AR+Akron+Services&shndl=30&shem=lcuae,uaasie&source=sh/x/loc/uni/m1/1&kgs=5c7f2ce7c02199aa" target="_blank" aria-label="Google"><i class="fab fa-google"></i></a>
+  <a href="https://www.linkedin.com/in/ar-akron-services-22a765282/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </p>
       </p>
     </div>
 
     <div class="contact-right">
       <div class="contact-form-container">
-        <h3>Επικοινωνία</h3>
-    <form class="contact-form" id="contactForm">
+        <h3 data-translate-key="contact-form-heading">Επικοινωνία</h3>
+  <form class="contact-form" id="contactForm">
   <input type="text" name="name" placeholder="Όνομα" required data-translate-key="form-name-placeholder">
   <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
   <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
@@ -320,14 +400,13 @@
   });
 </script>
 
-
       </div>
     </div>
   </div>
 </section>
 
   <footer>
-    <p>© 2025 AR Akron Services</p>
+    <p data-translate-key="footer-text">© 2025 AR Akron Services</p>
   </footer>
 <button id="back-to-top" aria-label="Επιστροφή στην κορυφή">
     <svg class="progress-circle-svg" viewBox="0 0 60 60">
@@ -336,7 +415,7 @@
     </svg>
     <span class="arrow-text">⬆</span>
  </button>
-
-  <script src="script.js"></script>
+<script src="translation.js"></script>
+ <script src="script.js"></script>
 </body>
 </html>
