@@ -1,40 +1,36 @@
 const nodemailer = require("nodemailer");
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.mail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS
-  }
-});
-
 exports.handler = async function (event, context) {
   try {
-    const { name, email, message } = JSON.parse(event.body);
+    const data = JSON.parse(event.body);
 
-    const mailOptions = {
-      from: process.env.MAIL_USER,
-      to: process.env.MAIL_USER,
-      subject: `Νέο μήνυμα από ${name}`,
-      text: `Από: ${name}\nEmail: ${email}\nΜήνυμα:\n${message}`
-    };
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+      },
+    });
 
-    const info = await transporter.sendMail(mailOptions);
-
-    console.log("✅ Email sent:", info.response);
+    await transporter.sendMail({
+      from: `"AKRON Web" <${process.env.MAIL_USER}>`,
+      to: "ar.akron.services@gmail.com",
+      subject: `Μήνυμα από: ${data.name}`,
+      text: data.message,
+      html: `<p><strong>Όνομα:</strong> ${data.name}</p>
+             <p><strong>Email:</strong> ${data.email}</p>
+             <p><strong>Μήνυμα:</strong><br>${data.message}</p>`,
+    });
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true })
+      body: JSON.stringify({ success: true }),
     };
   } catch (error) {
-    console.error("❌ Error sending email:", error); // 🧨 πολύ σημαντικό για να δούμε τι φταίει
-
+    console.error("❌ Error sending email:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ success: false, error: error.message })
+      body: JSON.stringify({ success: false, error: error.message }),
     };
   }
 };
