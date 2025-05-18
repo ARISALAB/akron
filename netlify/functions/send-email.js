@@ -1,26 +1,38 @@
 const nodemailer = require("nodemailer");
 
-exports.handler = async function (event, context) {
+exports.handler = async (event) => {
   try {
     const data = JSON.parse(event.body);
 
-    let transporter = nodemailer.createTransport({
+    // Βασικός έλεγχος για πεδία
+    if (!data.name || !data.email || !data.message) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ success: false, error: "Missing fields" }),
+      };
+    }
+
+    // Δημιουργία μεταφορέα με Gmail
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
+        user: "ar.akron.services@gmail.com", // το Gmail σου
+        pass: process.env.GMAIL_APP_PASSWORD // App Password από Google
       },
     });
 
-    await transporter.sendMail({
-      from: `"AKRON Web" <${process.env.MAIL_USER}>`,
-      to: "ar.akron.services@gmail.com",
-      subject: `Μήνυμα από: ${data.name}`,
-      text: data.message,
-      html: `<p><strong>Όνομα:</strong> ${data.name}</p>
-             <p><strong>Email:</strong> ${data.email}</p>
-             <p><strong>Μήνυμα:</strong><br>${data.message}</p>`,
-    });
+    const mailOptions = {
+      from: `"Επικοινωνία Ιστότοπου" <ar.akron.services@gmail.com>`,
+      to: "ar.akron.services@gmail.com", // δέκτης (εσύ)
+      subject: `Νέο μήνυμα από ${data.name}`,
+      html: `
+        <h3>Όνομα:</h3><p>${data.name}</p>
+        <h3>Email:</h3><p>${data.email}</p>
+        <h3>Μήνυμα:</h3><p>${data.message}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
 
     return {
       statusCode: 200,
@@ -30,7 +42,7 @@ exports.handler = async function (event, context) {
     console.error("❌ Error sending email:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ success: false, error: error.message }),
+      body: JSON.stringify({ success: false, error: "Server error" }),
     };
   }
 };
