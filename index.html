@@ -13,164 +13,114 @@
   <meta name="msapplication-TileColor" content="#000000" />
   </head>
   <style>
-/* --- EXISTING STYLES (Hamburger Toggle) --- */
+  .top-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
 .top-nav .hamburger-toggle {
   display: none;
   background: none;
   border: none;
   color: white;
-  font-size: 2rem; /* Μέγεθος icon */
+  font-size: 2rem;
   cursor: pointer;
   padding: 5px;
   line-height: 1;
-  z-index: 100; /* Βεβαιωθείτε ότι είναι πάνω από άλλα στοιχεία */
+  z-index: 100;
 }
-
-/* --- Media Query for Tablet and Mobile (εδώ ενεργοποιείται το Hamburger) --- */
-@media (max-width: 768px) { /* Μπορείτε να αλλάξετε το breakpoint (π.χ. 992px αν θέλετε και τα tablets) */
-
-  .top-nav .container {
-      /* Προσαρμογή flexbox για να είναι το logo, language switcher και το hamburger icon στην ίδια γραμμή */
-      justify-content: space-between;
-      align-items: center;
-      /* Allow space between logo, switcher, and toggle */
-      flex-wrap: wrap; /* Allow wrapping if needed, though not ideal for top nav */
-  }
-
-  /* Style for the language switcher in mobile */
-  .top-nav .language-switcher {
-      /* Adjust spacing or alignment if needed in the mobile header */
-      margin-left: auto; /* Push it towards the right */
-      margin-right: 10px; /* Space before the hamburger */
-  }
-
-  /* Κρύψτε τα Nav Links στο mobile */
-  .top-nav .nav-links {
-    display: none; /* Κρύψτε το μενού από προεπιλογή */
-
-    /* Στυλ για το mobile menu (θέση, μέγεθος, χρώμα φόντου) */
-    position: absolute; /* Ή fixed αν θέλετε να μένει σταθερό στην οθόνη */
-    top: 60px; /* Απόσταση από την κορυφή (ύψος του top-nav) */
-    right: 0; /* Εμφάνιση από δεξιά */
-    width: 250px; /* Πλάτος mobile menu */
-    height: calc(60vh - 55px); /* Ύψος όσο το υπόλοιπο viewport */
-    background-color: #222; /* Χρώμα φόντου mobile menu */
-    flex-direction: column; /* Τα links το ένα κάτω από το άλλο */
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease-in-out; /* Animation κατά το άνοιγμα/κλείσιμο */
-    transform: translateX(100%); /* Μετακινήστε το εκτός οθόνης από προεπιλογή */
-    z-index: 99; /* Πάνω από το περιεχόμενο αλλά κάτω από το hamburger icon */
-    overflow-y: auto; /* Αν το menu είναι μεγάλο, να έχει κύλιση */
-  }
-
-  /* Στυλ για τα links μέσα στο mobile menu */
-  .top-nav .nav-links a {
-    padding: 15px 0; /* Κάθετο padding στα links */
-    border-bottom: 1px solid #444; /* Διαχωριστική γραμμή */
-    font-size: 1.2rem;
-    text-align: center; /* Κεντράρισμα κειμένου link */
-  }
-
-    .top-nav .nav-links a:last-child {
-      border-bottom: none; /* Όχι γραμμή στο τελευταίο link */
-    }
-
-  /* Εμφανίστε το Hamburger icon στο mobile */
-  .top-nav .hamburger-toggle {
-    display: block;
-  }
-
-  /* Κλάση που θα προσθέσει η JS όταν το menu είναι ανοιχτό */
-  .top-nav .nav-links.open {
-    transform: translateX(0); /* Εμφάνιση του menu */
-    display: flex; /* Εμφανίστε το μενού ως flex container */
-  }
-
-  /* Προαιρετικά: Στυλ για την "X" κατάσταση του hamburger icon όταν το menu είναι ανοιχτό */
-  /* Αυτό απαιτεί αλλαγή του περιεχομένου ή χρήση γραμμών στο HTML και animation */
-}
-
-/* --- NEW STYLES FOR LANGUAGE SWITCHER --- */
 .language-switcher {
-    display: inline-flex; /* Align flags horizontally */
-    align-items: center;
-    gap: 10px; /* Space between flags */
-    margin-left: 20px; /* Space from logo/nav links */
-    z-index: 101; /* Ensure it's above nav links and content */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 101;
 }
 
 .language-switcher .lang-option {
-    cursor: pointer;
-    font-size: 1rem; /* Adjust size as needed */
-    text-decoration: none; /* Remove underline */
-    color: white; /* Default color */
-    opacity: 0.6; /* Slightly dim inactive languages */
-    transition: opacity 0.3s ease;
-    display: flex; /* Align flag and text if both are used */
-    align-items: center;
-}
-
-.language-switcher .lang-option:hover {
-    opacity: 1; /* Full opacity on hover */
-}
-
-.language-switcher .lang-option.active {
-    opacity: 1; /* Full opacity for active language */
-    /* Optional: Add a border or different color */
-    /* border-bottom: 2px solid white; */
-}
-
-.language-switcher .lang-option img {
-    width: 24px; /* Flag image size */
-    height: auto;
-    vertical-align: middle; /* Align with text */
-    margin-right: 5px; /* Space between flag and text if text is used */
-    border: 1px solid #ccc; /* Optional: Add a subtle border to flags */
-    box-shadow: 0 0 3px rgba(0,0,0,0.3); /* Optional: Add a subtle shadow */
-}
-
-/* Ensure language switcher is positioned correctly in the flex container */
-.top-nav .container {
-    display: flex; /* Already exists */
-    justify-content: space-between; /* Already exists */
-    align-items: center; /* Already exists */
-    /* Add flex properties to control space Distribution */
-    /* Example: flex-wrap: wrap; if elements might overflow */
-}
-
-/* Adjust nav-links to account for the switcher if needed */
-/* .top-nav .nav-links { flex-grow: 1; } */
-
-/* Adjust hamburger toggle margin for spacing from switcher */
-@media (max-width: 768px) {
-    .top-nav .hamburger-toggle {
-        margin-left: 10px; /* Space from the language switcher */
-    }
-}
-
-/* --- Add styling for contact address line breaks if needed for translation --- */
-/* For address to handle potential different formatting in other languages */
-.contact-left p a br {
-    display: block; /* Ensure break behaves like a new line */
-}
-/* Μέσα στο mobile menu */
-.top-nav .nav-links .language-switcher {
-  margin-top: 20px;
-  justify-content: center;
-  display: flex;
-  gap: 15px;
-}
-
-.top-nav .nav-links .language-switcher .lang-option {
-  font-size: 1.2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
   color: white;
-  opacity: 0.8;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 
-.top-nav .nav-links .language-switcher .lang-option.active {
+.language-switcher .lang-option:hover,
+.language-switcher .lang-option.active {
   opacity: 1;
-  font-weight: bold;
+}
+.top-nav .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.top-nav .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+@media (max-width: 768px) {
+  .top-nav .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 250px;
+    height: calc(80vh - 55px);
+    background-color: #222;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 99;
+  }
+
+  .top-nav .nav-links.open {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .top-nav .nav-links a {
+    padding: 15px 0;
+    border-bottom: 1px solid #444;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .top-nav .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .top-nav .hamburger-toggle {
+    display: block;
+    margin-left: 10px;
+  }
+
+  /* Hide desktop language switcher, show inside menu */
+  .language-switcher.desktop-only {
+    display: none;
+  }
+
+  .top-nav .nav-links .language-switcher {
+    margin-top: 20px;
+    justify-content: center;
+    display: flex;
+    gap: 15px;
+  }
+
+  .top-nav .nav-links .language-switcher .lang-option {
+    font-size: 1.2rem;
+    color: white;
+    opacity: 0.8;
+  }
+
+  .top-nav .nav-links .language-switcher .lang-option.active {
+    opacity: 1;
+    font-weight: bold;
+  }
 }
 
   </style>
@@ -188,17 +138,23 @@
       ☰
       </button>
 
-    <nav class="nav-links">
-      <a href="#services" data-translate-key="nav-services">Υπηρεσιες</a>
+     <div class="nav-links">
+      <a href="#services" data-translate-key="nav-services">Υπηρεσίες</a>
       <a href="#highlights" data-translate-key="nav-highlights">Akron</a>
-      <a href="#PARALLAX" data-translate-key="nav-portfolio">Εργα</a>
-      <a href="#contact" data-translate-key="nav-contact">Επικοινωνια</a>
-      
-  <div class="language-switcher">
-    <a href="#" class="lang-option" data-lang="el" title="Ελληνικά">GR</a>
-    <a href="#" class="lang-option" data-lang="en" title="English">EN</a>
+      <a href="#PARALLAX" data-translate-key="nav-portfolio">Έργα</a>
+      <a href="#contact" data-translate-key="nav-contact">Επικοινωνία</a>
+
+      <!-- Language switcher μέσα στο mobile μενού -->
+      <div class="language-switcher">
+        <a href="#" class="lang-option active" data-lang="el" title="Ελληνικά">GR</a>
+        <a href="#" class="lang-option" data-lang="en" title="English">EN</a>
+      </div>
+    </div>
+
+    <!-- Language switcher στο desktop -->
+    
   </div>
-    </nav>
+</nav>
 
   </div>
 </section>
