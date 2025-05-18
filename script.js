@@ -457,3 +457,49 @@ document.addEventListener('DOMContentLoaded', () => {
     // ... (Κρατήστε όλο τον υπόλοιπο κώδικα σας μέσα στο DOMContentLoaded listener) ...
 
 }); // Τέλος του ΕΝΙΑΙΟΥ DOMContentLoaded listener
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerToggle = document.querySelector('.hamburger-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburgerToggle && navLinks) {
+        hamburgerToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            // Προαιρετικά: Αλλάξτε το σύμβολο του hamburger σε X και αντίστροφα
+            // hamburgerToggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+            // Επίσης, ίσως θέλετε να απενεργοποιήσετε την κύλιση της σελίδας όταν το menu είναι ανοιχτό
+            // document.body.classList.toggle('no-scroll');
+        });
+
+        // Προαιρετικό: Κλείστε το menu όταν ο χρήστης πατάει σε ένα link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    // Επαναφέρετε το σύμβολο του hamburger αν το αλλάζετε
+                    // hamburgerToggle.textContent = '☰';
+                    // Επαναφέρετε την κύλιση της σελίδας αν την απενεργοποιήσατε
+                    // document.body.classList.remove('no-scroll');
+                }
+            });
+        });
+
+         // Προαιρετικό: Κλείστε το menu αν ο χρήστης κάνει κλικ έξω από αυτό
+         document.addEventListener('click', (event) => {
+             // Ελέγξτε αν το κλικ έγινε εκτός του navLinks και εκτός του hamburgerToggle
+             if (!navLinks.contains(event.target) && !hamburgerToggle.contains(event.target) && navLinks.classList.contains('open')) {
+                 navLinks.classList.remove('open');
+                 // Επαναφέρετε το σύμβολο του hamburger
+                 // hamburgerToggle.textContent = '☰';
+                 // Επαναφέρετε την κύλιση
+                 // document.body.classList.remove('no-scroll');
+             }
+         });
+    }
+});
+
+// Αν χρησιμοποιείτε την επιλογή no-scroll, προσθέστε αυτό το CSS:
+/*
+.no-scroll {
+    overflow: hidden;
+}
+*/
