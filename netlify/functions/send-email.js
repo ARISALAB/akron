@@ -62,9 +62,7 @@ exports.handler = async (event) => {
 
       // Σώμα email για την αυτόματη απάντηση (HTML) - ΔΙΟΡΘΩΘΗΚΕ Η URL ΤΗΣ ΕΙΚΟΝΑΣ
       html: `
-       <div style="text-align: center; padding-bottom: 20px;">
-  <img src="https://i.ibb.co/fVQTHcqh/10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
-</div>
+      
 
         <p>Αγαπητέ/ή ${data.name},</p>
         <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην AR Akron Services. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
@@ -73,9 +71,12 @@ exports.handler = async (event) => {
         <p>Η ομάδα της AR Akron Services</p>
         <br>
         <hr>
+        
         <p><small>Αυτό είναι ένα αυτοματοποιημένο μήνυμα, παρακαλούμε μην απαντήσετε σε αυτό το email.</small></p>
       `,
-
+ <div style="text-align: center; padding-bottom: 20px;">
+  <img src="https://i.ibb.co/fVQTHcqh/10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+</div>
       // Εναλλακτικά, σώμα email σε απλό κείμενο (αντί του html)
       /*
       text: `
