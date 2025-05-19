@@ -123,6 +123,42 @@
   }
 }
 
+
+/* ΕΝΗΜΕΡΩΜΕΝΑ στυλ για την ενότητα PARALLAX για CSS Parallax */
+.parallax-section {
+    position: relative; /* Σημαντικό για στοίχιση του περιεχομένου αν χρειαστεί */
+    overflow: hidden;
+    /* Ορίζουμε την εικόνα ως background */
+    background-image: url('4.jfif'); /* Η διαδρομή προς την εικόνα */
+    /* Ρυθμίσεις για το background image */
+    background-size: cover; /* Καλύπτει όλη την περιοχή διατηρώντας τις αναλογίες */
+    background-position: center; /* Κεντράρει την εικόνα */
+    background-repeat: no-repeat; /* Αποφεύγουμε την επανάληψη */
+    /* ΤΟ ΣΗΜΑΝΤΙΚΟ: Ορίζει ότι η εικόνα background παραμένει σταθερή στο viewport κατά το scroll */
+    background-attachment: fixed;
+
+    /* Προαιρετικά: προσθέστε ελάχιστο ύψος ή padding για να είναι ορατό το background */
+    min-height: 500px; /* Παράδειγμα - προσαρμόστε ανάλογα με το περιεχόμενο και το design */
+    padding: 100px 0; /* Παράδειγμα padding για να υπάρχει χώρος για το περιεχόμενο */
+
+
+    /* Προαιρετικά: προσθέστε ένα overlay απευθείας στο background αν δεν χρησιμοποιείτε ξεχωριστό div */
+    /* Μπορείτε να το κάνετε με :before ψευδο-στοιχείο ή με ένα gradient */
+    /* Παράδειγμα με linear gradient overlay (πιο σκούρο): */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('4.jpg'); */
+}
+
+/* Το περιεχόμενο πρέπει να παραμείνει πάνω από το background */
+.parallax-content {
+    position: relative; /* Βεβαιωθείτε ότι βρίσκεται πάνω από το background */
+    z-index: 1; /* Βεβαιωθείτε ότι είναι πάνω από το background */
+    /* Χρώμα κειμένου για να φαίνεται πάνω στο σκούρο background */
+    color: white;
+    text-align: center;
+    /* ... άλλα στυλ για το parallax-content ... */
+}
+
+
   </style>
 <body>
 <section class="top-nav">
@@ -268,10 +304,7 @@
   </section>
 
   <section id="PARALLAX" class="section parallax-section">
-        <video autoplay loop muted playsinline class="background-video">
-            <source src="6.mp4" type="video/mp4">
-            Η συσκευή σας δεν υποστηρίζει βίντεο background.
-        </video>
+      
 
         <div class="parallax-content">
             <h2 class="animated-text" data-translate-key="portfolio-heading">Κάθε Project, Μια Νέα Πρόκληση</h2>
