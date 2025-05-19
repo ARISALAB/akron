@@ -60,8 +60,11 @@ exports.handler = async (event) => {
       to: data.email, // Αποστολή πίσω στον χρήστη που συμπλήρωσε τη φόρμα
       subject: "Επιβεβαίωση λήψης μηνύματος από AR Akron Services", // Θέμα για την αυτόματη απάντηση
 
-      // Σώμα email για την αυτόματη απάντηση (HTML)
+      // Σώμα email για την αυτόματη απάντηση (HTML) - ΠΡΟΣΤΕΘΗΚΕ ΛΟΓΟΤΥΠΟ ΕΔΩ
       html: `
+        <div style="text-align: center; padding-bottom: 20px;">
+             <img src="10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+        </div>
         <p>Αγαπητέ/ή ${data.name},</p>
         <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην AR Akron Services. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
         <p>Θα επικοινωνήσουμε μαζί σου άμεσα.</p>
@@ -72,7 +75,7 @@ exports.handler = async (event) => {
         <p><small>Αυτό είναι ένα αυτοματοποιημένο μήνυμα, παρακαλούμε μην απαντήσετε σε αυτό το email.</small></p>
       `,
 
-      // Εναλλακτικά, σώμα email σε απλό κείμενο
+      // Εναλλακτικά, σώμα email σε απλό κείμενο (αντί του html)
       /*
       text: `
         Αγαπητέ/ή ${data.name},
@@ -91,8 +94,6 @@ exports.handler = async (event) => {
     };
 
     // Αποστολή της αυτόματης απάντησης
-    // Χρησιμοποιούμε try...catch εδώ, ώστε αν αποτύχει η αυτόματη απάντηση,
-    // το αρχικό μήνυμα προς εσένα να έχει ήδη σταλεί και να επιστρέψουμε επιτυχία στον χρήστη.
     try {
         await transporter.sendMail(autoReplyMailOptions);
         console.log("✅ Auto-reply sent successfully to:", data.email);
