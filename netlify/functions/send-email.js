@@ -54,29 +54,25 @@ exports.handler = async (event) => {
     await transporter.sendMail(mailOptionsToOwner);
     console.log("✅ Email sent to owner successfully.");
 
-    // 2. Mail options για την ΑΥΤΟΜΑΤΗ ΑΠΑΝΤΗΣΗ στον χρήστη
-    const autoReplyMailOptions = {
-      from: `"AR Akron Services" <${process.env.GMAIL_USER}>`, // Το Gmail σου ως αποστολέας
-      to: data.email, // Αποστολή πίσω στον χρήστη που συμπλήρωσε τη φόρμα
-      subject: "Επιβεβαίωση λήψης μηνύματος από AR Akron Services", // Θέμα για την αυτόματη απάντηση
+const autoReplyMailOptions = {
+  from: `"AR Akron Services" <${process.env.GMAIL_USER}>`,
+  to: data.email,
+  subject: "Επιβεβαίωση λήψης μηνύματος από AR Akron Services",
+  html: `
+    <p>Αγαπητέ/ή ${data.name},</p>
+    <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην AR Akron Services. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
+    <p>Θα επικοινωνήσουμε μαζί σου άμεσα.</p>
+    <p>Με εκτίμηση,</p>
+    <p>Η ομάδα της AR Akron Services</p>
+    <br>
+    <hr>
+    <div style="text-align: center; padding-bottom: 20px;">
+      <img src="https://i.ibb.co/fVQTHcqh/10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+    </div>
+    <p><small>Αυτό είναι ένα αυτοματοποιημένο μήνυμα, παρακαλούμε μην απαντήσετε σε αυτό το email.</small></p>
+  `,
+};
 
-      // Σώμα email για την αυτόματη απάντηση (HTML) - ΔΙΟΡΘΩΘΗΚΕ Η URL ΤΗΣ ΕΙΚΟΝΑΣ
-      html: `
-      
-
-        <p>Αγαπητέ/ή ${data.name},</p>
-        <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην AR Akron Services. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
-        <p>Θα επικοινωνήσουμε μαζί σου άμεσα.</p>
-        <p>Με εκτίμηση,</p>
-        <p>Η ομάδα της AR Akron Services</p>
-        <br>
-        <hr>
-        
-        <p><small>Αυτό είναι ένα αυτοματοποιημένο μήνυμα, παρακαλούμε μην απαντήσετε σε αυτό το email.</small></p>
-      `,
- <div style="text-align: center; padding-bottom: 20px;">
-  <img src="https://i.ibb.co/fVQTHcqh/10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
-</div>
       // Εναλλακτικά, σώμα email σε απλό κείμενο (αντί του html)
       /*
       text: `
