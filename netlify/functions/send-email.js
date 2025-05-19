@@ -54,26 +54,25 @@ exports.handler = async (event) => {
     await transporter.sendMail(mailOptionsToOwner);
     console.log("✅ Email sent to owner successfully.");
 
-const autoReplyMailOptions = {
-  from: `"AR Akron Services" <${process.env.GMAIL_USER}>`,
-  to: data.email,
-  subject: "Επιβεβαίωση λήψης μηνύματος από AR Akron Services",
-  html: `
-    <p>Αγαπητέ/ή ${data.name},</p>
-    <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην AR Akron Services. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
-    <p>Θα επικοινωνήσουμε μαζί σου άμεσα.</p>
-    <p>Με εκτίμηση,</p>
-    <p>Η ομάδα της AR Akron Services</p>
-    <br>
-    <hr>
-    <div style="text-align: center; padding-bottom: 20px;">
-      <img src="https://i.ibb.co/fVQTHcqh/10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
-    </div>
-    <p><small>Αυτό είναι ένα αυτοματοποιημένο μήνυμα, παρακαλούμε μην απαντήσετε σε αυτό το email.</small></p>
-  `,
-};
+    // 2. Mail options για την ΑΥΤΟΜΑΤΗ ΑΠΑΝΤΗΣΗ στον χρήστη
+    const autoReplyMailOptions = {
+      from: `"AR Akron Services" <${process.env.GMAIL_USER}>`, // Το Gmail σου ως αποστολέας
+      to: data.email, // Αποστολή πίσω στον χρήστη που συμπλήρωσε τη φόρμα
+      subject: "Επιβεβαίωση λήψης μηνύματος από AR Akron Services", // Θέμα για την αυτόματη απάντηση
 
-      // Εναλλακτικά, σώμα email σε απλό κείμενο (αντί του html)
+      // Σώμα email για την αυτόματη απάντηση (HTML)
+      html: `
+        <p>Αγαπητέ/ή ${data.name},</p>
+        <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην AR Akron Services. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
+        <p>Θα επικοινωνήσουμε μαζί σου άμεσα.</p>
+        <p>Με εκτίμηση,</p>
+        <p>Η ομάδα της AR Akron Services</p>
+        <br>
+        <hr>
+        <p><small>Αυτό είναι ένα αυτοματοποιημένο μήνυμα, παρακαλούμε μην απαντήσετε σε αυτό το email.</small></p>
+      `,
+
+      // Εναλλακτικά, σώμα email σε απλό κείμενο
       /*
       text: `
         Αγαπητέ/ή ${data.name},
@@ -92,6 +91,8 @@ const autoReplyMailOptions = {
     };
 
     // Αποστολή της αυτόματης απάντησης
+    // Χρησιμοποιούμε try...catch εδώ, ώστε αν αποτύχει η αυτόματη απάντηση,
+    // το αρχικό μήνυμα προς εσένα να έχει ήδη σταλεί και να επιστρέψουμε επιτυχία στον χρήστη.
     try {
         await transporter.sendMail(autoReplyMailOptions);
         console.log("✅ Auto-reply sent successfully to:", data.email);
