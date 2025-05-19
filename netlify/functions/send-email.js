@@ -53,8 +53,9 @@ exports.handler = async (event) => {
       to: data.email,
       subject: "Επιβεβαίωση λήψης μηνύματος από AR Akron Services",
       html: `
-        <p>Αγαπητέ/ή ${data.name},</p>
-        <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην <strong>AR Akron Services</strong>. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
+        <p>Αγαπητέ/ή <strong>${data.name}</strong>,</p>
+        <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην <strong>AR Akron Services</strong>.</p>
+        <p>Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
         <p>Θα επικοινωνήσουμε μαζί σου άμεσα.</p>
         <p>Με εκτίμηση,</p>
         <p>Η ομάδα της AR Akron Services</p>
