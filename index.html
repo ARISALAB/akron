@@ -393,11 +393,7 @@
     <div class="swiper portfolio-swiper">
   <div class="swiper-wrapper">
 
-    <div class="swiper-slide">
-      <div class="image-scroll-container">
-        <img src="23.PNG" alt="amkefinal.netlify.app" />
-      </div>
-    </div>
+ 
 
     <div class="swiper-slide">
       <div class="image-scroll-container">
@@ -416,7 +412,12 @@
         <img src="22.PNG" alt="mycashierarakron.gr" />
       </div>
     </div>
-
+   <div class="swiper-slide">
+      <div class="image-scroll-container">
+        
+        <img src="23.PNG" alt="amkefinal.netlify.app" />
+      </div>
+    </div>
   </div>
 </div>
 
@@ -526,13 +527,18 @@
 
 <script src="translation.js"></script>
  <script src="script.js"></script>
- <script>
+<script>
   const swiper = new Swiper(".portfolio-swiper", {
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
     loop: true,
     slidesPerView: "auto",
+    autoplay: {
+      delay: 3000, // Κάθε 3 δευτερόλεπτα
+      disableOnInteraction: false, // συνεχίζει να παίζει ακόμα κι αν ο χρήστης αλληλεπιδράσει
+    },
+    
     coverflowEffect: {
       rotate: 30,
       stretch: 0,
@@ -541,7 +547,12 @@
       slideShadows: true,
     },
   });
+  const swiperEl = document.querySelector('.portfolio-swiper');
+swiperEl.addEventListener('mouseenter', () => swiper.autoplay.stop());
+swiperEl.addEventListener('mouseleave', () => swiper.autoplay.start());
+
 </script>
+
 
 </body>
 </html>
