@@ -1,18 +1,16 @@
 const nodemailer = require("nodemailer");
 
 exports.handler = async (event) => {
-  // Επιτρέπει CORS αιτήματα από οποιαδήποτε προέλευση (μπορείς να το περιορίσεις αργότερα)
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS'
   };
 
-  // Χειρισμός CORS OPTIONS request (απαραίτητο για ορισμένους browsers/περιβάλλοντα)
   if (event.httpMethod === 'OPTIONS') {
     return {
-      statusCode: 204, // No Content
-      headers: headers,
+      statusCode: 204,
+      headers,
       body: ''
     };
   }
@@ -20,28 +18,25 @@ exports.handler = async (event) => {
   try {
     const data = JSON.parse(event.body);
 
-    // Βασικός έλεγχος για πεδία
     if (!data.name || !data.email || !data.message) {
       return {
         statusCode: 400,
-        headers: headers,
+        headers,
         body: JSON.stringify({ success: false, error: "Missing fields" }),
       };
     }
 
-    // Δημιουργία μεταφορέα με Gmail
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER, // Χρησιμοποίησε μεταβλητή περιβάλλοντος για το email
-        pass: process.env.GMAIL_APP_PASSWORD // App Password από Google (ως μεταβλητή περιβάλλοντος)
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD
       },
     });
 
-    // 1. Mail options για το email που στέλνεται ΣΕ ΕΣΕΝΑ
     const mailOptionsToOwner = {
-      from: `"Επικοινωνία Ιστότοπου" <${process.env.GMAIL_USER}>`, // το Gmail σου ως αποστολέας
-      to: process.env.OWNER_EMAIL || process.env.GMAIL_USER, // Δέκτης (εσύ), μπορείς να χρησιμοποιήσεις άλλο email αν θες
+      from: `"Επικοινωνία Ιστότοπου" <${process.env.GMAIL_USER}>`,
+      to: process.env.OWNER_EMAIL || process.env.GMAIL_USER,
       subject: `Νέο μήνυμα από ${data.name}`,
       html: `
         <h3>Όνομα:</h3><p>${data.name}</p>
@@ -50,69 +45,46 @@ exports.handler = async (event) => {
       `,
     };
 
-    // Αποστολή του email ΣΕ ΕΣΕΝΑ
     await transporter.sendMail(mailOptionsToOwner);
     console.log("✅ Email sent to owner successfully.");
 
-    // 2. Mail options για την ΑΥΤΟΜΑΤΗ ΑΠΑΝΤΗΣΗ στον χρήστη
     const autoReplyMailOptions = {
-      from: `"AR Akron Services" <${process.env.GMAIL_USER}>`, // Το Gmail σου ως αποστολέας
-      to: data.email, // Αποστολή πίσω στον χρήστη που συμπλήρωσε τη φόρμα
-      subject: "Επιβεβαίωση λήψης μηνύματος από AR Akron Services", // Θέμα για την αυτόματη απάντηση
-
-      // Σώμα email για την αυτόματη απάντηση (HTML)
+      from: `"AR Akron Services" <${process.env.GMAIL_USER}>`,
+      to: data.email,
+      subject: "Επιβεβαίωση λήψης μηνύματος από AR Akron Services",
       html: `
         <p>Αγαπητέ/ή ${data.name},</p>
-        <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην AR Akron Services. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
+        <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην <strong>AR Akron Services</strong>. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
         <p>Θα επικοινωνήσουμε μαζί σου άμεσα.</p>
         <p>Με εκτίμηση,</p>
         <p>Η ομάδα της AR Akron Services</p>
         <br>
         <hr>
+        <div style="text-align: center; padding-bottom: 20px;">
+          <img src="https://i.ibb.co/fVQTHcqh/10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+        </div>
         <p><small>Αυτό είναι ένα αυτοματοποιημένο μήνυμα, παρακαλούμε μην απαντήσετε σε αυτό το email.</small></p>
-      `,
-
-      // Εναλλακτικά, σώμα email σε απλό κείμενο
-      /*
-      text: `
-        Αγαπητέ/ή ${data.name},
-
-        Σε ευχαριστούμε θερμά για το μήνυμά σου στην AR Akron Services. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.
-
-        Θα επικοινωνήσουμε μαζί σου άμεσα.
-
-        Με εκτίμηση,
-        Η ομάδα της AR Akron Services
-
-        ---
-        Αυτό είναι ένα αυτοματοποιημένο μήνυμα, παρακαλούμε μην απαντήσετε σε αυτό το email.
-      `,
-      */
+      `
     };
 
-    // Αποστολή της αυτόματης απάντησης
-    // Χρησιμοποιούμε try...catch εδώ, ώστε αν αποτύχει η αυτόματη απάντηση,
-    // το αρχικό μήνυμα προς εσένα να έχει ήδη σταλεί και να επιστρέψουμε επιτυχία στον χρήστη.
     try {
-        await transporter.sendMail(autoReplyMailOptions);
-        console.log("✅ Auto-reply sent successfully to:", data.email);
+      await transporter.sendMail(autoReplyMailOptions);
+      console.log("✅ Auto-reply sent successfully to:", data.email);
     } catch (autoReplyError) {
-        console.error("❌ Error sending auto-reply:", autoReplyError);
-        // Συνέχισε, μην σταματήσεις την εκτέλεση της function
+      console.error("❌ Error sending auto-reply:", autoReplyError);
     }
 
-    // Επιστροφή επιτυχίας στον χρήστη (αφού το email προς εσένα στάλθηκε)
     return {
       statusCode: 200,
-      headers: headers,
+      headers,
       body: JSON.stringify({ success: true }),
     };
 
   } catch (error) {
-    console.error("❌ Error processing request or sending main email:", error);
+    console.error("❌ Error processing request or sending email:", error);
     return {
-      statusCode: error.statusCode || 500, // Διατήρηση status code αν υπάρχει (π.χ. 400)
-      headers: headers,
+      statusCode: error.statusCode || 500,
+      headers,
       body: JSON.stringify({ success: false, error: error.message || "Server error" }),
     };
   }
