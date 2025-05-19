@@ -42,7 +42,7 @@ const translations = {
     en: {
         "logo-alt": "AR Akron Services Logo",
         "hero-title-line1": "Your Digital World",
-        "hero-title-line2": "As You Dreamτ It",
+        "hero-title-line2": "As You Dreamt It",
         "hero-subtitle": "At AR Akron Services, we turn your every idea into reality: websites, web applications, blogs — all designed exclusively for you, without limitations. Here, there are no ready-made solutions. There is only yours.",
         "cta-services": "Our Services",
         "cta-quote": "Get a Quote",
