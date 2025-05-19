@@ -60,8 +60,8 @@ exports.handler = async (event) => {
         <p>Η ομάδα της AR Akron Services</p>
         <br>
         <hr>
-        <div style="text-align: center; padding-bottom: 20px;">
-          <img src="https://i.ibb.co/fVQTHcqh/10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+        <div style="text-align: left; padding: 10px 0;">
+          <img src="https://i.ibb.co/fVQTHcqh/10.jpg" alt="AR Akron Services Logo" style="width: 80px; height: auto;">
         </div>
         <p><small>Αυτό είναι ένα αυτοματοποιημένο μήνυμα, παρακαλούμε μην απαντήσετε σε αυτό το email.</small></p>
       `
