@@ -60,10 +60,10 @@ exports.handler = async (event) => {
       to: data.email, // Αποστολή πίσω στον χρήστη που συμπλήρωσε τη φόρμα
       subject: "Επιβεβαίωση λήψης μηνύματος από AR Akron Services", // Θέμα για την αυτόματη απάντηση
 
-      // Σώμα email για την αυτόματη απάντηση (HTML) - ΠΡΟΣΤΕΘΗΚΕ ΛΟΓΟΤΥΠΟ ΕΔΩ
+      // Σώμα email για την αυτόματη απάντηση (HTML) - ΔΙΟΡΘΩΘΗΚΕ Η URL ΤΗΣ ΕΙΚΟΝΑΣ
       html: `
         <div style="text-align: center; padding-bottom: 20px;">
-             <img src="https://github.com/ARISALAB/akron/blob/main/10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+             <img src="https://raw.githubusercontent.com/ARISALAB/akron/main/10.jpg" alt="AR Akron Services Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
         </div>
         <p>Αγαπητέ/ή ${data.name},</p>
         <p>Σε ευχαριστούμε θερμά για το μήνυμά σου στην AR Akron Services. Λάβαμε την επικοινωνία σου και θα την εξετάσουμε το συντομότερο δυνατό.</p>
