@@ -239,6 +239,18 @@
 
 
   </style>
+  <style>
+  label a {
+    pointer-events: auto;
+    color: blue;
+    text-decoration: underline;
+  }
+
+  label {
+    cursor: pointer;
+  }
+</style>
+
 <body>
 <section class="top-nav">
   <div class="container">
@@ -471,6 +483,16 @@
   <input type="text" name="name" placeholder="Όνομα" required data-translate-key="form-name-placeholder">
   <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
   <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
+
+ <label for="termsCheckbox">
+  <input type="checkbox" id="termsCheckbox" required>
+  <span>
+    Αποδέχομαι τους 
+    <a href="1.pdf" target="_blank">Όρους Χρήσης</a> και την 
+    <a href="2.pdf" target="_blank">Πολιτική Απορρήτου</a>.
+  </span>
+</label>
+
   <button type="submit" data-translate-key="form-submit-button">Αποστολή</button>
   <p id="form-status"></p>
 </form>
@@ -479,6 +501,14 @@
   document.getElementById("contactForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;
+
+    // Έλεγχος αν έχει επιλεγεί το checkbox
+    const termsAccepted = document.getElementById("termsCheckbox").checked;
+    if (!termsAccepted) {
+      document.getElementById("form-status").textContent = "Πρέπει να αποδεχτείτε τους όρους και την πολιτική απορρήτου.";
+      return;
+    }
+
     const formData = {
       name: form.name.value,
       email: form.email.value,
@@ -506,6 +536,7 @@
     form.reset();
   });
 </script>
+
 
       </div>
     </div>
