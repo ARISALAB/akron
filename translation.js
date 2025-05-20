@@ -9,7 +9,7 @@ const translations = {
         "cta-services": "Οι Υπηρεσίες μας",
         "cta-quote": "Ζήτα Προσφορά",
         "nav-services": "Υπηρεσιες",
-        "nav-highlights": "Akron", // Ή "Γιατί Εμάς" ή παρόμοιο;
+        "nav-highlights": "Akron",
         "nav-portfolio": "Εργα",
         "nav-contact": "Επικοινωνια",
         "services-heading": "Οι Υπηρεσίες μας",
@@ -36,14 +36,16 @@ const translations = {
         "form-message-placeholder": "Το μήνυμά σας",
         "form-submit-button": "Αποστολή",
         "footer-text": "© 2025 AR Akron Services",
-        // ΝΕΑ ΜΕΤΑΦΡΑΣΗ ΓΙΑ ΤΗ ΔΙΕΥΘΥΝΣΗ
-         "terms-accept": "Αποδέχομαι τους",
-    "terms-of-use": "Όρους Χρήσης",
-    "and": "και την",
-                "form-agree-terms": "Διάβασα και αποδέχομαι τους <a id='termsLink' href='1-el.pdf' target='_blank' rel='noopener noreferrer'>Όρους Χρήσης</a> και την <a id='privacyLink' href='2-el.pdf' target='_blank' rel='noopener noreferrer'>Πολιτική Προστασίας Δεδομένων</a>.",
-
-    "privacy-policy": "Πολιτική Απορρήτου",
-        "contact-address": "Γρίβα Διγενή 2,<br>17342 Αγ Δημήτριος,<br>Αττική"
+        "terms-accept": "Αποδέχομαι τους",
+        "terms-of-use": "Όρους Χρήσης",
+        "and": "και την",
+        "privacy-policy": "Πολιτική Απορρήτου",
+        "form-consent-text": "Διάβασα και αποδέχομαι την [[privacy_link]] και τους [[terms_link]].",
+        'cookie-banner-text': 'Χρησιμοποιούμε cookies για να διασφαλίσουμε την καλύτερη δυνατή εμπειρία στον ιστότοπό μας. Συνεχίζοντας τη χρήση του site, αποδέχεστε τη χρήση cookies. Για περισσότερες πληροφορίες, διαβάστε την [[cookie_link]] μας.',
+        'cookie-banner-link': 'Πολιτική Cookies',
+        'cookie-banner-accept': 'Αποδοχή Όλων',
+        'cookie-banner-decline': 'Απόρριψη (εκτός απαραίτητων)',
+        "contact-address": "Γρίβα Διγενή 2, 17342 <br>Αγ Δημήτριος, Αττική"
     },
     en: {
         "logo-alt": "AR Akron Services Logo",
@@ -52,10 +54,8 @@ const translations = {
         "hero-subtitle": "At AR Akron Services, we turn your every idea into reality: websites, web applications, blogs — all designed exclusively for you, without limitations. Here, there are no ready-made solutions. There is only yours.",
         "cta-services": "Our Services",
         "cta-quote": "Get a Quote",
-                "form-agree-terms": "I have read and accept the <a id='termsLink' href='1-en.pdf' target='_blank' rel='noopener noreferrer'>Terms of Use</a> and the <a id='privacyLink' href='2-en.pdf' target='_blank' rel='noopener noreferrer'>Privacy Policy</a>.",
-
         "nav-services": "Services",
-        "nav-highlights": "Akron", // Or "Why Us"?
+        "nav-highlights": "Akron",
         "nav-portfolio": "Projects",
         "nav-contact": "Contact",
         "services-heading": "Our Services",
@@ -81,97 +81,26 @@ const translations = {
         "form-email-placeholder": "Email",
         "form-message-placeholder": "Your Message",
         "form-submit-button": "Send",
+        "terms-accept": "I accept the",
+        "terms-of-use": "Terms of Use",
+        "and": "and the",
+        "privacy-policy": "Privacy Policy",
         "footer-text": "© 2025 AR Akron Services",
-         "terms-accept": "I accept the",
-    "terms-of-use": "Terms of Use",
-    "and": "and the",
-    "privacy-policy": "Privacy Policy",
-        // NEW TRANSLATION FOR ADDRESS
-        "contact-address": "Griva Digeni 2,<br>17342 Agios Dimitrios,<br>Attica"
+        "form-consent-text": "I have read and accept the [[privacy_link]] and the [[terms_link]].",
+        'cookie-banner-text': 'We use cookies to ensure the best possible experience on our website. By continuing to use this site, you accept the use of cookies. For more information, please read our [[cookie_link]].',
+        'cookie-banner-link': 'Cookie Policy',
+        'cookie-banner-accept': 'Accept All',
+        'cookie-banner-decline': 'Decline (except essential)',
+        "contact-address": "Griva Digeni 2, 17342 <br>Agios Dimitrios, Attica"
     }
 };
 
 // Function to apply the translation
 function translatePage(lang) {
-    const elements = document.querySelectorAll('[data-translate-key]');
-    const currentTranslations = translations[lang];
+    const termsPdfPath = `1-${lang}.pdf`;
+    const privacyPdfPath = `2-${lang}.pdf`;
+    const cookiePolicyPdfPath = `3-${lang}.pdf`;
 
-    if (!currentTranslations) {
-        console.error("Translations not found for language:", lang);
-        return;
-    }
-
-    elements.forEach(element => {
-        const key = element.getAttribute('data-translate-key');
-        const translation = currentTranslations[key];
-
-        if (translation === undefined) {
-            console.warn("Translation key not found:", key, "for language:", lang);
-            return;
-        }
-
-        // Special handling for different element types
-        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-            element.placeholder = translation;
-        } else if (element.tagName === 'IMG') {
-             element.alt = translation;
-        } else if (element.tagName === 'TEXT' && element.closest('svg')) {
-             element.textContent = translation;
-        } else {
-             // For elements that can contain HTML (like the address with <br>)
-             // Using innerHTML allows <br> tags to be rendered
-             element.innerHTML = translation;
-        }
-    });
-
-     document.documentElement.lang = lang;
-     localStorage.setItem('selectedLanguage', lang);
-     const event = new CustomEvent('languageChanged', { detail: { lang: lang } });
-     document.dispatchEvent(event);
-}
-
-// Function to get the current language (from localStorage or browser default)
-function getCurrentLanguage() {
-    const storedLang = localStorage.getItem('selectedLanguage');
-    if (storedLang && translations[storedLang]) {
-        return storedLang;
-    }
-    const browserLang = navigator.language.split('-')[0];
-    if (translations[browserLang]) {
-        return browserLang;
-    }
-
-    return 'el'; // Default language if nothing is found
-}
-
-// Add Event Listeners to language selectors
-document.addEventListener('DOMContentLoaded', () => {
-    const langOptions = document.querySelectorAll('.language-switcher .lang-option');
-
-    langOptions.forEach(option => {
-        option.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent page reload
-            const selectedLang = option.getAttribute('data-lang');
-            if (selectedLang) {
-                translatePage(selectedLang);
-
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-            }
-        });
-    });
-
-    // Apply language on page load
-    const initialLang = getCurrentLanguage();
-    translatePage(initialLang);
-
-    const activeOption = document.querySelector(`.language-switcher .lang-option[data-lang="${initialLang}"]`);
-    if (activeOption) {
-        activeOption.classList.add('active');
-    }
-});
-// Function to apply the translation
-function translatePage(lang) { // Το lang είναι ήδη διαθέσιμο εδώ
     const elements = document.querySelectorAll('[data-translate-key]');
     const currentTranslations = translations[lang];
 
@@ -193,44 +122,61 @@ function translatePage(lang) { // Το lang είναι ήδη διαθέσιμο
             element.placeholder = translation;
         } else if (element.tagName === 'IMG') {
             element.alt = translation;
-        } else if (element.tagName === 'A' && (key === 'terms-of-use' || key === 'privacy-policy')) {
-            // Αυτή η συνθήκη αφορά τους συνδέσμους μέσα στο HTML που έδωσες
-            // και είναι ξεχωριστοί από το form-consent-text.
-            // Θα πρέπει να ενημερώσεις το href με βάση τη γλώσσα.
-            if (key === 'terms-of-use') {
-                element.href = `1-${lang}.pdf`;
+        } else if (element.tagName === 'A') {
+            // **ΕΙΔΙΚΟΣ ΧΕΙΡΙΣΜΟΣ ΓΙΑ ΤΟΝ ΣΥΝΔΕΣΜΟ ΤΗΣ ΔΙΕΥΘΥΝΣΗΣ**
+            if (key === 'contact-address') {
+                // Εφόσον το HTML δεν αλλάζει, χρησιμοποιούμε innerHTML για να αποδοθεί το <br>
+                element.innerHTML = translation;
+            } else if (key === 'terms-of-use') {
+                element.href = termsPdfPath;
+                element.textContent = translation;
             } else if (key === 'privacy-policy') {
-                element.href = `2-${lang}.pdf`;
+                element.href = privacyPdfPath;
+                element.textContent = translation;
+            } else if (key === 'cookie-banner-link') {
+                element.href = cookiePolicyPdfPath;
+                element.textContent = translation;
+            } else {
+                // Για όλους τους άλλους συνδέσμους
+                element.textContent = translation;
             }
-            element.textContent = translation; // Ενημέρωσε και το κείμενο του συνδέσμου
-        }
-        else if (element.tagName === 'TEXT' && element.closest('svg')) {
-             element.textContent = translation;
-        }
-        else {
+        } else if (element.tagName === 'TEXT' && element.closest('svg')) {
+            element.textContent = translation;
+        } else {
+            // Για τα περισσότερα στοιχεία (p, span, div, h1-h6, button κλπ.)
             element.innerHTML = translation;
         }
     });
 
-    // Ειδικός χειρισμός για το κείμενο συναίνεσης της φόρμας επικοινωνίας
     const consentLabel = document.querySelector('label[data-translate-key="form-consent-text"]');
     if (consentLabel) {
-        let translatedText = translations[lang]["form-consent-text"];
-        if (translatedText) {
-            // Ορισμός των διαδρομών για τα PDF με βάση την τρέχουσα γλώσσα
-            const privacyPdfPath = `2-${lang}.pdf`;
-            const termsPdfPath = `1-${lang}.pdf`;
+        const termsAcceptText = currentTranslations["terms-accept"] || 'Αποδέχομαι τους';
+        const andText = currentTranslations["and"] || 'και την';
 
-            // Δημιουργία των HTML συνδέσμων
-            const privacyLinkHtml = `<a href="${privacyPdfPath}" target="_blank">${translations[lang]["form-privacy-link"]}</a>`;
-            const termsLinkHtml = `<a href="${termsPdfPath}" target="_blank">${translations[lang]["form-terms-link"]}</a>`;
+        const privacyLinkHtml = `<a href="${privacyPdfPath}" target="_blank">${currentTranslations["privacy-policy"]}</a>`;
+        const termsLinkHtml = `<a href="${termsPdfPath}" target="_blank">${currentTranslations["terms-of-use"]}</a>`;
 
-            // Αντικατάσταση των placeholders με τους HTML συνδέσμους
-            translatedText = translatedText.replace('[[privacy_link]]', privacyLinkHtml);
-            translatedText = translatedText.replace('[[terms_link]]', termsLinkHtml);
+        let translatedConsentText = currentTranslations["form-consent-text"] || '';
+        translatedConsentText = translatedConsentText.replace('[[privacy_link]]', privacyLinkHtml);
+        translatedConsentText = translatedConsentText.replace('[[terms_link]]', termsLinkHtml);
 
-            // Εφαρμογή του τελικού κειμένου με τους συνδέσμους στο label
-            consentLabel.innerHTML = translatedText;
+        consentLabel.innerHTML = translatedConsentText;
+    }
+
+    const cookieBannerTextElement = document.querySelector('.cookie-banner p[data-translate-key="cookie-banner-text"]');
+    if (cookieBannerTextElement) {
+        const cookieBannerLinkHtml = `<a href="${cookiePolicyPdfPath}" target="_blank">${currentTranslations["cookie-banner-link"]}</a>`;
+        let translatedCookieText = currentTranslations["cookie-banner-text"] || '';
+        translatedCookieText = translatedCookieText.replace('[[cookie_link]]', cookieBannerLinkHtml);
+        cookieBannerTextElement.innerHTML = translatedCookieText;
+
+        const acceptButton = document.getElementById('acceptCookies');
+        const declineButton = document.getElementById('declineCookies');
+        if (acceptButton) {
+            acceptButton.textContent = currentTranslations["cookie-banner-accept"] || acceptButton.textContent;
+        }
+        if (declineButton) {
+            declineButton.textContent = currentTranslations["cookie-banner-decline"] || declineButton.textContent;
         }
     }
 
@@ -239,3 +185,40 @@ function translatePage(lang) { // Το lang είναι ήδη διαθέσιμο
     const event = new CustomEvent('languageChanged', { detail: { lang: lang } });
     document.dispatchEvent(event);
 }
+
+function getCurrentLanguage() {
+    const storedLang = localStorage.getItem('selectedLanguage');
+    if (storedLang && translations[storedLang]) {
+        return storedLang;
+    }
+    const browserLang = navigator.language.split('-')[0];
+    if (translations[browserLang]) {
+        return browserLang;
+    }
+
+    return 'el'; // Default language if nothing is found
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const langOptions = document.querySelectorAll('.language-switcher .lang-option');
+
+    langOptions.forEach(option => {
+        option.addEventListener('click', (event) => {
+            event.preventDefault();
+            const selectedLang = option.getAttribute('data-lang');
+            if (selectedLang) {
+                translatePage(selectedLang);
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            }
+        });
+    });
+
+    const initialLang = getCurrentLanguage();
+    translatePage(initialLang);
+
+    const activeOption = document.querySelector(`.language-switcher .lang-option[data-lang="${initialLang}"]`);
+    if (activeOption) {
+        activeOption.classList.add('active');
+    }
+});
