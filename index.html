@@ -484,85 +484,21 @@
   <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
   <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
 
- <label for="termsCheckbox">
-
-  <div class="privacy-terms-checkbox">
-  <input type="checkbox" id="agreeToTerms" name="agreeToTerms" required>
-  <label for="agreeToTerms">
-    <span data-translate-key="form-agree-terms">
-      Διάβασα και αποδέχομαι τους
-      <a id="termsLink" href="1-el.pdf" target="_blank" rel="noopener noreferrer">Όρους Χρήσης</a>
-      και την
-      <a id="privacyLink" href="2-el.pdf" target="_blank" rel="noopener noreferrer">Πολιτική Προστασίας Δεδομένων</a>.
-    </span>
-  </label>
-</div>
-
-
+<label for="termsCheckbox">
+  <input type="checkbox" id="termsCheckbox" required>
+  <span>
+    <span data-translate-key="terms-accept">Αποδέχομαι τους</span>
+    <a href="1.pdf" target="_blank" data-translate-key="terms-of-use">Όρους Χρήσης</a>
+    <span data-translate-key="and">και την</span>
+    <a href="2.pdf" target="_blank" data-translate-key="privacy-policy">Πολιτική Απορρήτου</a>.
+  </span>
 </label>
 
 
   <button type="submit" data-translate-key="form-submit-button">Αποστολή</button>
   <p id="form-status"></p>
 </form>
-<script>
-  // ... (άλλα κομμάτια του translation.js) ...
 
-function changeLanguage(lang) {
-  // Ενημέρωση κειμένων με data-translate-key
-  const elements = document.querySelectorAll('[data-translate-key]');
-  elements.forEach(el => {
-    const key = el.getAttribute('data-translate-key');
-    if (translations[lang] && translations[lang][key]) {
-      // Εάν το κλειδί είναι "form-agree-terms", τότε το κείμενο περιέχει HTML
-      // Οπότε χρησιμοποιούμε innerHTML αντί για textContent
-      if (key === 'form-agree-terms') {
-        el.innerHTML = translations[lang][key];
-      } else {
-        el.textContent = translations[lang][key];
-      }
-    }
-  });
-
-  // Ενημέρωση PDF links
-  const termsLink = document.getElementById('termsLink');
-  const privacyLink = document.getElementById('privacyLink');
-
-  if (termsLink) { // Ελέγχουμε αν το στοιχείο υπάρχει
-    termsLink.href = `${lang === 'el' ? '1-el.pdf' : '1-en.pdf'}`; // Προσαρμόστε αν έχετε και άλλες γλώσσες
-  }
-  if (privacyLink) { // Ελέγχουμε αν το στοιχείο υπάρχει
-    privacyLink.href = `${lang === 'el' ? '2-el.pdf' : '2-en.pdf'}`; // Προσαρμόστε αν έχετε και άλλες γλώσσες
-  }
-
-  // Αποθηκεύουμε την επιλεγμένη γλώσσα στο localStorage
-  localStorage.setItem('selectedLanguage', lang);
-
-  // Ενημερώνουμε τις κλάσεις ενεργής γλώσσας στο language-switcher (αν υπάρχει)
-  document.querySelectorAll('.language-switcher .lang-option').forEach(option => {
-    if (option.dataset.lang === lang) {
-      option.classList.add('active');
-    } else {
-      option.classList.remove('active');
-    }
-  });
-}
-
-// Αυτό το κομμάτι είναι για την αρχική φόρτωση της γλώσσας
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('selectedLanguage') || 'el'; // Προεπιλογή σε 'el'
-    changeLanguage(savedLang);
-
-    // Ενεργοποίηση των κουμπιών γλώσσας
-    document.querySelectorAll('.language-switcher .lang-option').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const lang = e.target.dataset.lang;
-            changeLanguage(lang);
-        });
-    });
-});
-</script>
 <script>
   document.getElementById("contactForm").addEventListener("submit", async (e) => {
     e.preventDefault();
