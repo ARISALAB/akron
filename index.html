@@ -1,701 +1,1059 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AR Akron Services</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Akron Services</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<!-- Swiper CSS -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
-  <!-- Favicon για καρτέλα browser & SEO -->
-<link rel="icon" href="./favicon.ico" type="image/x-icon">
-  <meta name="theme-color" content="#000000" />
-  <meta name="msapplication-TileColor" content="#000000" />
-  </head>
-  <style>
-  .top-nav .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-}
-.top-nav .hamburger-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 5px;
-  line-height: 1;
-  z-index: 100;
-}
-.language-switcher {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 101;
-}
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+</head>
+<style>
+    .top-nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    .top-nav .hamburger-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 5px;
+        line-height: 1;
+        z-index: 100;
+    }
+    .language-switcher {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 101;
+    }
 
-.language-switcher .lang-option {
-  cursor: pointer;
-  font-size: 1rem;
-  text-decoration: none;
-  color: white;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
+    .language-switcher .lang-option {
+        cursor: pointer;
+        font-size: 1rem;
+        text-decoration: none;
+        color: white;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+    }
 
-.language-switcher .lang-option:hover,
-.language-switcher .lang-option.active {
-  opacity: 1;
-}
-.top-nav .nav-links {
-  display: flex;
-  gap: 20px;
-}
+    .language-switcher .lang-option:hover,
+    .language-switcher .lang-option.active {
+        opacity: 1;
+    }
+    .top-nav .nav-links {
+        display: flex;
+        gap: 20px;
+    }
 
-.top-nav .nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-}
-@media (max-width: 768px) {
-  .top-nav .nav-links {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 250px;
-    height: calc(80vh - 55px);
-    background-color: #222;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 99;
-  }
+    .top-nav .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    @media (max-width: 768px) {
+        .top-nav .nav-links {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 250px;
+            height: calc(80vh - 55px);
+            background-color: #222;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 99;
+        }
 
-  .top-nav .nav-links.open {
-    display: flex;
-    transform: translateX(0);
-  }
+        .top-nav .nav-links.open {
+            display: flex;
+            transform: translateX(0);
+        }
 
-  .top-nav .nav-links a {
-    padding: 15px 0;
-    border-bottom: 1px solid #444;
-    font-size: 1.2rem;
+        .top-nav .nav-links a {
+            padding: 15px 0;
+            border-bottom: 1px solid #444;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .top-nav .nav-links a:last-child {
+            border-bottom: none;
+        }
+
+        .top-nav .hamburger-toggle {
+            display: block;
+            margin-left: 10px;
+        }
+
+        /* Hide desktop language switcher, show inside menu */
+        .language-switcher.desktop-only {
+            display: none;
+        }
+
+        .top-nav .nav-links .language-switcher {
+            margin-top: 20px;
+            justify-content: center;
+            display: flex;
+            gap: 15px;
+        }
+
+        .top-nav .nav-links .language-switcher .lang-option {
+            font-size: 1.2rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .top-nav .nav-links .language-switcher .lang-option.active {
+            opacity: 1;
+            font-weight: bold;
+        }
+    }
+
+
+    /* ΕΝΗΜΕΡΩΜΕΝΑ στυλ για την ενότητα PARALLAX για CSS Parallax */
+    .parallax-section {
+        position: relative; /* Σημαντικό για στοίχιση του περιεχομένου αν χρειαστεί */
+        overflow: hidden;
+        /* Ορίζουμε την εικόνα ως background */
+        background-image: url('4.jfif'); /* Η διαδρομή προς την εικόνα */
+        /* Ρυθμίσεις για το background image */
+        background-size: cover; /* Καλύπτει όλη την περιοχή διατηρώντας τις αναλογίες */
+        background-position: center; /* Κεντράρει την εικόνα */
+        background-repeat: no-repeat; /* Αποφεύγουμε την επανάληψη */
+        /* ΤΟ ΣΗΜΑΝΤΙΚΟ: Ορίζει ότι η εικόνα background παραμένει σταθερή στο viewport κατά το scroll */
+        background-attachment: fixed;
+
+        /* Προαιρετικά: προσθέστε ελάχιστο ύψος ή padding για να είναι ορατό το background */
+        min-height: 500px; /* Παράδειγμα - προσαρμόστε ανάλογα με το περιεχόμενο και το design */
+        padding: 100px 0; /* Παράδειγμα padding για να υπάρχει χώρος για το περιεχόμενο */
+
+
+        /* Προαιρετικά: προσθέστε ένα overlay απευθείας στο background αν δεν χρησιμοποιείτε ξεχωριστό div */
+        /* Μπορείτε να το κάνετε με :before ψευδο-στοιχείο ή με ένα gradient */
+        /* Παράδειγμα με linear gradient overlay (πιο σκούρο): */
+        /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('4.jpg'); */
+    }
+
+    /* Το περιεχόμενο πρέπει να παραμείνει πάνω από το background */
+    .parallax-content {
+        position: relative; /* Βεβαιωθείτε ότι βρίσκεται πάνω από το background */
+        z-index: 1; /* Βεβαιωθείτε ότι είναι πάνω από το background */
+        /* Χρώμα κειμένου για να φαίνεται πάνω στο σκούρο background */
+        color: white;
+        text-align: center;
+        /* ... άλλα στυλ για το parallax-content ... */
+    }
+
+    .portfolio-swiper {
+        width: 60%;
+        padding: 60px 0;
+    }
+
+    .swiper-slide {
+        width: 100%;
+        height: 550px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Scroll wrapper */
+    .image-scroll-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    /* Scroll on hover */
+    .swiper-slide:hover .image-scroll-container {
+        overflow-y: auto;
+    }
+
+    /* Εικόνα */
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+    }
+    .image-scroll-container::-webkit-scrollbar {
+        width: 6px;
+    }
+    .image-scroll-container::-webkit-scrollbar-thumb {
+        background: #999;
+        border-radius: 6px;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .swiper-slide {
+            height: 550px;
+        }
+    }
+
+    /* Κινητά */
+    @media (max-width: 768px) {
+        .swiper-slide {
+            height: 450px;
+            padding: 6px;
+            border-radius: 12px;
+        }
+    }
+
+    /* Μικρά κινητά */
+    @media (max-width: 480px) {
+        .swiper-slide {
+            height: 350px;
+            padding: 4px;
+            border-radius: 10px;
+        }
+    }
+</style>
+<style>
+    label a {
+        pointer-events: auto;
+        color: blue;
+        text-decoration: underline;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    /* style.css */
+
+    /* --- Cookie Consent Banner Styling --- */
+    .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* Σκούρο διαφανές φόντο */
+        color: #f5f5f5;
+        padding: 20px;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000; /* Βεβαιωθείτε ότι είναι πάνω από άλλα στοιχεία */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        animation: fadeIn 0.5s ease-out; /* Εφέ εμφάνισης */
+    }
+
+    .cookie-banner-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
+        text-align: center;
+    }
+
+    .cookie-banner p {
+        margin-bottom: 15px;
+        font-size: 0.95em;
+        line-height: 1.5;
+    }
+
+    .cookie-banner a {
+        color: #00bcd4; /* Το accent χρώμα σου */
+        text-decoration: underline;
+    }
+
+    .cookie-banner-buttons {
+        display: flex;
+        gap: 15px; /* Κενό μεταξύ των κουμπιών */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cookie-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9em;
+        font-weight: 600;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .accept-button {
+        background-color: #00bcd4; /* Το accent χρώμα σου */
+        color: #ffffff;
+    }
+
+    .accept-button:hover {
+        background-color: #0097a7;
+    }
+
+    .decline-button {
+        background-color: #3a3a3a;
+        color: #f5f5f5;
+    }
+
+    .decline-button:hover {
+        background-color: #555555;
+    }
+
+    /* Animation for banner appearance */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .cookie-banner {
+            padding: 15px;
+        }
+        .cookie-banner-content {
+            max-width: 100%;
+        }
+        .cookie-banner-buttons {
+            flex-direction: column; /* Κουμπιά το ένα κάτω από το άλλο σε κινητά */
+            width: 100%;
+        }
+        .cookie-button {
+            width: 100%; /* Τα κουμπιά πιάνουν όλο το πλάτος */
+        }
+    }
+    /* style.css */
+/* --- FAQ Section Styling --- */
+.faq-section {
+    padding: 80px 0;
+    background-image: url('100.jfif'); /* **ΠΡΟΣΟΧΗ στο path!** */
+    background-size: cover; /* Καλύπτει όλο το διαθέσιμο χώρο */
+    background-position: center center; /* Κεντράρει την εικόνα */
+    background-repeat: no-repeat; /* Δεν επαναλαμβάνει την εικόνα */
     text-align: center;
-  }
-
-  .top-nav .nav-links a:last-child {
-    border-bottom: none;
-  }
-
-  .top-nav .hamburger-toggle {
-    display: block;
-    margin-left: 10px;
-  }
-
-  /* Hide desktop language switcher, show inside menu */
-  .language-switcher.desktop-only {
-    display: none;
-  }
-
-  .top-nav .nav-links .language-switcher {
-    margin-top: 20px;
-    justify-content: center;
-    display: flex;
-    gap: 15px;
-  }
-
-  .top-nav .nav-links .language-switcher .lang-option {
-    font-size: 1.2rem;
     color: white;
-    opacity: 0.8;
-  }
-
-  .top-nav .nav-links .language-switcher .lang-option.active {
-    opacity: 1;
-    font-weight: bold;
-  }
 }
 
+.faq-section .section-title {
+    margin-bottom: 60px;
+    color: #f5f5f5; /* Εξασφαλίζει ότι ο τίτλος είναι ορατός */
+}
 
-/* ΕΝΗΜΕΡΩΜΕΝΑ στυλ για την ενότητα PARALLAX για CSS Parallax */
-.parallax-section {
-    position: relative; /* Σημαντικό για στοίχιση του περιεχομένου αν χρειαστεί */
+.faq-accordion {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px; /* Ελαφρώς μεγαλύτερο border-radius */
     overflow: hidden;
-    /* Ορίζουμε την εικόνα ως background */
-    background-image: url('4.jfif'); /* Η διαδρομή προς την εικόνα */
-    /* Ρυθμίσεις για το background image */
-    background-size: cover; /* Καλύπτει όλη την περιοχή διατηρώντας τις αναλογίες */
-    background-position: center; /* Κεντράρει την εικόνα */
-    background-repeat: no-repeat; /* Αποφεύγουμε την επανάληψη */
-    /* ΤΟ ΣΗΜΑΝΤΙΚΟ: Ορίζει ότι η εικόνα background παραμένει σταθερή στο viewport κατά το scroll */
-    background-attachment: fixed;
-
-    /* Προαιρετικά: προσθέστε ελάχιστο ύψος ή padding για να είναι ορατό το background */
-    min-height: 500px; /* Παράδειγμα - προσαρμόστε ανάλογα με το περιεχόμενο και το design */
-    padding: 100px 0; /* Παράδειγμα padding για να υπάρχει χώρος για το περιεχόμενο */
-
-
-    /* Προαιρετικά: προσθέστε ένα overlay απευθείας στο background αν δεν χρησιμοποιείτε ξεχωριστό div */
-    /* Μπορείτε να το κάνετε με :before ψευδο-στοιχείο ή με ένα gradient */
-    /* Παράδειγμα με linear gradient overlay (πιο σκούρο): */
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('4.jpg'); */
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6); /* Πιο έντονη σκιά */
 }
 
-/* Το περιεχόμενο πρέπει να παραμείνει πάνω από το background */
-.parallax-content {
-    position: relative; /* Βεβαιωθείτε ότι βρίσκεται πάνω από το background */
-    z-index: 1; /* Βεβαιωθείτε ότι είναι πάνω από το background */
-    /* Χρώμα κειμένου για να φαίνεται πάνω στο σκούρο background */
-    color: white;
-    text-align: center;
-    /* ... άλλα στυλ για το parallax-content ... */
+.faq-item {
+    /* Φόντο για κάθε στοιχείο FAQ με ένα ελαφρύ μπλε-μωβ gradient */
+    background: linear-gradient(to right, #2f1847, #3e1f60); /* Μωβ προς πιο σκούρο μωβ */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Πιο διακριτική διαχωριστική γραμμή */
+    margin-bottom: 15px; /* Περισσότερο κενό μεταξύ των FAQ items */
+    border-radius: 10px; /* Ελαφρώς στρογγυλεμένες γωνίες */
+    overflow: hidden;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Προσθήκη transition για hover */
 }
 
-.portfolio-swiper {
-  width: 60%;
-  padding: 60px 0;
+.faq-item:hover {
+    transform: translateY(-3px); /* Εφέ ανασηκώματος στο hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Πιο έντονη σκιά στο hover */
 }
 
-.swiper-slide {
-  width: 100%;
-  height: 550px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
-/* Scroll wrapper */
-.image-scroll-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-/* Scroll on hover */
-.swiper-slide:hover .image-scroll-container {
-  overflow-y: auto;
-}
-
-/* Εικόνα */
-.swiper-slide img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-}
-.image-scroll-container::-webkit-scrollbar {
-  width: 6px;
-}
-.image-scroll-container::-webkit-scrollbar-thumb {
-  background: #999;
-  border-radius: 6px;
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .swiper-slide {
-    height: 550px;
-  }
-}
-
-/* Κινητά */
-@media (max-width: 768px) {
-  .swiper-slide {
-    height: 450px;
-    padding: 6px;
-    border-radius: 12px;
-  }
-}
-
-/* Μικρά κινητά */
-@media (max-width: 480px) {
-  .swiper-slide {
-    height: 350px;
-    padding: 4px;
-    border-radius: 10px;
-  }
-}
-
-
-
-  </style>
-  <style>
-  label a {
-    pointer-events: auto;
-    color: blue;
-    text-decoration: underline;
-  }
-
-  label {
-    cursor: pointer;
-  }
-
-/* style.css */
-
-/* --- Cookie Consent Banner Styling --- */
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Σκούρο διαφανές φόντο */
-    color: #f5f5f5;
-    padding: 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* Βεβαιωθείτε ότι είναι πάνω από άλλα στοιχεία */
+.faq-question {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    animation: fadeIn 0.5s ease-out; /* Εφέ εμφάνισης */
-}
-
-.cookie-banner-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    text-align: center;
-}
-
-.cookie-banner p {
-    margin-bottom: 15px;
-    font-size: 0.95em;
-    line-height: 1.5;
-}
-
-.cookie-banner a {
-    color: #00bcd4; /* Το accent χρώμα σου */
-    text-decoration: underline;
-}
-
-.cookie-banner-buttons {
-    display: flex;
-    gap: 15px; /* Κενό μεταξύ των κουμπιών */
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.cookie-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
+    padding: 20px 25px;
+    font-size: 1.15em;
     font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    /* Gradient για το φόντο της ερώτησης */
+    background: linear-gradient(to right, #4a2a7a, #5e339c); /* Μωβ προς πιο έντονο μωβ */
+    transition: background 0.3s ease, color 0.3s ease; /* transition στο background για gradient */
+    color: #e0e0e0; /* Ελαφρώς πιο σκούρο χρώμα κειμένου ερώτησης αρχικά */
 }
 
-.accept-button {
-    background-color: #00bcd4; /* Το accent χρώμα σου */
-    color: #ffffff;
+.faq-question:hover {
+    /* Gradient στο hover - Ένα φωτεινό μπλε-μωβ για feedback */
+    background: linear-gradient(to right, #6a4da9, #8e62d0); /* Φωτεινότερο μωβ */
+    color: #f5f5f5; /* Ανοιχτότερο κείμενο στο hover */
 }
 
-.accept-button:hover {
-    background-color: #0097a7;
-}
-
-.decline-button {
-    background-color: #3a3a3a;
+.faq-question.active {
+    /* Gradient όταν είναι ενεργό - Ένα πιο ζωντανό μπλε-μωβ */
+    background: linear-gradient(to right, #4c2d73, #6a3e9c); /* Έντονο μπλε-μωβ */
     color: #f5f5f5;
 }
 
-.decline-button:hover {
-    background-color: #555555;
+.faq-icon {
+    width: 22px; /* Ελαφρώς μεγαλύτερο εικονίδιο */
+    height: 22px;
+    position: relative;
+    transition: transform 0.3s ease;
 }
 
-/* Animation for banner appearance */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.faq-icon::before,
+.faq-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #f5f5f5; /* Χρώμα του εικονιδίου (+/-) */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s ease; /* Transition για το χρώμα του εικονιδίου */
+}
+
+.faq-question:hover .faq-icon::before,
+.faq-question:hover .faq-icon::after {
+    background-color: #f5f5f5; /* Το εικονίδιο παραμένει λευκό στο hover */
+}
+
+.faq-question.active .faq-icon::before,
+.faq-question.active .faq-icon::after {
+    background-color: #1a1a1a; /* Σκούρο χρώμα για το εικονίδιο όταν είναι ενεργό, για αντίθεση */
+}
+
+.faq-icon::before {
+    width: 2px;
+    height: 18px; /* Κάθετη γραμμή */
+}
+
+.faq-icon::after {
+    width: 18px; /* Οριζόντια γραμμή */
+    height: 2px;
+}
+
+.faq-question.active .faq-icon::before {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-question.active .faq-icon::after {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 0 25px;
+    /* Φόντο απάντησης με gradient */
+    background: linear-gradient(to right, #22123a, #2a144e); /* Σκούρο μπλε-μωβ στην απάντηση */
+    color: #c0c0c0; /* Ελαφρώς πιο φωτεινό χρώμα κειμένου απάντησης */
+    text-align: left;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.faq-answer p {
+    padding-bottom: 20px;
+}
+
+.faq-question.active + .faq-answer {
+    max-height: 300px; /* Αυξάνεται για να χωρέσει μεγαλύτερο κείμενο, ρυθμίστε αν χρειάζεται */
+    padding: 20px 25px;
 }
 
 /* Responsive adjustments */
+
+/* Για οθόνες έως 768px (συνήθως tablets σε portrait και κινητά) */
 @media (max-width: 768px) {
-    .cookie-banner {
-        padding: 15px;
+    .faq-section {
+        padding: 50px 0; /* Μειωμένο padding για μικρότερες οθόνες */
     }
-    .cookie-banner-content {
-        max-width: 100%;
+
+    .faq-section .section-title {
+        margin-bottom: 40px; /* Λιγότερο κενό κάτω από τον τίτλο */
+        font-size: 2em; /* Μειώνουμε το μέγεθος του τίτλου */
     }
-    .cookie-banner-buttons {
-        flex-direction: column; /* Κουμπιά το ένα κάτω από το άλλο σε κινητά */
-        width: 100%;
+
+    .faq-accordion {
+        max-width: 95%; /* Αυξάνουμε το πλάτος για να εκμεταλλευτούμε τον χώρο */
+        margin: 0 15px; /* Προσθέτουμε λίγα περιθώρια στις πλευρές */
     }
-    .cookie-button {
-        width: 100%; /* Τα κουμπιά πιάνουν όλο το πλάτος */
+
+    .faq-item {
+        margin-bottom: 10px; /* Μικρότερο κενό μεταξύ των FAQ items */
+        border-radius: 8px; /* Ελαφρώς μικρότερο border-radius */
+    }
+
+    .faq-question {
+        padding: 15px 20px; /* Μειωμένο padding για τις ερωτήσεις */
+        font-size: 1em; /* Μειωμένο μέγεθος γραμματοσειράς */
+    }
+
+    .faq-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .faq-icon::before {
+        height: 16px;
+    }
+
+    .faq-icon::after {
+        width: 16px;
+    }
+
+    .faq-answer {
+        padding: 0 20px; /* Μειωμένο padding για τις απαντήσεις */
+        font-size: 0.9em; /* Μειωμένο μέγεθος γραμματοσειράς */
+    }
+
+    .faq-answer p {
+        padding-bottom: 15px; /* Μειωμένο padding κάτω από την παράγραφο */
+    }
+
+    .faq-question.active + .faq-answer {
+        max-height: 500px; /* Αυξάνεται το max-height για να χωρέσει περισσότερο κείμενο σε κινητά */
+        padding: 15px 20px;
     }
 }
 
+/* Για οθόνες κινητών (π.χ. έως 480px) */
+@media (max-width: 480px) {
+    .faq-section {
+        padding: 30px 0; /* Ακόμα λιγότερο padding */
+    }
+
+    .faq-section .section-title {
+        margin-bottom: 30px;
+        font-size: 1.8em;
+    }
+
+    .faq-accordion {
+        margin: 0 10px; /* Μικρότερα περιθώρια */
+    }
+
+    .faq-question {
+        padding: 12px 15px; /* Ακόμα λιγότερο padding */
+        font-size: 0.95em; /* Ελαφρώς μικρότερη γραμματοσειρά */
+    }
+
+    .faq-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .faq-icon::before {
+        height: 14px;
+    }
+
+    .faq-icon::after {
+        width: 14px;
+    }
+
+    .faq-answer {
+        padding: 0 15px;
+        font-size: 0.85em; /* Ακόμα μικρότερη γραμματοσειρά για ευανάγνωστη */
+    }
+
+    .faq-answer p {
+        padding-bottom: 10px;
+    }
+
+    .faq-question.active + .faq-answer {
+        padding: 12px 15px;
+    }
+}
 </style>
 
 <body>
-<section class="top-nav">
-  <div class="container">
-    <a href="/" class="logo">
-      <img src="10.jpg" alt="AR Akron Services Logo" data-translate-key="logo-alt">
-      <span class="logo-text">AR Akron Services</span>
-    </a>
+    <section class="top-nav">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="10.jpg" alt="AR Akron Services Logo" data-translate-key="logo-alt">
+                <span class="logo-text">AR Akron Services</span>
+            </a>
 
-    
+            <button class="hamburger-toggle" aria-label="Μενού">
+                ☰
+            </button>
 
-    <button class="hamburger-toggle" aria-label="Μενού">
-      ☰
-      </button>
+            <div class="nav-links">
+                <a href="#services" data-translate-key="nav-services">Υπηρεσίες</a>
+                <a href="#highlights" data-translate-key="nav-highlights">Akron</a>
+                <a href="#PARALLAX" data-translate-key="nav-portfolio">Έργα</a>
+                <a href="#contact" data-translate-key="nav-contact">Επικοινωνία</a>
 
-     <div class="nav-links">
-      <a href="#services" data-translate-key="nav-services">Υπηρεσίες</a>
-      <a href="#highlights" data-translate-key="nav-highlights">Akron</a>
-      <a href="#PARALLAX" data-translate-key="nav-portfolio">Έργα</a>
-      <a href="#contact" data-translate-key="nav-contact">Επικοινωνία</a>
+                <div class="language-switcher">
+                    <a href="#" class="lang-option active" data-lang="el" title="Ελληνικά">GR</a>
+                    <a href="#" class="lang-option" data-lang="en" title="English">EN</a>
+                </div>
+            </div>
 
-      <!-- Language switcher μέσα στο mobile μενού -->
-      <div class="language-switcher">
-        <a href="#" class="lang-option active" data-lang="el" title="Ελληνικά">GR</a>
-        <a href="#" class="lang-option" data-lang="en" title="English">EN</a>
-      </div>
-    </div>
+            </div>
+    </section>
+    <header class="hero">
 
-    <!-- Language switcher στο desktop -->
-    
-  </div>
-</nav>
+        <div class="hero-overlay"></div>
 
-  </div>
-</section>
-  <header class="hero">
+        <video autoplay loop muted playsinline id="hero-video">
+            <source src="5.mp4" type="video/mp4">
+            <source src="videos/your_video.webm" type="video/webm">
+            Η συσκευή σας δεν υποστηρίζει βίντεο background.
+        </video>
+        <div class="hero-content">
+            <svg id="hero-title-svg" class="animated-text" viewBox="0 0 800 250" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    {/* Gradient for uniform coloring across both lines (User Space) */}
+                    {/* Stops create sharp light/shadow bands. */}
+                    <linearGradient id="chromeGradient" x1="0%" y1="0%" x2="100%" y2="0%"> {/* gradientUnits="objectBoundingBox" removed */}
+                        {/* Stops for a sharper, "banded" chrome effect */}
+                        <stop offset="0%" style="stop-color:#444"/>
+                        <stop offset="15%" style="stop-color:#999"/>
+                        <stop offset="30%" style="stop-color:#ddd"/>
+                        <stop offset="50%" style="stop-color:#fff"/>
+                        <stop offset="70%" style="stop-color:#ddd"/>
+                        <stop offset="85%" style="stop-color:#999"/>
+                        <stop offset="100%" style="stop-color:#444"/>
 
-  <div class="hero-overlay"></div>
+                        {/* --- UPDATED Gradient Animation: Forward -> Back (as ONE cycle) --- */}
+                        {/* values="-100%; 100%; -100%": Defines motion from -100% to 100% and then BACK to -100% as ONE cycle. */}
+                        {/* dur="20s": Double the duration to cover the FULL path (forward + back). */}
+                        {/* repeatCount="indefinite": Repeats this FULL cycle indefinitely. */}
+                        {/* **direction="alternate"** IS REMOVED, as forward-back motion is defined by values. */}
+                        <animate attributeName="x1" values="-100%; 100%; -100%" dur="15s" repeatCount="indefinite" />
+                        {/* x2 values maintain 100% distance from x1 values: 0%; 200%; 0% */}
+                        <animate attributeName="x2" values="0%; 200%; 0%" dur="15s" repeatCount="indefinite" />
+                        {/* ---------------------------------------------------------------------------------- */}
 
-  <video autoplay loop muted playsinline id="hero-video">
-    <source src="5.mp4" type="video/mp4">
-    <source src="videos/your_video.webm" type="video/webm">
-    Η συσκευή σας δεν υποστηρίζει βίντεο background.
-  </video>
-  <div class="hero-content">
-  <svg id="hero-title-svg" class="animated-text" viewBox="0 0 800 250" preserveAspectRatio="xMidYMid meet">
-    <defs>
-      {/* Gradient for uniform coloring across both lines (User Space) */}
-      {/* Stops create sharp light/shadow bands. */}
-      <linearGradient id="chromeGradient" x1="0%" y1="0%" x2="100%" y2="0%"> {/* gradientUnits="objectBoundingBox" removed */}
-        {/* Stops for a sharper, "banded" chrome effect */}
-        <stop offset="0%" style="stop-color:#444"/>
-        <stop offset="15%" style="stop-color:#999"/>
-        <stop offset="30%" style="stop-color:#ddd"/>
-        <stop offset="50%" style="stop-color:#fff"/>
-        <stop offset="70%" style="stop-color:#ddd"/>
-        <stop offset="85%" style="stop-color:#999"/>
-        <stop offset="100%" style="stop-color:#444"/>
+                    </linearGradient>
 
-        {/* --- UPDATED Gradient Animation: Forward -> Back (as ONE cycle) --- */}
-        {/* values="-100%; 100%; -100%": Defines motion from -100% to 100% and then BACK to -100% as ONE cycle. */}
-        {/* dur="20s": Double the duration to cover the FULL path (forward + back). */}
-        {/* repeatCount="indefinite": Repeats this FULL cycle indefinitely. */}
-        {/* **direction="alternate"** IS REMOVED, as forward-back motion is defined by values. */}
-        <animate attributeName="x1" values="-100%; 100%; -100%" dur="15s" repeatCount="indefinite" />
-        {/* x2 values maintain 100% distance from x1 values: 0%; 200%; 0% */}
-        <animate attributeName="x2" values="0%; 200%; 0%" dur="15s" repeatCount="indefinite" />
-        {/* ---------------------------------------------------------------------------------- */}
+                    <filter id="whiteGlow">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                        <feFlood flood-color="white" flood-opacity="1" result="glowColor" />
+                        <feComposite in="glowColor" operator="in" in2="blur" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
 
-      </linearGradient>
+                {/* Text in SVG (remains the same) - Added data-translate-key */}
+                <text x="50%" y="100" text-anchor="middle" font-size="80" font-weight="bold"
+                    fill="url(#chromeGradient)" filter="url(#whiteGlow)" data-translate-key="hero-title-line1">
+                    Ο Ψηφιακός σου Κόσμος
+                </text>
 
-        <filter id="whiteGlow">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-          <feFlood flood-color="white" flood-opacity="1" result="glowColor" />
-          <feComposite in="glowColor" operator="in" in2="blur" result="coloredBlur" />
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-    </defs>
+                <text x="50%" y="180" text-anchor="middle" font-size="80" font-weight="bold"
+                    fill="url(#chromeGradient)" filter="url(#whiteGlow)" data-translate-key="hero-title-line2">
+                    Όπως τον Ονειρεύεσαι
+                </text>
 
-    {/* Text in SVG (remains the same) - Added data-translate-key */}
-    <text x="50%" y="100" text-anchor="middle" font-size="80" font-weight="bold"
-          fill="url(#chromeGradient)" filter="url(#whiteGlow)" data-translate-key="hero-title-line1">
-        Ο Ψηφιακός σου Κόσμος
-    </text>
-
-      <text x="50%" y="180" text-anchor="middle" font-size="80" font-weight="bold"
-          fill="url(#chromeGradient)" filter="url(#whiteGlow)" data-translate-key="hero-title-line2">
-        Όπως τον Ονειρεύεσαι
-      </text>
-
-</svg>
-    <p class="animated-text subtitle" data-translate-key="hero-subtitle">
-      Στην <strong>AR Akron Services</strong> μετατρέπουμε κάθε σου ιδέα σε πραγματικότητα: websites, web εφαρμογές, blogs — όλα σχεδιασμένα αποκλειστικά για εσένα, χωρίς περιορισμούς. Εδώ, δεν υπάρχουν έτοιμες λύσεις. Υπάρχει μόνο η δική σου.
-    </p>
-    <div class="cta-buttons">
-      <a href="#services" class="cta-button" data-translate-key="cta-services">Οι Υπηρεσίες μας</a>
-      <a href="#contact" class="cta-button alt" data-translate-key="cta-quote">Ζήτα Προσφορά</a>
-    </div>
-  </div>
-</header>
+            </svg>
+            <p class="animated-text subtitle" data-translate-key="hero-subtitle">
+                Στην **AR Akron Services** μετατρέπουμε κάθε σου ιδέα σε πραγματικότητα: websites, web εφαρμογές, blogs — όλα σχεδιασμένα αποκλειστικά για εσένα, χωρίς περιορισμούς. Εδώ, δεν υπάρχουν έτοιμες λύσεις. Υπάρχει μόνο η δική σου.
+            </p>
+            <div class="cta-buttons">
+                <a href="#services" class="cta-button" data-translate-key="cta-services">Οι Υπηρεσίες μας</a>
+                <a href="#contact" class="cta-button alt" data-translate-key="cta-quote">Ζήτα Προσφορά</a>
+            </div>
+        </div>
+    </header>
 
 
-  <section id="services" class="section">
-    <h2 class="animated-text" data-translate-key="services-heading">Οι Υπηρεσίες μας</h2>
-    <div class="cards">
-      <div class="card animated-card">
-        <img src="https://img.icons8.com/ios-filled/100/ffffff/web.png" alt="Website Icon" style="width:60px; margin-bottom: 15px;">
-        <h3 data-translate-key="card1-title">Κατασκευή Ιστοσελίδων</h3>
-        <p data-translate-key="card1-description">Δημιουργούμε εικαστικά άρτιες και τεχνικά άψογες ιστοσελίδες, φτιαγμένες από το μηδέν – χωρίς έτοιμα templates, μόνο αυθεντικός, βελτιστοποιημένος κώδικας</p>
-      </div>
-      <div class="card animated-card">
-        <img src="https://img.icons8.com/ios-filled/100/ffffff/cloud-development.png" alt="Web App Icon" style="width:60px; margin-bottom: 15px;">
-        <h3 data-translate-key="card2-title">Web Εφαρμογές</h3>
-        <p data-translate-key="card2-description">Αναπτύσσουμε προσαρμοσμένες εφαρμογές για την επιχείρησή σου — από συστήματα κρατήσεων μέχρι διαχείριση δεδομένων. Αξιοπιστία, ασφάλεια και λειτουργικότητα</p>
-      </div>
-      <div class="card animated-card">
-        <img src="https://img.icons8.com/ios-filled/100/ffffff/blog.png" alt="Blog Icon" style="width:60px; margin-bottom: 15px;">
-        <h3 data-translate-key="card3-title">Blogs & Προσωπικά Sites</h3>
-        <p data-translate-key="card3-description">Εκφράσου ελεύθερα μέσα από ένα blog ή προσωπική ιστοσελίδα με μοντέρνο σχεδιασμό, ταχύτητα και δυνατότητες επέκτασης. Το περιεχόμενό σου αξίζει την καλύτερη παρουσίαση</p>
-      </div>
-    </div>
-  </section>
+    <section id="services" class="section">
+        <h2 class="animated-text" data-translate-key="services-heading">Οι Υπηρεσίες μας</h2>
+        <div class="cards">
+            <div class="card animated-card">
+                <img src="https://img.icons8.com/ios-filled/100/ffffff/web.png" alt="Website Icon" style="width:60px; margin-bottom: 15px;">
+                <h3 data-translate-key="card1-title">Κατασκευή Ιστοσελίδων</h3>
+                <p data-translate-key="card1-description">Δημιουργούμε εικαστικά άρτιες και τεχνικά άψογες ιστοσελίδες, φτιαγμένες από το μηδέν – χωρίς έτοιμα templates, μόνο αυθεντικός, βελτιστοποιημένος κώδικας</p>
+            </div>
+            <div class="card animated-card">
+                <img src="https://img.icons8.com/ios-filled/100/ffffff/cloud-development.png" alt="Web App Icon" style="width:60px; margin-bottom: 15px;">
+                <h3 data-translate-key="card2-title">Web Εφαρμογές</h3>
+                <p data-translate-key="card2-description">Αναπτύσσουμε προσαρμοσμένες εφαρμογές για την επιχείρησή σου — από συστήματα κρατήσεων μέχρι διαχείριση δεδομένων. Αξιοπιστία, ασφάλεια και λειτουργικότητα</p>
+            </div>
+            <div class="card animated-card">
+                <img src="https://img.icons8.com/ios-filled/100/ffffff/blog.png" alt="Blog Icon" style="width:60px; margin-bottom: 15px;">
+                <h3 data-translate-key="card3-title">Blogs & Προσωπικά Sites</h3>
+                <p data-translate-key="card3-description">Εκφράσου ελεύθερα μέσα από ένα blog ή προσωπική ιστοσελίδα με μοντέρνο σχεδιασμό, ταχύτητα και δυνατότητες επέκτασης. Το περιεχόμενό σου αξίζει την καλύτερη παρουσίαση</p>
+            </div>
+        </div>
+    </section>
 
-  <section id="highlights"class="section highlights">
-    <h2 class="animated-text" data-translate-key="highlights-heading">Γιατί να επιλέξεις την AR Akron Services</h2>
-    <div class="highlights-content">
-      <div class="highlight-point">
-        <h2 class="highlight-heading" data-translate-key="highlight1-heading">100% Custom</h2>
-        <p class="highlight-description" data-translate-key="highlight1-description">Δεν χρησιμοποιούμε πλατφόρμες drag & drop. Ό,τι βλέπεις είναι γραμμένο αποκλειστικά για σένα</p>
-      </div>
-      <div class="highlight-point">
-        <h2 class="highlight-heading" data-translate-key="highlight2-heading">Mobile First</h2>
-        <p class="highlight-description" data-translate-key="highlight2-description">Όλα μας τα έργα σχεδιάζονται πρώτα για κινητές συσκευές, ώστε να φαίνονται τέλεια παντού</p>
-      </div>
-      <div class="highlight-point">
-        <h2 class="highlight-heading" data-translate-key="highlight3-heading">Συνεργασία σε Βάθος</h2>
-        <p class="highlight-description" data-translate-key="highlight3-description">Μαθαίνουμε τι πραγματικά θέλεις και δημιουργούμε μαζί ένα προϊόν που σε αντιπροσωπεύει</p>
-      </div>
-    </div>
-  </section>
+    <section id="highlights"class="section highlights">
+        <h2 class="animated-text" data-translate-key="highlights-heading">Γιατί να επιλέξεις την AR Akron Services</h2>
+        <div class="highlights-content">
+            <div class="highlight-point">
+                <h2 class="highlight-heading" data-translate-key="highlight1-heading">100% Custom</h2>
+                <p class="highlight-description" data-translate-key="highlight1-description">Δεν χρησιμοποιούμε πλατφόρμες drag & drop. Ό,τι βλέπεις είναι γραμμένο αποκλειστικά για σένα</p>
+            </div>
+            <div class="highlight-point">
+                <h2 class="highlight-heading" data-translate-key="highlight2-heading">Mobile First</h2>
+                <p class="highlight-description" data-translate-key="highlight2-description">Όλα μας τα έργα σχεδιάζονται πρώτα για κινητές συσκευές, ώστε να φαίνονται τέλεια παντού</p>
+            </div>
+            <div class="highlight-point">
+                <h2 class="highlight-heading" data-translate-key="highlight3-heading">Συνεργασία σε Βάθος</h2>
+                <p class="highlight-description" data-translate-key="highlight3-description">Μαθαίνουμε τι πραγματικά θέλεις και δημιουργούμε μαζί ένα προϊόν που σε αντιπροσωπεύει</p>
+            </div>
+        </div>
+    </section>
 
-  <section id="PARALLAX" class="section parallax-section">
-    
-
+    <section id="PARALLAX" class="section parallax-section">
 
         <div class="parallax-content">
             <h2 class="animated-text" data-translate-key="portfolio-heading">Κάθε Project, Μια Νέα Πρόκληση</h2>
             <p class="animated-text" data-translate-key="portfolio-subtitle">Πιστεύουμε στην καινοτομία και στον συνεχή διάλογο μαζί σου για να δημιουργήσουμε κάτι μοναδικό</p>
 
-    <div class="swiper portfolio-swiper">
-  <div class="swiper-wrapper">
+            <div class="swiper portfolio-swiper">
+                <div class="swiper-wrapper">
 
- 
+                    <div class="swiper-slide">
+                        <div class="image-scroll-container">
+                            <img src="21.PNG" alt="arakronservices.gr" />
+                        </div>
+                    </div>
 
-    <div class="swiper-slide">
-      <div class="image-scroll-container">
-        <img src="21.PNG" alt="arakronservices.gr" />
-      </div>
-    </div>
+                    <div class="swiper-slide">
+                        <div class="image-scroll-container">
+                            <img src="20.PNG" alt="arakronqrcodegenerator.netlify.app" />
+                        </div>
+                    </div>
 
-    <div class="swiper-slide">
-      <div class="image-scroll-container">
-        <img src="20.PNG" alt="arakronqrcodegenerator.netlify.app" />
-      </div>
-    </div>
+                    <div class="swiper-slide">
+                        <div class="image-scroll-container">
+                            <img src="22.PNG" alt="mycashierarakron.gr" />
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="image-scroll-container">
 
-    <div class="swiper-slide">
-      <div class="image-scroll-container">
-        <img src="22.PNG" alt="mycashierarakron.gr" />
-      </div>
-    </div>
-   <div class="swiper-slide">
-      <div class="image-scroll-container">
-        
-        <img src="23.PNG" alt="amkefinal.netlify.app" />
-      </div>
-    </div>
-  </div>
-</div>
-
+                            <img src="23.PNG" alt="amkefinal.netlify.app" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-<section id="contact" class="section contact">
-    <div class="contact-intro-banner">
-        <div class="ticker-content">
-             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα —Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-             <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-
+    <section id="contact" class="section contact">
+        <div class="contact-intro-banner">
+            <div class="ticker-content">
+                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα —Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+            </div>
         </div>
+        <section id="faq" class="section faq-section">
+    <div class="container">
+        <h2 class="section-title animated-text" data-translate-key="faq-title">Συχνές Ερωτήσεις</h2>
+
+        <div class="faq-accordion">
+            <div class="faq-item animated-card">
+                <div class="faq-question" data-translate-key="faq-q1-title">
+                    Πόσο κοστίζει ένα custom website ή εφαρμογή;
+                    <span class="faq-icon"></span>
+                </div>
+                <div class="faq-answer" data-translate-key="faq-q1-answer">
+                    Το κόστος για ένα custom website ή εφαρμογή εξαρτάται από το πόσο περίπλοκο είναι. Μια απλή, custom ιστοσελίδα ξεκινά από τα 150€. Για πιο σύνθετα έργα, η τιμή διαμορφώνεται ανάλογα με τις λειτουργίες που θα χρειαστείτε και τον χρόνο που θα απαιτηθεί για την ανάπτυξή τους με κώδικα. Θα σας δώσουμε μια εξατομικευμένη προσφορά αφού μιλήσουμε για τις ανάγκες σας.
+                </div>
+            </div>
+
+            <div class="faq-item animated-card">
+                <div class="faq-question" data-translate-key="faq-q2-title">
+                    Πόσο χρόνο παίρνει η ανάπτυξη ενός custom έργου;
+                    <span class="faq-icon"></span>
+                </div>
+                <div class="faq-answer" data-translate-key="faq-q2-answer">
+                    Ο χρόνος παράδοσης εξαρτάται από το μέγεθος του έργου. Μια απλή, custom ιστοσελίδα μπορεί να είναι έτοιμη και να παραδοθεί σε 1 εβδομάδα. Για πιο σύνθετα projects με πολλές λειτουργίες, ο χρόνος αυξάνεται, αλλά πάντα στοχεύουμε στην γρήγορη και αποτελεσματική ολοκλήρωση χωρίς να θυσιάζουμε την ποιότητα.
+                </div>
+            </div>
+
+            <div class="faq-item animated-card">
+                <div class="faq-question" data-translate-key="faq-q3-title">
+                    Τι περιλαμβάνει η υπηρεσία custom ανάπτυξης;
+                    <span class="faq-icon"></span>
+                </div>
+                <div class="faq-answer" data-translate-key="faq-q3-answer">
+                    Η υπηρεσία μας περιλαμβάνει: να συζητήσουμε τις ανάγκες σας, να σχεδιάσουμε πώς θα φαίνεται και θα λειτουργεί το site, να γράψουμε τον κώδικα από το μηδέν, να βάλουμε το περιεχόμενό σας, να το κάνουμε φιλικό στις αναζητήσεις (βασικό SEO), να λειτουργεί καλά σε κινητά (mobile responsiveness), να το δοκιμάσουμε σχολαστικά και να σας βοηθήσουμε να το διαχειριστείτε.
+                </div>
+            </div>
+
+            <div class="faq-item animated-card">
+                <div class="faq-question" data-translate-key="faq-q4-title">
+                    Προσφέρετε υποστήριξη μετά την παράδοση του custom έργου;
+                    <span class="faq-icon"></span>
+                </div>
+                <div class="faq-answer" data-translate-key="faq-q4-answer">
+                    Ναι, παρέχουμε ολοκληρωμένη υποστήριξη και συντήρηση για κάθε custom έργο. Αυτό σημαίνει ότι θα λειτουργεί ομαλά, θα είναι ασφαλές και θα αναβαθμίζεται, ώστε η εφαρμογή σας να παραμένει πάντα ενημερωμένη και αποτελεσματική.
+                </div>
+            </div>
+
+            <div class="faq-item animated-card">
+                <div class="faq-question" data-translate-key="faq-q5-title">
+                    Αναλαμβάνετε και το περιεχόμενο (κείμενα, φωτογραφίες) για custom εφαρμογές;
+                    <span class="faq-icon"></span>
+                </div>
+                <div class="faq-answer" data-translate-key="faq-q5-answer">
+                    Μπορούμε να σας δώσουμε κατευθύνσεις για το τι περιεχόμενο θα χρειαστείτε. Η κύρια δουλειά μας είναι να αναπτύξουμε τον κώδικα και τις λειτουργίες, αλλά μπορούμε να συνεργαστούμε μαζί σας για να το ενσωματώσουμε όταν είναι έτοιμο.
+                </div>
+            </div>
+
+            <div class="faq-item animated-card">
+                <div class="faq-question" data-translate-key="faq-q6-title">
+                    Τι είναι το SEO και γιατί είναι σημαντικό για μια custom ιστοσελίδα;
+                    <span class="faq-icon"></span>
+                </div>
+                <div class="faq-answer" data-translate-key="faq-q6-answer">
+                    Το SEO σημαίνει βελτιστοποίηση για μηχανές αναζήτησης. Είναι η διαδικασία που βοηθάει την ιστοσελίδα σας να εμφανίζεται πιο ψηλά στα αποτελέσματα της Google. Ακόμη και σε custom ιστοσελίδες, βάζουμε βασικές ρυθμίσεις SEO στον κώδικα για να έχετε περισσότερους επισκέπτες.
+                </div>
+            </div>
+
+            <div class="faq-item animated-card">
+                <div class="faq-question" data-translate-key="faq-q7-title">
+                    Ποια είναι η διαδικασία συνεργασίας για ένα custom project;
+                    <span class="faq-icon"></span>
+                </div>
+                <div class="faq-answer" data-translate-key="faq-q7-answer">
+                    Η διαδικασία ξεκινά με μια πρώτη συζήτηση για την ιδέα σας. Μετά, κάνουμε μια ανάλυση και δίνουμε προσφορά, σχεδιάζουμε, γράφουμε τον κώδικα, κάνουμε δοκιμές, σας παραδίδουμε το έργο και τέλος σας υποστηρίζουμε. Είμαστε σε συνεχή επικοινωνία σε κάθε βήμα.
+                </div>
+            </div>
+
+            <div class="faq-item animated-card">
+                <div class="faq-question" data-translate-key="faq-q8-title">
+                    Χρειάζομαι hosting και domain για το custom έργο μου; Μπορείτε να με βοηθήσετε;
+                    <span class="faq-icon"></span>
+                </div>
+                <div class="faq-answer" data-translate-key="faq-q8-answer">
+                    Ναι, είναι απαραίτητα. Το domain είναι η διεύθυνση του site σας στο διαδίκτυο και το hosting είναι ο χώρος στον server όπου "ζει" το site σας. Μπορούμε να σας δώσουμε συμβουλές και να αναλάβουμε να τα ρυθμίσουμε για εσάς.
+                </div>
+            </div>
+
+            <div class="faq-item animated-card">
+                <div class="faq-question" data-translate-key="faq-q9-title">
+                    Δημιουργείτε web εφαρμογές ή μόνο ιστοσελίδες;
+                    <span class="faq-icon"></span>
+                </div>
+                <div class="faq-answer" data-translate-key="faq-q9-answer">
+                    Ειδικευόμαστε στην custom ανάπτυξη τόσο ιστοσελίδων όσο και web εφαρμογών. Αυτό σημαίνει ότι μπορούμε να φτιάξουμε οποιοδήποτε ψηφιακό προϊόν χρειάζεται να λειτουργεί μέσω διαδικτύου, από μια απλή εταιρική ιστοσελίδα μέχρι σύνθετες εφαρμογές διαχείρισης, όλα φτιαγμένα με χειροποίητο κώδικα για να ταιριάζουν ακριβώς στις ανάγκες σας.
+                </div>
+            </div>
         </div>
-
-<id="contact">
-  <h2 class="animated-text" data-translate-key="contact-heading">Επικοινωνία</h2>
-
-  <div class="contact-grid">
-    <div class="contact-left">
-        <img src="10.jpg" alt="AR Akron Services Logo" class="contact-logo" data-translate-key="logo-alt">
-
-      <p><i class="fas fa-phone"></i> <a href="tel:+306983661460">+30 698 366 1460</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:akronservices@mail.com">akronservices@mail.com</a></p>
-      <p>
-        <i class="fas fa-location-dot"></i>
-        <a href="https://www.google.com/maps/place/Γρίβα+Διγενή+2,+173+42+Άγιος+Δημήτριος" target="_blank" data-translate-key="contact-address">
-          Γρίβα Διγενή 2,<br>
-          17342 Αγ Δημήτριος,<br>
-          Αττική
-        </a>
-      </p>
-      <p>
-      <p>
-        <a href="https://www.facebook.com/arakronservices" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-  <a href="https://www.instagram.com/arakronservices/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-  <a href="https://www.google.com/search?sca_esv=84558b4239d0d7dc&sxsrf=AHTn8zof9JG0TaZcMxCIeoAXP7gNchPLVA:1743496777569&kgmid=/g/11v601wnh4&q=AR+Akron+Services&shndl=30&shem=lcuae,uaasie&source=sh/x/loc/uni/m1/1&kgs=5c7f2ce7c02199aa" target="_blank" aria-label="Google"><i class="fab fa-google"></i></a>
-  <a href="https://www.linkedin.com/in/ar-akron-services-22a765282/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </p>
-      </p>
     </div>
-
-    <div class="contact-right">
-      <div class="contact-form-container">
-        <h3 data-translate-key="contact-form-heading">Επικοινωνία</h3>
-  <form class="contact-form" id="contactForm">
-  <input type="text" name="name" placeholder="Όνομα" required data-translate-key="form-name-placeholder">
-  <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
-  <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
-
-<label for="termsCheckbox">
-  <input type="checkbox" id="termsCheckbox" required>
-  <span>
-    <span data-translate-key="terms-accept">Αποδέχομαι τους</span>
-    <a href="1.pdf" target="_blank" data-translate-key="terms-of-use">Όρους Χρήσης</a>
-    <span data-translate-key="and">και την</span>
-    <a href="2.pdf" target="_blank" data-translate-key="privacy-policy">Πολιτική Απορρήτου</a>.
-  </span>
-</label>
-
-
-  <button type="submit" data-translate-key="form-submit-button">Αποστολή</button>
-  <p id="form-status"></p>
-</form>
-
-<script>
-  document.getElementById("contactForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const form = e.target;
-
-    // Έλεγχος αν έχει επιλεγεί το checkbox
-    const termsAccepted = document.getElementById("termsCheckbox").checked;
-    if (!termsAccepted) {
-      document.getElementById("form-status").textContent = "Πρέπει να αποδεχτείτε τους όρους και την πολιτική απορρήτου.";
-      return;
-    }
-
-    const formData = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value,
-    };
-
-    try {
-      const res = await fetch("/.netlify/functions/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await res.json();
-      document.getElementById("form-status").textContent = result.success
-        ? "Το μήνυμα εστάλη!"
-        : "Σφάλμα κατά την αποστολή.";
-    } catch (err) {
-      console.error("Fetch error:", err);
-      document.getElementById("form-status").textContent = "Σφάλμα κατά την αποστολή.";
-    }
-
-    form.reset();
-  });
-</script>
-
-
-      </div>
-    </div>
-  </div>
 </section>
+        <id="contact">
+            <h2 class="animated-text" data-translate-key="contact-heading">Επικοινωνία</h2>
 
-  <footer>
-    <p data-translate-key="footer-text">© 2025 AR Akron Services</p>
-  </footer>
-<button id="back-to-top" aria-label="Επιστροφή στην κορυφή">
-    <svg class="progress-circle-svg" viewBox="0 0 60 60">
-        <circle class="progress-circle-bg" cx="30" cy="30" r="28"></circle>
-        <circle class="progress-circle" cx="30" cy="30" r="28"></circle>
-    </svg>
-    <span class="arrow-text">⬆</span>
- </button>
-<div id="cookieConsentBanner" class="cookie-banner" style="display: none;">
-    <div class="cookie-banner-content">
-        <p data-translate-key="cookie-banner-text">
-            Χρησιμοποιούμε cookies για να διασφαλίσουμε την καλύτερη δυνατή εμπειρία στον ιστότοπό μας. Συνεχίζοντας τη χρήση του site, αποδέχεστε τη χρήση cookies. Για περισσότερες πληροφορίες, διαβάστε την [[cookie_link]] μας.
-        </p>
-        <div class="cookie-banner-buttons">
-            <button id="acceptCookies" class="cookie-button accept-button" data-translate-key="cookie-banner-accept">Αποδοχή Όλων</button>
-            <button id="declineCookies" class="cookie-button decline-button" data-translate-key="cookie-banner-decline">Απόρριψη (εκτός απαραίτητων)</button>
+            <div class="contact-grid">
+                <div class="contact-left">
+                    <img src="10.jpg" alt="AR Akron Services Logo" class="contact-logo" data-translate-key="logo-alt">
+
+                    <p><i class="fas fa-phone"></i> <a href="tel:+306983661460">+30 698 366 1460</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:akronservices@mail.com">akronservices@mail.com</a></p>
+                    <p>
+                        <i class="fas fa-location-dot"></i>
+                        <a href="https://www.google.com/maps/place/Γρίβα+Διγενή+2,+173+42+Άγιος+Δημήτριος" target="_blank" data-translate-key="contact-address">
+                            Γρίβα Διγενή 2,<br>
+                            17342 Αγ Δημήτριος,<br>
+                            Αττική
+                        </a>
+                    </p>
+                    <p>
+                    <p>
+                        <a href="https://www.facebook.com/arakronservices" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/arakronservices/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.google.com/search?sca_esv=84558b4239d0d7dc&sxsrf=AHTn8zof9JG0TaZcMxCIeoAXP7gNchPLVA:1743496777569&kgmid=/g/11v601wnh4&q=AR+Akron+Services&shndl=30&shem=lcuae,uaasie&source=sh/x/loc/uni/m1/1&kgs=5c7f2ce7c02199aa" target="_blank" aria-label="Google"><i class="fab fa-google"></i></a>
+                        <a href="https://www.linkedin.com/in/ar-akron-services-22a765282/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </p>
+                    </p>
+                </div>
+
+                <div class="contact-right">
+                    <div class="contact-form-container">
+                        <h3 data-translate-key="contact-form-heading">Επικοινωνία</h3>
+                        <form class="contact-form" id="contactForm">
+                            <input type="text" name="name" placeholder="Όνομα" required data-translate-key="form-name-placeholder">
+                            <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
+                            <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
+
+                            <label for="termsCheckbox">
+                                <input type="checkbox" id="termsCheckbox" required>
+                                <span>
+                                    <span data-translate-key="terms-accept">Αποδέχομαι τους</span>
+                                    <a href="1.pdf" target="_blank" data-translate-key="terms-of-use">Όρους Χρήσης</a>
+                                    <span data-translate-key="and">και την</span>
+                                    <a href="2.pdf" target="_blank" data-translate-key="privacy-policy">Πολιτική Απορρήτου</a>.
+                                </span>
+                            </label>
+
+                            <button type="submit" data-translate-key="form-submit-button">Αποστολή</button>
+                            <p id="form-status"></p>
+                        </form>
+
+                        <script>
+                            document.getElementById("contactForm").addEventListener("submit", async (e) => {
+                                e.preventDefault();
+                                const form = e.target;
+
+                                // Έλεγχος αν έχει επιλεγεί το checkbox
+                                const termsAccepted = document.getElementById("termsCheckbox").checked;
+                                if (!termsAccepted) {
+                                    document.getElementById("form-status").textContent = "Πρέπει να αποδεχτείτε τους όρους και την πολιτική απορρήτου.";
+                                    return;
+                                }
+
+                                const formData = {
+                                    name: form.name.value,
+                                    email: form.email.value,
+                                    message: form.message.value,
+                                };
+
+                                try {
+                                    const res = await fetch("/.netlify/functions/send-email", {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify(formData),
+                                    });
+
+                                    const result = await res.json();
+                                    document.getElementById("form-status").textContent = result.success
+                                        ? "Το μήνυμα εστάλη!"
+                                        : "Σφάλμα κατά την αποστολή.";
+                                } catch (err) {
+                                    console.error("Fetch error:", err);
+                                    document.getElementById("form-status").textContent = "Σφάλμα κατά την αποστολή.";
+                                }
+
+                                form.reset();
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p data-translate-key="footer-text">© 2025 AR Akron Services</p>
+        </footer>
+        <button id="back-to-top" aria-label="Επιστροφή στην κορυφή">
+            <svg class="progress-circle-svg" viewBox="0 0 60 60">
+                <circle class="progress-circle-bg" cx="30" cy="30" r="28"></circle>
+                <circle class="progress-circle" cx="30" cy="30" r="28"></circle>
+            </svg>
+            <span class="arrow-text">⬆</span>
+        </button>
+        <div id="cookieConsentBanner" class="cookie-banner" style="display: none;">
+            <div class="cookie-banner-content">
+                <p data-translate-key="cookie-banner-text">
+                    Χρησιμοποιούμε cookies για να διασφαλίσουμε την καλύτερη δυνατή εμπειρία στον ιστότοπό μας. Συνεχίζοντας τη χρήση του site, αποδέχεστε τη χρήση cookies. Για περισσότερες πληροφορίες, διαβάστε την [[cookie_link]] μας.
+                </p>
+                <div class="cookie-banner-buttons">
+                    <button id="acceptCookies" class="cookie-button accept-button" data-translate-key="cookie-banner-accept">Αποδοχή Όλων</button>
+                    <button id="declineCookies" class="cookie-button decline-button" data-translate-key="cookie-banner-decline">Απόρριψη (εκτός απαραίτητων)</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
- <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script src="translation.js"></script>
- <script src="script.js"></script>
-<script>
-  const swiper = new Swiper(".portfolio-swiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    loop: true,
-    slidesPerView: "auto",
-    autoplay: {
-      delay: 3000, // Κάθε 3 δευτερόλεπτα
-      disableOnInteraction: false, // συνεχίζει να παίζει ακόμα κι αν ο χρήστης αλληλεπιδράσει
-    },
-    
-    coverflowEffect: {
-      rotate: 30,
-      stretch: 0,
-      depth: 200,
-      modifier: 1,
-      slideShadows: true,
-    },
-  });
-  const swiperEl = document.querySelector('.portfolio-swiper');
-swiperEl.addEventListener('mouseenter', () => swiper.autoplay.stop());
-swiperEl.addEventListener('mouseleave', () => swiper.autoplay.start());
+        <script src="translation.js"></script>
+        <script src="script.js"></script>
+        <script>
+            const swiper = new Swiper(".portfolio-swiper", {
+                effect: "coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                loop: true,
+                slidesPerView: "auto",
+                autoplay: {
+                    delay: 3000, // Κάθε 3 δευτερόλεπτα
+                    disableOnInteraction: false, // συνεχίζει να παίζει ακόμα κι αν ο χρήστης αλληλεπιδράσει
+                },
 
-</script>
+                coverflowEffect: {
+                    rotate: 30,
+                    stretch: 0,
+                    depth: 200,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+            });
+            const swiperEl = document.querySelector('.portfolio-swiper');
+            swiperEl.addEventListener('mouseenter', () => swiper.autoplay.stop());
+            swiperEl.addEventListener('mouseleave', () => swiper.autoplay.start());
+        </script>
+        <script>
 
+          // script.js (μέσα στο DOMContentLoaded listener)
 
+document.addEventListener('DOMContentLoaded', () => {
+    // ... Ο ΥΠΑΡΧΩΝ ΚΩΔΙΚΑΣ ΣΟΥ ΓΙΑ ΟΛΑ ΤΑ ΑΛΛΑ ...
+
+    // --- ΚΩΔΙΚΑΣ ΓΙΑ FAQ ACCORDION ---
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.closest('.faq-item');
+            const faqAnswer = faqItem.querySelector('.faq-answer');
+
+            // Κλείσε όλες τις άλλες απαντήσεις
+            faqQuestions.forEach(item => {
+                const otherFaqItem = item.closest('.faq-item');
+                if (otherFaqItem !== faqItem) {
+                    item.classList.remove('active');
+                    otherFaqItem.querySelector('.faq-answer').style.maxHeight = '0';
+                    otherFaqItem.querySelector('.faq-answer').style.padding = '0 25px';
+                }
+            });
+
+            // Εναλλαγή της ενεργής κλάσης στην τρέχουσα ερώτηση
+            question.classList.toggle('active');
+
+            // Άνοιγμα/Κλείσιμο της απάντησης
+            if (question.classList.contains('active')) {
+                // Όταν ανοίγει: βεβαιωθείτε ότι το maxHeight είναι αρκετά μεγάλο για να χωρέσει το περιεχόμενο
+                // Χρησιμοποιούμε scrollHeight για να πάρουμε το πραγματικό ύψος του περιεχομένου
+                faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+                faqAnswer.style.padding = '20px 25px'; // Εμφάνιση padding
+            } else {
+                // Όταν κλείνει
+                faqAnswer.style.maxHeight = '0';
+                faqAnswer.style.padding = '0 25px'; // Απόκρυψη padding
+            }
+        });
+    });
+
+    // ... Ο ΥΠΟΛΟΙΠΟΣ ΚΩΔΙΚΑΣ ΣΟΥ (π.χ. για Swiper, animejs, parallax, back-to-top κλπ) ...
+
+}); // Τέλος του ΕΝΙΑΙΟΥ DOMContentLoaded listener
+        </script>
 </body>
 </html>
