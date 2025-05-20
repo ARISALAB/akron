@@ -249,6 +249,104 @@
   label {
     cursor: pointer;
   }
+
+/* style.css */
+
+/* --- Cookie Consent Banner Styling --- */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Σκούρο διαφανές φόντο */
+    color: #f5f5f5;
+    padding: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Βεβαιωθείτε ότι είναι πάνω από άλλα στοιχεία */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: fadeIn 0.5s ease-out; /* Εφέ εμφάνισης */
+}
+
+.cookie-banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    text-align: center;
+}
+
+.cookie-banner p {
+    margin-bottom: 15px;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.cookie-banner a {
+    color: #00bcd4; /* Το accent χρώμα σου */
+    text-decoration: underline;
+}
+
+.cookie-banner-buttons {
+    display: flex;
+    gap: 15px; /* Κενό μεταξύ των κουμπιών */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cookie-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accept-button {
+    background-color: #00bcd4; /* Το accent χρώμα σου */
+    color: #ffffff;
+}
+
+.accept-button:hover {
+    background-color: #0097a7;
+}
+
+.decline-button {
+    background-color: #3a3a3a;
+    color: #f5f5f5;
+}
+
+.decline-button:hover {
+    background-color: #555555;
+}
+
+/* Animation for banner appearance */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cookie-banner {
+        padding: 15px;
+    }
+    .cookie-banner-content {
+        max-width: 100%;
+    }
+    .cookie-banner-buttons {
+        flex-direction: column; /* Κουμπιά το ένα κάτω από το άλλο σε κινητά */
+        width: 100%;
+    }
+    .cookie-button {
+        width: 100%; /* Τα κουμπιά πιάνουν όλο το πλάτος */
+    }
+}
+
 </style>
 
 <body>
@@ -555,6 +653,18 @@
     </svg>
     <span class="arrow-text">⬆</span>
  </button>
+<div id="cookieConsentBanner" class="cookie-banner" style="display: none;">
+    <div class="cookie-banner-content">
+        <p data-translate-key="cookie-banner-text">
+            Χρησιμοποιούμε cookies για να διασφαλίσουμε την καλύτερη δυνατή εμπειρία στον ιστότοπό μας. Συνεχίζοντας τη χρήση του site, αποδέχεστε τη χρήση cookies. Για περισσότερες πληροφορίες, διαβάστε την [[cookie_link]] μας.
+        </p>
+        <div class="cookie-banner-buttons">
+            <button id="acceptCookies" class="cookie-button accept-button" data-translate-key="cookie-banner-accept">Αποδοχή Όλων</button>
+            <button id="declineCookies" class="cookie-button decline-button" data-translate-key="cookie-banner-decline">Απόρριψη (εκτός απαραίτητων)</button>
+        </div>
+    </div>
+</div>
+
  <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
