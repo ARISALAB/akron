@@ -170,3 +170,72 @@ document.addEventListener('DOMContentLoaded', () => {
         activeOption.classList.add('active');
     }
 });
+// Function to apply the translation
+function translatePage(lang) { // Το lang είναι ήδη διαθέσιμο εδώ
+    const elements = document.querySelectorAll('[data-translate-key]');
+    const currentTranslations = translations[lang];
+
+    if (!currentTranslations) {
+        console.error("Translations not found for language:", lang);
+        return;
+    }
+
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate-key');
+        const translation = currentTranslations[key];
+
+        if (translation === undefined) {
+            console.warn("Translation key not found:", key, "for language:", lang);
+            return;
+        }
+
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translation;
+        } else if (element.tagName === 'IMG') {
+            element.alt = translation;
+        } else if (element.tagName === 'A' && (key === 'terms-of-use' || key === 'privacy-policy')) {
+            // Αυτή η συνθήκη αφορά τους συνδέσμους μέσα στο HTML που έδωσες
+            // και είναι ξεχωριστοί από το form-consent-text.
+            // Θα πρέπει να ενημερώσεις το href με βάση τη γλώσσα.
+            if (key === 'terms-of-use') {
+                element.href = `1-${lang}.pdf`;
+            } else if (key === 'privacy-policy') {
+                element.href = `2-${lang}.pdf`;
+            }
+            element.textContent = translation; // Ενημέρωσε και το κείμενο του συνδέσμου
+        }
+        else if (element.tagName === 'TEXT' && element.closest('svg')) {
+             element.textContent = translation;
+        }
+        else {
+            element.innerHTML = translation;
+        }
+    });
+
+    // Ειδικός χειρισμός για το κείμενο συναίνεσης της φόρμας επικοινωνίας
+    const consentLabel = document.querySelector('label[data-translate-key="form-consent-text"]');
+    if (consentLabel) {
+        let translatedText = translations[lang]["form-consent-text"];
+        if (translatedText) {
+            // Ορισμός των διαδρομών για τα PDF με βάση την τρέχουσα γλώσσα
+            const privacyPdfPath = `2-${lang}.pdf`;
+            const termsPdfPath = `1-${lang}.pdf`;
+
+            // Δημιουργία των HTML συνδέσμων
+            const privacyLinkHtml = `<a href="${privacyPdfPath}" target="_blank">${translations[lang]["form-privacy-link"]}</a>`;
+            const termsLinkHtml = `<a href="${termsPdfPath}" target="_blank">${translations[lang]["form-terms-link"]}</a>`;
+
+            // Αντικατάσταση των placeholders με τους HTML συνδέσμους
+            translatedText = translatedText.replace('[[privacy_link]]', privacyLinkHtml);
+            translatedText = translatedText.replace('[[terms_link]]', termsLinkHtml);
+
+            // Εφαρμογή του τελικού κειμένου με τους συνδέσμους στο label
+            consentLabel.innerHTML = translatedText;
+        }
+    }
+
+    document.documentElement.lang = lang;
+    localStorage.setItem('selectedLanguage', lang);
+    const event = new CustomEvent('languageChanged', { detail: { lang: lang } });
+    document.dispatchEvent(event);
+}
