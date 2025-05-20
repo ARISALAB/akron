@@ -484,7 +484,9 @@
   <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
   <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
 
-<div class="privacy-terms-checkbox">
+ <label for="termsCheckbox">
+
+  <div class="privacy-terms-checkbox">
   <input type="checkbox" id="agreeToTerms" name="agreeToTerms" required>
   <label for="agreeToTerms">
     <span data-translate-key="form-agree-terms">
@@ -496,10 +498,71 @@
   </label>
 </div>
 
+
+</label>
+
+
   <button type="submit" data-translate-key="form-submit-button">Αποστολή</button>
   <p id="form-status"></p>
 </form>
+<script>
+  // ... (άλλα κομμάτια του translation.js) ...
 
+function changeLanguage(lang) {
+  // Ενημέρωση κειμένων με data-translate-key
+  const elements = document.querySelectorAll('[data-translate-key]');
+  elements.forEach(el => {
+    const key = el.getAttribute('data-translate-key');
+    if (translations[lang] && translations[lang][key]) {
+      // Εάν το κλειδί είναι "form-agree-terms", τότε το κείμενο περιέχει HTML
+      // Οπότε χρησιμοποιούμε innerHTML αντί για textContent
+      if (key === 'form-agree-terms') {
+        el.innerHTML = translations[lang][key];
+      } else {
+        el.textContent = translations[lang][key];
+      }
+    }
+  });
+
+  // Ενημέρωση PDF links
+  const termsLink = document.getElementById('termsLink');
+  const privacyLink = document.getElementById('privacyLink');
+
+  if (termsLink) { // Ελέγχουμε αν το στοιχείο υπάρχει
+    termsLink.href = `${lang === 'el' ? '1-el.pdf' : '1-en.pdf'}`; // Προσαρμόστε αν έχετε και άλλες γλώσσες
+  }
+  if (privacyLink) { // Ελέγχουμε αν το στοιχείο υπάρχει
+    privacyLink.href = `${lang === 'el' ? '2-el.pdf' : '2-en.pdf'}`; // Προσαρμόστε αν έχετε και άλλες γλώσσες
+  }
+
+  // Αποθηκεύουμε την επιλεγμένη γλώσσα στο localStorage
+  localStorage.setItem('selectedLanguage', lang);
+
+  // Ενημερώνουμε τις κλάσεις ενεργής γλώσσας στο language-switcher (αν υπάρχει)
+  document.querySelectorAll('.language-switcher .lang-option').forEach(option => {
+    if (option.dataset.lang === lang) {
+      option.classList.add('active');
+    } else {
+      option.classList.remove('active');
+    }
+  });
+}
+
+// Αυτό το κομμάτι είναι για την αρχική φόρτωση της γλώσσας
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('selectedLanguage') || 'el'; // Προεπιλογή σε 'el'
+    changeLanguage(savedLang);
+
+    // Ενεργοποίηση των κουμπιών γλώσσας
+    document.querySelectorAll('.language-switcher .lang-option').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lang = e.target.dataset.lang;
+            changeLanguage(lang);
+        });
+    });
+});
+</script>
 <script>
   document.getElementById("contactForm").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -562,317 +625,31 @@
 <script src="translation.js"></script>
  <script src="script.js"></script>
 <script>
-// Αυτό το αντικείμενο θα πρέπει να είναι ορισμένο μία φορά και να περιέχει όλες τις μεταφράσεις σου.
-// Βεβαιώσου ότι το "form-agree-terms" περιέχει τα <a> tags με τα σωστά IDs και αρχικές hrefs.
-const translations = {
-    el: {
-        "logo-alt": "Λογότυπο AR Akron Services",
-        "nav-services": "Υπηρεσίες",
-        "nav-highlights": "Akron",
-        "nav-portfolio": "Έργα",
-        "nav-contact": "Επικοινωνία",
-        "hero-title-line1": "Ο Ψηφιακός σου Κόσμος",
-        "hero-title-line2": "Όπως τον Ονειρεύεσαι",
-        "hero-subtitle": "Στην <strong>AR Akron Services</strong> μετατρέπουμε κάθε σου ιδέα σε πραγματικότητα: websites, web εφαρμογές, blogs — όλα σχεδιασμένα αποκλειστικά για εσένα, χωρίς περιορισμούς. Εδώ, δεν υπάρχουν έτοιμες λύσεις. Υπάρχει μόνο η δική σου.",
-        "cta-services": "Οι Υπηρεσίες μας",
-        "cta-quote": "Ζήτα Προσφορά",
-        "services-heading": "Οι Υπηρεσίες μας",
-        "card1-title": "Κατασκευή Ιστοσελίδων",
-        "card1-description": "Δημιουργούμε εικαστικά άρτιες και τεχνικά άψογες ιστοσελίδες, φτιαγμένες από το μηδέν – χωρίς έτοιμα templates, μόνο αυθεντικός, βελτιστοποιημένος κώδικας",
-        "card2-title": "Web Εφαρμογές",
-        "card2-description": "Αναπτύσσουμε προσαρμοσμένες εφαρμογές για την επιχείρησή σου — από συστήματα κρατήσεων μέχρι διαχείριση δεδομένων. Αξιοπιστία, ασφάλεια και λειτουργικότητα",
-        "card3-title": "Blogs & Προσωπικά Sites",
-        "card3-description": "Εκφράσου ελεύθερα μέσα από ένα blog ή προσωπική ιστοσελίδα με μοντέρνο σχεδιασμό, ταχύτητα και δυνατότητες επέκτασης. Το περιεχόμενό σου αξίζει την καλύτερη παρουσίαση",
-        "highlights-heading": "Γιατί να επιλέξεις την AR Akron Services",
-        "highlight1-heading": "100% Custom",
-        "highlight1-description": "Δεν χρησιμοποιούμε πλατφόρμες drag & drop. Ό,τι βλέπεις είναι γραμμένο αποκλειστικά για σένα",
-        "highlight2-heading": "Mobile First",
-        "highlight2-description": "Όλα μας τα έργα σχεδιάζονται πρώτα για κινητές συσκευές, ώστε να φαίνονται τέλεια παντού",
-        "highlight3-heading": "Συνεργασία σε Βάθος",
-        "highlight3-description": "Μαθαίνουμε τι πραγματικά θέλεις και δημιουργούμε μαζί ένα προϊόν που σε αντιπροσωπεύει",
-        "portfolio-heading": "Κάθε Project, Μια Νέα Πρόκληση",
-        "portfolio-subtitle": "Πιστεύουμε στην καινοτομία και στον συνεχή διάλογο μαζί σου για να δημιουργήσουμε κάτι μοναδικό",
-        "contact-ticker": "Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —",
-        "contact-heading": "Επικοινωνία",
-        "contact-address": "Γρίβα Διγενή 2,<br> 17342 Αγ Δημήτριος,<br> Αττική",
-        "contact-form-heading": "Επικοινωνία",
-        "form-name-placeholder": "Όνομα",
-        "form-email-placeholder": "Email",
-        "form-message-placeholder": "Το μήνυμά σας",
-        "form-agree-terms": "Διάβασα και αποδέχομαι τους <a id='termsLink' href='1-el.pdf' target='_blank' rel='noopener noreferrer'>Όρους Χρήσης</a> και την <a id='privacyLink' href='2-el.pdf' target='_blank' rel='noopener noreferrer'>Πολιτική Προστασίας Δεδομένων</a>.",
-        "form-submit-button": "Αποστολή",
-        "footer-text": "© 2025 AR Akron Services"
-    },
-    en: {
-        "logo-alt": "AR Akron Services Logo",
-        "nav-services": "Services",
-        "nav-highlights": "Akron",
-        "nav-portfolio": "Portfolio",
-        "nav-contact": "Contact",
-        "hero-title-line1": "Your Digital World",
-        "hero-title-line2": "As You Dream It",
-        "hero-subtitle": "At <strong>AR Akron Services</strong>, we turn your every idea into reality: websites, web applications, blogs — all designed exclusively for you, without limitations. Here, there are no ready-made solutions. There is only yours.",
-        "cta-services": "Our Services",
-        "cta-quote": "Get a Quote",
-        "services-heading": "Our Services",
-        "card1-title": "Website Development",
-        "card1-description": "We create aesthetically pleasing and technically flawless websites, built from scratch – no ready-made templates, only authentic, optimized code.",
-        "card2-title": "Web Applications",
-        "card2-description": "We develop customized applications for your business — from booking systems to data management. Reliability, security, and functionality.",
-        "card3-title": "Blogs & Personal Sites",
-        "card3-description": "Express yourself freely through a blog or personal website with modern design, speed, and expansion capabilities. Your content deserves the best presentation.",
-        "highlights-heading": "Why choose AR Akron Services",
-        "highlight1-heading": "100% Custom",
-        "highlight1-description": "We don't use drag & drop platforms. Everything you see is written exclusively for you.",
-        "highlight2-heading": "Mobile First",
-        "highlight2-description": "All our projects are designed mobile-first, so they look perfect everywhere.",
-        "highlight3-heading": "In-Depth Collaboration",
-        "highlight3-description": "We learn what you truly want and create a product that represents you, together.",
-        "portfolio-heading": "Every Project, A New Challenge",
-        "portfolio-subtitle": "We believe in innovation and continuous dialogue with you to create something unique.",
-        "contact-ticker": "Custom solutions for your digital vision — Websites | Apps | Blogs — Your unique presence, our expertise — Reliability and security you can trust — Contact us for your custom project! —",
-        "contact-heading": "Contact Us",
-        "contact-address": "Griva Digeni 2,<br> 17342 Ag. Dimitrios,<br> Attica",
-        "contact-form-heading": "Contact Us",
-        "form-name-placeholder": "Name",
-        "form-email-placeholder": "Email",
-        "form-message-placeholder": "Your message",
-        "form-agree-terms": "I have read and accept the <a id='termsLink' href='1-en.pdf' target='_blank' rel='noopener noreferrer'>Terms of Use</a> and the <a id='privacyLink' href='2-en.pdf' target='_blank' rel='noopener noreferrer'>Privacy Policy</a>.",
-        "form-submit-button": "Send Message",
-        "footer-text": "© 2025 AR Akron Services"
-    }
-};
-
-// Συνάρτηση για την αλλαγή γλώσσας και ενημέρωση των συνδέσμων PDF
-function changeLanguage(lang) {
-    const elements = document.querySelectorAll('[data-translate-key]');
-    elements.forEach(el => {
-        const key = el.getAttribute('data-translate-key');
-        if (translations[lang] && translations[lang][key]) {
-            // Εάν το κλειδί είναι "form-agree-terms", τότε το κείμενο περιέχει HTML (<a> tags)
-            // Οπότε χρησιμοποιούμε innerHTML αντί για textContent
-            if (key === 'form-agree-terms') {
-                el.innerHTML = translations[lang][key];
-            } else {
-                el.textContent = translations[lang][key];
-            }
-        }
-    });
-
-    // Ενημέρωση PDF links μετά την αλλαγή γλώσσας
-    // Αυτό είναι απαραίτητο αν το innerHTML δεν "πιάνει" τα IDs ή αν θέλεις να το κάνεις ξεχωριστά
-    const termsLink = document.getElementById('termsLink');
-    const privacyLink = document.getElementById('privacyLink');
-
-    if (termsLink) { // Ελέγχουμε αν το στοιχείο υπάρχει
-        termsLink.href = `${lang === 'el' ? '1-el.pdf' : '1-en.pdf'}`;
-    }
-    if (privacyLink) { // Ελέγχουμε αν το στοιχείο υπάρχει
-        privacyLink.href = `${lang === 'el' ? '2-el.pdf' : '2-en.pdf'}`;
-    }
-
-    // Αποθηκεύουμε την επιλεγμένη γλώσσα στο localStorage
-    localStorage.setItem('selectedLanguage', lang);
-
-    // Ενημερώνουμε τις κλάσεις ενεργής γλώσσας στο language-switcher
-    document.querySelectorAll('.language-switcher .lang-option').forEach(option => {
-        if (option.dataset.lang === lang) {
-            option.classList.add('active');
-        } else {
-            option.classList.remove('active');
-        }
-    });
-}
-
-// Αυτό το κομμάτι είναι για την αρχική φόρτωση της γλώσσας
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('selectedLanguage') || 'el'; // Προεπιλογή σε 'el'
-    changeLanguage(savedLang);
-
-    // Ενεργοποίηση των κουμπιών γλώσσας
-    document.querySelectorAll('.language-switcher .lang-option').forEach(button => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const lang = e.target.dataset.lang;
-            changeLanguage(lang);
-        });
-    });
-
-    // Event Listener για το hamburger menu (αν υπάρχει)
-    const hamburgerToggle = document.querySelector('.hamburger-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (hamburgerToggle && navLinks) {
-        hamburgerToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-        });
-
-        // Κλείσιμο του μενού όταν κάνεις κλικ σε σύνδεσμο
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-            });
-        });
-    }
-
-    // Scroll-to-top button functionality
-    const backToTopButton = document.getElementById('back-to-top');
-    const progressCircle = document.querySelector('.progress-circle');
-
-    if (backToTopButton && progressCircle) {
-        // Show/hide button based on scroll position
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { // Show button after scrolling 300px
-                backToTopButton.style.display = 'flex';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-
-            // Update scroll progress indicator
-            const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const progress = (window.scrollY / totalHeight) * 100;
-            progressCircle.style.strokeDasharray = `${progress}, 100`;
-        });
-
-        // Scroll to top on button click
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    // Animation for elements with class 'animated-text' and 'animated-card'
-    const animateElements = document.querySelectorAll('.animated-text, .animated-card');
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the element is visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing once visible
-            }
-        });
-    }, observerOptions);
-
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
-});
-
-// *******************************************************************
-// ΚΩΔΙΚΑΣ ΥΠΟΒΟΛΗΣ ΦΟΡΜΑΣ ΕΠΙΚΟΙΝΩΝΙΑΣ (ΕΔΩ ΕΓΙΝΑΝ ΟΙ ΔΙΟΡΘΩΣΕΙΣ)
-// *******************************************************************
-
-document.getElementById("contactForm").addEventListener("submit", async (e) => {
-    e.preventDefault(); // Αποτρέπει την προεπιλεγμένη υποβολή της φόρμας
-
-    const form = e.target;
-    // ΔΙΟΡΘΩΣΗ: Χρησιμοποιούμε το σωστό ID "agreeToTerms" για το checkbox
-    const agreeToTermsCheckbox = document.getElementById("agreeToTerms");
-    const formStatus = document.getElementById("form-status");
-
-    // Ελέγχουμε αν το checkbox είναι τσεκαρισμένο
-    if (!agreeToTermsCheckbox.checked) {
-        formStatus.textContent = "Παρακαλώ αποδεχτείτε τους Όρους Χρήσης και την Πολιτική Προστασίας Δεδομένων.";
-        formStatus.style.color = "red";
-        return; // Διακόπτει την αποστολή της φόρμας
-    }
-
-    formStatus.textContent = "Αποστολή...";
-    formStatus.style.color = "white"; // Αλλάξτε το χρώμα του μηνύματος "Αποστολή..." αν χρειάζεται
-
-    const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        message: form.message.value,
-    };
-
-    try {
-        const res = await fetch("/.netlify/functions/send-email", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData),
-        });
-
-        const result = await res.json();
-        formStatus.textContent = result.success
-            ? "Το μήνυμα εστάλη!"
-            : "Σφάλμα κατά την αποστολή.";
-        formStatus.style.color = result.success ? "green" : "red";
-    } catch (err) {
-        console.error("Fetch error:", err);
-        formStatus.textContent = "Σφάλμα κατά την αποστολή.";
-        formStatus.style.color = "red";
-    }
-
-    // Επαναφέρει τη φόρμα μόνο αν η αποστολή ήταν επιτυχής
-    if (formStatus.textContent === "Το μήνυμα εστάλη!") {
-        form.reset();
-        agreeToTermsCheckbox.checked = false; // Ξετσεκάρει το checkbox μετά την επιτυχή αποστολή
-    }
-});
-
-// SWIPER JS INIT (αν το έχεις σε inline script και όχι σε script.js)
-const swiper = new Swiper(".portfolio-swiper", {
+  const swiper = new Swiper(".portfolio-swiper", {
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
     loop: true,
     slidesPerView: "auto",
     autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
+      delay: 3000, // Κάθε 3 δευτερόλεπτα
+      disableOnInteraction: false, // συνεχίζει να παίζει ακόμα κι αν ο χρήστης αλληλεπιδράσει
     },
+    
     coverflowEffect: {
-        rotate: 30,
-        stretch: 0,
-        depth: 200,
-        modifier: 1,
-        slideShadows: true,
+      rotate: 30,
+      stretch: 0,
+      depth: 200,
+      modifier: 1,
+      slideShadows: true,
     },
-});
-const swiperEl = document.querySelector('.portfolio-swiper');
-if (swiperEl) { // Added check in case swiper is not always present
-    swiperEl.addEventListener('mouseenter', () => swiper.autoplay.stop());
-    swiperEl.addEventListener('mouseleave', () => swiper.autoplay.start());
-}
-
-
-// ticker animation
-document.addEventListener('DOMContentLoaded', function() {
-    const tickerContent = document.querySelector('.ticker-content');
-    if (tickerContent) {
-        const spans = tickerContent.querySelectorAll('span');
-        let totalWidth = 0;
-        spans.forEach(span => {
-            totalWidth += span.offsetWidth;
-        });
-
-        let currentPosition = 0;
-
-        function animateTicker() {
-            currentPosition -= 1; // Speed of the ticker
-            if (currentPosition <= -totalWidth) {
-                currentPosition = 0;
-            }
-            tickerContent.style.transform = `translateX(${currentPosition}px)`;
-            requestAnimationFrame(animateTicker);
-        }
-
-        animateTicker();
-    }
-});
-
+  });
+  const swiperEl = document.querySelector('.portfolio-swiper');
+swiperEl.addEventListener('mouseenter', () => swiper.autoplay.stop());
+swiperEl.addEventListener('mouseleave', () => swiper.autoplay.start());
 
 </script>
+
 
 </body>
 </html>
