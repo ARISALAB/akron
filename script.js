@@ -503,3 +503,65 @@ document.addEventListener('DOMContentLoaded', () => {
     overflow: hidden;
 }
 */
+// script.js (μέσα στο DOMContentLoaded listener)
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... Ο ΥΠΑΡΧΩΝ ΚΩΔΙΚΑΣ ΣΟΥ ΓΙΑ ΟΛΑ ΤΑ ΑΛΛΑ ...
+
+    // --- ΚΩΔΙΚΑΣ ΓΙΑ COOKIE CONSENT BANNER ---
+    const cookieBanner = document.getElementById('cookieConsentBanner');
+    const acceptCookiesBtn = document.getElementById('acceptCookies');
+    const declineCookiesBtn = document.getElementById('declineCookies');
+
+    // **ΝΕΑ ΛΟΓΙΚΗ ΓΙΑ ΤΗΝ ΕΜΦΑΝΙΣΗ ΤΟΥ BANNER (Πάντα εμφανές για δοκιμή)**
+    // Εμφανίζει το banner ανεξάρτητα από τη συγκατάθεση για σκοπούς δοκιμής
+    function showCookieBanner() {
+        cookieBanner.style.display = 'flex'; // Πάντα εμφανές για δοκιμή
+    }
+
+    // Κρύβει το banner και αποθηκεύει την επιλογή
+    function hideCookieBanner(consentType) {
+        localStorage.setItem('cookieConsent', consentType);
+        cookieBanner.style.display = 'none';
+
+        // Εδώ μπορείς να φορτώσεις scripts που απαιτούν συγκατάθεση
+        if (consentType === 'accepted') {
+            loadGoogleAnalytics(); // Μια συνάρτηση που θα φορτώνει το GA script
+        }
+    }
+
+    // Συνάρτηση για φόρτωση Google Analytics (αν χρησιμοποιείς)
+    function loadGoogleAnalytics() {
+        // ... (ο κώδικας του Google Analytics σου) ...
+        console.log('Google Analytics loaded (or would be if uncommented).');
+    }
+
+    // Listeners για τα κουμπιά
+    acceptCookiesBtn.addEventListener('click', () => {
+        hideCookieBanner('accepted');
+    });
+
+    declineCookiesBtn.addEventListener('click', () => {
+        hideCookieBanner('declined');
+    });
+
+    // **ΕΝΗΜΕΡΩΣΗ: Προσθήκη listener για το custom event 'languageChanged'**
+    // Όταν αλλάζει η γλώσσα, καλούμε την translatePage (που βρίσκεται στο translation.js)
+    // για να βεβαιωθούμε ότι το κείμενο του cookie banner είναι σωστό.
+    // Εφόσον το translation.js είναι υπεύθυνο για τις μεταφράσεις,
+    // η λογική ενημέρωσης του κειμένου του banner έχει μεταφερθεί εκεί.
+    document.addEventListener('languageChanged', (event) => {
+        // Η translatePage καλείται ήδη από το translation.js μετά την αλλαγή γλώσσας.
+        // Δεν χρειάζεται να την καλέσουμε ξανά εδώ, αρκεί που το translation.js την χειρίζεται.
+        // Απλά βεβαιωνόμαστε ότι το banner είναι ορατό αν χρειαστεί.
+        // Για την περίπτωση που θες να εμφανίζεται πάντα, δεν αλλάζει κάτι.
+        showCookieBanner(); 
+    });
+
+
+    // Εμφάνιση του banner μόλις φορτώσει η σελίδα (πάντα εμφανές όπως ζητήθηκε)
+    showCookieBanner();
+
+    // ... Ο ΥΠΟΛΟΙΠΟΣ ΚΩΔΙΚΑΣ ΣΟΥ ...
+
+}); // Τέλος του ΕΝΙΑΙΟΥ DOMContentLoaded listener
