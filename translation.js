@@ -37,6 +37,10 @@ const translations = {
         "form-submit-button": "Αποστολή",
         "footer-text": "© 2025 AR Akron Services",
         // ΝΕΑ ΜΕΤΑΦΡΑΣΗ ΓΙΑ ΤΗ ΔΙΕΥΘΥΝΣΗ
+         "terms-accept": "Αποδέχομαι τους",
+    "terms-of-use": "Όρους Χρήσης",
+    "and": "και την",
+    "privacy-policy": "Πολιτική Απορρήτου",
         "contact-address": "Γρίβα Διγενή 2,<br>17342 Αγ Δημήτριος,<br>Αττική"
     },
     en: {
@@ -74,6 +78,10 @@ const translations = {
         "form-message-placeholder": "Your Message",
         "form-submit-button": "Send",
         "footer-text": "© 2025 AR Akron Services",
+         "terms-accept": "I accept the",
+    "terms-of-use": "Terms of Use",
+    "and": "and the",
+    "privacy-policy": "Privacy Policy",
         // NEW TRANSLATION FOR ADDRESS
         "contact-address": "Griva Digeni 2,<br>17342 Agios Dimitrios,<br>Attica"
     }
