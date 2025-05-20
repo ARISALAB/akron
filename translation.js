@@ -40,6 +40,8 @@ const translations = {
          "terms-accept": "Αποδέχομαι τους",
     "terms-of-use": "Όρους Χρήσης",
     "and": "και την",
+                "form-agree-terms": "Διάβασα και αποδέχομαι τους <a id='termsLink' href='1-el.pdf' target='_blank' rel='noopener noreferrer'>Όρους Χρήσης</a> και την <a id='privacyLink' href='2-el.pdf' target='_blank' rel='noopener noreferrer'>Πολιτική Προστασίας Δεδομένων</a>.",
+
     "privacy-policy": "Πολιτική Απορρήτου",
         "contact-address": "Γρίβα Διγενή 2,<br>17342 Αγ Δημήτριος,<br>Αττική"
     },
@@ -50,6 +52,8 @@ const translations = {
         "hero-subtitle": "At AR Akron Services, we turn your every idea into reality: websites, web applications, blogs — all designed exclusively for you, without limitations. Here, there are no ready-made solutions. There is only yours.",
         "cta-services": "Our Services",
         "cta-quote": "Get a Quote",
+                "form-agree-terms": "I have read and accept the <a id='termsLink' href='1-en.pdf' target='_blank' rel='noopener noreferrer'>Terms of Use</a> and the <a id='privacyLink' href='2-en.pdf' target='_blank' rel='noopener noreferrer'>Privacy Policy</a>.",
+
         "nav-services": "Services",
         "nav-highlights": "Akron", // Or "Why Us"?
         "nav-portfolio": "Projects",
