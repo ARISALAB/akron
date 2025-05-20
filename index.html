@@ -484,14 +484,16 @@
   <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
   <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
 
- <label for="termsCheckbox">
+<label for="termsCheckbox">
   <input type="checkbox" id="termsCheckbox" required>
   <span>
-    Αποδέχομαι τους 
-    <a href="1.pdf" target="_blank">Όρους Χρήσης</a> και την 
-    <a href="2.pdf" target="_blank">Πολιτική Απορρήτου</a>.
+    <span data-translate-key="terms-accept">Αποδέχομαι τους</span>
+    <a href="1.pdf" target="_blank" data-translate-key="terms-of-use">Όρους Χρήσης</a>
+    <span data-translate-key="and">και την</span>
+    <a href="2.pdf" target="_blank" data-translate-key="privacy-policy">Πολιτική Απορρήτου</a>.
   </span>
 </label>
+
 
   <button type="submit" data-translate-key="form-submit-button">Αποστολή</button>
   <p id="form-status"></p>
