@@ -11,7 +11,7 @@ exports.handler = async function(event, context) {
       locale: event.headers["accept-language"] || "unknown"
     };
 
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwUmvNtMsoUoM26dCJF-mpwok8RQlSZ2EP5cipMQW7CTZW6e-jhTG9VZqfbZGh5cOh8Vw/exec", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbwOR1_p-7eoA5GE4E2qb9S-iQpqQn2gE86qCfF0imVOTLAYCgtBMfQ6woLfPIYoTUdBKQ/exec", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
