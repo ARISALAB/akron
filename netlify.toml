@@ -1,0 +1,2 @@
+[build]
+  functions = "netlify/functions" # Αυτό λέει στο Netlify πού είναι οι functions σας
