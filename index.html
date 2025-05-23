@@ -1055,5 +1055,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }); // Τέλος του ΕΝΙΑΙΟΥ DOMContentLoaded listener
         </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Αποφεύγουμε να τρέξει σε local files ή σε iframe (αν δεν είναι επιθυμητό)
+        if (window.location.protocol === 'file:' || window.self !== window.top) {
+            return;
+        }
+
+        const currentPagePath = window.location.pathname; // Παίρνουμε το path της τρέχουσας σελίδας
+        const trackingEndpoint = `/.netlify/functions/track-visit?page=${encodeURIComponent(currentPagePath)}`;
+
+        // Στέλνουμε ένα POST request στην Netlify Function
+        fetch(trackingEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({}) // Στέλνουμε κενό JSON body για να ενεργοποιήσουμε το POST
+        })
+        .then(response => {
+            if (!response.ok) {
+                console.error('Failed to send tracking data:', response.status, response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // console.log('Tracking data sent:', data); // Αφήστε το για debugging στην αρχή, μετά μπορείτε να το αφαιρέσετε
+        })
+        .catch(error => {
+            console.error('Error sending tracking data:', error);
+        });
+    });
+</script>
+
 </body>
 </html>
