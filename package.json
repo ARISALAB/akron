@@ -2,6 +2,7 @@
   "name": "akron-contact-form",
   "version": "1.0.0",
   "dependencies": {
-    "nodemailer": "^6.9.4"
+    "nodemailer": "^6.9.4",
+    "node-fetch": "^2.6.7" // <-- ΠΡΟΣΘΕΣΤΕ ΑΥΤΗ ΤΗ ΓΡΑΜΜΗ
   }
 }
