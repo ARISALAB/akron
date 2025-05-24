@@ -45,7 +45,27 @@ const translations = {
         'cookie-banner-link': 'Πολιτική Cookies',
         'cookie-banner-accept': 'Αποδοχή Όλων',
         'cookie-banner-decline': 'Απόρριψη (εκτός απαραίτητων)',
-        "contact-address": "Γρίβα Διγενή 2, 17342 <br>Αγ Δημήτριος, Αττική"
+        "contact-address": "Γρίβα Διγενή 2, 17342 <br>Αγ Δημήτριος, Αττική",
+                  "faq-title": "Συχνές Ερωτήσεις",
+        "faq-q1-title": "Πόσο κοστίζει ένα custom website ή εφαρμογή;",
+        "faq-q1-answer": "Το κόστος για ένα custom website ή εφαρμογή εξαρτάται από το πόσο περίπλοκο είναι. Μια απλή, custom ιστοσελίδα ξεκινά από τα 150€. Για πιο σύνθετα έργα, η τιμή διαμορφώνεται ανάλογα με τις λειτουργίες που θα χρειαστείτε και τον χρόνο που θα απαιτηθεί για την ανάπτυξή τους με κώδικα. Θα σας δώσουμε μια εξατομικευμένη προσφορά αφού μιλήσουμε για τις ανάγκες σας.",
+        "faq-q2-title": "Πόσο χρόνο παίρνει η ανάπτυξη ενός custom έργου;",
+        "faq-q2-answer": "Ο χρόνος παράδοσης εξαρτάται από το μέγεθος του έργου. Μια απλή, custom ιστοσελίδα μπορεί να είναι έτοιμη και να παραδοθεί σε 1 εβδομάδα. Για πιο σύνθετα projects με πολλές λειτουργίες, ο χρόνος αυξάνεται, αλλά πάντα στοχεύουμε στην γρήγορη και αποτελεσματική ολοκλήρωση χωρίς να θυσιάζουμε την ποιότητα.",
+        "faq-q3-title": "Τι περιλαμβάνει η υπηρεσία custom ανάπτυξης;",
+        "faq-q3-answer": "Η υπηρεσία μας περιλαμβάνει: να συζητήσουμε τις ανάγκες σας, να σχεδιάσουμε πώς θα φαίνεται και θα λειτουργεί το site, να γράψουμε τον κώδικα από το μηδέν, να βάλουμε το περιεχόμενό σας, να το κάνουμε φιλικό στις αναζητήσεις (βασικό SEO), να λειτουργεί καλά σε κινητά (mobile responsiveness), να το δοκιμάσουμε σχολαστικά και να σας βοηθήσουμε να το διαχειριστείτε.",
+        "faq-q4-title": "Προσφέρετε υποστήριξη μετά την παράδοση του custom έργου;",
+        "faq-q4-answer": "Ναι, παρέχουμε ολοκληρωμένη υποστήριξη και συντήρηση για κάθε custom έργο. Αυτό σημαίνει ότι θα λειτουργεί ομαλά, θα είναι ασφαλές και θα αναβαθμίζεται, ώστε η εφαρμογή σας να παραμένει πάντα ενημερωμένη και αποτελεσματική.",
+        "faq-q5-title": "Αναλαμβάνετε και το περιεχόμενο (κείμενα, φωτογραφίες) για custom εφαρμογές;",
+        "faq-q5-answer": "Μπορούμε να σας δώσουμε κατευθύνσεις για το τι περιεχόμενο θα χρειαστείτε. Η κύρια δουλειά μας είναι να αναπτύξουμε τον κώδικα και τις λειτουργίες, αλλά μπορούμε να συνεργαστούμε μαζί σας για να το ενσωματώσουμε όταν είναι έτοιμο.",
+        "faq-q6-title": "Τι είναι το SEO και γιατί είναι σημαντικό για μια custom ιστοσελίδα;",
+        "faq-q6-answer": "Το SEO σημαίνει βελτιστοποίηση για μηχανές αναζήτησης. Είναι η διαδικασία που βοηθάει την ιστοσελίδα σας να εμφανίζεται πιο ψηλά στα αποτελέσματα της Google. Ακόμη και σε custom ιστοσελίδες, βάζουμε βασικές ρυθμίσεις SEO στον κώδικα για να έχετε περισσότερους επισκέπτες.",
+        "faq-q7-title": "Ποια είναι η διαδικασία συνεργασίας για ένα custom project;",
+        "faq-q7-answer": "Η διαδικασία ξεκινά με μια πρώτη συζήτηση για την ιδέα σας. Μετά, κάνουμε μια ανάλυση και δίνουμε προσφορά, σχεδιάζουμε, γράφουμε τον κώδικα, κάνουμε δοκιμές, σας παραδίδουμε το έργο και τέλος σας υποστηρίζουμε. Είμαστε σε συνεχή επικοινωνία σε κάθε βήμα.",
+        "faq-q8-title": "Χρειάζομαι hosting και domain για το custom έργο μου; Μπορείτε να με βοηθήσετε;",
+        "faq-q8-answer": "Ναι, είναι απαραίτητα. Το domain είναι η διεύθυνση του site σας στο διαδίκτυο και το hosting είναι ο χώρος στον server όπου 'ζει' το site σας. Μπορούμε να σας δώσουμε συμβουλές και να αναλάβουμε να τα ρυθμίσουμε για εσάς.",
+        "faq-q9-title": "Δημιουργείτε web εφαρμογές ή μόνο ιστοσελίδες;",
+        "faq-q9-answer": "Ειδικευόμαστε στην custom ανάπτυξη τόσο ιστοσελίδων όσο και web εφαρμογών. Αυτό σημαίνει ότι μπορούμε να φτιάξουμε οποιοδήποτε ψηφιακό προϊόν χρειάζεται να λειτουργεί μέσω διαδικτύου, από μια απλή εταιρική ιστοσελίδα μέχρι σύνθετες εφαρμογές διαχείρισης, όλα φτιαγμένα με χειροποίητο κώδικα για να ταιριάζουν ακριβώς στις ανάγκες σας."
+    
     },
     en: {
         "logo-alt": "AR Akron Services Logo",
@@ -91,7 +111,26 @@ const translations = {
         'cookie-banner-link': 'Cookie Policy',
         'cookie-banner-accept': 'Accept All',
         'cookie-banner-decline': 'Decline (except essential)',
-        "contact-address": "Griva Digeni 2, 17342 <br>Agios Dimitrios, Attica"
+        "contact-address": "Griva Digeni 2, 17342 <br>Agios Dimitrios, Attica",
+ "faq-title": "Frequently Asked Questions",
+        "faq-q1-title": "How much does a custom website or application cost?",
+        "faq-q1-answer": "The cost for a custom website or application depends on its complexity. A simple, custom website starts from €150. For more complex projects, the price is determined by the features you'll need and the time required for their custom development. We will provide a personalized quote after discussing your needs.",
+        "faq-q2-title": "How long does it take to develop a custom project?",
+        "faq-q2-answer": "Delivery time depends on the project's size. A simple, custom website can be ready and delivered within 1 week. For more complex projects with many features, the time increases, but we always aim for quick and efficient completion without sacrificing quality.",
+        "faq-q3-title": "What does the custom development service include?",
+        "faq-q3-answer": "Our service includes: discussing your needs, designing the website's look and functionality, coding from scratch, integrating your content, basic SEO optimization, mobile responsiveness, thorough testing, and helping you manage it.",
+        "faq-q4-title": "Do you offer post-delivery support for custom projects?",
+        "faq-q4-answer": "Yes, we provide comprehensive support and maintenance for every custom project. This ensures it runs smoothly, remains secure, and is updated, so your application is always current and effective.",
+        "faq-q5-title": "Do you handle content (texts, photos) for custom applications?",
+        "faq-q5-answer": "We can guide you on what content you'll need. Our primary job is to develop the code and functionalities, but we can work with you to integrate your content once it's ready.",
+        "faq-q6-title": "What is SEO and why is it important for a custom website?",
+        "faq-q6-answer": "SEO stands for Search Engine Optimization. It's the process that helps your website rank higher in Google search results. Even for custom websites, we implement basic SEO settings in the code to attract more visitors.",
+        "faq-q7-title": "What is the collaboration process for a custom project?",
+        "faq-q7-answer": "The process begins with an initial discussion about your idea. Then, we perform an analysis and provide a quote, design, code, test, deliver the project, and finally support you. We maintain continuous communication every step of the way.",
+        "faq-q8-title": "Do I need hosting and a domain for my custom project? Can you help?",
+        "faq-q8-answer": "Yes, they are essential. The domain is your website's address on the internet, and hosting is the server space where your website 'lives'. We can provide advice and help you set them up.",
+        "faq-q9-title": "Do you develop web applications or just websites?",
+        "faq-q9-answer": "We specialize in custom development of both websites and web applications. This means we can create any digital product that needs to operate online, from a simple corporate website to complex management applications, all built with custom code to perfectly match your needs."
     }
 };
 
