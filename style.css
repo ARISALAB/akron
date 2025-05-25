@@ -1028,11 +1028,11 @@ footer {
 
 .highlights {
     padding: 80px 0;
-    background-image: url('2.jfif');
-    background-repeat: no-repeat;
-    background-position: center center; /* Αρχική θέση κέντρο */
-    background-size: cover; /* <-- Καλύπτει πάντα όλο τον χώρο */
-    color: #fff;
+    background-image: url('2.jfif'); /* <-- Βεβαιώσου ότι η διαδρομή είναι σωστή */
+    background-repeat: no-repeat; /* Να μην επαναλαμβάνεται */
+    background-position: center center; /* Αρχική θέση κέντρο (μπορεί να αλλάξει με JS) */
+    /* background-attachment: scroll; */ /* Αυτό είναι το default, βεβαιωθείτε δεν είναι fixed */
+    color: #fff; /* Χρώμα κειμένου */
     overflow: hidden; /* Κρύβει μέρη της εικόνας που βγαίνουν εκτός */
 }
 .highlights .highlights-content {
