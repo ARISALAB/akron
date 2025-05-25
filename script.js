@@ -1,10 +1,13 @@
-// script.js - ΕΝΟΠΟΙΗΜΕΝΟΣ ΚΩΔΙΚΑΣ ΜΕ ΔΙΟΡΘΩΣΕΙΣ ΓΙΑ PARALLAX
+// script.js - ΕΝΟΠΟΙΗΜΕΝΟΣ ΚΩΔΙΚΑΣ
 
-// Βρείτε την ενότητα highlights για το parallax background (πρέπει να είναι εκτός DOMContentLoaded για προσβασιμότητα)
+// Βρείτε την ενότητα highlights για το parallax background (πρέπει να είναι έξω από τη συνάρτηση για να είναι προσβάσιμη)
 const highlightsSectionForParallax = document.querySelector('.highlights');
 let requestId = null; // Για να διαχειριστούμε το requestAnimationFrame
 
-// Αυτές οι σταθερές πρέπει να βρίσκονται στην κορυφή του αρχείου JS σου
+// Αυτές οι σταθερές πρέπει να βρίσκονται στην κορυφή του αρχείου JS σου,
+// ή μέσα στο DOMContentLoaded αν τις χρειάζεσαι μόνο εκεί.
+// Αν τις χρειάζεσαι και εκτός του DOMContentLoaded (π.χ. σε άλλες συναρτήσεις),
+// τότε πρέπει να είναι global.
 const backToTopButton = document.getElementById('back-to-top');
 const progressCircle = backToTopButton ? backToTopButton.querySelector('.progress-circle') : null;
 let radius = 0;
@@ -27,9 +30,7 @@ let resizeObserver = null;
 
 // --- ΣΥΝΑΡΤΗΣΕΙΣ (Δηλώνονται μία φορά) ---
 
-/**
- * Ενημερώνει τη θέση του background για το parallax effect.
- */
+// Συνάρτηση για το Parallax Background
 function updateBackgroundParallax() {
     if (!highlightsSectionForParallax) return;
 
@@ -37,59 +38,38 @@ function updateBackgroundParallax() {
     const sectionWidth = highlightsSectionForParallax.offsetWidth;
     const sectionHeight = highlightsSectionForParallax.offsetHeight;
 
-    // Πραγματικές διαστάσεις της εικόνας 2.jfif
-    const originalImageWidth = 2048;
-    const originalImageHeight = 2048;
+    // !!! ΠΡΕΠΕΙ ΝΑ ΑΛΛΑΞΕΙΣ ΑΥΤΑ ΣΤΙΣ ΠΡΑΓΜΑΤΙΚΕΣ ΔΙΑΣΤΑΣΕΙΣ ΤΗΣ 2.jfif !!!
+    const originalImageWidth = 1920; // Παράδειγμα: Πλάτος της εικόνας 2.jfif
+    const originalImageHeight = 1080; // Παράδειγμα: Ύψος της εικόνας 2.jfif
 
     let finalImageWidth, finalImageHeight;
 
     const containerAspectRatio = sectionWidth / sectionHeight;
     const imageAspectRatio = originalImageWidth / originalImageHeight;
 
-    // Υπολογισμός του μεγέθους της εικόνας με βάση το 'cover'
     if (imageAspectRatio > containerAspectRatio) {
-        // Η εικόνα είναι πιο "φαρδιά" αναλογικά από τον container
         finalImageHeight = sectionHeight;
         finalImageWidth = sectionHeight * imageAspectRatio;
     } else {
-        // Η εικόνα είναι πιο "ψηλή" αναλογικά από τον container (όπως μια τετράγωνη σε φαρδύ container)
         finalImageWidth = sectionWidth;
         finalImageHeight = sectionWidth / imageAspectRatio;
     }
 
-    // Το πόσο μπορεί να κινηθεί η εικόνα οριζόντια, χωρίς να εμφανιστεί κενό
-    let maxHorizontalMovement = finalImageWidth - sectionWidth;
+    const maxHorizontalMovement = finalImageWidth - sectionWidth;
+    const speedFactor = 0.15; // Ρυθμίστε αυτόν τον αριθμό (μικρότερος = λιγότερη κίνηση)
 
-    // Εάν η εικόνα, μετά το 'cover', είναι μικρότερη ή ίση σε πλάτος με το section,
-    // τότε δεν υπάρχει περιθώριο για κίνηση.
-    // Την μεγαλώνουμε τεχνητά για να δημιουργήσουμε αυτό το περιθώριο.
-    if (maxHorizontalMovement <= 0) {
-        // Κάνουμε την εικόνα 20% μεγαλύτερη από το πλάτος του section για να υπάρχει πάντα κίνηση
-        finalImageWidth = sectionWidth * 1.2;
-        maxHorizontalMovement = finalImageWidth - sectionWidth;
-    }
-
-    // Ρυθμίστε το 'speedFactor' για να ελέγξετε την ταχύτητα κίνησης.
-    const speedFactor = 0.15; // Δοκίμασε και τιμές όπως 0.08, 0.1, 0.2
-
-    // Υπολογίστε την επιθυμητή μετατόπιση με βάση το scrollY
     let desiredPositionX = -scrollY * speedFactor;
 
-    // Περιορίστε την κίνηση της εικόνας ώστε να μην βγαίνει εκτός ορίων.
-    // Η κίνηση ξεκινά από το κέντρο (50%), οπότε το offset είναι relative σε αυτό.
-    desiredPositionX = Math.max(-maxHorizontalMovement / 2, desiredPositionX); // Μην πας πιο αριστερά από το διαθέσιμο μισό εύρος
-    desiredPositionX = Math.min(maxHorizontalMovement / 2, desiredPositionX); // Μην πας πιο δεξιά από το διαθέσιμο μισό εύρος
+    // Περιορίστε την κίνηση της εικόνας
+    desiredPositionX = Math.max(-maxHorizontalMovement, desiredPositionX); // Μην πας πιο αριστερά
+    desiredPositionX = Math.min(0, desiredPositionX); // Μην πας πιο δεξιά από την αρχική (κέντρο)
 
-    // Εφαρμόστε τη νέα θέση στην ιδιότητα background-position-x του στυλ του στοιχείου.
     highlightsSectionForParallax.style.backgroundPositionX = `calc(50% + ${desiredPositionX}px)`;
 
     requestId = requestAnimationFrame(updateBackgroundParallax);
 }
 
-
-/**
- * Ξεκινά την animation κύλισης του ticker.
- */
+// Συνάρτηση για το Ticker Animation
 function startTickerJsAnimation() {
     if (!tickerContent || !tickerContainer) return;
 
@@ -107,7 +87,7 @@ function startTickerJsAnimation() {
     }
 
     const distanceToMove = contentWidth;
-    const speedPxPerSec = 90; // Ρυθμίστε ταχύτητα εδώ
+    const speedPxPerSec = 90;
     const duration = distanceToMove / speedPxPerSec * 1000;
 
     tickerAnimation = anime({
@@ -120,16 +100,12 @@ function startTickerJsAnimation() {
     });
 }
 
-/**
- * Χειρίζεται την επανεκκίνηση του ticker animation μετά από αλλαγή μεγέθους.
- */
+// Συνάρτηση για τον χειρισμό του ticker resize
 function handleTickerResize() {
     setTimeout(startTickerJsAnimation, 100);
 }
 
-/**
- * Εμφανίζει το cookie consent banner.
- */
+// Συνάρτηση για το Cookie Consent Banner
 function showCookieBanner() {
     const cookieBanner = document.getElementById('cookieConsentBanner');
     if (cookieBanner) {
@@ -137,30 +113,22 @@ function showCookieBanner() {
     }
 }
 
-/**
- * Κρύβει το cookie consent banner και αποθηκεύει την επιλογή.
- * @param {string} consentType - 'accepted' ή 'declined'.
- */
 function hideCookieBanner(consentType) {
     const cookieBanner = document.getElementById('cookieConsentBanner');
     if (cookieBanner) {
         localStorage.setItem('cookieConsent', consentType);
         cookieBanner.style.display = 'none';
         if (consentType === 'accepted') {
-            loadGoogleAnalytics(); // Φορτώνει GA αν δοθεί συγκατάθεση
+            loadGoogleAnalytics();
         }
     }
 }
 
-/**
- * Φορτώνει το Google Analytics script (placeholder).
- */
 function loadGoogleAnalytics() {
     console.log('Google Analytics loaded (or would be if uncommented).');
 }
 
 // --- ΚΕΝΤΡΙΚΟ DOMContentLoaded LISTENER ---
-// Όλος ο κώδικας που αλληλεπιδρά με το DOM πρέπει να βρίσκεται εδώ μέσα
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Parallax Background Initialization ---
@@ -177,18 +145,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Text/Card/Diagonal Animation Observer ---
     const animatedElements = document.querySelectorAll('.animated-text, .animated-card, .animated-text-diagonal');
     const observerOptions = {
-        root: null, // Viewport ως πλαίσιο αναφοράς
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Ενεργοποιείται όταν το 10% του στοιχείου είναι ορατό
+        threshold: 0.1
     };
 
     const generalObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Αν θες η animation να παίζει μόνο την πρώτη φορά, κάνε unobserve: observer.unobserve(entry.target);
+                // Αν θες μόνο μία φορά, κάνε unobserve: observer.unobserve(entry.target);
             } else {
-                entry.target.classList.remove('visible'); // Επαναλαμβάνει την κίνηση όταν βγαίνει και ξαναμπαίνει
+                entry.target.classList.remove('visible'); // Επαναλαμβάνει την κίνηση
             }
         });
     }, observerOptions);
@@ -201,28 +169,28 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             const targetElement = entry.target;
             if (entry.isIntersecting) {
-                anime.remove(targetElement); // Σταματάει τυχόν προηγούμενη animation
+                anime.remove(targetElement); // Σταματάει προηγούμενη animation
                 const currentOpacity = parseFloat(targetElement.style.opacity) || parseFloat(window.getComputedStyle(targetElement).opacity);
                 const finalFullOpacity = 1;
-                if (currentOpacity < finalFullOpacity - 0.01) { // Ελέγχουμε αν δεν είναι ήδη πλήρως ορατό
+                if (currentOpacity < finalFullOpacity - 0.01) {
                     anime({
                         targets: targetElement,
                         opacity: finalFullOpacity,
-                        color: '#FFFFFF', // Τελικό χρώμα (λευκό)
-                        duration: 2000, // Διάρκεια animation σε ms
+                        color: '#FFFFFF',
+                        duration: 2000,
                         easing: 'easeOutQuad'
                     });
                 }
             } else {
-                anime.remove(targetElement); // Σταματάει τυχόν προηγούμενη animation
+                anime.remove(targetElement); // Σταματάει προηγούμενη animation
                 const currentOpacity = parseFloat(targetElement.style.opacity) || parseFloat(window.getComputedStyle(targetElement).opacity);
-                const initialShadowOpacity = 0.3; // Αρχική opacity "σκιάς"
-                if (currentOpacity > initialShadowOpacity + 0.01) { // Ελέγχουμε αν δεν είναι ήδη στην κατάσταση σκιάς
+                const initialShadowOpacity = 0.3;
+                if (currentOpacity > initialShadowOpacity + 0.01) {
                     anime({
                         targets: targetElement,
                         opacity: initialShadowOpacity,
-                        color: 'rgba(255, 255, 255, 0.4)', // Χρώμα σκιάς
-                        duration: 800, // Διάρκεια animation επιστροφής
+                        color: 'rgba(255, 255, 255, 0.4)',
+                        duration: 800,
                         easing: 'easeOutQuad'
                     });
                 }
@@ -233,13 +201,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const individualObserverOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: [0, 0.1] // Ενεργοποιείται στο 0% (όταν βγαίνει) και στο 10% (όταν μπαίνει)
+        threshold: [0, 0.1]
     };
 
     const individualElementObserver = new IntersectionObserver(handleIndividualAnimation, individualObserverOptions);
 
     elementsToAnimateIndividually.forEach(element => {
-        // Βεβαιωθείτε ότι τα στοιχεία ξεκινούν με το στυλ "σκιάς"
         const computedOpacity = parseFloat(window.getComputedStyle(element).opacity);
         const initialShadowOpacity = 0.3;
         if (computedOpacity > initialShadowOpacity + 0.01 || computedOpacity < initialShadowOpacity - 0.01) {
@@ -252,14 +219,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Back to Top Button and Progress Circle ---
     if (backToTopButton && progressCircle) {
         window.addEventListener('scroll', () => {
-            // Ορατότητα κουμπιού
             if (window.scrollY > scrollThreshold) {
                 backToTopButton.classList.add('show');
             } else {
                 backToTopButton.classList.remove('show');
             }
 
-            // Ενημέρωση Κυκλικού Δείκτη Προόδου
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight;
             const winHeight = window.innerHeight;
@@ -281,14 +246,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tickerContent && tickerContainer) {
         startTickerJsAnimation(); // Ξεκινήστε την animation αρχικά
 
-        // Χρήση ResizeObserver για να παρακολουθήσετε αλλαγές μεγέθους στο container του ticker
         if (typeof ResizeObserver !== 'undefined') {
             resizeObserver = new ResizeObserver(entries => {
                 handleTickerResize();
             });
             resizeObserver.observe(tickerContainer);
         } else {
-            // Fallback για παλιότερους browsers
             window.addEventListener('resize', handleTickerResize);
         }
     }
@@ -296,20 +259,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Portfolio Preview Items Animation ---
     const previewItems = document.querySelectorAll('.parallax-content .portfolio-previews .preview-item');
     const previewObserverOptions = {
-        root: null, // Χρησιμοποιούμε το viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.2 // Ποσοστό ορατότητας για ενεργοποίηση
+        threshold: 0.2
     };
 
     const previewObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const index = Array.from(previewItems).indexOf(entry.target);
-                const delay = index * 200; // Καθυστέρηση animation ανά στοιχείο (πιο αργή)
+                const delay = index * 200; // Καθυστέρηση
                 setTimeout(() => {
                     entry.target.classList.add('visible');
                 }, delay);
-                observer.unobserve(entry.target); // Σταμάτα να παρακολουθείς μετά την πρώτη εμφάνιση
+                observer.unobserve(entry.target); // Μόνο την πρώτη φορά
             }
         });
     }, previewObserverOptions);
@@ -325,11 +288,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburgerToggle && navLinks) {
         hamburgerToggle.addEventListener('click', () => {
             navLinks.classList.toggle('open');
-            // Προσθήκη/αφαίρεση κλάσης για απενεργοποίηση κύλισης στη σελίδα
-            document.body.classList.toggle('no-scroll');
+            document.body.classList.toggle('no-scroll'); // Προσθέστε/αφαιρέστε κλάση για no-scroll
         });
 
-        // Κλείσιμο menu όταν πατηθεί ένα link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinks.classList.contains('open')) {
@@ -339,7 +300,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Κλείσιμο menu αν ο χρήστης κάνει κλικ έξω από αυτό
         document.addEventListener('click', (event) => {
             if (!navLinks.contains(event.target) && !hamburgerToggle.contains(event.target) && navLinks.classList.contains('open')) {
                 navLinks.classList.remove('open');
@@ -362,11 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
             hideCookieBanner('declined');
         });
 
-        // Όταν αλλάζει η γλώσσα, βεβαιωνόμαστε ότι το banner εμφανίζεται αν χρειάζεται
         document.addEventListener('languageChanged', (event) => {
             showCookieBanner();
         });
-        showCookieBanner(); // Εμφάνιση του banner μόλις φορτώσει η σελίδα (πάντα εμφανές για δοκιμή)
+        showCookieBanner(); // Εμφάνιση του banner μόλις φορτώσει η σελίδα
     }
 
 }); // Τέλος του ΕΝΙΑΙΟΥ DOMContentLoaded listener
