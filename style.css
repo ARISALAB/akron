@@ -1031,21 +1031,13 @@ footer {
     background-image: url('2.jfif');
     background-repeat: no-repeat;
     background-position: center center; /* Αρχική θέση κέντρο */
-    background-size: cover; /* <-- Default για μικρές οθόνες, καλύπτει τον χώρο */
+    background-size: cover; /* <-- Καλύπτει πάντα όλο τον χώρο */
+    /* background-attachment: scroll; (Αυτό είναι το default, μην το βάλεις fixed) */
     color: #fff;
     overflow: hidden; /* Κρύβει μέρη της εικόνας που βγαίνουν εκτός */
 }
 
-/* Media Query για οθόνες από 1200px πλάτος και πάνω (ή όποιο breakpoint θες) */
-/* Αυτό είναι για μεγάλες οθόνες desktop */
-@media (min-width: 1200px) { /* Μπορείς να το προσαρμόσεις (π.χ., 1400px, 1600px) */
-    .highlights {
-        /* Αυξάνουμε το μέγεθος της εικόνας για να δώσουμε "περιθώριο" στην κίνηση */
-        background-size: 120% auto; /* <-- Δοκίμασε αυτό πρώτα (π.χ., 110%, 130%, 150%) */
-        /* background-position: 50% 50%; (Εάν θες να το επαναφέρεις) */
-    }
-}
-
+/* ΑΦΑΙΡΕΣΕ ΟΠΟΙΑΔΗΠΟΤΕ MEDIA QUERY για .highlights background-size */
 /* ... (κρατήστε όλα τα υπόλοιπα στυλ σας, συμπεριλαμβανομένων των στυλ για το κείμενο σκιάς) ... */
 
 .highlights .highlights-content {
