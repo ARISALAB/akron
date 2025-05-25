@@ -39,8 +39,8 @@ function updateBackgroundParallax() {
     const sectionHeight = highlightsSectionForParallax.offsetHeight;
 
     // !!! ΠΡΕΠΕΙ ΝΑ ΑΛΛΑΞΕΙΣ ΑΥΤΑ ΣΤΙΣ ΠΡΑΓΜΑΤΙΚΕΣ ΔΙΑΣΤΑΣΕΙΣ ΤΗΣ 2.jfif !!!
-    const originalImageWidth = 2920; // Παράδειγμα: Πλάτος της εικόνας 2.jfif
-    const originalImageHeight = 2080; // Παράδειγμα: Ύψος της εικόνας 2.jfif
+    const originalImageWidth = 1420; // Παράδειγμα: Πλάτος της εικόνας 2.jfif
+    const originalImageHeight = 880; // Παράδειγμα: Ύψος της εικόνας 2.jfif
 
     let finalImageWidth, finalImageHeight;
 
