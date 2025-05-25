@@ -1031,7 +1031,7 @@ footer {
     background-image: url('2.jfif');
     background-repeat: no-repeat;
     background-position: center center; /* Αρχική θέση κέντρο */
-    background-size: 150% auto; /* <-- Δοκίμασε αυτό! 150% πλάτος, ύψος αυτόματο */
+    background-size: 120% auto; /* <-- Δοκίμασε αυτό! 150% πλάτος, ύψος αυτόματο */
     /* Ή δοκίμασε: background-size: 100vw auto; αν θες να βασίζεται στο viewport width */
     color: #fff;
     overflow: hidden;
