@@ -93,15 +93,40 @@
         text-align: center;
         background: radial-gradient(circle at top, #1c1f24 0%, #0c0d0f 70%);
         border-bottom: 1px solid rgba(255,255,255,0.08);
+        position: relative;
+        overflow: hidden;
     }
 
+    /* Ζωντανό, αργά κινούμενο circuit-board texture πίσω από το hero (επαναχρησιμοποιεί το 4.jfif που ήδη έχει το site) */
+    .cs-hero::before {
+        content: '';
+        position: absolute;
+        inset: -10%;
+        background-image: url('4.jfif');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.12;
+        filter: saturate(1.4);
+        animation: csBgPan 30s ease-in-out infinite alternate;
+        z-index: 0;
+    }
+
+    @keyframes csBgPan {
+        0%   { transform: scale(1) translate(0, 0); }
+        100% { transform: scale(1.08) translate(-2%, -2%); }
+    }
+
+    .cs-hero > * { position: relative; z-index: 1; }
+
     .cs-back-link {
-        display: inline-flex;
+        display: flex;
+        justify-content: center;
         align-items: center;
         gap: 6px;
+        width: 100%;
         color: rgba(255,255,255,0.6);
         font-size: 0.9rem;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         transition: color 0.3s ease;
     }
 
@@ -121,10 +146,23 @@
         font-size: 2.6rem;
         font-weight: 800;
         margin: 0 0 18px;
-        background: linear-gradient(135deg, #fff, #9a9a9a);
+        opacity: 0;
+        transform: translateY(20px);
+        background: linear-gradient(100deg, #999 0%, #fff 25%, #fff 50%, #999 75%, #fff 100%);
+        background-size: 250% auto;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        animation: csTitleIn 0.8s ease 0.1s forwards, csShine 6s linear infinite 0.9s;
+    }
+
+    @keyframes csTitleIn {
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes csShine {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 250% 50%; }
     }
 
     .cs-subtitle {
@@ -157,16 +195,22 @@
     .cs-btn-primary {
         background: linear-gradient(135deg, #fff, #cfcfcf);
         color: #111;
+        animation: csPulse 3s ease-in-out infinite;
     }
 
-    .cs-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,0.2); color:#111;}
+    @keyframes csPulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.25); }
+        50% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    }
+
+    .cs-btn-primary:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 24px rgba(255,255,255,0.25); color:#111;}
 
     .cs-btn-secondary {
         border: 1px solid rgba(255,255,255,0.35);
         color: #fff;
     }
 
-    .cs-btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; color: #fff;}
+    .cs-btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; color: #fff; transform: translateY(-2px);}
 
     /* Screenshot frame — reuses the browser-frame look from the portfolio section */
     .cs-shot-frame {
@@ -176,6 +220,18 @@
         overflow: hidden;
         background: #1a1c20;
         box-shadow: 0 25px 70px rgba(0,0,0,0.55);
+        animation: csFloat 5s ease-in-out infinite;
+        transition: box-shadow 0.4s ease;
+    }
+
+    .cs-shot-frame:hover {
+        box-shadow: 0 30px 90px rgba(255,255,255,0.15);
+        animation-play-state: paused;
+    }
+
+    @keyframes csFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
     }
 
     .cs-shot-bar {
@@ -234,14 +290,34 @@
         margin-top: 10px;
     }
 
+    .cs-feature-grid .cs-feature-reveal:nth-child(1) { transition-delay: 0s; }
+    .cs-feature-grid .cs-feature-reveal:nth-child(2) { transition-delay: 0.12s; }
+    .cs-feature-grid .cs-feature-reveal:nth-child(3) { transition-delay: 0.24s; }
+    .cs-feature-grid .cs-feature-reveal:nth-child(4) { transition-delay: 0.36s; }
     .cs-feature {
         background: rgba(255,255,255,0.04);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 12px;
         padding: 22px;
+        transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
     }
 
-    .cs-feature .icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+    .cs-feature:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255,255,255,0.3);
+        background: rgba(255,255,255,0.07);
+        box-shadow: 0 14px 34px rgba(0,0,0,0.4);
+    }
+
+    .cs-feature .icon {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        display: block;
+        transition: transform 0.35s ease;
+    }
+
+    .cs-feature:hover .icon { transform: scale(1.2) rotate(-4deg); }
+
     .cs-feature h3 { text-align: left; font-size: 1.05rem; margin: 0 0 8px; }
     .cs-feature p { font-size: 0.92rem; margin: 0; color: rgba(255,255,255,0.68); }
 
@@ -295,9 +371,9 @@
 
     <section class="cs-hero">
         <a href="index.html#PARALLAX" class="cs-back-link">← Πίσω στα Έργα</a>
-        <div class="cs-tag">SaaS Κρατήσεων · Εστίαση</div>
+        <div class="cs-tag hero-text-instant">SaaS Κρατήσεων · Εστίαση</div>
         <h1 class="cs-title">TableReserve</h1>
-        <p class="cs-subtitle">Μια πλατφόρμα online κρατήσεων φτιαγμένη από το μηδέν για εστιατόρια — χωρίς τηλέφωνα που χτυπάνε συνέχεια, χωρίς χαμένα ραντεβού σε χαρτί.</p>
+        <p class="cs-subtitle hero-text-instant" style="animation-delay: 0.3s;">Μια πλατφόρμα online κρατήσεων φτιαγμένη από το μηδέν για εστιατόρια — χωρίς τηλέφωνα που χτυπάνε συνέχεια, χωρίς χαμένα ραντεβού σε χαρτί.</p>
 
         <div class="cs-cta-row">
             <a class="cs-btn cs-btn-primary" href="https://tablereserve.gr/" target="_blank" rel="noopener noreferrer">Δες το Live →</a>
@@ -315,11 +391,11 @@
 
     <section class="cs-section">
         <div class="cs-two-col">
-            <div>
+            <div class="animated-card">
                 <h2>Το Πρόβλημα</h2>
                 <p>Τα περισσότερα εστιατόρια διαχειρίζονται τις κρατήσεις τους με τηλέφωνο ή χαρτί — κάτι που σημαίνει χαμένα ραντεβού, διπλοκρατήσεις και προσωπικό δεσμευμένο στο τηλέφωνο αντί στους πελάτες μέσα στο κατάστημα.</p>
             </div>
-            <div>
+            <div class="animated-card">
                 <h2>Η Λύση</h2>
                 <p>Το TableReserve δίνει στον πελάτη μια απλή online φόρμα κράτησης (ημερομηνία, ώρα, άτομα) με άμεση επιβεβαίωση, και στο κατάστημα ένα dashboard διαχείρισης όλων των κρατήσεων σε πραγματικό χρόνο.</p>
             </div>
@@ -327,27 +403,35 @@
     </section>
 
     <section class="cs-section">
-        <h2>Χαρακτηριστικά</h2>
+        <h2 class="animated-text">Χαρακτηριστικά</h2>
         <div class="cs-feature-grid">
-            <div class="cs-feature">
-                <span class="icon">📅</span>
-                <h3>Online Κράτηση</h3>
-                <p>Ο πελάτης επιλέγει ημερομηνία, ώρα και αριθμό ατόμων, και λαμβάνει άμεση επιβεβαίωση.</p>
+            <div class="cs-feature-reveal animated-card">
+                <div class="cs-feature">
+                    <span class="icon">📅</span>
+                    <h3>Online Κράτηση</h3>
+                    <p>Ο πελάτης επιλέγει ημερομηνία, ώρα και αριθμό ατόμων, και λαμβάνει άμεση επιβεβαίωση.</p>
+                </div>
             </div>
-            <div class="cs-feature">
-                <span class="icon">🏪</span>
-                <h3>Πίνακας Καταστήματος</h3>
-                <p>Το κατάστημα βλέπει όλες τις κρατήσεις, σύνολο ατόμων και στοιχεία πελατών σε ένα σημείο.</p>
+            <div class="cs-feature-reveal animated-card">
+                <div class="cs-feature">
+                    <span class="icon">🏪</span>
+                    <h3>Πίνακας Καταστήματος</h3>
+                    <p>Το κατάστημα βλέπει όλες τις κρατήσεις, σύνολο ατόμων και στοιχεία πελατών σε ένα σημείο.</p>
+                </div>
             </div>
-            <div class="cs-feature">
-                <span class="icon">🖼️</span>
-                <h3>Προφίλ Καταστήματος</h3>
-                <p>Διαχείριση λογότυπου, εξωφύλλου και γκαλερί φωτογραφιών απευθείας από το dashboard.</p>
+            <div class="cs-feature-reveal animated-card">
+                <div class="cs-feature">
+                    <span class="icon">🖼️</span>
+                    <h3>Προφίλ Καταστήματος</h3>
+                    <p>Διαχείριση λογότυπου, εξωφύλλου και γκαλερί φωτογραφιών απευθείας από το dashboard.</p>
+                </div>
             </div>
-            <div class="cs-feature">
-                <span class="icon">⚡</span>
-                <h3>Super Admin</h3>
-                <p>Κεντρική διαχείριση πολλαπλών καταστημάτων για ιδιοκτήτες με περισσότερα από ένα σημεία.</p>
+            <div class="cs-feature-reveal animated-card">
+                <div class="cs-feature">
+                    <span class="icon">⚡</span>
+                    <h3>Super Admin</h3>
+                    <p>Κεντρική διαχείριση πολλαπλών καταστημάτων για ιδιοκτήτες με περισσότερα από ένα σημεία.</p>
+                </div>
             </div>
         </div>
 
@@ -357,8 +441,8 @@
     </section>
 
     <section class="cs-final-cta">
-        <h2>Θες κάτι αντίστοιχο για την επιχείρησή σου;</h2>
-        <p>Custom σύστημα κρατήσεων, διαχείρισης ή οτιδήποτε άλλο χρειάζεται η δουλειά σου — χτισμένο από το μηδέν, γύρω από τις δικές σου ανάγκες.</p>
+        <h2 class="animated-text">Θες κάτι αντίστοιχο για την επιχείρησή σου;</h2>
+        <p class="animated-text">Custom σύστημα κρατήσεων, διαχείρισης ή οτιδήποτε άλλο χρειάζεται η δουλειά σου — χτισμένο από το μηδέν, γύρω από τις δικές σου ανάγκες.</p>
         <a class="cs-btn cs-btn-primary" href="index.html#contact">Ζήτα Προσφορά</a>
     </section>
 
