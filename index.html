@@ -385,6 +385,15 @@
         .portfolio-item,
         .portfolio-item:nth-child(even) {
             flex-direction: column;
+            align-items: stretch;
+        }
+
+        .portfolio-item-media {
+            width: 100%;
+        }
+
+        .browser-frame {
+            width: 100%;
         }
 
         .portfolio-item-info {
@@ -394,6 +403,7 @@
         .browser-frame-shot,
         .browser-frame-placeholder,
         .browser-frame-logo-box {
+            width: 100%;
             height: 260px;
         }
     }
@@ -975,14 +985,12 @@
 
                 <div class="portfolio-item">
                     <div class="portfolio-item-media">
-                        <a class="browser-frame browser-frame-logo" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer">
+                        <a class="browser-frame" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer">
                             <div class="browser-frame-bar">
                                 <div class="browser-frame-dots"><span></span><span></span><span></span></div>
                                 <div class="browser-frame-url">pandrosougarden-reservation.gr</div>
                             </div>
-                            <div class="browser-frame-logo-box">
-                                <img src="https://pandrosougarden-reservation.gr/favicon.ico.png" alt="Pandrosou Garden" loading="lazy">
-                            </div>
+                            <img class="browser-frame-shot" src="https://pandrosougarden-reservation.gr/garden-bg.jpg" alt="Pandrosou Garden" loading="lazy">
                         </a>
                     </div>
                     <div class="portfolio-item-info">
@@ -1005,7 +1013,7 @@
                     </div>
                     <div class="portfolio-item-info">
                         <span class="portfolio-item-tag" data-translate-key="portfolio-item5-tag">Πολιτισμός &amp; ΑΜΚΕ</span>
-                        <h3 class="portfolio-item-title">ΑΜΚΕ Διεθνής Δράση</h3>
+                        <h3 class="portfolio-item-title" data-translate-key="portfolio-item5-title">ΑΜΚΕ Διεθνής Δράση</h3>
                         <p class="portfolio-item-desc" data-translate-key="portfolio-item5-desc">Ιστοσελίδα για Αστική Μη Κερδοσκοπική Εταιρεία πολιτισμού, με φόρμες συμμετοχής &amp; χορηγίας.</p>
                         <a class="portfolio-item-link" href="https://amkediethnisdrasi.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">→</span></a>
                     </div>
