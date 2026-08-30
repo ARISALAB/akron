@@ -308,6 +308,23 @@
         letter-spacing: 0.5px;
     }
 
+    /* Καθαρή προβολή λογοτύπου (όταν δεν υπάρχει screenshot) */
+    .browser-frame-logo-box {
+        width: 100%;
+        height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at center, #2a2f36 0%, #16181b 100%);
+    }
+
+    .browser-frame-logo-box img {
+        max-width: 45%;
+        max-height: 45%;
+        object-fit: contain;
+        display: block;
+    }
+
     .portfolio-item-info {
         flex: 1 1 45%;
     }
@@ -375,7 +392,8 @@
         }
 
         .browser-frame-shot,
-        .browser-frame-placeholder {
+        .browser-frame-placeholder,
+        .browser-frame-logo-box {
             height: 260px;
         }
     }
@@ -387,7 +405,8 @@
         }
 
         .browser-frame-shot,
-        .browser-frame-placeholder {
+        .browser-frame-placeholder,
+        .browser-frame-logo-box {
             height: 200px;
         }
 
@@ -911,10 +930,10 @@
                         </a>
                     </div>
                     <div class="portfolio-item-info">
-                        <span class="portfolio-item-tag">Web &amp; Consulting</span>
+                        <span class="portfolio-item-tag" data-translate-key="portfolio-item1-tag">Web &amp; Consulting</span>
                         <h3 class="portfolio-item-title">AR Akron Services</h3>
-                        <p class="portfolio-item-desc">Custom ιστοσελίδες &amp; web εφαρμογές για επιχειρήσεις hospitality και τουρισμού.</p>
-                        <a class="portfolio-item-link" href="https://www.arakronservices.gr/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
+                        <p class="portfolio-item-desc" data-translate-key="portfolio-item1-desc">Custom ιστοσελίδες &amp; web εφαρμογές για επιχειρήσεις hospitality και τουρισμού.</p>
+                        <a class="portfolio-item-link" href="https://www.arakronservices.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">→</span></a>
                     </div>
                 </div>
 
@@ -929,10 +948,10 @@
                         </a>
                     </div>
                     <div class="portfolio-item-info">
-                        <span class="portfolio-item-tag">SaaS Κρατήσεων</span>
+                        <span class="portfolio-item-tag" data-translate-key="portfolio-item2-tag">SaaS Κρατήσεων</span>
                         <h3 class="portfolio-item-title">TableReserve</h3>
-                        <p class="portfolio-item-desc">Πλατφόρμα online κρατήσεων για εστιατόρια, με διαχείριση τραπεζιών σε πραγματικό χρόνο.</p>
-                        <a class="portfolio-item-link" href="https://tablereserve.gr/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
+                        <p class="portfolio-item-desc" data-translate-key="portfolio-item2-desc">Πλατφόρμα online κρατήσεων για εστιατόρια, με διαχείριση τραπεζιών σε πραγματικό χρόνο.</p>
+                        <a class="portfolio-item-link" href="https://tablereserve.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">→</span></a>
                     </div>
                 </div>
 
@@ -947,28 +966,30 @@
                         </a>
                     </div>
                     <div class="portfolio-item-info">
-                        <span class="portfolio-item-tag">Οικονομική Διαχείριση</span>
+                        <span class="portfolio-item-tag" data-translate-key="portfolio-item3-tag">Οικονομική Διαχείριση</span>
                         <h3 class="portfolio-item-title">GoFinanceOS</h3>
-                        <p class="portfolio-item-desc">Offline-first εφαρμογή διαχείρισης οικονομικών, με εφάπαξ άδεια χρήσης.</p>
-                        <a class="portfolio-item-link" href="https://gofinanceos.com/app/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
+                        <p class="portfolio-item-desc" data-translate-key="portfolio-item3-desc">Offline-first εφαρμογή διαχείρισης οικονομικών, με εφάπαξ άδεια χρήσης.</p>
+                        <a class="portfolio-item-link" href="https://gofinanceos.com/app/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">→</span></a>
                     </div>
                 </div>
 
                 <div class="portfolio-item">
                     <div class="portfolio-item-media">
-                        <a class="browser-frame" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer">
+                        <a class="browser-frame browser-frame-logo" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer">
                             <div class="browser-frame-bar">
                                 <div class="browser-frame-dots"><span></span><span></span><span></span></div>
                                 <div class="browser-frame-url">pandrosougarden-reservation.gr</div>
                             </div>
-                            <img class="browser-frame-shot" src="https://pandrosougarden-reservation.gr/garden-bg.jpg" alt="Pandrosou Garden" loading="lazy">
+                            <div class="browser-frame-logo-box">
+                                <img src="https://pandrosougarden-reservation.gr/favicon.ico.png" alt="Pandrosou Garden" loading="lazy">
+                            </div>
                         </a>
                     </div>
                     <div class="portfolio-item-info">
-                        <span class="portfolio-item-tag">Εστιατόριο &amp; Κρατήσεις</span>
+                        <span class="portfolio-item-tag" data-translate-key="portfolio-item4-tag">Εστιατόριο &amp; Κρατήσεις</span>
                         <h3 class="portfolio-item-title">Pandrosou Garden</h3>
-                        <p class="portfolio-item-desc">Ιστοσελίδα &amp; σύστημα online κρατήσεων για ιστορικό εστιατόριο στην Πλάκα.</p>
-                        <a class="portfolio-item-link" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
+                        <p class="portfolio-item-desc" data-translate-key="portfolio-item4-desc">Ιστοσελίδα &amp; σύστημα online κρατήσεων για ιστορικό εστιατόριο στην Πλάκα.</p>
+                        <a class="portfolio-item-link" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">→</span></a>
                     </div>
                 </div>
 
@@ -983,10 +1004,10 @@
                         </a>
                     </div>
                     <div class="portfolio-item-info">
-                        <span class="portfolio-item-tag">Πολιτισμός &amp; ΑΜΚΕ</span>
+                        <span class="portfolio-item-tag" data-translate-key="portfolio-item5-tag">Πολιτισμός &amp; ΑΜΚΕ</span>
                         <h3 class="portfolio-item-title">ΑΜΚΕ Διεθνής Δράση</h3>
-                        <p class="portfolio-item-desc">Ιστοσελίδα για Αστική Μη Κερδοσκοπική Εταιρεία πολιτισμού, με φόρμες συμμετοχής &amp; χορηγίας.</p>
-                        <a class="portfolio-item-link" href="https://amkediethnisdrasi.gr/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
+                        <p class="portfolio-item-desc" data-translate-key="portfolio-item5-desc">Ιστοσελίδα για Αστική Μη Κερδοσκοπική Εταιρεία πολιτισμού, με φόρμες συμμετοχής &amp; χορηγίας.</p>
+                        <a class="portfolio-item-link" href="https://amkediethnisdrasi.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">→</span></a>
                     </div>
                 </div>
 
