@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TableReserve — Case Study | AR Akron Services</title>
+  <meta name="description" content="Πώς η AR Akron Services έφτιαξε το TableReserve: μια πλατφόρμα online κρατήσεων για εστιατόρια με διαχείριση τραπεζιών σε πραγματικό χρόνο.">
+  <link rel="canonical" href="https://akronwebuilder.gr/project-tablereserve.html" />
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* --- Top Nav (αντιγραμμένο από index.html για συνέπεια) --- */
+    .top-nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    .top-nav .hamburger-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 5px;
+        line-height: 1;
+        z-index: 100;
+    }
+    .top-nav .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+    .top-nav .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    @media (max-width: 768px) {
+        .top-nav .nav-links {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 250px;
+            height: calc(80vh - 55px);
+            background-color: #222;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 99;
+        }
+        .top-nav .nav-links.open {
+            display: flex;
+            transform: translateX(0);
+        }
+        .top-nav .nav-links a {
+            padding: 15px 0;
+            border-bottom: 1px solid #444;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .top-nav .nav-links a:last-child {
+            border-bottom: none;
+        }
+        .top-nav .hamburger-toggle {
+            display: block;
+            margin-left: 10px;
+        }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "TableReserve",
+    "creator": { "@type": "Organization", "name": "AR Akron Services", "url": "https://akronwebuilder.gr" },
+    "url": "https://tablereserve.gr/",
+    "description": "Πλατφόρμα online κρατήσεων για εστιατόρια, με διαχείριση τραπεζιών σε πραγματικό χρόνο."
+  }
+  </script>
+
+  <style>
+    /* --- Case Study Page Styles --- */
+    .cs-hero {
+        padding: 140px 20px 70px;
+        text-align: center;
+        background: radial-gradient(circle at top, #1c1f24 0%, #0c0d0f 70%);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cs-back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: rgba(255,255,255,0.6);
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        transition: color 0.3s ease;
+    }
+
+    .cs-back-link:hover { color: #fff; }
+
+    .cs-tag {
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.55);
+        margin-bottom: 14px;
+    }
+
+    .cs-title {
+        font-size: 2.6rem;
+        font-weight: 800;
+        margin: 0 0 18px;
+        background: linear-gradient(135deg, #fff, #9a9a9a);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .cs-subtitle {
+        max-width: 640px;
+        margin: 0 auto 34px;
+        color: rgba(255,255,255,0.78);
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .cs-cta-row {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .cs-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cs-btn-primary {
+        background: linear-gradient(135deg, #fff, #cfcfcf);
+        color: #111;
+    }
+
+    .cs-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,0.2); color:#111;}
+
+    .cs-btn-secondary {
+        border: 1px solid rgba(255,255,255,0.35);
+        color: #fff;
+    }
+
+    .cs-btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; color: #fff;}
+
+    /* Screenshot frame — reuses the browser-frame look from the portfolio section */
+    .cs-shot-frame {
+        max-width: 900px;
+        margin: 50px auto 0;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #1a1c20;
+        box-shadow: 0 25px 70px rgba(0,0,0,0.55);
+    }
+
+    .cs-shot-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        background: #24262b;
+    }
+
+    .cs-shot-dots { display: flex; gap: 6px; }
+    .cs-shot-dots span { width: 10px; height: 10px; border-radius: 50%; background: #55585f; }
+
+    .cs-shot-url {
+        flex: 1;
+        background: #1a1c20;
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.55);
+    }
+
+    .cs-shot-img { width: 100%; display: block; }
+
+    /* Content sections */
+    .cs-section {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    .cs-section h2 {
+        font-size: 1.7rem;
+        margin-bottom: 18px;
+        text-align: left;
+    }
+
+    .cs-section p {
+        text-align: left;
+        margin: 0 0 16px;
+        max-width: 100%;
+        color: rgba(255,255,255,0.8);
+        line-height: 1.7;
+    }
+
+    .cs-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .cs-feature-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 10px;
+    }
+
+    .cs-feature {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 22px;
+    }
+
+    .cs-feature .icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+    .cs-feature h3 { text-align: left; font-size: 1.05rem; margin: 0 0 8px; }
+    .cs-feature p { font-size: 0.92rem; margin: 0; color: rgba(255,255,255,0.68); }
+
+    .cs-note {
+        border-left: 3px solid rgba(255,255,255,0.3);
+        padding: 14px 20px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 0 8px 8px 0;
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.6);
+        margin-top: 40px;
+    }
+
+    .cs-final-cta {
+        text-align: center;
+        padding: 70px 20px;
+        background: linear-gradient(160deg, #1b1e23 0%, #0c0d0f 100%);
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cs-final-cta h2 { margin-bottom: 14px; }
+    .cs-final-cta p { max-width: 500px; margin: 0 auto 30px; color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 760px) {
+        .cs-title { font-size: 1.9rem; }
+        .cs-two-col, .cs-feature-grid { grid-template-columns: 1fr; }
+        .cs-hero { padding: 120px 16px 50px; }
+    }
+  </style>
+</head>
+
+<body>
+
+    <section class="top-nav">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="10.jpg" alt="AR Akron Services Logo">
+                <span class="logo-text">AR Akron Services</span>
+            </a>
+
+            <button class="hamburger-toggle" aria-label="Μενού">☰</button>
+
+            <div class="nav-links">
+                <a href="index.html#services">Υπηρεσίες</a>
+                <a href="index.html#highlights">Akron</a>
+                <a href="index.html#PARALLAX">Έργα</a>
+                <a href="index.html#contact">Επικοινωνία</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-hero">
+        <a href="index.html#PARALLAX" class="cs-back-link">← Πίσω στα Έργα</a>
+        <div class="cs-tag">SaaS Κρατήσεων · Εστίαση</div>
+        <h1 class="cs-title">TableReserve</h1>
+        <p class="cs-subtitle">Μια πλατφόρμα online κρατήσεων φτιαγμένη από το μηδέν για εστιατόρια — χωρίς τηλέφωνα που χτυπάνε συνέχεια, χωρίς χαμένα ραντεβού σε χαρτί.</p>
+
+        <div class="cs-cta-row">
+            <a class="cs-btn cs-btn-primary" href="https://tablereserve.gr/" target="_blank" rel="noopener noreferrer">Δες το Live →</a>
+            <a class="cs-btn cs-btn-secondary" href="index.html#contact">Θέλω κάτι αντίστοιχο</a>
+        </div>
+
+        <div class="cs-shot-frame">
+            <div class="cs-shot-bar">
+                <div class="cs-shot-dots"><span></span><span></span><span></span></div>
+                <div class="cs-shot-url">tablereserve.gr</div>
+            </div>
+            <img class="cs-shot-img" src="tablereserve-preview.png" alt="TableReserve — αρχική οθόνη">
+        </div>
+    </section>
+
+    <section class="cs-section">
+        <div class="cs-two-col">
+            <div>
+                <h2>Το Πρόβλημα</h2>
+                <p>Τα περισσότερα εστιατόρια διαχειρίζονται τις κρατήσεις τους με τηλέφωνο ή χαρτί — κάτι που σημαίνει χαμένα ραντεβού, διπλοκρατήσεις και προσωπικό δεσμευμένο στο τηλέφωνο αντί στους πελάτες μέσα στο κατάστημα.</p>
+            </div>
+            <div>
+                <h2>Η Λύση</h2>
+                <p>Το TableReserve δίνει στον πελάτη μια απλή online φόρμα κράτησης (ημερομηνία, ώρα, άτομα) με άμεση επιβεβαίωση, και στο κατάστημα ένα dashboard διαχείρισης όλων των κρατήσεων σε πραγματικό χρόνο.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-section">
+        <h2>Χαρακτηριστικά</h2>
+        <div class="cs-feature-grid">
+            <div class="cs-feature">
+                <span class="icon">📅</span>
+                <h3>Online Κράτηση</h3>
+                <p>Ο πελάτης επιλέγει ημερομηνία, ώρα και αριθμό ατόμων, και λαμβάνει άμεση επιβεβαίωση.</p>
+            </div>
+            <div class="cs-feature">
+                <span class="icon">🏪</span>
+                <h3>Πίνακας Καταστήματος</h3>
+                <p>Το κατάστημα βλέπει όλες τις κρατήσεις, σύνολο ατόμων και στοιχεία πελατών σε ένα σημείο.</p>
+            </div>
+            <div class="cs-feature">
+                <span class="icon">🖼️</span>
+                <h3>Προφίλ Καταστήματος</h3>
+                <p>Διαχείριση λογότυπου, εξωφύλλου και γκαλερί φωτογραφιών απευθείας από το dashboard.</p>
+            </div>
+            <div class="cs-feature">
+                <span class="icon">⚡</span>
+                <h3>Super Admin</h3>
+                <p>Κεντρική διαχείριση πολλαπλών καταστημάτων για ιδιοκτήτες με περισσότερα από ένα σημεία.</p>
+            </div>
+        </div>
+
+        <div class="cs-note">
+            Σημείωση για τον Άρη: αυτή είναι μια πρώτη πρόταση δομής/στυλ για case-study σελίδα. Τα τεχνικά στοιχεία (stack, ημερομηνία launch, στοιχεία πελάτη αν υπάρχουν) τα άφησα γενικά — πες μου τι θες να προσθέσω ή να αλλάξω πριν το κάνουμε δημόσιο, και δεν έχει ακόμα ενσωματωθεί το σύστημα μετάφρασης (EL/EN) που έχει η αρχική.
+        </div>
+    </section>
+
+    <section class="cs-final-cta">
+        <h2>Θες κάτι αντίστοιχο για την επιχείρησή σου;</h2>
+        <p>Custom σύστημα κρατήσεων, διαχείρισης ή οτιδήποτε άλλο χρειάζεται η δουλειά σου — χτισμένο από το μηδέν, γύρω από τις δικές σου ανάγκες.</p>
+        <a class="cs-btn cs-btn-primary" href="index.html#contact">Ζήτα Προσφορά</a>
+    </section>
+
+    <footer>
+        <p>© 2025 AR Akron Services</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
