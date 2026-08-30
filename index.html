@@ -45,7 +45,6 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3JRSJD53V"></script>
@@ -203,74 +202,197 @@
         /* ... άλλα στυλ για το parallax-content ... */
     }
 
-    .portfolio-swiper {
-        width: 60%;
-        padding: 60px 0;
-    }
-
-    .swiper-slide {
-        width: 100%;
-        height: 550px;
-        background: #fff;
+    /* --- PORTFOLIO SHOWCASE (χωρίς Swiper) --- */
+    .portfolio-showcase {
         display: flex;
-        justify-content: center;
-        align-items: start;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
-        transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    /* Scroll wrapper */
-    .image-scroll-container {
+        flex-direction: column;
+        gap: 60px;
         width: 100%;
-        height: 100%;
+        max-width: 1100px;
+        margin: 50px auto 0;
+        text-align: left;
+    }
+
+    .portfolio-item {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .portfolio-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .portfolio-item-media {
+        flex: 1 1 55%;
+        min-width: 0;
+    }
+
+    /* Browser mockup γύρω από το screenshot */
+    .browser-frame {
+        display: block;
+        border-radius: 12px;
         overflow: hidden;
+        background: #1a1c20;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        text-decoration: none;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
 
-    /* Scroll on hover */
-    .swiper-slide:hover .image-scroll-container {
-        overflow-y: auto;
+    .browser-frame:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 26px 70px rgba(255, 255, 255, 0.12);
     }
 
-    /* Εικόνα */
-    .swiper-slide img {
+    .browser-frame-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        background: #24262b;
+    }
+
+    .browser-frame-dots {
+        display: flex;
+        gap: 6px;
+    }
+
+    .browser-frame-dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #55585f;
+    }
+
+    .browser-frame-url {
+        flex: 1;
+        background: #1a1c20;
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.55);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .browser-frame-shot {
         width: 100%;
-        height: auto;
+        height: 320px;
         object-fit: cover;
         object-position: top;
         display: block;
+        background: #0e0f12;
     }
-    .image-scroll-container::-webkit-scrollbar {
-        width: 6px;
+
+    /* Placeholder όταν δεν υπάρχει διαθέσιμο screenshot */
+    .browser-frame-placeholder {
+        width: 100%;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(160deg, #1b1e23 0%, #2a2f36 60%, #3a4048 100%);
+        color: rgba(255, 255, 255, 0.85);
     }
-    .image-scroll-container::-webkit-scrollbar-thumb {
-        background: #999;
-        border-radius: 6px;
+
+    .browser-frame-placeholder .icon {
+        font-size: 2.6rem;
+    }
+
+    .browser-frame-placeholder .label {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .portfolio-item-info {
+        flex: 1 1 45%;
+    }
+
+    .portfolio-item-tag {
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 12px;
+    }
+
+    .portfolio-item-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0 0 14px;
+        color: #fff;
+    }
+
+    .portfolio-item-desc {
+        font-size: 1rem;
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.78);
+        margin: 0 0 22px;
+    }
+
+    .portfolio-item-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .portfolio-item-link:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: #fff;
+    }
+
+    .portfolio-item-link .arrow {
+        transition: transform 0.3s ease;
+    }
+
+    .portfolio-item-link:hover .arrow {
+        transform: translateX(4px);
     }
 
     /* Tablet */
-    @media (max-width: 1024px) {
-        .swiper-slide {
-            height: 550px;
+    @media (max-width: 900px) {
+        .portfolio-item,
+        .portfolio-item:nth-child(even) {
+            flex-direction: column;
+        }
+
+        .portfolio-item-info {
+            text-align: center;
+        }
+
+        .browser-frame-shot,
+        .browser-frame-placeholder {
+            height: 260px;
         }
     }
 
     /* Κινητά */
-    @media (max-width: 768px) {
-        .swiper-slide {
-            height: 450px;
-            padding: 6px;
-            border-radius: 12px;
-        }
-    }
-
-    /* Μικρά κινητά */
     @media (max-width: 480px) {
-        .swiper-slide {
-            height: 350px;
-            padding: 4px;
-            border-radius: 10px;
+        .portfolio-showcase {
+            gap: 45px;
+        }
+
+        .browser-frame-shot,
+        .browser-frame-placeholder {
+            height: 200px;
+        }
+
+        .portfolio-item-title {
+            font-size: 1.4rem;
         }
     }
 </style>
@@ -776,33 +898,98 @@
             <h2 class="animated-text" data-translate-key="portfolio-heading">Κάθε Project, Μια Νέα Πρόκληση</h2>
             <p class="animated-text" data-translate-key="portfolio-subtitle">Πιστεύουμε στην καινοτομία και στον συνεχή διάλογο μαζί σου για να δημιουργήσουμε κάτι μοναδικό</p>
 
-            <div class="swiper portfolio-swiper">
-                <div class="swiper-wrapper">
+            <div class="portfolio-showcase">
 
-                    <div class="swiper-slide">
-                        <div class="image-scroll-container">
-                            <img src="21.PNG" alt="arakronservices.gr" />
-                        </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-item-media">
+                        <a class="browser-frame" href="https://www.arakronservices.gr/" target="_blank" rel="noopener noreferrer">
+                            <div class="browser-frame-bar">
+                                <div class="browser-frame-dots"><span></span><span></span><span></span></div>
+                                <div class="browser-frame-url">arakronservices.gr</div>
+                            </div>
+                            <img class="browser-frame-shot" src="https://www.arakronservices.gr/1.jpg" alt="AR Akron Services" loading="lazy">
+                        </a>
                     </div>
-
-                    <div class="swiper-slide">
-                        <div class="image-scroll-container">
-                            <img src="20.PNG" alt="arakronqrcodegenerator.netlify.app" />
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="image-scroll-container">
-                            <img src="22.PNG" alt="mycashierarakron.gr" />
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="image-scroll-container">
-
-                            <img src="23.PNG" alt="amkefinal.netlify.app" />
-                        </div>
+                    <div class="portfolio-item-info">
+                        <span class="portfolio-item-tag">Web &amp; Consulting</span>
+                        <h3 class="portfolio-item-title">AR Akron Services</h3>
+                        <p class="portfolio-item-desc">Custom ιστοσελίδες &amp; web εφαρμογές για επιχειρήσεις hospitality και τουρισμού.</p>
+                        <a class="portfolio-item-link" href="https://www.arakronservices.gr/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
                     </div>
                 </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-item-media">
+                        <a class="browser-frame" href="https://tablereserve.gr/" target="_blank" rel="noopener noreferrer">
+                            <div class="browser-frame-bar">
+                                <div class="browser-frame-dots"><span></span><span></span><span></span></div>
+                                <div class="browser-frame-url">tablereserve.gr</div>
+                            </div>
+                            <img class="browser-frame-shot" src="tablereserve-preview.png" alt="TableReserve" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="portfolio-item-info">
+                        <span class="portfolio-item-tag">SaaS Κρατήσεων</span>
+                        <h3 class="portfolio-item-title">TableReserve</h3>
+                        <p class="portfolio-item-desc">Πλατφόρμα online κρατήσεων για εστιατόρια, με διαχείριση τραπεζιών σε πραγματικό χρόνο.</p>
+                        <a class="portfolio-item-link" href="https://tablereserve.gr/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-item-media">
+                        <a class="browser-frame" href="https://gofinanceos.com/app/" target="_blank" rel="noopener noreferrer">
+                            <div class="browser-frame-bar">
+                                <div class="browser-frame-dots"><span></span><span></span><span></span></div>
+                                <div class="browser-frame-url">gofinanceos.com/app</div>
+                            </div>
+                            <img class="browser-frame-shot" src="gofinanceos-preview.png" alt="GoFinanceOS" loading="lazy" style="object-position: left top;">
+                        </a>
+                    </div>
+                    <div class="portfolio-item-info">
+                        <span class="portfolio-item-tag">Οικονομική Διαχείριση</span>
+                        <h3 class="portfolio-item-title">GoFinanceOS</h3>
+                        <p class="portfolio-item-desc">Offline-first εφαρμογή διαχείρισης οικονομικών, με εφάπαξ άδεια χρήσης.</p>
+                        <a class="portfolio-item-link" href="https://gofinanceos.com/app/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-item-media">
+                        <a class="browser-frame" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer">
+                            <div class="browser-frame-bar">
+                                <div class="browser-frame-dots"><span></span><span></span><span></span></div>
+                                <div class="browser-frame-url">pandrosougarden-reservation.gr</div>
+                            </div>
+                            <img class="browser-frame-shot" src="https://pandrosougarden-reservation.gr/garden-bg.jpg" alt="Pandrosou Garden" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="portfolio-item-info">
+                        <span class="portfolio-item-tag">Εστιατόριο &amp; Κρατήσεις</span>
+                        <h3 class="portfolio-item-title">Pandrosou Garden</h3>
+                        <p class="portfolio-item-desc">Ιστοσελίδα &amp; σύστημα online κρατήσεων για ιστορικό εστιατόριο στην Πλάκα.</p>
+                        <a class="portfolio-item-link" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-item-media">
+                        <a class="browser-frame" href="https://amkediethnisdrasi.gr/" target="_blank" rel="noopener noreferrer">
+                            <div class="browser-frame-bar">
+                                <div class="browser-frame-dots"><span></span><span></span><span></span></div>
+                                <div class="browser-frame-url">amkediethnisdrasi.gr</div>
+                            </div>
+                            <img class="browser-frame-shot" src="https://amkediethnisdrasi.gr/1.JPG" alt="ΑΜΚΕ Διεθνής Δράση" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="portfolio-item-info">
+                        <span class="portfolio-item-tag">Πολιτισμός &amp; ΑΜΚΕ</span>
+                        <h3 class="portfolio-item-title">ΑΜΚΕ Διεθνής Δράση</h3>
+                        <p class="portfolio-item-desc">Ιστοσελίδα για Αστική Μη Κερδοσκοπική Εταιρεία πολιτισμού, με φόρμες συμμετοχής &amp; χορηγίας.</p>
+                        <a class="portfolio-item-link" href="https://amkediethnisdrasi.gr/" target="_blank" rel="noopener noreferrer">Δες το Live <span class="arrow">→</span></a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1032,34 +1219,8 @@
         </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
         <script src="translation.js"></script>
         <script src="script.js"></script>
-        <script>
-            const swiper = new Swiper(".portfolio-swiper", {
-                effect: "coverflow",
-                grabCursor: true,
-                centeredSlides: true,
-                loop: true,
-                slidesPerView: "auto",
-                autoplay: {
-                    delay: 3000, // Κάθε 3 δευτερόλεπτα
-                    disableOnInteraction: false, // συνεχίζει να παίζει ακόμα κι αν ο χρήστης αλληλεπιδράσει
-                },
-
-                coverflowEffect: {
-                    rotate: 30,
-                    stretch: 0,
-                    depth: 200,
-                    modifier: 1,
-                    slideShadows: true,
-                },
-            });
-            const swiperEl = document.querySelector('.portfolio-swiper');
-            swiperEl.addEventListener('mouseenter', () => swiper.autoplay.stop());
-            swiperEl.addEventListener('mouseleave', () => swiper.autoplay.start());
-        </script>
         <script>
 
           // script.js (μέσα στο DOMContentLoaded listener)
