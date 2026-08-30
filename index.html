@@ -824,10 +824,8 @@
         <div class="hero-content">
             <svg id="hero-title-svg" class="hero-text-instant" viewBox="0 0 800 250" preserveAspectRatio="xMidYMid meet">
                 <defs>
-                    {/* Gradient for uniform coloring across both lines (User Space) */}
-                    {/* Stops create sharp light/shadow bands. */}
-                    <linearGradient id="chromeGradient" x1="0%" y1="0%" x2="100%" y2="0%"> {/* gradientUnits="objectBoundingBox" removed */}
-                        {/* Stops for a sharper, "banded" chrome effect */}
+                    <!-- Gradient for uniform coloring across both lines, animated for a chrome sweep effect -->
+                    <linearGradient id="chromeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" style="stop-color:#444"/>
                         <stop offset="15%" style="stop-color:#999"/>
                         <stop offset="30%" style="stop-color:#ddd"/>
@@ -836,16 +834,8 @@
                         <stop offset="85%" style="stop-color:#999"/>
                         <stop offset="100%" style="stop-color:#444"/>
 
-                        {/* --- UPDATED Gradient Animation: Forward -> Back (as ONE cycle) --- */}
-                        {/* values="-100%; 100%; -100%": Defines motion from -100% to 100% and then BACK to -100% as ONE cycle. */}
-                        {/* dur="20s": Double the duration to cover the FULL path (forward + back). */}
-                        {/* repeatCount="indefinite": Repeats this FULL cycle indefinitely. */}
-                        {/* **direction="alternate"** IS REMOVED, as forward-back motion is defined by values. */}
                         <animate attributeName="x1" values="-100%; 100%; -100%" dur="15s" repeatCount="indefinite" />
-                        {/* x2 values maintain 100% distance from x1 values: 0%; 200%; 0% */}
                         <animate attributeName="x2" values="0%; 200%; 0%" dur="15s" repeatCount="indefinite" />
-                        {/* ---------------------------------------------------------------------------------- */}
-
                     </linearGradient>
 
                     <filter id="whiteGlow">
@@ -859,7 +849,6 @@
                     </filter>
                 </defs>
 
-                {/* Text in SVG (remains the same) - Added data-translate-key */}
                 <text x="50%" y="100" text-anchor="middle" font-size="80" font-weight="bold"
                     fill="url(#chromeGradient)" filter="url(#whiteGlow)" data-translate-key="hero-title-line1">
                     Ο Ψηφιακός σου Κόσμος
