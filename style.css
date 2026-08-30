@@ -799,6 +799,30 @@ footer {
   transition: all 1s ease;
 }
 
+/* Κείμενο πάνω από το hero video: εμφανίζεται αμέσως με CSS animation,     */
+/* χωρίς να περιμένει το IntersectionObserver του script.js (που προκαλούσε */
+/* καθυστέρηση/κόλλημα στην εμφάνιση όταν φόρτωνε πάνω από το video).       */
+.hero-text-instant {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroTextIn 0.8s ease forwards;
+}
+
+#hero-title-svg.hero-text-instant {
+  animation-delay: 0.1s;
+}
+
+.hero .subtitle.hero-text-instant {
+  animation-delay: 0.3s;
+}
+
+@keyframes heroTextIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animated-card {
   opacity: 0;
   /* Εάν θέλεις οι κάρτες να έρχονται από τα αριστερά, άλλαξε το scale σε translateX(-50px) όπως συζητήσαμε πριν */
