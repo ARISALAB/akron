@@ -106,17 +106,22 @@ function handleTickerResize() {
 }
 
 // Συνάρτηση για το Cookie Consent Banner
+function getCookieConsent() {
+    try { return localStorage.getItem('cookieConsent'); } catch (e) { return null; }
+}
+
 function showCookieBanner() {
     const cookieBanner = document.getElementById('cookieConsentBanner');
-    if (cookieBanner) {
-        cookieBanner.style.display = 'flex'; // Πάντα εμφανές για δοκιμή
+    // Εμφανίζεται μόνο αν ο επισκέπτης δεν έχει ήδη επιλέξει
+    if (cookieBanner && !getCookieConsent()) {
+        cookieBanner.style.display = 'flex';
     }
 }
 
 function hideCookieBanner(consentType) {
     const cookieBanner = document.getElementById('cookieConsentBanner');
     if (cookieBanner) {
-        localStorage.setItem('cookieConsent', consentType);
+        try { localStorage.setItem('cookieConsent', consentType); } catch (e) {}
         cookieBanner.style.display = 'none';
         if (consentType === 'accepted') {
             loadGoogleAnalytics();
@@ -124,8 +129,19 @@ function hideCookieBanner(consentType) {
     }
 }
 
+// Το Google Analytics φορτώνει ΜΟΝΟ μετά από «Αποδοχή»
+const GA_ID = 'G-Z3JRSJD53V';
 function loadGoogleAnalytics() {
-    console.log('Google Analytics loaded (or would be if uncommented).');
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
 }
 
 // --- ΚΕΝΤΡΙΚΟ DOMContentLoaded LISTENER ---
@@ -325,7 +341,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('languageChanged', (event) => {
             showCookieBanner();
         });
-        showCookieBanner(); // Εμφάνιση του banner μόλις φορτώσει η σελίδα
+        showCookieBanner(); // Εμφάνιση του banner μόνο αν δεν υπάρχει επιλογή
+    }
+
+    // Αν ο επισκέπτης έχει ήδη αποδεχτεί σε προηγούμενη επίσκεψη
+    if (getCookieConsent() === 'accepted') {
+        loadGoogleAnalytics();
     }
 
 }); // Τέλος του ΕΝΙΑΙΟΥ DOMContentLoaded listener
