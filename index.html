@@ -403,6 +403,24 @@
         transform: translateX(4px);
     }
 
+    .portfolio-item-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .portfolio-item-link--primary {
+        background: #fff;
+        color: #111;
+        border-color: #fff;
+    }
+
+    .portfolio-item-link--primary:hover {
+        background: rgba(255, 255, 255, 0.85);
+        border-color: #fff;
+    }
+
     /* Tablet */
     @media (max-width: 900px) {
         .portfolio-item,
@@ -961,7 +979,7 @@
 
                 <div class="portfolio-item">
                     <div class="portfolio-item-media">
-                        <a class="browser-frame" href="https://tablereserve.gr/" target="_blank" rel="noopener noreferrer">
+                        <a class="browser-frame" href="project-tablereserve.html">
                             <div class="browser-frame-bar">
                                 <div class="browser-frame-dots"><span></span><span></span><span></span></div>
                                 <div class="browser-frame-url">tablereserve.gr</div>
@@ -973,7 +991,10 @@
                         <span class="portfolio-item-tag" data-translate-key="portfolio-item2-tag">SaaS Κρατήσεων</span>
                         <h3 class="portfolio-item-title">TableReserve</h3>
                         <p class="portfolio-item-desc" data-translate-key="portfolio-item2-desc">Πλατφόρμα online κρατήσεων για εστιατόρια, με διαχείριση τραπεζιών σε πραγματικό χρόνο.</p>
-                        <a class="portfolio-item-link" href="https://tablereserve.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">→</span></a>
+                        <div class="portfolio-item-links">
+                            <a class="portfolio-item-link portfolio-item-link--primary" href="project-tablereserve.html"><span data-translate-key="portfolio-case-study">Δες το Case Study</span> <span class="arrow">→</span></a>
+                            <a class="portfolio-item-link" href="https://tablereserve.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">↗</span></a>
+                        </div>
                     </div>
                 </div>
 
