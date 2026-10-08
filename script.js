@@ -125,8 +125,24 @@ function hideCookieBanner(consentType) {
         cookieBanner.style.display = 'none';
         if (consentType === 'accepted') {
             loadGoogleAnalytics();
+        } else {
+            clearAnalyticsCookies();
         }
     }
+}
+
+// Διαγραφή cookies Google Analytics (όταν ο επισκέπτης απορρίπτει ή αλλάζει γνώμη)
+function clearAnalyticsCookies() {
+    const host = location.hostname;
+    const domains = ['', host, '.' + host, '.' + host.replace(/^www\./, '')];
+    document.cookie.split(';').forEach(c => {
+        const name = c.split('=')[0].trim();
+        if (name.indexOf('_ga') === 0) {
+            domains.forEach(d => {
+                document.cookie = name + '=; Max-Age=0; path=/' + (d ? '; domain=' + d : '');
+            });
+        }
+    });
 }
 
 // Το Google Analytics φορτώνει ΜΟΝΟ μετά από «Αποδοχή»
@@ -342,6 +358,42 @@ document.addEventListener('DOMContentLoaded', () => {
             showCookieBanner();
         });
         showCookieBanner(); // Εμφάνιση του banner μόνο αν δεν υπάρχει επιλογή
+    }
+
+    // --- Footer: «Ρυθμίσεις cookies» ξανανοίγει το banner ---
+    const cookieSettingsBtn = document.getElementById('cookie-settings');
+    if (cookieSettingsBtn) {
+        cookieSettingsBtn.addEventListener('click', () => {
+            try { localStorage.removeItem('cookieConsent'); } catch (e) {}
+            clearAnalyticsCookies();
+            showCookieBanner();
+        });
+    }
+
+    // --- Hero video: αργή κίνηση ---
+    // Ταχύτητα βίντεο: 1 = κανονική, 0.75 = ήρεμη, 0.5 = πολύ αργή (λιγότερο ομαλή)
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+        const HERO_SPEED = 0.75;
+        const applySpeed = () => {
+            heroVideo.defaultPlaybackRate = HERO_SPEED;
+            heroVideo.playbackRate = HERO_SPEED;
+        };
+        applySpeed();
+        heroVideo.addEventListener('loadedmetadata', applySpeed);
+        heroVideo.addEventListener('play', applySpeed);
+    }
+
+    // --- Mobile Sticky CTA ---
+    const mobileCta = document.getElementById('mobileCta');
+    if (mobileCta) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                mobileCta.classList.add('show');
+            } else {
+                mobileCta.classList.remove('show');
+            }
+        });
     }
 
     // Αν ο επισκέπτης έχει ήδη αποδεχτεί σε προηγούμενη επίσκεψη

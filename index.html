@@ -4,20 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>akronwebuilder.gr | Κατασκευή Ιστοσελίδων & Web Εφαρμογών – by AR Akron Services</title>
-  <meta name="description" content="Το akronwebuilder.gr είναι το τμήμα κατασκευής ιστοσελίδων της AR Akron Services: custom ιστοσελίδες και web εφαρμογές με χειροποίητο κώδικα, mobile-first και SEO-ready.">
+  <meta name="description" content="Custom κατασκευή ιστοσελίδων από €190. Landing pages, business websites & web εφαρμογές με χειροποίητο κώδικα. Mobile-first, SEO-ready, domain + hosting δωρεάν 2 χρόνια. Αθήνα & όλη η Ελλάδα.">
   <link rel="canonical" href="https://akronwebuilder.gr/" />
 
   <!-- Open Graph -->
   <meta property="og:url" content="https://akronwebuilder.gr/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="akronwebuilder.gr | Κατασκευή Ιστοσελίδων & Εφαρμογών" />
+  <meta property="og:title" content="akronwebuilder.gr | Custom Ιστοσελίδες από €190" />
   <meta property="og:site_name" content="akronwebuilder.gr" />
-  <meta property="og:description" content="Μετατρέπουμε τις ιδέες σας σε εντυπωσιακές, custom ιστοσελίδες και εφαρμογές." />
+  <meta property="og:description" content="Custom κατασκευή ιστοσελίδων & web εφαρμογών. Landing pages από €190, business sites από €450. Domain + hosting δωρεάν 2 χρόνια." />
   <meta property="og:image" content="https://raw.githubusercontent.com/ARISALAB/akron/main/fb.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <!-- Favicon -->
+  <link rel="preload" href="fonts/manrope-greek-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 
@@ -31,13 +33,8 @@
         "@id": "https://akronwebuilder.gr/#website",
         "url": "https://akronwebuilder.gr/",
         "name": "akronwebuilder.gr",
-        "inLanguage": [
-          "el",
-          "en"
-        ],
-        "publisher": {
-          "@id": "https://akronwebuilder.gr/#service"
-        }
+        "inLanguage": ["el", "en"],
+        "publisher": { "@id": "https://akronwebuilder.gr/#service" }
       },
       {
         "@type": "ProfessionalService",
@@ -47,22 +44,69 @@
         "url": "https://akronwebuilder.gr/",
         "image": "https://akronwebuilder.gr/fb.jpg",
         "logo": "https://akronwebuilder.gr/10.jpg",
-        "description": "Κατασκευή custom ιστοσελίδων και web εφαρμογών με χειροποίητο κώδικα. Τμήμα της AR Akron Services.",
+        "description": "Custom κατασκευή ιστοσελίδων και web εφαρμογών. Landing pages από €190, business websites από €450, custom εφαρμογές από €750.",
         "telephone": "+306983661460",
-        "areaServed": {
-          "@type": "Country",
-          "name": "Greece"
-        },
-        "knowsLanguage": [
-          "el",
-          "en"
+        "areaServed": [
+          { "@type": "Country", "name": "Greece" },
+          { "@type": "Place", "name": "International" }
         ],
+        "knowsLanguage": ["el", "en"],
+        "priceRange": "€190 - €750+",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Website Packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Start — Custom Landing Page",
+              "price": "190",
+              "priceCurrency": "EUR",
+              "description": "Custom landing page, GR+EN, mobile-first, basic SEO, contact form, domain + hosting δωρεάν 2 χρόνια"
+            },
+            {
+              "@type": "Offer",
+              "name": "Business — Custom Website",
+              "price": "450",
+              "priceCurrency": "EUR",
+              "description": "4-5 σελίδες, custom design & development, GR+EN, SEO-ready, forms, maps, performance optimization"
+            },
+            {
+              "@type": "Offer",
+              "name": "Premium — Custom Development",
+              "price": "750",
+              "priceCurrency": "EUR",
+              "description": "Booking systems, web applications, dashboards, QR systems, integrations, advanced SEO, custom functionality"
+            }
+          ]
+        },
         "parentOrganization": {
           "@type": "ProfessionalService",
           "@id": "https://www.arakronservices.gr/#org",
           "name": "AR Akron Services",
           "url": "https://www.arakronservices.gr/"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://akronwebuilder.gr/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Πόσο κοστίζει μια custom ιστοσελίδα;",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Μια custom landing page ξεκινά από €190 με domain και hosting δωρεάν για 2 χρόνια. Ένα ολοκληρωμένο business website κοστίζει από €450. Για πιο σύνθετα projects (booking systems, web apps, dashboards) οι τιμές ξεκινούν από €750."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Πόσο χρόνο παίρνει η κατασκευή;",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Μια landing page παραδίδεται σε 5-7 εργάσιμες ημέρες. Ένα business website σε 2-3 εβδομάδες. Σύνθετα projects εξαρτώνται από τις απαιτήσεις."
+            }
+          }
+        ]
       }
     ]
   }
@@ -74,9 +118,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Google Analytics: φορτώνει μόνο μετά την αποδοχή cookies (script.js) -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
 </head>
 
 <style>
@@ -104,7 +146,6 @@
         gap: 10px;
         z-index: 101;
     }
-
     .language-switcher .lang-option {
         cursor: pointer;
         font-size: 1rem;
@@ -113,7 +154,6 @@
         opacity: 0.6;
         transition: opacity 0.3s ease;
     }
-
     .language-switcher .lang-option:hover,
     .language-switcher .lang-option.active {
         opacity: 1;
@@ -122,7 +162,6 @@
         display: flex;
         gap: 20px;
     }
-
     .top-nav .nav-links a {
         color: white;
         text-decoration: none;
@@ -144,88 +183,63 @@
             transition: transform 0.3s ease-in-out;
             z-index: 99;
         }
-
         .top-nav .nav-links.open {
             display: flex;
             transform: translateX(0);
         }
-
         .top-nav .nav-links a {
             padding: 15px 0;
             border-bottom: 1px solid #444;
             font-size: 1.2rem;
             text-align: center;
         }
-
         .top-nav .nav-links a:last-child {
             border-bottom: none;
         }
-
         .top-nav .hamburger-toggle {
             display: block;
             margin-left: 10px;
         }
-
-        /* Hide desktop language switcher, show inside menu */
         .language-switcher.desktop-only {
             display: none;
         }
-
         .top-nav .nav-links .language-switcher {
             margin-top: 20px;
             justify-content: center;
             display: flex;
             gap: 15px;
         }
-
         .top-nav .nav-links .language-switcher .lang-option {
             font-size: 1.2rem;
             color: white;
             opacity: 0.8;
         }
-
         .top-nav .nav-links .language-switcher .lang-option.active {
             opacity: 1;
             font-weight: bold;
         }
     }
 
-
-    /* ΕΝΗΜΕΡΩΜΕΝΑ στυλ για την ενότητα PARALLAX για CSS Parallax */
+    /* PARALLAX Section */
     .parallax-section {
-        position: relative; /* Σημαντικό για στοίχιση του περιεχομένου αν χρειαστεί */
+        position: relative;
         overflow: hidden;
-        /* Ορίζουμε την εικόνα ως background */
-        background-image: url('4.jfif'); /* Η διαδρομή προς την εικόνα */
-        /* Ρυθμίσεις για το background image */
-        background-size: cover; /* Καλύπτει όλη την περιοχή διατηρώντας τις αναλογίες */
-        background-position: center; /* Κεντράρει την εικόνα */
-        background-repeat: no-repeat; /* Αποφεύγουμε την επανάληψη */
-        /* ΤΟ ΣΗΜΑΝΤΙΚΟ: Ορίζει ότι η εικόνα background παραμένει σταθερή στο viewport κατά το scroll */
+        background-image: url('4.jfif');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         background-attachment: fixed;
-
-        /* Προαιρετικά: προσθέστε ελάχιστο ύψος ή padding για να είναι ορατό το background */
-        min-height: 500px; /* Παράδειγμα - προσαρμόστε ανάλογα με το περιεχόμενο και το design */
-        padding: 100px 0; /* Παράδειγμα padding για να υπάρχει χώρος για το περιεχόμενο */
-
-
-        /* Προαιρετικά: προσθέστε ένα overlay απευθείας στο background αν δεν χρησιμοποιείτε ξεχωριστό div */
-        /* Μπορείτε να το κάνετε με :before ψευδο-στοιχείο ή με ένα gradient */
-        /* Παράδειγμα με linear gradient overlay (πιο σκούρο): */
-        /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('4.jpg'); */
+        min-height: 500px;
+        padding: 100px 0;
     }
-
-    /* Το περιεχόμενο πρέπει να παραμείνει πάνω από το background */
     .parallax-content {
-        position: relative; /* Βεβαιωθείτε ότι βρίσκεται πάνω από το background */
-        z-index: 1; /* Βεβαιωθείτε ότι είναι πάνω από το background */
-        /* Χρώμα κειμένου για να φαίνεται πάνω στο σκούρο background */
+        position: relative;
+        z-index: 1;
         color: white;
         text-align: center;
-        /* ... άλλα στυλ για το parallax-content ... */
     }
 
-    /* --- PORTFOLIO SHOWCASE (χωρίς Swiper) --- */
+    /* PORTFOLIO SHOWCASE */
     .portfolio-showcase {
         display: flex;
         flex-direction: column;
@@ -235,23 +249,18 @@
         margin: 50px auto 0;
         text-align: left;
     }
-
     .portfolio-item {
         display: flex;
         align-items: center;
         gap: 50px;
     }
-
     .portfolio-item:nth-child(even) {
         flex-direction: row-reverse;
     }
-
     .portfolio-item-media {
         flex: 1 1 55%;
         min-width: 0;
     }
-
-    /* Browser mockup γύρω από το screenshot */
     .browser-frame {
         display: block;
         border-radius: 12px;
@@ -261,12 +270,10 @@
         text-decoration: none;
         transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-
     .browser-frame:hover {
         transform: translateY(-6px);
         box-shadow: 0 26px 70px rgba(255, 255, 255, 0.12);
     }
-
     .browser-frame-bar {
         display: flex;
         align-items: center;
@@ -274,19 +281,16 @@
         padding: 10px 14px;
         background: #24262b;
     }
-
     .browser-frame-dots {
         display: flex;
         gap: 6px;
     }
-
     .browser-frame-dots span {
         width: 10px;
         height: 10px;
         border-radius: 50%;
         background: #55585f;
     }
-
     .browser-frame-url {
         flex: 1;
         background: #1a1c20;
@@ -298,7 +302,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
     .browser-frame-shot {
         width: 100%;
         height: 320px;
@@ -307,8 +310,6 @@
         display: block;
         background: #0e0f12;
     }
-
-    /* Placeholder όταν δεν υπάρχει διαθέσιμο screenshot */
     .browser-frame-placeholder {
         width: 100%;
         height: 320px;
@@ -320,18 +321,8 @@
         background: linear-gradient(160deg, #1b1e23 0%, #2a2f36 60%, #3a4048 100%);
         color: rgba(255, 255, 255, 0.85);
     }
-
-    .browser-frame-placeholder .icon {
-        font-size: 2.6rem;
-    }
-
-    .browser-frame-placeholder .label {
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-
-    /* Καθαρή προβολή λογοτύπου (όταν δεν υπάρχει screenshot) */
+    .browser-frame-placeholder .icon { font-size: 2.6rem; }
+    .browser-frame-placeholder .label { font-size: 1rem; font-weight: 600; letter-spacing: 0.5px; }
     .browser-frame-logo-box {
         width: 100%;
         height: 320px;
@@ -340,18 +331,13 @@
         justify-content: center;
         background: radial-gradient(circle at center, #2a2f36 0%, #16181b 100%);
     }
-
     .browser-frame-logo-box img {
         max-width: 45%;
         max-height: 45%;
         object-fit: contain;
         display: block;
     }
-
-    .portfolio-item-info {
-        flex: 1 1 45%;
-    }
-
+    .portfolio-item-info { flex: 1 1 45%; }
     .portfolio-item-tag {
         display: inline-block;
         text-transform: uppercase;
@@ -361,21 +347,18 @@
         color: rgba(255, 255, 255, 0.55);
         margin-bottom: 12px;
     }
-
     .portfolio-item-title {
         font-size: 1.8rem;
         font-weight: 700;
         margin: 0 0 14px;
         color: #fff;
     }
-
     .portfolio-item-desc {
         font-size: 1rem;
         line-height: 1.65;
         color: rgba(255, 255, 255, 0.78);
         margin: 0 0 22px;
     }
-
     .portfolio-item-link {
         display: inline-flex;
         align-items: center;
@@ -389,58 +372,36 @@
         font-weight: 600;
         transition: background 0.3s ease, border-color 0.3s ease;
     }
-
     .portfolio-item-link:hover {
         background: rgba(255, 255, 255, 0.12);
         border-color: #fff;
     }
-
-    .portfolio-item-link .arrow {
-        transition: transform 0.3s ease;
-    }
-
-    .portfolio-item-link:hover .arrow {
-        transform: translateX(4px);
-    }
-
+    .portfolio-item-link .arrow { transition: transform 0.3s ease; }
+    .portfolio-item-link:hover .arrow { transform: translateX(4px); }
     .portfolio-item-links {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
         justify-content: center;
     }
-
     .portfolio-item-link--primary {
         background: #fff;
         color: #111;
         border-color: #fff;
     }
-
     .portfolio-item-link--primary:hover {
         background: rgba(255, 255, 255, 0.85);
         border-color: #fff;
     }
-
-    /* Tablet */
     @media (max-width: 900px) {
         .portfolio-item,
         .portfolio-item:nth-child(even) {
             flex-direction: column;
             align-items: stretch;
         }
-
-        .portfolio-item-media {
-            width: 100%;
-        }
-
-        .browser-frame {
-            width: 100%;
-        }
-
-        .portfolio-item-info {
-            text-align: center;
-        }
-
+        .portfolio-item-media { width: 100%; }
+        .browser-frame { width: 100%; }
+        .portfolio-item-info { text-align: center; }
         .browser-frame-shot,
         .browser-frame-placeholder,
         .browser-frame-logo-box {
@@ -448,517 +409,301 @@
             height: 260px;
         }
     }
-
-    /* Κινητά */
     @media (max-width: 480px) {
-        .portfolio-showcase {
-            gap: 45px;
-        }
-
+        .portfolio-showcase { gap: 45px; }
         .browser-frame-shot,
         .browser-frame-placeholder,
-        .browser-frame-logo-box {
-            height: 200px;
-        }
-
-        .portfolio-item-title {
-            font-size: 1.4rem;
-        }
+        .browser-frame-logo-box { height: 200px; }
+        .portfolio-item-title { font-size: 1.4rem; }
     }
 </style>
 <style>
-    label a {
-        pointer-events: auto;
-        color: blue;
-        text-decoration: underline;
-    }
+    label a { pointer-events: auto; color: blue; text-decoration: underline; }
+    label { cursor: pointer; }
 
-    label {
-        cursor: pointer;
-    }
-
-    /* style.css */
-
-    /* --- Cookie Consent Banner Styling --- */
+    /* Cookie Consent Banner */
     .cookie-banner {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.9); /* Σκούρο διαφανές φόντο */
-        color: #f5f5f5;
-        padding: 20px;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-        z-index: 1000; /* Βεβαιωθείτε ότι είναι πάνω από άλλα στοιχεία */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        animation: fadeIn 0.5s ease-out; /* Εφέ εμφάνισης */
+        position: fixed; bottom: 0; left: 0; width: 100%;
+        background-color: rgba(0, 0, 0, 0.9); color: #f5f5f5;
+        padding: 20px; box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000; display: flex; justify-content: center;
+        align-items: center; flex-wrap: wrap;
+        animation: fadeIn 0.5s ease-out;
     }
-
     .cookie-banner-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-width: 800px;
-        text-align: center;
+        max-width: 800px; text-align: center; padding: 10px;
     }
-
-    .cookie-banner p {
-        margin-bottom: 15px;
-        font-size: 0.95em;
-        line-height: 1.5;
+    .cookie-banner-content p {
+        margin-bottom: 15px; font-size: 0.95rem; line-height: 1.5;
     }
-
-    .cookie-banner a {
-        color: #00bcd4; /* Το accent χρώμα σου */
-        text-decoration: underline;
-    }
-
+    .cookie-banner-content a { color: #66aaff; text-decoration: underline; }
     .cookie-banner-buttons {
-        display: flex;
-        gap: 15px; /* Κενό μεταξύ των κουμπιών */
-        flex-wrap: wrap;
-        justify-content: center;
+        display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
     }
-
     .cookie-button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 0.9em;
-        font-weight: 600;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        padding: 10px 20px; border: none; border-radius: 5px;
+        cursor: pointer; font-size: 0.9rem; font-weight: bold;
+        transition: background-color 0.3s ease;
     }
-
-    .accept-button {
-        background-color: #00bcd4; /* Το accent χρώμα σου */
-        color: #ffffff;
-    }
-
-    .accept-button:hover {
-        background-color: #0097a7;
-    }
-
-    .decline-button {
-        background-color: #3a3a3a;
-        color: #f5f5f5;
-    }
-
-    .decline-button:hover {
-        background-color: #555555;
-    }
-
-    /* Animation for banner appearance */
+    .accept-button { background-color: #4CAF50; color: white; }
+    .accept-button:hover { background-color: #45a049; }
+    .decline-button { background-color: #666666; color: white; }
+    .decline-button:hover { background-color: #555555; }
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
-
-    /* Responsive adjustments */
     @media (max-width: 768px) {
-        .cookie-banner {
-            padding: 15px;
-        }
-        .cookie-banner-content {
-            max-width: 90%;
-        }
-        .cookie-banner-buttons {
-            flex-direction: column; /* Κουμπιά το ένα κάτω από το άλλο σε κινητά */
-            width: 90%;
-        }
-        .cookie-button {
-            width: 90%; /* Τα κουμπιά πιάνουν όλο το πλάτος */
-        }
+        .cookie-banner { padding: 15px; }
+        .cookie-banner-content { max-width: 90%; }
+        .cookie-banner-buttons { flex-direction: column; width: 90%; }
+        .cookie-button { width: 90%; }
     }
-    /* style.css */
-/* --- FAQ Section Styling --- */
-.faq-section {
-    padding: 80px 0;
-    background-image: url('100.jfif'); /* **ΠΡΟΣΟΧΗ στο path!** */
-    background-size: cover; /* Καλύπτει όλο το διαθέσιμο χώρο */
-    background-position: center center; /* Κεντράρει την εικόνα */
-    background-repeat: no-repeat; /* Δεν επαναλαμβάνει την εικόνα */
-    text-align: center;
-    color: white;
-}
 
-.faq-section .section-title {
-    margin-bottom: 60px;
-    color: #f5f5f5; /* Εξασφαλίζει ότι ο τίτλος είναι ορατός */
-}
-
-.faq-accordion {
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: 12px; /* Ελαφρώς μεγαλύτερο border-radius */
-    overflow: hidden;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6); /* Πιο έντονη σκιά */
-}
-
-.faq-item {
-    /* Φόντο για κάθε στοιχείο FAQ με ένα ελαφρύ μπλε-μωβ gradient */
-    background: linear-gradient(to right, #2f1847, #3e1f60); /* Μωβ προς πιο σκούρο μωβ */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Πιο διακριτική διαχωριστική γραμμή */
-    margin-bottom: 15px; /* Περισσότερο κενό μεταξύ των FAQ items */
-    border-radius: 10px; /* Ελαφρώς στρογγυλεμένες γωνίες */
-    overflow: hidden;
-    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; /* Προσθήκη transition για hover */
-}
-
-.faq-item:hover {
-    transform: translateY(-3px); /* Εφέ ανασηκώματος στο hover */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Πιο έντονη σκιά στο hover */
-}
-
-.faq-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-.faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 25px;
-    font-size: 1.15em;
-    font-weight: 600;
-    cursor: pointer;
-    /* Gradient για το φόντο της ερώτησης */
-    background: linear-gradient(to right, #4a2a7a, #5e339c); /* Μωβ προς πιο έντονο μωβ */
-    transition: background 0.3s ease, color 0.3s ease; /* transition στο background για gradient */
-    color: #e0e0e0; /* Ελαφρώς πιο σκούρο χρώμα κειμένου ερώτησης αρχικά */
-}
-
-.faq-question:hover {
-    /* Gradient στο hover - Ένα φωτεινό μπλε-μωβ για feedback */
-    background: linear-gradient(to right, #6a4da9, #8e62d0); /* Φωτεινότερο μωβ */
-    color: #f5f5f5; /* Ανοιχτότερο κείμενο στο hover */
-}
-
-.faq-question.active {
-    /* Gradient όταν είναι ενεργό - Ένα πιο ζωντανό μπλε-μωβ */
-    background: linear-gradient(to right, #4c2d73, #6a3e9c); /* Έντονο μπλε-μωβ */
-    color: #f5f5f5;
-}
-
-.faq-icon {
-    width: 22px; /* Ελαφρώς μεγαλύτερο εικονίδιο */
-    height: 22px;
-    position: relative;
-    transition: transform 0.3s ease;
-}
-
-.faq-icon::before,
-.faq-icon::after {
-    content: '';
-    position: absolute;
-    background-color: #f5f5f5; /* Χρώμα του εικονιδίου (+/-) */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: background-color 0.3s ease; /* Transition για το χρώμα του εικονιδίου */
-}
-
-.faq-question:hover .faq-icon::before,
-.faq-question:hover .faq-icon::after {
-    background-color: #f5f5f5; /* Το εικονίδιο παραμένει λευκό στο hover */
-}
-
-.faq-question.active .faq-icon::before,
-.faq-question.active .faq-icon::after {
-    background-color: #1a1a1a; /* Σκούρο χρώμα για το εικονίδιο όταν είναι ενεργό, για αντίθεση */
-}
-
-.faq-icon::before {
-    width: 2px;
-    height: 18px; /* Κάθετη γραμμή */
-}
-
-.faq-icon::after {
-    width: 18px; /* Οριζόντια γραμμή */
-    height: 2px;
-}
-
-.faq-question.active .faq-icon::before {
-    transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.faq-question.active .faq-icon::after {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-    padding: 0 25px;
-    /* Φόντο απάντησης με gradient */
-    background: linear-gradient(to right, #22123a, #2a144e); /* Σκούρο μπλε-μωβ στην απάντηση */
-    color: #c0c0c0; /* Ελαφρώς πιο φωτεινό χρώμα κειμένου απάντησης */
-    text-align: left;
-    font-size: 0.95em;
-    line-height: 1.6;
-}
-
-.faq-answer p {
-    padding-bottom: 20px;
-}
-
-.faq-question.active + .faq-answer {
-    max-height: 300px; /* Αυξάνεται για να χωρέσει μεγαλύτερο κείμενο, ρυθμίστε αν χρειάζεται */
-    padding: 20px 25px;
-}
-
-/* Responsive adjustments */
-
-/* Για οθόνες έως 768px (συνήθως tablets σε portrait και κινητά) */
-@media (max-width: 768px) {
+    /* FAQ Section */
     .faq-section {
-        padding: 50px 0; /* Μειωμένο padding για μικρότερες οθόνες */
+        padding: 80px 20px;
+        background: #0a0a0a;
+        text-align: center;
+        color: white;
     }
-
-    .faq-section .section-title {
-        margin-bottom: 40px; /* Λιγότερο κενό κάτω από τον τίτλο */
-        font-size: 2em; /* Μειώνουμε το μέγεθος του τίτλου */
-    }
-
+    .faq-section .section-title { margin-bottom: 60px; color: #f5f5f5; }
     .faq-accordion {
-        max-width: 95%; /* Αυξάνουμε το πλάτος για να εκμεταλλευτούμε τον χώρο */
-        margin: 0 15px; /* Προσθέτουμε λίγα περιθώρια στις πλευρές */
+        max-width: 900px; margin: 0 auto; border-radius: 12px;
+        overflow: hidden;
     }
-
     .faq-item {
-        margin-bottom: 10px; /* Μικρότερο κενό μεταξύ των FAQ items */
-        border-radius: 8px; /* Ελαφρώς μικρότερο border-radius */
+        background: rgba(255,255,255,0.04);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 8px; border-radius: 10px; overflow: hidden;
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     }
-
+    .faq-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .faq-item:last-child { border-bottom: none; margin-bottom: 0; }
     .faq-question {
-        padding: 15px 20px; /* Μειωμένο padding για τις ερωτήσεις */
-        font-size: 1em; /* Μειωμένο μέγεθος γραμματοσειράς */
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 20px 25px; font-size: 1.1em; font-weight: 600;
+        cursor: pointer; background: rgba(255,255,255,0.06);
+        transition: background 0.3s ease; color: #e0e0e0;
+        text-align: left;
     }
-
+    .faq-question:hover { background: rgba(255,255,255,0.1); color: #f5f5f5; }
+    .faq-question.active { background: rgba(255,255,255,0.08); color: #f5f5f5; }
     .faq-icon {
-        width: 20px;
-        height: 20px;
+        width: 22px; height: 22px; position: relative;
+        transition: transform 0.3s ease; flex-shrink: 0; margin-left: 15px;
     }
-
-    .faq-icon::before {
-        height: 16px;
+    .faq-icon::before, .faq-icon::after {
+        content: ''; position: absolute; background-color: #f5f5f5;
+        top: 50%; left: 50%; transform: translate(-50%, -50%);
+        transition: background-color 0.3s ease;
     }
-
-    .faq-icon::after {
-        width: 16px;
-    }
-
+    .faq-icon::before { width: 2px; height: 18px; }
+    .faq-icon::after { width: 18px; height: 2px; }
+    .faq-question.active .faq-icon::before { transform: translate(-50%, -50%) rotate(90deg); }
+    .faq-question.active .faq-icon::after { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
     .faq-answer {
-        padding: 0 20px; /* Μειωμένο padding για τις απαντήσεις */
-        font-size: 0.9em; /* Μειωμένο μέγεθος γραμματοσειράς */
+        max-height: 0; overflow: hidden;
+        transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+        padding: 0 25px; background: rgba(255,255,255,0.02);
+        color: #c0c0c0; text-align: left; font-size: 0.95em; line-height: 1.7;
+    }
+    .faq-answer p { padding-bottom: 20px; }
+    .faq-question.active + .faq-answer { max-height: 400px; padding: 20px 25px; }
+    @media (max-width: 768px) {
+        .faq-section { padding: 50px 15px; }
+        .faq-question { padding: 16px 20px; font-size: 1em; }
+        .faq-answer { font-size: 0.9em; }
+        .faq-question.active + .faq-answer { max-height: 500px; padding: 15px 20px; }
+    }
+    @media (max-width: 480px) {
+        .faq-question { padding: 14px 16px; font-size: 0.95em; }
     }
 
-    .faq-answer p {
-        padding-bottom: 15px; /* Μειωμένο padding κάτω από την παράγραφο */
+    .visually-hidden {
+        position: absolute; width: 1px; height: 1px; margin: -1px;
+        padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
     }
-
-    .faq-question.active + .faq-answer {
-        max-height: 500px; /* Αυξάνεται το max-height για να χωρέσει περισσότερο κείμενο σε κινητά */
-        padding: 15px 20px;
-    }
-}
-
-/* Για οθόνες κινητών (π.χ. έως 480px) */
-@media (max-width: 480px) {
-    .faq-section {
-        padding: 30px 0; /* Ακόμα λιγότερο padding */
-    }
-
-    .faq-section .section-title {
-        margin-bottom: 30px;
-        font-size: 1.8em;
-    }
-
-    .faq-accordion {
-        margin: 0 10px; /* Μικρότερα περιθώρια */
-    }
-
-    .faq-question {
-        padding: 12px 15px; /* Ακόμα λιγότερο padding */
-        font-size: 0.95em; /* Ελαφρώς μικρότερη γραμματοσειρά */
-    }
-
-    .faq-icon {
-        width: 18px;
-        height: 18px;
-    }
-
-    .faq-icon::before {
-        height: 14px;
-    }
-
-    .faq-icon::after {
-        width: 14px;
-    }
-
-    .faq-answer {
-        padding: 0 15px;
-        font-size: 0.85em; /* Ακόμα μικρότερη γραμματοσειρά για ευανάγνωστη */
-    }
-
-    .faq-answer p {
-        padding-bottom: 10px;
-    }
-
-    .faq-question.active + .faq-answer {
-        padding: 12px 15px;
-    }
-}
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
 </style>
+<link rel="stylesheet" href="theme.css">
 
 <body>
+    <!-- ===== NAV ===== -->
     <section class="top-nav">
         <div class="container">
             <a href="/" class="logo">
                 <img src="10.jpg" alt="akronwebuilder.gr logo" data-translate-key="logo-alt">
-                <span class="logo-text">akronwebuilder<small class="logo-by">by AR Akron Services</small></span>
+                <span class="logo-text">Akron Webuilder<small class="logo-by">by AR Akron Services</small></span>
             </a>
-
-            <button class="hamburger-toggle" aria-label="Μενού">
-                ☰
-            </button>
-
+            <button class="hamburger-toggle" aria-label="Μενού">☰</button>
             <div class="nav-links">
-                <a href="#services" data-translate-key="nav-services">Υπηρεσίες</a>
-                <a href="#highlights" data-translate-key="nav-highlights">Akron</a>
-                <a href="#PARALLAX" data-translate-key="nav-portfolio">Έργα</a>
+                <a href="#pricing" data-translate-key="nav-pricing">Πακέτα</a>
+                <a href="#portfolio-section" data-translate-key="nav-portfolio">Έργα</a>
+                <a href="#process" data-translate-key="nav-process">Διαδικασία</a>
+                <a href="#faq" data-translate-key="nav-faq">FAQ</a>
                 <a href="#contact" data-translate-key="nav-contact">Επικοινωνία</a>
-
                 <div class="language-switcher">
                     <a href="#" class="lang-option active" data-lang="el" title="Ελληνικά">GR</a>
                     <a href="#" class="lang-option" data-lang="en" title="English">EN</a>
                 </div>
             </div>
-
-            </div>
+        </div>
     </section>
+
+    <!-- ===== HERO ===== -->
     <header class="hero">
-<h1 class="visually-hidden">akronwebuilder.gr by AR Akron Services: Κατασκευή Custom Ιστοσελίδων & Web Εφαρμογών, Ο Ψηφιακός σου Κόσμος Όπως τον Ονειρεύεσαι</h1>
-        <div class="hero-overlay"></div>
-
-        <video autoplay loop muted playsinline id="hero-video">
-            <source src="5.mp4" type="video/mp4">
-            <source src="videos/your_video.webm" type="video/webm">
-            Η συσκευή σας δεν υποστηρίζει βίντεο background.
+        <h1 class="visually-hidden">akronwebuilder.gr — Custom Κατασκευή Ιστοσελίδων από €190, by AR Akron Services</h1>
+        <video autoplay loop muted playsinline preload="auto" poster="hero-poster.jpg" id="hero-video">
+            <source src="hero.webm" type="video/webm">
+            <source src="hero.mp4" type="video/mp4">
         </video>
-        <div class="hero-content">
-            <svg id="hero-title-svg" class="hero-text-instant" viewBox="0 0 800 250" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                    <!-- Gradient for uniform coloring across both lines, animated for a chrome sweep effect -->
-                    <linearGradient id="chromeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#444"/>
-                        <stop offset="15%" style="stop-color:#999"/>
-                        <stop offset="30%" style="stop-color:#ddd"/>
-                        <stop offset="50%" style="stop-color:#fff"/>
-                        <stop offset="70%" style="stop-color:#ddd"/>
-                        <stop offset="85%" style="stop-color:#999"/>
-                        <stop offset="100%" style="stop-color:#444"/>
-
-                        <animate attributeName="x1" values="-100%; 100%; -100%" dur="15s" repeatCount="indefinite" />
-                        <animate attributeName="x2" values="0%; 200%; 0%" dur="15s" repeatCount="indefinite" />
-                    </linearGradient>
-
-                    <filter id="whiteGlow">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
-                        <feFlood flood-color="white" flood-opacity="1" result="glowColor" />
-                        <feComposite in="glowColor" operator="in" in2="blur" result="coloredBlur" />
-                        <feMerge>
-                            <feMergeNode in="coloredBlur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                </defs>
-
-                <text x="50%" y="100" text-anchor="middle" font-size="80" font-weight="bold"
-                    fill="url(#chromeGradient)" filter="url(#whiteGlow)" data-translate-key="hero-title-line1">
-                    Ο Ψηφιακός σου Κόσμος
-                </text>
-
-                <text x="50%" y="180" text-anchor="middle" font-size="80" font-weight="bold"
-                    fill="url(#chromeGradient)" filter="url(#whiteGlow)" data-translate-key="hero-title-line2">
-                    Όπως τον Ονειρεύεσαι
-                </text>
-
-            </svg>
-            <p class="hero-text-instant subtitle" data-translate-key="hero-subtitle">
-                Στο akronwebuilder.gr μετατρέπουμε κάθε σου ιδέα σε πραγματικότητα: websites, web εφαρμογές, blogs — όλα σχεδιασμένα αποκλειστικά για εσένα, χωρίς περιορισμούς. Εδώ, δεν υπάρχουν έτοιμες λύσεις. Υπάρχει μόνο η δική σου.
-            </p>
-            <div class="cta-buttons">
-                <a href="#services" class="cta-button" data-translate-key="cta-services">Οι Υπηρεσίες μας</a>
-                <a href="#contact" class="cta-button alt" data-translate-key="cta-quote">Ζήτα Προσφορά</a>
+        <div class="hero-overlay"></div>
+        <div class="hero-stage">
+            <!-- Μάσκα: μαύρο παντού, το βίντεο φαίνεται μόνο μέσα στα γράμματα -->
+            <div class="hero-mask" aria-hidden="true">
+                <span class="hero-motto-type" data-translate-key="hero-motto">Η ψηφιακή εικόνα της επιχείρησής σου</span>
+            </div>
+            <div class="hero-content">
+                <h2 class="hero-motto hero-motto-type" data-translate-key="hero-motto">Η ψηφιακή εικόνα της επιχείρησής σου</h2>
+                <div class="hero-bottom">
+                    <div class="hero-copy">
+                        <p class="hero-sub-tagline" data-translate-key="hero-sub-tagline">Σχεδιασμένη για να ξεχωρίζει, φτιαγμένη για να αποδίδει.</p>
+                        <p class="hero-desc" data-translate-key="hero-desc">
+                            Custom ιστοσελίδες, σχεδιασμένες και κατασκευασμένες στα μέτρα της επιχείρησής σου, με σύγχρονο design, ταχύτητα και σωστή παρουσία σε κάθε συσκευή.
+                        </p>
+                    </div>
+                    <div class="hero-offer">
+                        <div class="hero-price-anchor">
+                            <div class="hero-price-main">
+                                <span class="hero-price-badge" data-translate-key="hero-badge">Custom Landing Page από</span>
+                                <span class="hero-price">€190</span>
+                            </div>
+                            <span class="hero-tagline" data-translate-key="hero-tagline">Domain + Hosting δωρεάν για 2 χρόνια</span>
+                        </div>
+                        <div class="cta-buttons">
+                            <a href="#contact" class="cta-button" data-translate-key="cta-start">Ξεκίνα το Project σου</a>
+                            <a href="#pricing" class="cta-button alt" data-translate-key="cta-pricing">Δες τα Πακέτα</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
+    <!-- ===== TRUST BAR ===== -->
+    <section class="trust-bar">
+        <div class="trust-items">
+            <span class="trust-item"><i class="fas fa-code"></i> <span data-translate-key="trust-1">100% χειροποίητος κώδικας</span></span>
+            <span class="trust-sep">·</span>
+            <span class="trust-item"><i class="fas fa-mobile-alt"></i> <span data-translate-key="trust-2">Mobile-first design</span></span>
+            <span class="trust-sep">·</span>
+            <span class="trust-item"><i class="fas fa-globe"></i> <span data-translate-key="trust-3">Custom websites για επιχειρήσεις στην Ελλάδα και το εξωτερικό</span></span>
+        </div>
+    </section>
 
-    <section id="services" class="section">
-        <h2 class="animated-text" data-translate-key="services-heading">Οι Υπηρεσίες μας</h2>
-        <div class="cards">
-            <div class="card animated-card">
-                <img src="https://img.icons8.com/ios-filled/100/ffffff/web.png" alt="Website Icon" style="width:60px; margin-bottom: 15px;">
-                <h3 data-translate-key="card1-title">Κατασκευή Ιστοσελίδων</h3>
-                <p data-translate-key="card1-description">Δημιουργούμε εικαστικά άρτιες και τεχνικά άψογες ιστοσελίδες, φτιαγμένες από το μηδέν – χωρίς έτοιμα templates, μόνο αυθεντικός, βελτιστοποιημένος κώδικας</p>
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" class="section pricing-section">
+        <h2 class="animated-text" data-translate-key="pricing-heading">Επιλέξτε το πακέτο σας</h2>
+        <p class="pricing-intro animated-text" data-translate-key="pricing-intro">Κάθε πακέτο περιλαμβάνει custom σχεδιασμό και ανάπτυξη — χωρίς templates, χωρίς συμβιβασμούς.</p>
+
+        <div class="pricing-cards">
+            <!-- START -->
+            <div class="pricing-card animated-card">
+                <div class="pricing-card-header">
+                    <h3 data-translate-key="price-start-name">Start</h3>
+                    <div class="pricing-card-price">€190</div>
+                    <p class="pricing-card-type" data-translate-key="price-start-type">Custom Landing Page</p>
+                </div>
+                <ul class="pricing-card-features">
+                    <li data-translate-key="price-start-f1"><i class="fas fa-check"></i> 1 σελίδα, σχεδιασμένη από το μηδέν</li>
+                    <li data-translate-key="price-start-f2"><i class="fas fa-check"></i> Ελληνικά + Αγγλικά</li>
+                    <li data-translate-key="price-start-f3"><i class="fas fa-check"></i> Mobile-first responsive</li>
+                    <li data-translate-key="price-start-f4"><i class="fas fa-check"></i> Basic SEO optimization</li>
+                    <li data-translate-key="price-start-f5"><i class="fas fa-check"></i> Contact form</li>
+                    <li data-translate-key="price-start-f6"><i class="fas fa-check"></i> Google Maps & social links</li>
+                    <li data-translate-key="price-start-f7"><i class="fas fa-gift"></i> Domain + Hosting δωρεάν 2 χρόνια</li>
+                </ul>
+                <a href="#contact" class="pricing-card-cta" data-translate-key="price-cta-start">Ξεκίνα με €190</a>
             </div>
-            <div class="card animated-card">
-                <img src="https://img.icons8.com/ios-filled/100/ffffff/cloud-development.png" alt="Web App Icon" style="width:60px; margin-bottom: 15px;">
-                <h3 data-translate-key="card2-title">Web Εφαρμογές</h3>
-                <p data-translate-key="card2-description">Αναπτύσσουμε προσαρμοσμένες εφαρμογές για την επιχείρησή σου — από συστήματα κρατήσεων μέχρι διαχείριση δεδομένων. Αξιοπιστία, ασφάλεια και λειτουργικότητα</p>
+
+            <!-- BUSINESS -->
+            <div class="pricing-card pricing-card--popular animated-card">
+                <div class="pricing-card-badge" data-translate-key="price-popular">Δημοφιλές</div>
+                <div class="pricing-card-header">
+                    <h3 data-translate-key="price-biz-name">Business</h3>
+                    <div class="pricing-card-price">€450</div>
+                    <p class="pricing-card-type" data-translate-key="price-biz-type">Custom Business Website</p>
+                </div>
+                <ul class="pricing-card-features">
+                    <li data-translate-key="price-biz-f1"><i class="fas fa-check"></i> 4–5 σελίδες, custom design</li>
+                    <li data-translate-key="price-biz-f2"><i class="fas fa-check"></i> Ελληνικά + Αγγλικά</li>
+                    <li data-translate-key="price-biz-f3"><i class="fas fa-check"></i> Mobile-first responsive</li>
+                    <li data-translate-key="price-biz-f4"><i class="fas fa-check"></i> SEO-ready δομή</li>
+                    <li data-translate-key="price-biz-f5"><i class="fas fa-check"></i> Forms, Maps, Social integration</li>
+                    <li data-translate-key="price-biz-f6"><i class="fas fa-check"></i> Performance optimization</li>
+                    <li data-translate-key="price-biz-f7"><i class="fas fa-check"></i> Custom development κάθε σελίδας</li>
+                </ul>
+                <a href="#contact" class="pricing-card-cta pricing-card-cta--popular" data-translate-key="price-cta-biz">Ξεκίνα με €450</a>
             </div>
-            <div class="card animated-card">
-                <img src="https://img.icons8.com/ios-filled/100/ffffff/blog.png" alt="Blog Icon" style="width:60px; margin-bottom: 15px;">
-                <h3 data-translate-key="card3-title">Blogs & Προσωπικά Sites</h3>
-                <p data-translate-key="card3-description">Εκφράσου ελεύθερα μέσα από ένα blog ή προσωπική ιστοσελίδα με μοντέρνο σχεδιασμό, ταχύτητα και δυνατότητες επέκτασης. Το περιεχόμενό σου αξίζει την καλύτερη παρουσίαση</p>
+
+            <!-- PREMIUM -->
+            <div class="pricing-card animated-card">
+                <div class="pricing-card-header">
+                    <h3 data-translate-key="price-prem-name">Premium</h3>
+                    <div class="pricing-card-price">€750<span class="price-plus">+</span></div>
+                    <p class="pricing-card-type" data-translate-key="price-prem-type">Custom Development</p>
+                </div>
+                <ul class="pricing-card-features">
+                    <li data-translate-key="price-prem-f1"><i class="fas fa-check"></i> Booking & reservation systems</li>
+                    <li data-translate-key="price-prem-f2"><i class="fas fa-check"></i> Web εφαρμογές & dashboards</li>
+                    <li data-translate-key="price-prem-f3"><i class="fas fa-check"></i> QR systems & integrations</li>
+                    <li data-translate-key="price-prem-f4"><i class="fas fa-check"></i> Advanced SEO & analytics</li>
+                    <li data-translate-key="price-prem-f5"><i class="fas fa-check"></i> Custom functionality</li>
+                    <li data-translate-key="price-prem-f6"><i class="fas fa-check"></i> Ongoing υποστήριξη & αναβαθμίσεις</li>
+                </ul>
+                <a href="#contact" class="pricing-card-cta" data-translate-key="price-cta-prem">Ζήτα Προσφορά</a>
+            </div>
+        </div>
+        <p class="pricing-vat" data-translate-key="pricing-vat">Όλες οι τιμές περιλαμβάνουν ΦΠΑ.</p>
+    </section>
+
+    <!-- ===== WHY CUSTOM ===== -->
+    <section id="why-custom" class="section why-custom-section">
+        <h2 class="animated-text" data-translate-key="why-heading">Γιατί custom κατασκευή;</h2>
+        <div class="why-grid">
+            <div class="why-item animated-card">
+                <div class="why-icon"><i class="fas fa-fingerprint"></i></div>
+                <h3 data-translate-key="why-1-title">Μοναδικό Design</h3>
+                <p data-translate-key="why-1-desc">Η ιστοσελίδα σας σχεδιάζεται αποκλειστικά για εσάς. Δεν μοιράζεστε template με χιλιάδες άλλες επιχειρήσεις.</p>
+            </div>
+            <div class="why-item animated-card">
+                <div class="why-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <h3 data-translate-key="why-2-title">Ταχύτητα & Απόδοση</h3>
+                <p data-translate-key="why-2-desc">Χωρίς περιττά plugins και βαρύ κώδικα. Η σελίδα σας φορτώνει αστραπιαία σε κάθε συσκευή.</p>
+            </div>
+            <div class="why-item animated-card">
+                <div class="why-icon"><i class="fas fa-search"></i></div>
+                <h3 data-translate-key="why-3-title">SEO από τη Βάση</h3>
+                <p data-translate-key="why-3-desc">Καθαρός, σημασιολογικός κώδικας που οι μηχανές αναζήτησης αγαπούν. Καλύτερη κατάταξη, περισσότεροι επισκέπτες.</p>
+            </div>
+            <div class="why-item animated-card">
+                <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3 data-translate-key="why-4-title">Ασφάλεια & Έλεγχος</h3>
+                <p data-translate-key="why-4-desc">Χωρίς ευπάθειες plugins, χωρίς εξάρτηση από τρίτες πλατφόρμες. Εσείς έχετε τον πλήρη έλεγχο.</p>
             </div>
         </div>
     </section>
 
-    <section id="highlights"class="section highlights">
-        <h2 class="animated-text" data-translate-key="highlights-heading">Γιατί να επιλέξεις το akronwebuilder</h2>
-        <div class="highlights-content">
-            <div class="highlight-point">
-                <h2 class="highlight-heading" data-translate-key="highlight1-heading">100% Custom</h2>
-                <p class="highlight-description" data-translate-key="highlight1-description">Δεν χρησιμοποιούμε πλατφόρμες drag & drop. Ό,τι βλέπεις είναι γραμμένο αποκλειστικά για σένα</p>
-            </div>
-            <div class="highlight-point">
-                <h2 class="highlight-heading" data-translate-key="highlight2-heading">Mobile First</h2>
-                <p class="highlight-description" data-translate-key="highlight2-description">Όλα μας τα έργα σχεδιάζονται πρώτα για κινητές συσκευές, ώστε να φαίνονται τέλεια παντού</p>
-            </div>
-            <div class="highlight-point">
-                <h2 class="highlight-heading" data-translate-key="highlight3-heading">Συνεργασία σε Βάθος</h2>
-                <p class="highlight-description" data-translate-key="highlight3-description">Μαθαίνουμε τι πραγματικά θέλεις και δημιουργούμε μαζί ένα προϊόν που σε αντιπροσωπεύει</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="PARALLAX" class="section parallax-section">
-
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio-section" class="section parallax-section">
         <div class="parallax-content">
-            <h2 class="animated-text" data-translate-key="portfolio-heading">Κάθε Project, Μια Νέα Πρόκληση</h2>
-            <p class="animated-text" data-translate-key="portfolio-subtitle">Πιστεύουμε στην καινοτομία και στον συνεχή διάλογο μαζί σου για να δημιουργήσουμε κάτι μοναδικό</p>
+            <h2 class="animated-text" data-translate-key="portfolio-heading">Πραγματικά Projects, Πραγματικά Αποτελέσματα</h2>
+            <p class="animated-text" data-translate-key="portfolio-subtitle">Κάθε project είναι μοναδικό — σχεδιασμένο και κατασκευασμένο εξ αρχής για τις ανάγκες του πελάτη.</p>
 
             <div class="portfolio-showcase">
-
                 <div class="portfolio-item">
                     <div class="portfolio-item-media">
                         <a class="browser-frame" href="https://www.arakronservices.gr/" target="_blank" rel="noopener noreferrer">
@@ -974,8 +719,8 @@
                         <h3 class="portfolio-item-title">AR Akron Services</h3>
                         <p class="portfolio-item-desc" data-translate-key="portfolio-item1-desc">Custom ιστοσελίδες &amp; web εφαρμογές για επιχειρήσεις hospitality και τουρισμού.</p>
                         <div class="portfolio-item-links">
-                        <a class="portfolio-item-link portfolio-item-link--primary" href="project-arakron.html"><span data-translate-key="portfolio-case-study">Δες το Case Study</span> <span class="arrow">→</span></a>
-                        <a class="portfolio-item-link" href="https://www.arakronservices.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">→</span></a>
+                            <a class="portfolio-item-link portfolio-item-link--primary" href="project-arakron.html"><span data-translate-key="portfolio-case-study">Δες το Case Study</span> <span class="arrow">→</span></a>
+                            <a class="portfolio-item-link" href="https://www.arakronservices.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">→</span></a>
                         </div>
                     </div>
                 </div>
@@ -1016,8 +761,8 @@
                         <h3 class="portfolio-item-title">GoFinanceOS</h3>
                         <p class="portfolio-item-desc" data-translate-key="portfolio-item3-desc">Offline-first εφαρμογή διαχείρισης οικονομικών, με εφάπαξ άδεια χρήσης.</p>
                         <div class="portfolio-item-links">
-                        <a class="portfolio-item-link portfolio-item-link--primary" href="project-gofinanceos.html"><span data-translate-key="portfolio-case-study">Δες το Case Study</span> <span class="arrow">→</span></a>
-                        <a class="portfolio-item-link" href="https://gofinanceos.com/app/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">↗</span></a>
+                            <a class="portfolio-item-link portfolio-item-link--primary" href="project-gofinanceos.html"><span data-translate-key="portfolio-case-study">Δες το Case Study</span> <span class="arrow">→</span></a>
+                            <a class="portfolio-item-link" href="https://gofinanceos.com/app/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">↗</span></a>
                         </div>
                     </div>
                 </div>
@@ -1037,8 +782,8 @@
                         <h3 class="portfolio-item-title">Pandrosou Garden</h3>
                         <p class="portfolio-item-desc" data-translate-key="portfolio-item4-desc">Ιστοσελίδα &amp; σύστημα online κρατήσεων για ιστορικό εστιατόριο στην Πλάκα.</p>
                         <div class="portfolio-item-links">
-                        <a class="portfolio-item-link portfolio-item-link--primary" href="project-pandrosou.html"><span data-translate-key="portfolio-case-study">Δες το Case Study</span> <span class="arrow">→</span></a>
-                        <a class="portfolio-item-link" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">↗</span></a>
+                            <a class="portfolio-item-link portfolio-item-link--primary" href="project-pandrosou.html"><span data-translate-key="portfolio-case-study">Δες το Case Study</span> <span class="arrow">→</span></a>
+                            <a class="portfolio-item-link" href="https://pandrosougarden-reservation.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">↗</span></a>
                         </div>
                     </div>
                 </div>
@@ -1058,289 +803,269 @@
                         <h3 class="portfolio-item-title" data-translate-key="portfolio-item5-title">ΑΜΚΕ Διεθνής Δράση</h3>
                         <p class="portfolio-item-desc" data-translate-key="portfolio-item5-desc">Ιστοσελίδα για Αστική Μη Κερδοσκοπική Εταιρεία πολιτισμού, με φόρμες συμμετοχής &amp; χορηγίας.</p>
                         <div class="portfolio-item-links">
-                        <a class="portfolio-item-link portfolio-item-link--primary" href="project-diethnis.html"><span data-translate-key="portfolio-case-study">Δες το Case Study</span> <span class="arrow">→</span></a>
-                        <a class="portfolio-item-link" href="https://amkediethnisdrasi.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">↗</span></a>
+                            <a class="portfolio-item-link portfolio-item-link--primary" href="project-diethnis.html"><span data-translate-key="portfolio-case-study">Δες το Case Study</span> <span class="arrow">→</span></a>
+                            <a class="portfolio-item-link" href="https://amkediethnisdrasi.gr/" target="_blank" rel="noopener noreferrer"><span data-translate-key="portfolio-view-live">Δες το Live</span> <span class="arrow">↗</span></a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section contact">
-        <div class="contact-intro-banner">
-            <div class="ticker-content">
-                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα —Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
-                <span data-translate-key="contact-ticker">Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —</span>
+    <!-- ===== PROCESS ===== -->
+    <section id="process" class="section process-section">
+        <h2 class="animated-text" data-translate-key="process-heading">Πώς δουλεύουμε</h2>
+        <div class="process-steps">
+            <div class="process-step animated-card">
+                <div class="process-number">1</div>
+                <h3 data-translate-key="process-1-title">Συζήτηση</h3>
+                <p data-translate-key="process-1-desc">Μαθαίνουμε τι χρειάζεται η επιχείρησή σας και σχεδιάζουμε μαζί τη λύση.</p>
+            </div>
+            <div class="process-step animated-card">
+                <div class="process-number">2</div>
+                <h3 data-translate-key="process-2-title">Σχεδιασμός</h3>
+                <p data-translate-key="process-2-desc">Δημιουργούμε το design και τη δομή του site σας, πριν γράψουμε κώδικα.</p>
+            </div>
+            <div class="process-step animated-card">
+                <div class="process-number">3</div>
+                <h3 data-translate-key="process-3-title">Ανάπτυξη</h3>
+                <p data-translate-key="process-3-desc">Γράφουμε τον κώδικα από το μηδέν, με focus σε ταχύτητα και SEO.</p>
+            </div>
+            <div class="process-step animated-card">
+                <div class="process-number">4</div>
+                <h3 data-translate-key="process-4-title">Παράδοση</h3>
+                <p data-translate-key="process-4-desc">Testing, domain setup, launch — και συνεχής υποστήριξη μετά την παράδοση.</p>
             </div>
         </div>
-        <section id="faq" class="section faq-section">
-    <div class="container">
-        <h2 class="section-title animated-text" data-translate-key="faq-title">Συχνές Ερωτήσεις</h2>
+    </section>
 
-        <div class="faq-accordion">
-            <div class="faq-item animated-card">
-                <div class="faq-question" data-translate-key="faq-q1-title">
-                    Πόσο κοστίζει ένα custom website ή εφαρμογή;
-                    <span class="faq-icon"></span>
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-banner">
+        <div class="cta-banner-content">
+            <h2 data-translate-key="cta-banner-title">Custom landing page από €190</h2>
+            <p data-translate-key="cta-banner-sub">Domain + hosting δωρεάν για 2 χρόνια. Παράδοση σε 5–7 ημέρες.</p>
+            <a href="#contact" class="cta-button" data-translate-key="cta-banner-btn">Ξεκίνα Τώρα</a>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <h2 class="section-title animated-text" data-translate-key="faq-title">Συχνές Ερωτήσεις</h2>
+            <div class="faq-accordion">
+                <div class="faq-item animated-card">
+                    <div class="faq-question" data-translate-key="faq-q1-title">Πόσο κοστίζει μια custom ιστοσελίδα;<span class="faq-icon"></span></div>
+                    <div class="faq-answer" data-translate-key="faq-q1-answer">Μια custom landing page ξεκινά από €190 και περιλαμβάνει domain + hosting δωρεάν για 2 χρόνια. Ένα ολοκληρωμένο business website κοστίζει από €450, ενώ σύνθετα projects (booking systems, web apps, dashboards) ξεκινούν από €750. Η τελική τιμή εξαρτάται από τις ανάγκες σας — επικοινωνήστε μαζί μας για εξατομικευμένη προσφορά.</div>
                 </div>
-                <div class="faq-answer" data-translate-key="faq-q1-answer">
-                    Το κόστος για ένα custom website ή εφαρμογή εξαρτάται από το πόσο περίπλοκο είναι. Μια απλή, custom ιστοσελίδα ξεκινά από τα 150€. Για πιο σύνθετα έργα, η τιμή διαμορφώνεται ανάλογα με τις λειτουργίες που θα χρειαστείτε και τον χρόνο που θα απαιτηθεί για την ανάπτυξή τους με κώδικα. Θα σας δώσουμε μια εξατομικευμένη προσφορά αφού μιλήσουμε για τις ανάγκες σας.
+                <div class="faq-item animated-card">
+                    <div class="faq-question" data-translate-key="faq-q2-title">Πόσο χρόνο παίρνει η κατασκευή;<span class="faq-icon"></span></div>
+                    <div class="faq-answer" data-translate-key="faq-q2-answer">Μια landing page παραδίδεται σε 5–7 εργάσιμες ημέρες. Ένα business website σε 2–3 εβδομάδες. Σύνθετα projects εξαρτώνται από τις απαιτήσεις, αλλά πάντα στοχεύουμε σε γρήγορη παράδοση χωρίς συμβιβασμούς στην ποιότητα.</div>
+                </div>
+                <div class="faq-item animated-card">
+                    <div class="faq-question" data-translate-key="faq-q3-title">Τι περιλαμβάνει κάθε πακέτο;<span class="faq-icon"></span></div>
+                    <div class="faq-answer" data-translate-key="faq-q3-answer">Κάθε πακέτο περιλαμβάνει custom σχεδιασμό, ανάπτυξη κώδικα από το μηδέν, mobile-first responsive design, basic SEO, contact form και testing. Τα πακέτα Business και Premium περιλαμβάνουν επιπλέον λειτουργίες ανάλογα με τις ανάγκες σας.</div>
+                </div>
+                <div class="faq-item animated-card">
+                    <div class="faq-question" data-translate-key="faq-q4-title">Υποστηρίζετε μετά την παράδοση;<span class="faq-icon"></span></div>
+                    <div class="faq-answer" data-translate-key="faq-q4-answer">Ναι. Παρέχουμε υποστήριξη και συντήρηση για κάθε project. Αυτό σημαίνει ότι η ιστοσελίδα σας θα παραμένει ενημερωμένη, ασφαλής και λειτουργική.</div>
+                </div>
+                <div class="faq-item animated-card">
+                    <div class="faq-question" data-translate-key="faq-q5-title">Χρειάζομαι domain και hosting;<span class="faq-icon"></span></div>
+                    <div class="faq-answer" data-translate-key="faq-q5-answer">Ναι, αλλά με το πακέτο Start (€190) το domain και το hosting περιλαμβάνονται δωρεάν για 2 χρόνια. Σε κάθε περίπτωση, αναλαμβάνουμε εμείς τη ρύθμιση — δεν χρειάζεται να ασχοληθείτε με τεχνικά θέματα.</div>
+                </div>
+                <div class="faq-item animated-card">
+                    <div class="faq-question" data-translate-key="faq-q6-title">Γιατί custom κώδικας και όχι WordPress;<span class="faq-icon"></span></div>
+                    <div class="faq-answer" data-translate-key="faq-q6-answer">Ο custom κώδικας σημαίνει ταχύτερη ιστοσελίδα, καλύτερο SEO, μεγαλύτερη ασφάλεια και μοναδικό design. Δεν εξαρτάστε από plugins ή τρίτες πλατφόρμες, και η σελίδα σας δεν μοιάζει με χιλιάδες άλλες.</div>
+                </div>
+                <div class="faq-item animated-card">
+                    <div class="faq-question" data-translate-key="faq-q7-title">Κάνετε και web εφαρμογές;<span class="faq-icon"></span></div>
+                    <div class="faq-answer" data-translate-key="faq-q7-answer">Ναι. Εκτός από ιστοσελίδες, αναπτύσσουμε custom web εφαρμογές: συστήματα κρατήσεων, διαχείριση δεδομένων, dashboards, QR menus και οτιδήποτε χρειάζεται η επιχείρησή σας.</div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="faq-item animated-card">
-                <div class="faq-question" data-translate-key="faq-q2-title">
-                    Πόσο χρόνο παίρνει η ανάπτυξη ενός custom έργου;
-                    <span class="faq-icon"></span>
-                </div>
-                <div class="faq-answer" data-translate-key="faq-q2-answer">
-                    Ο χρόνος παράδοσης εξαρτάται από το μέγεθος του έργου. Μια απλή, custom ιστοσελίδα μπορεί να είναι έτοιμη και να παραδοθεί σε 1 εβδομάδα. Για πιο σύνθετα projects με πολλές λειτουργίες, ο χρόνος αυξάνεται, αλλά πάντα στοχεύουμε στην γρήγορη και αποτελεσματική ολοκλήρωση χωρίς να θυσιάζουμε την ποιότητα.
-                </div>
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section contact">
+        <h2 class="animated-text" data-translate-key="contact-heading">Ας ξεκινήσουμε</h2>
+
+        <div class="contact-grid">
+            <div class="contact-left">
+                <img src="10.jpg" alt="akronwebuilder.gr logo" class="contact-logo" data-translate-key="logo-alt">
+                <p><i class="fas fa-phone"></i> <a href="tel:+306983661460">+30 698 366 1460</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@arakronservices.gr">info@arakronservices.gr</a></p>
+                <p>
+                    <i class="fas fa-location-dot"></i>
+                    <a href="https://www.google.com/maps/place/Γρίβα+Διγενή+2,+173+42+Άγιος+Δημήτριος" target="_blank" data-translate-key="contact-address">
+                        Γρίβα Διγενή 2,<br>17342 Αγ Δημήτριος,<br>Αττική
+                    </a>
+                </p>
+                <p>
+                    <a href="https://www.facebook.com/arakronservices" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/arakronservices/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.google.com/search?sca_esv=84558b4239d0d7dc&sxsrf=AHTn8zof9JG0TaZcMxCIeoAXP7gNchPLVA:1743496777569&kgmid=/g/11v601wnh4&q=AR+Akron+Services&shndl=30&shem=lcuae,uaasie&source=sh/x/loc/uni/m1/1&kgs=5c7f2ce7c02199aa" target="_blank" aria-label="Google"><i class="fab fa-google"></i></a>
+                    <a href="https://www.linkedin.com/in/ar-akron-services-22a765282/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </p>
             </div>
 
-            <div class="faq-item animated-card">
-                <div class="faq-question" data-translate-key="faq-q3-title">
-                    Τι περιλαμβάνει η υπηρεσία custom ανάπτυξης;
-                    <span class="faq-icon"></span>
-                </div>
-                <div class="faq-answer" data-translate-key="faq-q3-answer">
-                    Η υπηρεσία μας περιλαμβάνει: να συζητήσουμε τις ανάγκες σας, να σχεδιάσουμε πώς θα φαίνεται και θα λειτουργεί το site, να γράψουμε τον κώδικα από το μηδέν, να βάλουμε το περιεχόμενό σας, να το κάνουμε φιλικό στις αναζητήσεις (βασικό SEO), να λειτουργεί καλά σε κινητά (mobile responsiveness), να το δοκιμάσουμε σχολαστικά και να σας βοηθήσουμε να το διαχειριστείτε.
+            <div class="contact-right">
+                <div class="contact-form-container">
+                    <h3 data-translate-key="contact-form-heading">Πείτε μας τι χρειάζεστε</h3>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" name="name" placeholder="Όνομα" required data-translate-key="form-name-placeholder">
+                        <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
+                        <select name="project_type" data-translate-key="form-project-type">
+                            <option value="" data-translate-key="form-type-default">Τι σας ενδιαφέρει;</option>
+                            <option value="landing" data-translate-key="form-type-landing">Landing Page (€190)</option>
+                            <option value="business" data-translate-key="form-type-business">Business Website (€450)</option>
+                            <option value="premium" data-translate-key="form-type-premium">Custom / Advanced (€750+)</option>
+                            <option value="other" data-translate-key="form-type-other">Κάτι άλλο</option>
+                        </select>
+                        <textarea name="message" placeholder="Πείτε μας λίγα λόγια για το project σας" required data-translate-key="form-message-placeholder"></textarea>
+
+                        <label for="termsCheckbox">
+                            <input type="checkbox" id="termsCheckbox" required>
+                            <span>
+                                <span data-translate-key="terms-accept">Αποδέχομαι τους</span>
+                                <a href="terms.html" target="_blank" data-translate-key="terms-of-use">Όρους Χρήσης</a>
+                                <span data-translate-key="and">και την</span>
+                                <a href="privacy.html" target="_blank" data-translate-key="privacy-policy">Πολιτική Απορρήτου</a>.
+                            </span>
+                        </label>
+
+                        <button type="submit" data-translate-key="form-submit-button">Αποστολή</button>
+                        <p id="form-status"></p>
+                    </form>
+
+                    <script>
+                        document.getElementById("contactForm").addEventListener("submit", async (e) => {
+                            e.preventDefault();
+                            const form = e.target;
+                            const termsAccepted = document.getElementById("termsCheckbox").checked;
+                            if (!termsAccepted) {
+                                document.getElementById("form-status").textContent = "Πρέπει να αποδεχτείτε τους όρους και την πολιτική απορρήτου.";
+                                return;
+                            }
+                            const formData = {
+                                name: form.name.value,
+                                email: form.email.value,
+                                message: (form.project_type.value ? "[" + form.project_type.value + "] " : "") + form.message.value,
+                            };
+                            try {
+                                const res = await fetch("/.netlify/functions/send-email", {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify(formData),
+                                });
+                                const result = await res.json();
+                                document.getElementById("form-status").textContent = result.success
+                                    ? "Το μήνυμα εστάλη!"
+                                    : "Σφάλμα κατά την αποστολή.";
+                            } catch (err) {
+                                console.error("Fetch error:", err);
+                                document.getElementById("form-status").textContent = "Σφάλμα κατά την αποστολή.";
+                            }
+                            form.reset();
+                        });
+                    </script>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="faq-item animated-card">
-                <div class="faq-question" data-translate-key="faq-q4-title">
-                    Προσφέρετε υποστήριξη μετά την παράδοση του custom έργου;
-                    <span class="faq-icon"></span>
-                </div>
-                <div class="faq-answer" data-translate-key="faq-q4-answer">
-                    Ναι, παρέχουμε ολοκληρωμένη υποστήριξη και συντήρηση για κάθε custom έργο. Αυτό σημαίνει ότι θα λειτουργεί ομαλά, θα είναι ασφαλές και θα αναβαθμίζεται, ώστε η εφαρμογή σας να παραμένει πάντα ενημερωμένη και αποτελεσματική.
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <a class="brand" href="https://www.arakronservices.gr/" target="_blank" rel="noopener" aria-label="AR Akron Services"><svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="1.5" y="1.5" width="61" height="61" rx="13" fill="none" stroke="#c9a24a" stroke-opacity=".45"/><path d="M15 49 L32 14 L49 49" fill="none" stroke="#c9a24a" stroke-width="5.2"/><path d="M22.5 38.5 H41.5" stroke="#c9a24a" stroke-width="4.2"/></svg><span class="brand-name">AR Akron<small>SERVICES</small></span></a>
+                <p class="footer-tagline" data-translate-key="footer-tagline">Συμβουλευτική και ψηφιακά εργαλεία για εστίαση, τουρισμό και φιλοξενία.</p>
+                <div class="legal-lines">
+                    <p data-translate-key="footer-name">Αριστείδης Αλαμπουρινός</p>
+                    <p data-translate-key="footer-address">Γρίβα Διγενή 2, 17342 Άγιος Δημήτριος, Αττική</p>
+                    <p data-translate-key="footer-vat">ΑΦΜ: 112492149 &nbsp;|&nbsp; Αρ. ΓΕΜΗ: 161479309000</p>
+                    <p><a href="tel:+306983661460">+30 698 366 1460</a> &nbsp;|&nbsp; <a href="mailto:info@arakronservices.gr">info@arakronservices.gr</a></p>
                 </div>
             </div>
+            <div><h4 data-translate-key="footer-h-pages">Σελίδες</h4><ul>
+                <li><a href="#pricing" data-translate-key="nav-pricing">Πακέτα</a></li>
+                <li><a href="#portfolio-section" data-translate-key="nav-portfolio">Έργα</a></li>
+                <li><a href="#process" data-translate-key="nav-process">Διαδικασία</a></li>
+                <li><a href="#faq" data-translate-key="nav-faq">FAQ</a></li>
+                <li><a href="#contact" data-translate-key="nav-contact">Επικοινωνία</a></li>
+            </ul></div>
+            <div><h4 data-translate-key="footer-h-apps">Εφαρμογές</h4><ul>
+                <li><a href="https://tablereserve.gr/?utm_source=akronwebuilder&amp;utm_medium=referral&amp;utm_campaign=digital_solutions" target="_blank" rel="noopener">TableReserve</a></li>
+                <li><a href="https://gofinanceos.com/?utm_source=akronwebuilder&amp;utm_medium=referral&amp;utm_campaign=digital_solutions" target="_blank" rel="noopener">GoFinanceOS</a></li>
+                <li><a href="https://www.arakronservices.gr/?utm_source=akronwebuilder&amp;utm_medium=referral&amp;utm_campaign=digital_solutions" target="_blank" rel="noopener">AR Akron Services</a></li>
+            </ul></div>
+            <div><h4 data-translate-key="footer-h-info">Πληροφορίες</h4><ul>
+                <li><a href="terms.html" data-translate-key="footer-terms">Όροι χρήσης &amp; υπηρεσιών</a></li>
+                <li><a href="privacy.html" data-translate-key="privacy-policy">Πολιτική Απορρήτου</a></li>
+                <li><a href="cookies.html" data-translate-key="footer-cookie-policy">Πολιτική cookies</a></li>
+                <li><button type="button" class="linklike" id="cookie-settings" data-translate-key="footer-cookies">Ρυθμίσεις cookies</button></li>
+                <li><a href="https://www.facebook.com/arakronservices" target="_blank" rel="noopener">Facebook</a></li>
+                <li><a href="https://www.instagram.com/arakronservices/" target="_blank" rel="noopener">Instagram</a></li>
+            </ul></div>
+        </div>
+        <div class="footer-bottom"><span data-translate-key="footer-copy">© 2026 AR Akron Services. Όλα τα δικαιώματα διατηρούνται.</span><span>akronwebuilder.gr</span></div>
+    </footer>
 
-            <div class="faq-item animated-card">
-                <div class="faq-question" data-translate-key="faq-q5-title">
-                    Αναλαμβάνετε και το περιεχόμενο (κείμενα, φωτογραφίες) για custom εφαρμογές;
-                    <span class="faq-icon"></span>
-                </div>
-                <div class="faq-answer" data-translate-key="faq-q5-answer">
-                    Μπορούμε να σας δώσουμε κατευθύνσεις για το τι περιεχόμενο θα χρειαστείτε. Η κύρια δουλειά μας είναι να αναπτύξουμε τον κώδικα και τις λειτουργίες, αλλά μπορούμε να συνεργαστούμε μαζί σας για να το ενσωματώσουμε όταν είναι έτοιμο.
-                </div>
-            </div>
+    <!-- Back to Top -->
+    <button id="back-to-top" aria-label="Επιστροφή στην κορυφή">
+        <svg class="progress-circle-svg" viewBox="0 0 60 60">
+            <circle class="progress-circle-bg" cx="30" cy="30" r="28"></circle>
+            <circle class="progress-circle" cx="30" cy="30" r="28"></circle>
+        </svg>
+        <span class="arrow-text">⬆</span>
+    </button>
 
-            <div class="faq-item animated-card">
-                <div class="faq-question" data-translate-key="faq-q6-title">
-                    Τι είναι το SEO και γιατί είναι σημαντικό για μια custom ιστοσελίδα;
-                    <span class="faq-icon"></span>
-                </div>
-                <div class="faq-answer" data-translate-key="faq-q6-answer">
-                    Το SEO σημαίνει βελτιστοποίηση για μηχανές αναζήτησης. Είναι η διαδικασία που βοηθάει την ιστοσελίδα σας να εμφανίζεται πιο ψηλά στα αποτελέσματα της Google. Ακόμη και σε custom ιστοσελίδες, βάζουμε βασικές ρυθμίσεις SEO στον κώδικα για να έχετε περισσότερους επισκέπτες.
-                </div>
-            </div>
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta" id="mobileCta">
+        <a href="#contact" data-translate-key="mobile-cta">Ξεκίνα το Project σου</a>
+    </div>
 
-            <div class="faq-item animated-card">
-                <div class="faq-question" data-translate-key="faq-q7-title">
-                    Ποια είναι η διαδικασία συνεργασίας για ένα custom project;
-                    <span class="faq-icon"></span>
-                </div>
-                <div class="faq-answer" data-translate-key="faq-q7-answer">
-                    Η διαδικασία ξεκινά με μια πρώτη συζήτηση για την ιδέα σας. Μετά, κάνουμε μια ανάλυση και δίνουμε προσφορά, σχεδιάζουμε, γράφουμε τον κώδικα, κάνουμε δοκιμές, σας παραδίδουμε το έργο και τέλος σας υποστηρίζουμε. Είμαστε σε συνεχή επικοινωνία σε κάθε βήμα.
-                </div>
-            </div>
-
-            <div class="faq-item animated-card">
-                <div class="faq-question" data-translate-key="faq-q8-title">
-                    Χρειάζομαι hosting και domain για το custom έργο μου; Μπορείτε να με βοηθήσετε;
-                    <span class="faq-icon"></span>
-                </div>
-                <div class="faq-answer" data-translate-key="faq-q8-answer">
-                    Ναι, είναι απαραίτητα. Το domain είναι η διεύθυνση του site σας στο διαδίκτυο και το hosting είναι ο χώρος στον server όπου "ζει" το site σας. Μπορούμε να σας δώσουμε συμβουλές και να αναλάβουμε να τα ρυθμίσουμε για εσάς.
-                </div>
-            </div>
-
-            <div class="faq-item animated-card">
-                <div class="faq-question" data-translate-key="faq-q9-title">
-                    Δημιουργείτε web εφαρμογές ή μόνο ιστοσελίδες;
-                    <span class="faq-icon"></span>
-                </div>
-                <div class="faq-answer" data-translate-key="faq-q9-answer">
-                    Ειδικευόμαστε στην custom ανάπτυξη τόσο ιστοσελίδων όσο και web εφαρμογών. Αυτό σημαίνει ότι μπορούμε να φτιάξουμε οποιοδήποτε ψηφιακό προϊόν χρειάζεται να λειτουργεί μέσω διαδικτύου, από μια απλή εταιρική ιστοσελίδα μέχρι σύνθετες εφαρμογές διαχείρισης, όλα φτιαγμένα με χειροποίητο κώδικα για να ταιριάζουν ακριβώς στις ανάγκες σας.
-                </div>
+    <!-- Cookie Banner -->
+    <div id="cookieConsentBanner" class="cookie-banner" style="display: none;">
+        <div class="cookie-banner-content">
+            <p data-translate-key="cookie-banner-text">
+                Με τη συγκατάθεσή σας χρησιμοποιούμε cookies στατιστικών (Google Analytics) για να βελτιώνουμε την ιστοσελίδα. Χωρίς αυτήν, χρησιμοποιούνται μόνο τα απαραίτητα. Μπορείτε να αλλάξετε την επιλογή σας όποτε θέλετε από τις «Ρυθμίσεις cookies» στο κάτω μέρος της σελίδας. Περισσότερα στην [[cookie_link]].
+            </p>
+            <div class="cookie-banner-buttons">
+                <button id="acceptCookies" class="cookie-button accept-button" data-translate-key="cookie-banner-accept">Αποδοχή</button>
+                <button id="declineCookies" class="cookie-button decline-button" data-translate-key="cookie-banner-decline">Μόνο απαραίτητα</button>
             </div>
         </div>
     </div>
-</section>
-        <id="contact">
-            <h2 class="animated-text" data-translate-key="contact-heading">Επικοινωνία</h2>
 
-            <div class="contact-grid">
-                <div class="contact-left">
-                    <img src="10.jpg" alt="akronwebuilder.gr logo" class="contact-logo" data-translate-key="logo-alt">
-
-                    <p><i class="fas fa-phone"></i> <a href="tel:+306983661460">+30 698 366 1460</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@arakronservices.gr">info@arakronservices.gr</a></p>
-                    <p>
-                        <i class="fas fa-location-dot"></i>
-                        <a href="https://www.google.com/maps/place/Γρίβα+Διγενή+2,+173+42+Άγιος+Δημήτριος" target="_blank" data-translate-key="contact-address">
-                            Γρίβα Διγενή 2,<br>
-                            17342 Αγ Δημήτριος,<br>
-                            Αττική
-                        </a>
-                    </p>
-                    <p>
-                    <p>
-                        <a href="https://www.facebook.com/arakronservices" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/arakronservices/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.google.com/search?sca_esv=84558b4239d0d7dc&sxsrf=AHTn8zof9JG0TaZcMxCIeoAXP7gNchPLVA:1743496777569&kgmid=/g/11v601wnh4&q=AR+Akron+Services&shndl=30&shem=lcuae,uaasie&source=sh/x/loc/uni/m1/1&kgs=5c7f2ce7c02199aa" target="_blank" aria-label="Google"><i class="fab fa-google"></i></a>
-                        <a href="https://www.linkedin.com/in/ar-akron-services-22a765282/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </p>
-                    </p>
-                </div>
-
-                <div class="contact-right">
-                    <div class="contact-form-container">
-                        <h3 data-translate-key="contact-form-heading">Επικοινωνία</h3>
-                        <form class="contact-form" id="contactForm">
-                            <input type="text" name="name" placeholder="Όνομα" required data-translate-key="form-name-placeholder">
-                            <input type="email" name="email" placeholder="Email" required data-translate-key="form-email-placeholder">
-                            <textarea name="message" placeholder="Το μήνυμά σας" required data-translate-key="form-message-placeholder"></textarea>
-
-                            <label for="termsCheckbox">
-                                <input type="checkbox" id="termsCheckbox" required>
-                                <span>
-                                    <span data-translate-key="terms-accept">Αποδέχομαι τους</span>
-                                    <a href="1.pdf" target="_blank" data-translate-key="terms-of-use">Όρους Χρήσης</a>
-                                    <span data-translate-key="and">και την</span>
-                                    <a href="2.pdf" target="_blank" data-translate-key="privacy-policy">Πολιτική Απορρήτου</a>.
-                                </span>
-                            </label>
-
-                            <button type="submit" data-translate-key="form-submit-button">Αποστολή</button>
-                            <p id="form-status"></p>
-                        </form>
-
-                        <script>
-                            document.getElementById("contactForm").addEventListener("submit", async (e) => {
-                                e.preventDefault();
-                                const form = e.target;
-
-                                // Έλεγχος αν έχει επιλεγεί το checkbox
-                                const termsAccepted = document.getElementById("termsCheckbox").checked;
-                                if (!termsAccepted) {
-                                    document.getElementById("form-status").textContent = "Πρέπει να αποδεχτείτε τους όρους και την πολιτική απορρήτου.";
-                                    return;
-                                }
-
-                                const formData = {
-                                    name: form.name.value,
-                                    email: form.email.value,
-                                    message: form.message.value,
-                                };
-
-                                try {
-                                    const res = await fetch("/.netlify/functions/send-email", {
-                                        method: "POST",
-                                        headers: {
-                                            "Content-Type": "application/json"
-                                        },
-                                        body: JSON.stringify(formData),
-                                    });
-
-                                    const result = await res.json();
-                                    document.getElementById("form-status").textContent = result.success
-                                        ? "Το μήνυμα εστάλη!"
-                                        : "Σφάλμα κατά την αποστολή.";
-                                } catch (err) {
-                                    console.error("Fetch error:", err);
-                                    document.getElementById("form-status").textContent = "Σφάλμα κατά την αποστολή.";
-                                }
-
-                                form.reset();
-                            });
-                        </script>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p data-translate-key="footer-text">© 2026 akronwebuilder.gr · <a href="https://www.arakronservices.gr/" style="color:inherit">AR Akron Services</a></p>
-        </footer>
-        <button id="back-to-top" aria-label="Επιστροφή στην κορυφή">
-            <svg class="progress-circle-svg" viewBox="0 0 60 60">
-                <circle class="progress-circle-bg" cx="30" cy="30" r="28"></circle>
-                <circle class="progress-circle" cx="30" cy="30" r="28"></circle>
-            </svg>
-            <span class="arrow-text">⬆</span>
-        </button>
-        <div id="cookieConsentBanner" class="cookie-banner" style="display: none;">
-            <div class="cookie-banner-content">
-                <p data-translate-key="cookie-banner-text">
-                    Χρησιμοποιούμε cookies για να διασφαλίσουμε την καλύτερη δυνατή εμπειρία στον ιστότοπό μας. Συνεχίζοντας τη χρήση του site, αποδέχεστε τη χρήση cookies. Για περισσότερες πληροφορίες, διαβάστε την [[cookie_link]] μας.
-                </p>
-                <div class="cookie-banner-buttons">
-                    <button id="acceptCookies" class="cookie-button accept-button" data-translate-key="cookie-banner-accept">Αποδοχή Όλων</button>
-                    <button id="declineCookies" class="cookie-button decline-button" data-translate-key="cookie-banner-decline">Απόρριψη (εκτός απαραίτητων)</button>
-                </div>
-            </div>
-        </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-
-        <script src="translation.js"></script>
-        <script src="script.js"></script>
-        <script>
-
-          // script.js (μέσα στο DOMContentLoaded listener)
-
-document.addEventListener('DOMContentLoaded', () => {
-    // ... Ο ΥΠΑΡΧΩΝ ΚΩΔΙΚΑΣ ΣΟΥ ΓΙΑ ΟΛΑ ΤΑ ΑΛΛΑ ...
-
-    // --- ΚΩΔΙΚΑΣ ΓΙΑ FAQ ACCORDION ---
-    const faqQuestions = document.querySelectorAll('.faq-question');
-
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const faqItem = question.closest('.faq-item');
-            const faqAnswer = faqItem.querySelector('.faq-answer');
-
-            // Κλείσε όλες τις άλλες απαντήσεις
-            faqQuestions.forEach(item => {
-                const otherFaqItem = item.closest('.faq-item');
-                if (otherFaqItem !== faqItem) {
-                    item.classList.remove('active');
-                    otherFaqItem.querySelector('.faq-answer').style.maxHeight = '0';
-                    otherFaqItem.querySelector('.faq-answer').style.padding = '0 25px';
+    <script src="vendor/anime.min.js"></script>
+    <script src="translation.js"></script>
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.closest('.faq-item');
+                const faqAnswer = faqItem.querySelector('.faq-answer');
+                faqQuestions.forEach(item => {
+                    const otherFaqItem = item.closest('.faq-item');
+                    if (otherFaqItem !== faqItem) {
+                        item.classList.remove('active');
+                        otherFaqItem.querySelector('.faq-answer').style.maxHeight = '0';
+                        otherFaqItem.querySelector('.faq-answer').style.padding = '0 25px';
+                    }
+                });
+                question.classList.toggle('active');
+                if (question.classList.contains('active')) {
+                    faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+                    faqAnswer.style.padding = '20px 25px';
+                } else {
+                    faqAnswer.style.maxHeight = '0';
+                    faqAnswer.style.padding = '0 25px';
                 }
             });
-
-            // Εναλλαγή της ενεργής κλάσης στην τρέχουσα ερώτηση
-            question.classList.toggle('active');
-
-            // Άνοιγμα/Κλείσιμο της απάντησης
-            if (question.classList.contains('active')) {
-                // Όταν ανοίγει: βεβαιωθείτε ότι το maxHeight είναι αρκετά μεγάλο για να χωρέσει το περιεχόμενο
-                // Χρησιμοποιούμε scrollHeight για να πάρουμε το πραγματικό ύψος του περιεχομένου
-                faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
-                faqAnswer.style.padding = '20px 25px'; // Εμφάνιση padding
-            } else {
-                // Όταν κλείνει
-                faqAnswer.style.maxHeight = '0';
-                faqAnswer.style.padding = '0 25px'; // Απόκρυψη padding
-            }
         });
     });
-
-    // ... Ο ΥΠΟΛΟΙΠΟΣ ΚΩΔΙΚΑΣ ΣΟΥ (π.χ. για Swiper, animejs, parallax, back-to-top κλπ) ...
-
-}); // Τέλος του ΕΝΙΑΙΟΥ DOMContentLoaded listener
-        </script>
-
+    </script>
 </body>
 </html>

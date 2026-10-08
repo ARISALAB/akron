@@ -3,31 +3,70 @@
 const translations = {
     el: {
         "logo-alt": "akronwebuilder.gr logo",
-        "hero-title-line1": "Ο Ψηφιακός σου Κόσμος",
-        "hero-title-line2": "Όπως τον Ονειρεύεσαι",
-        "hero-subtitle": "Στο akronwebuilder.gr μετατρέπουμε κάθε σου ιδέα σε πραγματικότητα: websites, web εφαρμογές, blogs — όλα σχεδιασμένα αποκλειστικά για εσάς, χωρίς περιορισμούς. Εδώ, δεν υπάρχουν έτοιμες λύσεις. Υπάρχει μόνο η δική σας.",
-        "cta-services": "Οι Υπηρεσίες μας",
-        "cta-quote": "Ζήτα Προσφορά",
-        "nav-services": "Υπηρεσιες",
-        "nav-highlights": "Akron",
-        "nav-portfolio": "Εργα",
-        "nav-contact": "Επικοινωνια",
-        "services-heading": "Οι Υπηρεσίες μας",
-        "card1-title": "Κατασκευή Ιστοσελίδων",
-        "card1-description": "Δημιουργούμε εικαστικά άρτιες και τεχνικά άψογες ιστοσελίδες, φτιαγμένες από το μηδέν – χωρίς έτοιμα templates, μόνο αυθεντικός, βελτιστοποιημένος κώδικας.",
-        "card2-title": "Web Εφαρμογές",
-        "card2-description": "Αναπτύσσουμε προσαρμοσμένες εφαρμογές για την επιχείρησή σας — από συστήματα κρατήσεων μέχρι διαχείριση δεδομένων. Αξιοπιστία, ασφάλεια και λειτουργικότητα.",
-        "card3-title": "Blogs & Προσωπικά Sites",
-        "card3-description": "Εκφραστείτε ελεύθερα μέσα από ένα blog ή προσωπική ιστοσελίδα με μοντέρνο σχεδιασμό, ταχύτητα και δυνατότητες επέκτασης. Το περιεχόμενό σας αξίζει την καλύτερη παρουσίαση.",
-        "highlights-heading": "Γιατί να επιλέξεις το akronwebuilder",
-        "highlight1-heading": "100% Custom",
-        "highlight1-description": "Δεν χρησιμοποιούμε πλατφόρμες drag & drop. Ό,τι βλέπετε είναι γραμμένο αποκλειστικά για εσάς.",
-        "highlight2-heading": "Mobile First",
-        "highlight2-description": "Όλα μας τα έργα σχεδιάζονται πρώτα για κινητές συσκευές, ώστε να φαίνονται τέλεια παντού.",
-        "highlight3-heading": "Συνεργασία σε Βάθος",
-        "highlight3-description": "Μαθαίνουμε τι πραγματικά θέλετε και δημιουργούμε μαζί ένα προϊόν που σας αντιπροσωπεύει.",
-        "portfolio-heading": "Κάθε Project, Μια Νέα Πρόκληση",
-        "portfolio-subtitle": "Πιστεύουμε στην καινοτομία και στον συνεχή διάλογο μαζί σας για να δημιουργήσουμε κάτι μοναδικό.",
+        // Nav
+        "nav-pricing": "Πακέτα",
+        "nav-portfolio": "Έργα",
+        "nav-process": "Διαδικασία",
+        "nav-faq": "FAQ",
+        "nav-contact": "Επικοινωνία",
+        // Hero
+        "hero-motto": "Η ψηφιακή εικόνα της επιχείρησής σου",
+        "hero-sub-tagline": "Σχεδιασμένη για να ξεχωρίζει, φτιαγμένη για να αποδίδει.",
+        "hero-desc": "Custom ιστοσελίδες, σχεδιασμένες και κατασκευασμένες στα μέτρα της επιχείρησής σου, με σύγχρονο design, ταχύτητα και σωστή παρουσία σε κάθε συσκευή.",
+        "hero-badge": "Custom Landing Page από",
+        "hero-tagline": "Domain + Hosting δωρεάν για 2 χρόνια",
+        "cta-start": "Ξεκίνα το Project σου",
+        "cta-pricing": "Δες τα Πακέτα",
+        // Trust bar
+        "trust-1": "100% χειροποίητος κώδικας",
+        "trust-2": "Mobile-first design",
+        "trust-3": "Custom websites για επιχειρήσεις στην Ελλάδα και το εξωτερικό",
+        // Pricing
+        "pricing-heading": "Επιλέξτε το πακέτο σας",
+        "pricing-intro": "Κάθε πακέτο περιλαμβάνει custom σχεδιασμό και ανάπτυξη — χωρίς templates, χωρίς συμβιβασμούς.",
+        "price-start-name": "Start",
+        "price-start-type": "Custom Landing Page",
+        "price-start-f1": "<i class=\"fas fa-check\"></i> 1 σελίδα, σχεδιασμένη από το μηδέν",
+        "price-start-f2": "<i class=\"fas fa-check\"></i> Ελληνικά + Αγγλικά",
+        "price-start-f3": "<i class=\"fas fa-check\"></i> Mobile-first responsive",
+        "price-start-f4": "<i class=\"fas fa-check\"></i> Basic SEO optimization",
+        "price-start-f5": "<i class=\"fas fa-check\"></i> Contact form",
+        "price-start-f6": "<i class=\"fas fa-check\"></i> Google Maps & social links",
+        "price-start-f7": "<i class=\"fas fa-gift\"></i> Domain + Hosting δωρεάν 2 χρόνια",
+        "price-cta-start": "Ξεκίνα με €190",
+        "price-popular": "Δημοφιλές",
+        "price-biz-name": "Business",
+        "price-biz-type": "Custom Business Website",
+        "price-biz-f1": "<i class=\"fas fa-check\"></i> 4–5 σελίδες, custom design",
+        "price-biz-f2": "<i class=\"fas fa-check\"></i> Ελληνικά + Αγγλικά",
+        "price-biz-f3": "<i class=\"fas fa-check\"></i> Mobile-first responsive",
+        "price-biz-f4": "<i class=\"fas fa-check\"></i> SEO-ready δομή",
+        "price-biz-f5": "<i class=\"fas fa-check\"></i> Forms, Maps, Social integration",
+        "price-biz-f6": "<i class=\"fas fa-check\"></i> Performance optimization",
+        "price-biz-f7": "<i class=\"fas fa-check\"></i> Custom development κάθε σελίδας",
+        "price-cta-biz": "Ξεκίνα με €450",
+        "price-prem-name": "Premium",
+        "price-prem-type": "Custom Development",
+        "price-prem-f1": "<i class=\"fas fa-check\"></i> Booking & reservation systems",
+        "price-prem-f2": "<i class=\"fas fa-check\"></i> Web εφαρμογές & dashboards",
+        "price-prem-f3": "<i class=\"fas fa-check\"></i> QR systems & integrations",
+        "price-prem-f4": "<i class=\"fas fa-check\"></i> Advanced SEO & analytics",
+        "price-prem-f5": "<i class=\"fas fa-check\"></i> Custom functionality",
+        "price-prem-f6": "<i class=\"fas fa-check\"></i> Ongoing υποστήριξη & αναβαθμίσεις",
+        "price-cta-prem": "Ζήτα Προσφορά",
+        // Why Custom
+        "why-heading": "Γιατί custom κατασκευή;",
+        "why-1-title": "Μοναδικό Design",
+        "why-1-desc": "Η ιστοσελίδα σας σχεδιάζεται αποκλειστικά για εσάς. Δεν μοιράζεστε template με χιλιάδες άλλες επιχειρήσεις.",
+        "why-2-title": "Ταχύτητα & Απόδοση",
+        "why-2-desc": "Χωρίς περιττά plugins και βαρύ κώδικα. Η σελίδα σας φορτώνει αστραπιαία σε κάθε συσκευή.",
+        "why-3-title": "SEO από τη Βάση",
+        "why-3-desc": "Καθαρός, σημασιολογικός κώδικας που οι μηχανές αναζήτησης αγαπούν. Καλύτερη κατάταξη, περισσότεροι επισκέπτες.",
+        "why-4-title": "Ασφάλεια & Έλεγχος",
+        "why-4-desc": "Χωρίς ευπάθειες plugins, χωρίς εξάρτηση από τρίτες πλατφόρμες. Εσείς έχετε τον πλήρη έλεγχο.",
+        // Portfolio
+        "portfolio-heading": "Πραγματικά Projects, Πραγματικά Αποτελέσματα",
+        "portfolio-subtitle": "Κάθε project είναι μοναδικό — σχεδιασμένο και κατασκευασμένο εξ αρχής για τις ανάγκες του πελάτη.",
         "portfolio-item1-tag": "Web & Consulting",
         "portfolio-item1-desc": "Custom ιστοσελίδες & web εφαρμογές για επιχειρήσεις hospitality και τουρισμού.",
         "portfolio-item2-tag": "SaaS Κρατήσεων",
@@ -41,72 +80,142 @@ const translations = {
         "portfolio-item5-desc": "Ιστοσελίδα για Αστική Μη Κερδοσκοπική Εταιρεία πολιτισμού, με φόρμες συμμετοχής & χορηγίας.",
         "portfolio-view-live": "Δες το Live",
         "portfolio-case-study": "Δες το Case Study",
-        "contact-ticker": "Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου — Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! — Custom λύσεις για το ψηφιακό σου όραμα — Websites | Apps | Blogs — Η δική σου μοναδική παρουσία, η δική μας τεχνογνωσία — Αξιοπιστία και ασφάλεια που μπορείς να εμπιστευθείς — Επικοινώνησε για το custom project σου! —",
-        "contact-heading": "Επικοινωνία",
-        "contact-form-heading": "Επικοινωνία",
+        // Process
+        "process-heading": "Πώς δουλεύουμε",
+        "process-1-title": "Συζήτηση",
+        "process-1-desc": "Μαθαίνουμε τι χρειάζεται η επιχείρησή σας και σχεδιάζουμε μαζί τη λύση.",
+        "process-2-title": "Σχεδιασμός",
+        "process-2-desc": "Δημιουργούμε το design και τη δομή του site σας, πριν γράψουμε κώδικα.",
+        "process-3-title": "Ανάπτυξη",
+        "process-3-desc": "Γράφουμε τον κώδικα από το μηδέν, με focus σε ταχύτητα και SEO.",
+        "process-4-title": "Παράδοση",
+        "process-4-desc": "Testing, domain setup, launch — και συνεχής υποστήριξη μετά την παράδοση.",
+        // CTA banner
+        "cta-banner-title": "Custom landing page από €190",
+        "cta-banner-sub": "Domain + hosting δωρεάν για 2 χρόνια. Παράδοση σε 5–7 ημέρες.",
+        "cta-banner-btn": "Ξεκίνα Τώρα",
+        // FAQ
+        "faq-title": "Συχνές Ερωτήσεις",
+        "faq-q1-title": "Πόσο κοστίζει μια custom ιστοσελίδα;",
+        "faq-q1-answer": "Μια custom landing page ξεκινά από €190 και περιλαμβάνει domain + hosting δωρεάν για 2 χρόνια. Ένα ολοκληρωμένο business website κοστίζει από €450, ενώ σύνθετα projects (booking systems, web apps, dashboards) ξεκινούν από €750. Η τελική τιμή εξαρτάται από τις ανάγκες σας — επικοινωνήστε μαζί μας για εξατομικευμένη προσφορά.",
+        "faq-q2-title": "Πόσο χρόνο παίρνει η κατασκευή;",
+        "faq-q2-answer": "Μια landing page παραδίδεται σε 5–7 εργάσιμες ημέρες. Ένα business website σε 2–3 εβδομάδες. Σύνθετα projects εξαρτώνται από τις απαιτήσεις, αλλά πάντα στοχεύουμε σε γρήγορη παράδοση χωρίς συμβιβασμούς στην ποιότητα.",
+        "faq-q3-title": "Τι περιλαμβάνει κάθε πακέτο;",
+        "faq-q3-answer": "Κάθε πακέτο περιλαμβάνει custom σχεδιασμό, ανάπτυξη κώδικα από το μηδέν, mobile-first responsive design, basic SEO, contact form και testing. Τα πακέτα Business και Premium περιλαμβάνουν επιπλέον λειτουργίες ανάλογα με τις ανάγκες σας.",
+        "faq-q4-title": "Υποστηρίζετε μετά την παράδοση;",
+        "faq-q4-answer": "Ναι. Παρέχουμε υποστήριξη και συντήρηση για κάθε project. Αυτό σημαίνει ότι η ιστοσελίδα σας θα παραμένει ενημερωμένη, ασφαλής και λειτουργική.",
+        "faq-q5-title": "Χρειάζομαι domain και hosting;",
+        "faq-q5-answer": "Ναι, αλλά με το πακέτο Start (€190) το domain και το hosting περιλαμβάνονται δωρεάν για 2 χρόνια. Σε κάθε περίπτωση, αναλαμβάνουμε εμείς τη ρύθμιση — δεν χρειάζεται να ασχοληθείτε με τεχνικά θέματα.",
+        "faq-q6-title": "Γιατί custom κώδικας και όχι WordPress;",
+        "faq-q6-answer": "Ο custom κώδικας σημαίνει ταχύτερη ιστοσελίδα, καλύτερο SEO, μεγαλύτερη ασφάλεια και μοναδικό design. Δεν εξαρτάστε από plugins ή τρίτες πλατφόρμες, και η σελίδα σας δεν μοιάζει με χιλιάδες άλλες.",
+        "faq-q7-title": "Κάνετε και web εφαρμογές;",
+        "faq-q7-answer": "Ναι. Εκτός από ιστοσελίδες, αναπτύσσουμε custom web εφαρμογές: συστήματα κρατήσεων, διαχείριση δεδομένων, dashboards, QR menus και οτιδήποτε χρειάζεται η επιχείρησή σας.",
+        // Contact
+        "contact-heading": "Ας ξεκινήσουμε",
+        "contact-form-heading": "Πείτε μας τι χρειάζεστε",
         "form-name-placeholder": "Όνομα",
         "form-email-placeholder": "Email",
-        "form-message-placeholder": "Το μήνυμά σας",
+        "form-message-placeholder": "Πείτε μας λίγα λόγια για το project σας",
+        "form-project-type": "Τι σας ενδιαφέρει;",
+        "form-type-default": "Τι σας ενδιαφέρει;",
+        "form-type-landing": "Landing Page (€190)",
+        "form-type-business": "Business Website (€450)",
+        "form-type-premium": "Custom / Advanced (€750+)",
+        "form-type-other": "Κάτι άλλο",
         "form-submit-button": "Αποστολή",
-        "footer-text": "© 2026 akronwebuilder.gr · <a href=\"https://www.arakronservices.gr/\" style=\"color:inherit\">AR Akron Services</a>",
         "terms-accept": "Αποδέχομαι τους",
         "terms-of-use": "Όρους Χρήσης",
         "and": "και την",
         "privacy-policy": "Πολιτική Απορρήτου",
-        "form-consent-text": "Διάβασα και αποδέχομαι την [[privacy_link]] και τους [[terms_link]].",
-        'cookie-banner-text': 'Χρησιμοποιούμε cookies για να διασφαλίσουμε την καλύτερη δυνατή εμπειρία στον ιστότοπό μας. Συνεχίζοντας τη χρήση του site, αποδέχεστε τη χρήση cookies. Για περισσότερες πληροφορίες, διαβάστε την [[cookie_link]] μας.',
-        'cookie-banner-link': 'Πολιτική Cookies',
-        'cookie-banner-accept': 'Αποδοχή Όλων',
-        'cookie-banner-decline': 'Απόρριψη (εκτός απαραίτητων)',
         "contact-address": "Γρίβα Διγενή 2, 17342 <br>Αγ Δημήτριος, Αττική",
-                  "faq-title": "Συχνές Ερωτήσεις",
-        "faq-q1-title": "Πόσο κοστίζει ένα custom website ή εφαρμογή;",
-        "faq-q1-answer": "Το κόστος για ένα custom website ή εφαρμογή εξαρτάται από το πόσο περίπλοκο είναι. Μια απλή, custom ιστοσελίδα ξεκινά από τα 150€. Για πιο σύνθετα έργα, η τιμή διαμορφώνεται ανάλογα με τις λειτουργίες που θα χρειαστείτε και τον χρόνο που θα απαιτηθεί για την ανάπτυξή τους με κώδικα. Θα σας δώσουμε μια εξατομικευμένη προσφορά αφού μιλήσουμε για τις ανάγκες σας.",
-        "faq-q2-title": "Πόσο χρόνο παίρνει η ανάπτυξη ενός custom έργου;",
-        "faq-q2-answer": "Ο χρόνος παράδοσης εξαρτάται από το μέγεθος του έργου. Μια απλή, custom ιστοσελίδα μπορεί να είναι έτοιμη και να παραδοθεί σε 1 εβδομάδα. Για πιο σύνθετα projects με πολλές λειτουργίες, ο χρόνος αυξάνεται, αλλά πάντα στοχεύουμε στην γρήγορη και αποτελεσματική ολοκλήρωση χωρίς να θυσιάζουμε την ποιότητα.",
-        "faq-q3-title": "Τι περιλαμβάνει η υπηρεσία custom ανάπτυξης;",
-        "faq-q3-answer": "Η υπηρεσία μας περιλαμβάνει: να συζητήσουμε τις ανάγκες σας, να σχεδιάσουμε πώς θα φαίνεται και θα λειτουργεί το site, να γράψουμε τον κώδικα από το μηδέν, να βάλουμε το περιεχόμενό σας, να το κάνουμε φιλικό στις αναζητήσεις (βασικό SEO), να λειτουργεί καλά σε κινητά (mobile responsiveness), να το δοκιμάσουμε σχολαστικά και να σας βοηθήσουμε να το διαχειριστείτε.",
-        "faq-q4-title": "Προσφέρετε υποστήριξη μετά την παράδοση του custom έργου;",
-        "faq-q4-answer": "Ναι, παρέχουμε ολοκληρωμένη υποστήριξη και συντήρηση για κάθε custom έργο. Αυτό σημαίνει ότι θα λειτουργεί ομαλά, θα είναι ασφαλές και θα αναβαθμίζεται, ώστε η εφαρμογή σας να παραμένει πάντα ενημερωμένη και αποτελεσματική.",
-        "faq-q5-title": "Αναλαμβάνετε και το περιεχόμενο (κείμενα, φωτογραφίες) για custom εφαρμογές;",
-        "faq-q5-answer": "Μπορούμε να σας δώσουμε κατευθύνσεις για το τι περιεχόμενο θα χρειαστείτε. Η κύρια δουλειά μας είναι να αναπτύξουμε τον κώδικα και τις λειτουργίες, αλλά μπορούμε να συνεργαστούμε μαζί σας για να το ενσωματώσουμε όταν είναι έτοιμο.",
-        "faq-q6-title": "Τι είναι το SEO και γιατί είναι σημαντικό για μια custom ιστοσελίδα;",
-        "faq-q6-answer": "Το SEO σημαίνει βελτιστοποίηση για μηχανές αναζήτησης. Είναι η διαδικασία που βοηθάει την ιστοσελίδα σας να εμφανίζεται πιο ψηλά στα αποτελέσματα της Google. Ακόμη και σε custom ιστοσελίδες, βάζουμε βασικές ρυθμίσεις SEO στον κώδικα για να έχετε περισσότερους επισκέπτες.",
-        "faq-q7-title": "Ποια είναι η διαδικασία συνεργασίας για ένα custom project;",
-        "faq-q7-answer": "Η διαδικασία ξεκινά με μια πρώτη συζήτηση για την ιδέα σας. Μετά, κάνουμε μια ανάλυση και δίνουμε προσφορά, σχεδιάζουμε, γράφουμε τον κώδικα, κάνουμε δοκιμές, σας παραδίδουμε το έργο και τέλος σας υποστηρίζουμε. Είμαστε σε συνεχή επικοινωνία σε κάθε βήμα.",
-        "faq-q8-title": "Χρειάζομαι hosting και domain για το custom έργο μου; Μπορείτε να με βοηθήσετε;",
-        "faq-q8-answer": "Ναι, είναι απαραίτητα. Το domain είναι η διεύθυνση του site σας στο διαδίκτυο και το hosting είναι ο χώρος στον server όπου 'ζει' το site σας. Μπορούμε να σας δώσουμε συμβουλές και να αναλάβουμε να τα ρυθμίσουμε για εσάς.",
-        "faq-q9-title": "Δημιουργείτε web εφαρμογές ή μόνο ιστοσελίδες;",
-        "faq-q9-answer": "Ειδικευόμαστε στην custom ανάπτυξη τόσο ιστοσελίδων όσο και web εφαρμογών. Αυτό σημαίνει ότι μπορούμε να φτιάξουμε οποιοδήποτε ψηφιακό προϊόν χρειάζεται να λειτουργεί μέσω διαδικτύου, από μια απλή εταιρική ιστοσελίδα μέχρι σύνθετες εφαρμογές διαχείρισης, όλα φτιαγμένα με χειροποίητο κώδικα για να ταιριάζουν ακριβώς στις ανάγκες σας."
-    
+        // Footer
+        "footer-tagline": "Συμβουλευτική και ψηφιακά εργαλεία για εστίαση, τουρισμό και φιλοξενία.",
+        "footer-name": "Αριστείδης Αλαμπουρινός",
+        "footer-address": "Γρίβα Διγενή 2, 17342 Άγιος Δημήτριος, Αττική",
+        "footer-vat": "ΑΦΜ: 112492149 &nbsp;|&nbsp; Αρ. ΓΕΜΗ: 161479309000",
+        "footer-h-pages": "Σελίδες",
+        "footer-h-apps": "Εφαρμογές",
+        "footer-h-info": "Πληροφορίες",
+        "footer-cookies": "Ρυθμίσεις cookies",
+        "footer-terms": "Όροι χρήσης & υπηρεσιών",
+        "footer-cookie-policy": "Πολιτική cookies",
+        "pricing-vat": "Όλες οι τιμές περιλαμβάνουν ΦΠΑ.",
+        "footer-copy": "© 2026 AR Akron Services. Όλα τα δικαιώματα διατηρούνται.",
+        "footer-text": "© 2026 akronwebuilder.gr · <a href=\"https://www.arakronservices.gr/\" style=\"color:inherit\">AR Akron Services</a>",
+        // Mobile CTA
+        "mobile-cta": "Ξεκίνα το Project σου",
+        // Cookie
+        "cookie-banner-text": "Με τη συγκατάθεσή σας χρησιμοποιούμε cookies στατιστικών (Google Analytics) για να βελτιώνουμε την ιστοσελίδα. Χωρίς αυτήν, χρησιμοποιούνται μόνο τα απαραίτητα. Μπορείτε να αλλάξετε την επιλογή σας όποτε θέλετε από τις «Ρυθμίσεις cookies» στο κάτω μέρος της σελίδας. Περισσότερα στην [[cookie_link]].",
+        "cookie-banner-link": "Πολιτική Cookies",
+        "cookie-banner-accept": "Αποδοχή",
+        "cookie-banner-decline": "Μόνο απαραίτητα"
     },
     en: {
         "logo-alt": "akronwebuilder.gr logo",
-        "hero-title-line1": "Your Digital World",
-        "hero-title-line2": "As You Dreamt It",
-        "hero-subtitle": "At akronwebuilder.gr, we turn your every idea into reality: websites, web applications, blogs — all designed exclusively for you, without limitations. Here, there are no ready-made solutions. There is only yours.",
-        "cta-services": "Our Services",
-        "cta-quote": "Get a Quote",
-        "nav-services": "Services",
-        "nav-highlights": "Akron",
+        // Nav
+        "nav-pricing": "Packages",
         "nav-portfolio": "Projects",
+        "nav-process": "Process",
+        "nav-faq": "FAQ",
         "nav-contact": "Contact",
-        "services-heading": "Our Services",
-        "card1-title": "Website Development",
-        "card1-description": "We create aesthetically perfect and technically flawless websites, built from scratch – no ready-made templates, just authentic, optimized code.",
-        "card2-title": "Web Applications",
-        "card2-description": "We develop customized applications for your business — from booking systems to data management. Reliability, security, and functionality.",
-        "card3-title": "Blogs & Personal Sites",
-        "card3-description": "Express yourself freely through a blog or personal website with modern design, speed, and expandability. Your content deserves the best presentation.",
-        "highlights-heading": "Why Choose akronwebuilder",
-        "highlight1-heading": "100% Custom",
-        "highlight1-description": "We don't use drag & drop platforms. Everything you see is written exclusively for you.",
-        "highlight2-heading": "Mobile First",
-        "highlight2-description": "All our projects are designed for mobile devices first, so they look perfect everywhere.",
-        "highlight3-heading": "In-depth Collaboration",
-        "highlight3-description": "We learn what you truly want and create a product together that represents you.",
-        "portfolio-heading": "Every Project, A New Challenge",
-        "portfolio-subtitle": "We believe in innovation and continuous dialogue with you to create something unique.",
+        // Hero
+        "hero-motto": "The digital image of your business",
+        "hero-sub-tagline": "Designed to stand out, built to perform.",
+        "hero-desc": "Custom websites, designed and built to fit your business — with modern design, speed, and a strong presence on every device.",
+        "hero-badge": "Custom Landing Page from",
+        "hero-tagline": "Domain + Hosting free for 2 years",
+        "cta-start": "Start Your Project",
+        "cta-pricing": "See Packages",
+        // Trust bar
+        "trust-1": "100% handcrafted code",
+        "trust-2": "Mobile-first design",
+        "trust-3": "Custom websites for businesses in Greece and abroad",
+        // Pricing
+        "pricing-heading": "Choose your package",
+        "pricing-intro": "Every package includes custom design and development — no templates, no compromises.",
+        "price-start-name": "Start",
+        "price-start-type": "Custom Landing Page",
+        "price-start-f1": "<i class=\"fas fa-check\"></i> 1 page, designed from scratch",
+        "price-start-f2": "<i class=\"fas fa-check\"></i> Greek + English",
+        "price-start-f3": "<i class=\"fas fa-check\"></i> Mobile-first responsive",
+        "price-start-f4": "<i class=\"fas fa-check\"></i> Basic SEO optimization",
+        "price-start-f5": "<i class=\"fas fa-check\"></i> Contact form",
+        "price-start-f6": "<i class=\"fas fa-check\"></i> Google Maps & social links",
+        "price-start-f7": "<i class=\"fas fa-gift\"></i> Domain + Hosting free for 2 years",
+        "price-cta-start": "Start at €190",
+        "price-popular": "Most Popular",
+        "price-biz-name": "Business",
+        "price-biz-type": "Custom Business Website",
+        "price-biz-f1": "<i class=\"fas fa-check\"></i> 4–5 pages, custom design",
+        "price-biz-f2": "<i class=\"fas fa-check\"></i> Greek + English",
+        "price-biz-f3": "<i class=\"fas fa-check\"></i> Mobile-first responsive",
+        "price-biz-f4": "<i class=\"fas fa-check\"></i> SEO-ready structure",
+        "price-biz-f5": "<i class=\"fas fa-check\"></i> Forms, Maps, Social integration",
+        "price-biz-f6": "<i class=\"fas fa-check\"></i> Performance optimization",
+        "price-biz-f7": "<i class=\"fas fa-check\"></i> Custom development for every page",
+        "price-cta-biz": "Start at €450",
+        "price-prem-name": "Premium",
+        "price-prem-type": "Custom Development",
+        "price-prem-f1": "<i class=\"fas fa-check\"></i> Booking & reservation systems",
+        "price-prem-f2": "<i class=\"fas fa-check\"></i> Web apps & dashboards",
+        "price-prem-f3": "<i class=\"fas fa-check\"></i> QR systems & integrations",
+        "price-prem-f4": "<i class=\"fas fa-check\"></i> Advanced SEO & analytics",
+        "price-prem-f5": "<i class=\"fas fa-check\"></i> Custom functionality",
+        "price-prem-f6": "<i class=\"fas fa-check\"></i> Ongoing support & upgrades",
+        "price-cta-prem": "Get a Quote",
+        // Why Custom
+        "why-heading": "Why custom development?",
+        "why-1-title": "Unique Design",
+        "why-1-desc": "Your website is designed exclusively for you. You don't share a template with thousands of other businesses.",
+        "why-2-title": "Speed & Performance",
+        "why-2-desc": "No unnecessary plugins or heavy code. Your site loads lightning-fast on every device.",
+        "why-3-title": "Built-in SEO",
+        "why-3-desc": "Clean, semantic code that search engines love. Better rankings, more visitors.",
+        "why-4-title": "Security & Control",
+        "why-4-desc": "No plugin vulnerabilities, no platform dependencies. You have full control.",
+        // Portfolio
+        "portfolio-heading": "Real Projects, Real Results",
+        "portfolio-subtitle": "Every project is unique — designed and built from scratch for the client's needs.",
         "portfolio-item1-tag": "Web & Consulting",
         "portfolio-item1-desc": "Custom websites & web apps for hospitality and tourism businesses.",
         "portfolio-item2-tag": "Reservation SaaS",
@@ -120,51 +229,83 @@ const translations = {
         "portfolio-item5-desc": "Website for a non-profit cultural organization, with membership & sponsorship forms.",
         "portfolio-view-live": "View Live",
         "portfolio-case-study": "Read the Case Study",
-        "contact-ticker": "Custom solutions for your digital vision — Websites | Apps | Blogs — Your unique presence, our expertise — Reliability and security you can trust — Contact us for your custom project — Custom solutions for your digital vision — Websites | Apps | Blogs — Your unique presence, our expertise — Reliability and security you can trust — Contact us for your custom project! — Custom solutions for your digital vision — Websites | Apps | Blogs — Your unique presence, our expertise — Reliability and security you can trust — Contact us for your custom project! —",
-        "contact-heading": "Contact Us",
-        "contact-form-heading": "Contact Us",
+        // Process
+        "process-heading": "How we work",
+        "process-1-title": "Discussion",
+        "process-1-desc": "We learn what your business needs and plan the solution together.",
+        "process-2-title": "Design",
+        "process-2-desc": "We create the design and structure of your site before writing any code.",
+        "process-3-title": "Development",
+        "process-3-desc": "We write code from scratch, focused on speed and SEO.",
+        "process-4-title": "Delivery",
+        "process-4-desc": "Testing, domain setup, launch — and ongoing support after delivery.",
+        // CTA banner
+        "cta-banner-title": "Custom landing page from €190",
+        "cta-banner-sub": "Domain + hosting free for 2 years. Delivery in 5–7 days.",
+        "cta-banner-btn": "Start Now",
+        // FAQ
+        "faq-title": "Frequently Asked Questions",
+        "faq-q1-title": "How much does a custom website cost?",
+        "faq-q1-answer": "A custom landing page starts at €190 and includes domain + hosting free for 2 years. A full business website costs from €450, while complex projects (booking systems, web apps, dashboards) start from €750. The final price depends on your needs — contact us for a personalized quote.",
+        "faq-q2-title": "How long does it take to build?",
+        "faq-q2-answer": "A landing page is delivered in 5–7 business days. A business website in 2–3 weeks. Complex projects depend on requirements, but we always aim for fast delivery without compromising quality.",
+        "faq-q3-title": "What does each package include?",
+        "faq-q3-answer": "Every package includes custom design, code development from scratch, mobile-first responsive design, basic SEO, contact form, and testing. Business and Premium packages include additional features based on your needs.",
+        "faq-q4-title": "Do you provide support after delivery?",
+        "faq-q4-answer": "Yes. We provide support and maintenance for every project. This means your website will remain up-to-date, secure, and functional.",
+        "faq-q5-title": "Do I need a domain and hosting?",
+        "faq-q5-answer": "Yes, but with the Start package (€190) domain and hosting are included free for 2 years. In any case, we handle the setup — you don't need to worry about technical details.",
+        "faq-q6-title": "Why custom code instead of WordPress?",
+        "faq-q6-answer": "Custom code means a faster website, better SEO, greater security, and unique design. You don't depend on plugins or third-party platforms, and your site doesn't look like thousands of others.",
+        "faq-q7-title": "Do you also build web applications?",
+        "faq-q7-answer": "Yes. Besides websites, we develop custom web applications: reservation systems, data management, dashboards, QR menus, and anything your business needs.",
+        // Contact
+        "contact-heading": "Let's get started",
+        "contact-form-heading": "Tell us what you need",
         "form-name-placeholder": "Name",
         "form-email-placeholder": "Email",
-        "form-message-placeholder": "Your Message",
+        "form-message-placeholder": "Tell us a few words about your project",
+        "form-project-type": "What are you interested in?",
+        "form-type-default": "What are you interested in?",
+        "form-type-landing": "Landing Page (€190)",
+        "form-type-business": "Business Website (€450)",
+        "form-type-premium": "Custom / Advanced (€750+)",
+        "form-type-other": "Something else",
         "form-submit-button": "Send",
         "terms-accept": "I accept the",
         "terms-of-use": "Terms of Use",
         "and": "and the",
         "privacy-policy": "Privacy Policy",
-        "footer-text": "© 2026 akronwebuilder.gr · <a href=\"https://www.arakronservices.gr/\" style=\"color:inherit\">AR Akron Services</a>",
-        "form-consent-text": "I have read and accept the [[privacy_link]] and the [[terms_link]].",
-        'cookie-banner-text': 'We use cookies to ensure the best possible experience on our website. By continuing to use this site, you accept the use of cookies. For more information, please read our [[cookie_link]].',
-        'cookie-banner-link': 'Cookie Policy',
-        'cookie-banner-accept': 'Accept All',
-        'cookie-banner-decline': 'Decline (except essential)',
         "contact-address": "Griva Digeni 2, 17342 <br>Agios Dimitrios, Attica",
- "faq-title": "Frequently Asked Questions",
-        "faq-q1-title": "How much does a custom website or application cost?",
-        "faq-q1-answer": "The cost for a custom website or application depends on its complexity. A simple, custom website starts from €150. For more complex projects, the price is determined by the features you'll need and the time required for their custom development. We will provide a personalized quote after discussing your needs.",
-        "faq-q2-title": "How long does it take to develop a custom project?",
-        "faq-q2-answer": "Delivery time depends on the project's size. A simple, custom website can be ready and delivered within 1 week. For more complex projects with many features, the time increases, but we always aim for quick and efficient completion without sacrificing quality.",
-        "faq-q3-title": "What does the custom development service include?",
-        "faq-q3-answer": "Our service includes: discussing your needs, designing the website's look and functionality, coding from scratch, integrating your content, basic SEO optimization, mobile responsiveness, thorough testing, and helping you manage it.",
-        "faq-q4-title": "Do you offer post-delivery support for custom projects?",
-        "faq-q4-answer": "Yes, we provide comprehensive support and maintenance for every custom project. This ensures it runs smoothly, remains secure, and is updated, so your application is always current and effective.",
-        "faq-q5-title": "Do you handle content (texts, photos) for custom applications?",
-        "faq-q5-answer": "We can guide you on what content you'll need. Our primary job is to develop the code and functionalities, but we can work with you to integrate your content once it's ready.",
-        "faq-q6-title": "What is SEO and why is it important for a custom website?",
-        "faq-q6-answer": "SEO stands for Search Engine Optimization. It's the process that helps your website rank higher in Google search results. Even for custom websites, we implement basic SEO settings in the code to attract more visitors.",
-        "faq-q7-title": "What is the collaboration process for a custom project?",
-        "faq-q7-answer": "The process begins with an initial discussion about your idea. Then, we perform an analysis and provide a quote, design, code, test, deliver the project, and finally support you. We maintain continuous communication every step of the way.",
-        "faq-q8-title": "Do I need hosting and a domain for my custom project? Can you help?",
-        "faq-q8-answer": "Yes, they are essential. The domain is your website's address on the internet, and hosting is the server space where your website 'lives'. We can provide advice and help you set them up.",
-        "faq-q9-title": "Do you develop web applications or just websites?",
-        "faq-q9-answer": "We specialize in custom development of both websites and web applications. This means we can create any digital product that needs to operate online, from a simple corporate website to complex management applications, all built with custom code to perfectly match your needs."
+        // Footer
+        "footer-tagline": "Consulting and digital tools for restaurants, tourism and hospitality.",
+        "footer-name": "Aristeidis Alampourinos",
+        "footer-address": "Griva Digeni 2, 17342 Agios Dimitrios, Attica, Greece",
+        "footer-vat": "VAT No.: EL112492149 &nbsp;|&nbsp; GEMI No.: 161479309000",
+        "footer-h-pages": "Pages",
+        "footer-h-apps": "Apps",
+        "footer-h-info": "Information",
+        "footer-cookies": "Cookie settings",
+        "footer-terms": "Terms of use & service",
+        "footer-cookie-policy": "Cookie policy",
+        "pricing-vat": "All prices include VAT.",
+        "footer-copy": "© 2026 AR Akron Services. All rights reserved.",
+        "footer-text": "© 2026 akronwebuilder.gr · <a href=\"https://www.arakronservices.gr/\" style=\"color:inherit\">AR Akron Services</a>",
+        // Mobile CTA
+        "mobile-cta": "Start Your Project",
+        // Cookie
+        "cookie-banner-text": "With your consent we use analytics cookies (Google Analytics) to improve the website. Without it, only essential storage is used. You can change your choice at any time via “Cookie settings” at the bottom of the page. More in our [[cookie_link]].",
+        "cookie-banner-link": "Cookie Policy",
+        "cookie-banner-accept": "Accept",
+        "cookie-banner-decline": "Essential only"
     }
 };
 
 // Function to apply the translation
 function translatePage(lang) {
-    const termsPdfPath = `1-${lang}.pdf`;
-    const privacyPdfPath = `2-${lang}.pdf`;
-    const cookiePolicyPdfPath = `3-${lang}.pdf`;
+    const termsPdfPath = `terms.html`;
+    const privacyPdfPath = `privacy.html`;
+    const cookiePolicyPdfPath = `cookies.html`;
 
     const elements = document.querySelectorAll('[data-translate-key]');
     const currentTranslations = translations[lang];
@@ -179,18 +320,19 @@ function translatePage(lang) {
         const translation = currentTranslations[key];
 
         if (translation === undefined) {
-            console.warn("Translation key not found:", key, "for language:", lang);
             return;
         }
 
         if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
             element.placeholder = translation;
+        } else if (element.tagName === 'SELECT') {
+            // Don't translate select itself, only its options
+        } else if (element.tagName === 'OPTION') {
+            element.textContent = translation;
         } else if (element.tagName === 'IMG') {
             element.alt = translation;
         } else if (element.tagName === 'A') {
-            // **ΕΙΔΙΚΟΣ ΧΕΙΡΙΣΜΟΣ ΓΙΑ ΤΟΝ ΣΥΝΔΕΣΜΟ ΤΗΣ ΔΙΕΥΘΥΝΣΗΣ**
             if (key === 'contact-address') {
-                // Εφόσον το HTML δεν αλλάζει, χρησιμοποιούμε innerHTML για να αποδοθεί το <br>
                 element.innerHTML = translation;
             } else if (key === 'terms-of-use') {
                 element.href = termsPdfPath;
@@ -202,32 +344,16 @@ function translatePage(lang) {
                 element.href = cookiePolicyPdfPath;
                 element.textContent = translation;
             } else {
-                // Για όλους τους άλλους συνδέσμους
                 element.textContent = translation;
             }
         } else if (element.tagName === 'TEXT' && element.closest('svg')) {
             element.textContent = translation;
         } else {
-            // Για τα περισσότερα στοιχεία (p, span, div, h1-h6, button κλπ.)
             element.innerHTML = translation;
         }
     });
 
-    const consentLabel = document.querySelector('label[data-translate-key="form-consent-text"]');
-    if (consentLabel) {
-        const termsAcceptText = currentTranslations["terms-accept"] || 'Αποδέχομαι τους';
-        const andText = currentTranslations["and"] || 'και την';
-
-        const privacyLinkHtml = `<a href="${privacyPdfPath}" target="_blank">${currentTranslations["privacy-policy"]}</a>`;
-        const termsLinkHtml = `<a href="${termsPdfPath}" target="_blank">${currentTranslations["terms-of-use"]}</a>`;
-
-        let translatedConsentText = currentTranslations["form-consent-text"] || '';
-        translatedConsentText = translatedConsentText.replace('[[privacy_link]]', privacyLinkHtml);
-        translatedConsentText = translatedConsentText.replace('[[terms_link]]', termsLinkHtml);
-
-        consentLabel.innerHTML = translatedConsentText;
-    }
-
+    // Cookie banner
     const cookieBannerTextElement = document.querySelector('.cookie-banner p[data-translate-key="cookie-banner-text"]');
     if (cookieBannerTextElement) {
         const cookieBannerLinkHtml = `<a href="${cookiePolicyPdfPath}" target="_blank">${currentTranslations["cookie-banner-link"]}</a>`;
@@ -237,12 +363,8 @@ function translatePage(lang) {
 
         const acceptButton = document.getElementById('acceptCookies');
         const declineButton = document.getElementById('declineCookies');
-        if (acceptButton) {
-            acceptButton.textContent = currentTranslations["cookie-banner-accept"] || acceptButton.textContent;
-        }
-        if (declineButton) {
-            declineButton.textContent = currentTranslations["cookie-banner-decline"] || declineButton.textContent;
-        }
+        if (acceptButton) acceptButton.textContent = currentTranslations["cookie-banner-accept"] || acceptButton.textContent;
+        if (declineButton) declineButton.textContent = currentTranslations["cookie-banner-decline"] || declineButton.textContent;
     }
 
     document.documentElement.lang = lang;
@@ -253,20 +375,14 @@ function translatePage(lang) {
 
 function getCurrentLanguage() {
     const storedLang = localStorage.getItem('selectedLanguage');
-    if (storedLang && translations[storedLang]) {
-        return storedLang;
-    }
+    if (storedLang && translations[storedLang]) return storedLang;
     const browserLang = navigator.language.split('-')[0];
-    if (translations[browserLang]) {
-        return browserLang;
-    }
-
-    return 'el'; // Default language if nothing is found
+    if (translations[browserLang]) return browserLang;
+    return 'el';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const langOptions = document.querySelectorAll('.language-switcher .lang-option');
-
     langOptions.forEach(option => {
         option.addEventListener('click', (event) => {
             event.preventDefault();
@@ -278,12 +394,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
     const initialLang = getCurrentLanguage();
     translatePage(initialLang);
-
     const activeOption = document.querySelector(`.language-switcher .lang-option[data-lang="${initialLang}"]`);
-    if (activeOption) {
-        activeOption.classList.add('active');
-    }
+    if (activeOption) activeOption.classList.add('active');
 });
