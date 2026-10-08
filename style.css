@@ -1176,8 +1176,8 @@ footer {
 /* Το «παράθυρο»: μαύρο παντού, λευκά γράμματα → multiply → βίντεο μόνο στα γράμματα */
 .hero-mask {
     align-self: start;
-    background: var(--hero-ink);
-    box-shadow: 0 0 0 300vmax var(--hero-ink);
+    background: #000;
+    box-shadow: 0 0 0 300vmax #000;
     mix-blend-mode: multiply;
     pointer-events: none;
     user-select: none;
