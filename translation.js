@@ -10,13 +10,15 @@ const translations = {
         "nav-faq": "FAQ",
         "nav-contact": "Επικοινωνία",
         // Hero
-        "hero-motto": "Η ψηφιακή εικόνα της επιχείρησής σου",
-        "hero-sub-tagline": "Σχεδιασμένη για να ξεχωρίζει, φτιαγμένη για να αποδίδει.",
+        "hero-motto": "Η ψηφιακή εικόνα της επιχείρησής σου.",
+        "hero-eyebrow-price": "από €190",
+        "hero-fit": "Ιδανικό για επαγγελματίες, νέες επιχειρήσεις και όσους θέλουν μια δυνατή online παρουσία χωρίς περιττό κόστος.",
+        "hero-sub-tagline": "<span>Σχεδιασμένη γύρω από εσένα.</span> <span>Χτισμένη για την επιχείρησή σου.</span>",
         "hero-desc": "Custom ιστοσελίδες, σχεδιασμένες και κατασκευασμένες στα μέτρα της επιχείρησής σου, με σύγχρονο design, ταχύτητα και σωστή παρουσία σε κάθε συσκευή.",
         "hero-badge": "Custom Landing Page από",
         "hero-tagline": "Domain + Hosting δωρεάν για 2 χρόνια",
-        "cta-start": "Ξεκίνα το Project σου",
-        "cta-pricing": "Δες τα Πακέτα",
+        "cta-start": "Θέλω το website μου",
+        "cta-pricing": "Δες τα πακέτα",
         // Trust bar
         "trust-1": "100% χειροποίητος κώδικας",
         "trust-2": "Mobile-first design",
@@ -33,7 +35,7 @@ const translations = {
         "price-start-f5": "<i class=\"fas fa-check\"></i> Contact form",
         "price-start-f6": "<i class=\"fas fa-check\"></i> Google Maps & social links",
         "price-start-f7": "<i class=\"fas fa-gift\"></i> Domain + Hosting δωρεάν 2 χρόνια",
-        "price-cta-start": "Ξεκίνα με €190",
+        "price-cta-start": "Θέλω το website μου",
         "price-popular": "Δημοφιλές",
         "price-biz-name": "Business",
         "price-biz-type": "Custom Business Website",
@@ -44,7 +46,7 @@ const translations = {
         "price-biz-f5": "<i class=\"fas fa-check\"></i> Forms, Maps, Social integration",
         "price-biz-f6": "<i class=\"fas fa-check\"></i> Performance optimization",
         "price-biz-f7": "<i class=\"fas fa-check\"></i> Custom development κάθε σελίδας",
-        "price-cta-biz": "Ξεκίνα με €450",
+        "price-cta-biz": "Επίλεξε Business",
         "price-prem-name": "Premium",
         "price-prem-type": "Custom Development",
         "price-prem-f1": "<i class=\"fas fa-check\"></i> Booking & reservation systems",
@@ -53,7 +55,7 @@ const translations = {
         "price-prem-f4": "<i class=\"fas fa-check\"></i> Advanced SEO & analytics",
         "price-prem-f5": "<i class=\"fas fa-check\"></i> Custom functionality",
         "price-prem-f6": "<i class=\"fas fa-check\"></i> Ongoing υποστήριξη & αναβαθμίσεις",
-        "price-cta-prem": "Ζήτα Προσφορά",
+        "price-cta-prem": "Μίλησε μαζί μας",
         // Why Custom
         "why-heading": "Γιατί custom κατασκευή;",
         "why-1-title": "Μοναδικό Design",
@@ -93,7 +95,7 @@ const translations = {
         // CTA banner
         "cta-banner-title": "Custom landing page από €190",
         "cta-banner-sub": "Domain + hosting δωρεάν για 2 χρόνια. Παράδοση σε 5–7 ημέρες.",
-        "cta-banner-btn": "Ξεκίνα Τώρα",
+        "cta-banner-btn": "Θέλω το website μου",
         // FAQ
         "faq-title": "Συχνές Ερωτήσεις",
         "faq-q1-title": "Πόσο κοστίζει μια custom ιστοσελίδα;",
@@ -143,7 +145,7 @@ const translations = {
         "footer-copy": "© 2026 AR Akron Services. Όλα τα δικαιώματα διατηρούνται.",
         "footer-text": "© 2026 akronwebuilder.gr · <a href=\"https://www.arakronservices.gr/\" style=\"color:inherit\">AR Akron Services</a>",
         // Mobile CTA
-        "mobile-cta": "Ξεκίνα το Project σου",
+        "mobile-cta": "Θέλω το website μου",
         // Cookie
         "cookie-banner-text": "Με τη συγκατάθεσή σας χρησιμοποιούμε cookies στατιστικών (Google Analytics) για να βελτιώνουμε την ιστοσελίδα. Χωρίς αυτήν, χρησιμοποιούνται μόνο τα απαραίτητα. Μπορείτε να αλλάξετε την επιλογή σας όποτε θέλετε από τις «Ρυθμίσεις cookies» στο κάτω μέρος της σελίδας. Περισσότερα στην [[cookie_link]].",
         "cookie-banner-link": "Πολιτική Cookies",
@@ -159,13 +161,15 @@ const translations = {
         "nav-faq": "FAQ",
         "nav-contact": "Contact",
         // Hero
-        "hero-motto": "The digital image of your business",
-        "hero-sub-tagline": "Designed to stand out, built to perform.",
+        "hero-motto": "The digital image of your business.",
+        "hero-eyebrow-price": "from €190",
+        "hero-fit": "Ideal for professionals, new businesses and anyone who wants a strong online presence without unnecessary cost.",
+        "hero-sub-tagline": "<span>Designed around you.</span> <span>Built for your business.</span>",
         "hero-desc": "Custom websites, designed and built to fit your business — with modern design, speed, and a strong presence on every device.",
         "hero-badge": "Custom Landing Page from",
         "hero-tagline": "Domain + Hosting free for 2 years",
-        "cta-start": "Start Your Project",
-        "cta-pricing": "See Packages",
+        "cta-start": "I want my website",
+        "cta-pricing": "See packages",
         // Trust bar
         "trust-1": "100% handcrafted code",
         "trust-2": "Mobile-first design",
@@ -182,7 +186,7 @@ const translations = {
         "price-start-f5": "<i class=\"fas fa-check\"></i> Contact form",
         "price-start-f6": "<i class=\"fas fa-check\"></i> Google Maps & social links",
         "price-start-f7": "<i class=\"fas fa-gift\"></i> Domain + Hosting free for 2 years",
-        "price-cta-start": "Start at €190",
+        "price-cta-start": "I want my website",
         "price-popular": "Most Popular",
         "price-biz-name": "Business",
         "price-biz-type": "Custom Business Website",
@@ -193,7 +197,7 @@ const translations = {
         "price-biz-f5": "<i class=\"fas fa-check\"></i> Forms, Maps, Social integration",
         "price-biz-f6": "<i class=\"fas fa-check\"></i> Performance optimization",
         "price-biz-f7": "<i class=\"fas fa-check\"></i> Custom development for every page",
-        "price-cta-biz": "Start at €450",
+        "price-cta-biz": "Choose Business",
         "price-prem-name": "Premium",
         "price-prem-type": "Custom Development",
         "price-prem-f1": "<i class=\"fas fa-check\"></i> Booking & reservation systems",
@@ -202,7 +206,7 @@ const translations = {
         "price-prem-f4": "<i class=\"fas fa-check\"></i> Advanced SEO & analytics",
         "price-prem-f5": "<i class=\"fas fa-check\"></i> Custom functionality",
         "price-prem-f6": "<i class=\"fas fa-check\"></i> Ongoing support & upgrades",
-        "price-cta-prem": "Get a Quote",
+        "price-cta-prem": "Talk to us",
         // Why Custom
         "why-heading": "Why custom development?",
         "why-1-title": "Unique Design",
@@ -242,7 +246,7 @@ const translations = {
         // CTA banner
         "cta-banner-title": "Custom landing page from €190",
         "cta-banner-sub": "Domain + hosting free for 2 years. Delivery in 5–7 days.",
-        "cta-banner-btn": "Start Now",
+        "cta-banner-btn": "I want my website",
         // FAQ
         "faq-title": "Frequently Asked Questions",
         "faq-q1-title": "How much does a custom website cost?",
@@ -292,7 +296,7 @@ const translations = {
         "footer-copy": "© 2026 AR Akron Services. All rights reserved.",
         "footer-text": "© 2026 akronwebuilder.gr · <a href=\"https://www.arakronservices.gr/\" style=\"color:inherit\">AR Akron Services</a>",
         // Mobile CTA
-        "mobile-cta": "Start Your Project",
+        "mobile-cta": "I want my website",
         // Cookie
         "cookie-banner-text": "With your consent we use analytics cookies (Google Analytics) to improve the website. Without it, only essential storage is used. You can change your choice at any time via “Cookie settings” at the bottom of the page. More in our [[cookie_link]].",
         "cookie-banner-link": "Cookie Policy",

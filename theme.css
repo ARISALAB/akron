@@ -255,6 +255,9 @@ body {
 .pricing-card-features li i,
 .pricing-card-features li i.fa-gift { color: var(--gold); font-size: 0.8rem; margin-top: 5px; }
 .pricing-card-cta {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.84rem !important;
     border-radius: 2px;
     border: 1px solid rgba(243,238,230,0.3);
     color: var(--ivory);
@@ -512,6 +515,8 @@ body {
 }
 .cta-banner .cta-button {
     grid-area: btn;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     background: var(--gold);
     color: var(--ink);
     border: 1px solid var(--gold);
@@ -779,6 +784,8 @@ footer.site-footer {
     box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
 }
 .mobile-sticky-cta a {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     color: var(--ink);
     font-family: var(--sans);
     font-weight: 600;

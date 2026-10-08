@@ -370,6 +370,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Κάθε CTA προεπιλέγει το αντίστοιχο πακέτο στη φόρμα ---
+    const planSelect = document.querySelector('#contactForm select[name="project_type"]');
+    if (planSelect) {
+        document.querySelectorAll('a[data-plan]').forEach(link => {
+            link.addEventListener('click', () => { planSelect.value = link.dataset.plan; });
+        });
+    }
+
     // --- Hero video: αργή κίνηση ---
     // Ταχύτητα βίντεο: 1 = κανονική, 0.75 = ήρεμη, 0.5 = πολύ αργή (λιγότερο ομαλή)
     const heroVideo = document.getElementById('hero-video');

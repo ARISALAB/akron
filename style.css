@@ -1143,7 +1143,7 @@ footer {
     height: auto;
     min-height: calc(100vh - 66px);
     min-height: calc(100svh - 66px);
-    padding: 64px max(24px, calc((100% - 1200px) / 2)) 56px;
+    padding: 44px max(24px, calc((100% - 1200px) / 2)) 44px;
     text-align: left;
     overflow: hidden;
     /* Χρυσό fallback: φαίνεται μέσα στα γράμματα μέχρι να φορτώσει το βίντεο */
@@ -1189,7 +1189,7 @@ footer {
     max-width: none;
     font-family: 'Manrope', 'Segoe UI', sans-serif;
     font-weight: 800;
-    font-size: clamp(2.8rem, 8.9vw, 10.5rem);
+    font-size: clamp(2.8rem, min(8.6vw, 14vh), 10.5rem);
     line-height: 0.9;
     letter-spacing: -0.04em;
     text-transform: uppercase;
@@ -1223,11 +1223,11 @@ footer {
     color: var(--hero-ivory);
     animation:
         heroMottoIn 0.9s ease 0.1s both,
-        heroMottoFill 1.6s cubic-bezier(.6,0,.2,1) 1.3s forwards;
+        heroMottoFill 1.3s cubic-bezier(.6,0,.2,1) 0.7s forwards;
 }
 .hero-mask .hero-motto-type {
     color: #08090a;
-    animation: heroMaskLight 1.6s cubic-bezier(.6,0,.2,1) 1.3s forwards;
+    animation: heroMaskLight 1.3s cubic-bezier(.6,0,.2,1) 0.7s forwards;
 }
 
 /* Κάτω ζώνη: κείμενο αριστερά, προσφορά + CTA δεξιά */
@@ -1236,10 +1236,10 @@ footer {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
     gap: 40px 80px;
-    margin-top: clamp(36px, 6vh, 72px);
-    padding-top: 32px;
+    margin-top: clamp(28px, 4.5vh, 64px);
+    padding-top: 28px;
     border-top: 1px solid rgba(243, 238, 230, 0.14);
-    animation: heroRise 1s cubic-bezier(.2,.7,.2,1) 1.9s both;
+    animation: heroRise 0.9s cubic-bezier(.2,.7,.2,1) 0.5s both;
 }
 .hero-sub-tagline {
     font-family: 'Noto Serif Display', Georgia, serif;
@@ -1345,6 +1345,82 @@ footer {
     .hero .cta-buttons { flex-direction: column; align-items: stretch; width: 100%; flex-wrap: wrap; }
     .hero-offer { align-items: stretch; }
     .hero .cta-button { text-align: center; }
+}
+
+/* --- Hero: πρώτα η προσφορά (κυρίως για mobile traffic από ads) --- */
+.hero-eyebrow { display: none; }
+.hero-sub-tagline span { display: block; }
+.hero-fit {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--hero-muted);
+    max-width: 38ch !important;
+    margin: -6px 0 2px !important;
+}
+.hero .cta-button {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.86rem;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 0;
+        padding: 26px 20px 36px;
+    }
+    /* 1. CUSTOM WEBSITES / ΑΠΟ €190 */
+    .hero-eyebrow {
+        position: relative;
+        z-index: 2;              /* πάνω από τη μαύρη μάσκα */
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin: 0 0 18px;
+        text-align: left;
+        max-width: none;
+        font-family: 'Manrope', 'Segoe UI', sans-serif;
+        text-transform: uppercase;
+    }
+    .hero-eyebrow-kind {
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        color: var(--hero-ivory);
+    }
+    .hero-eyebrow-price {
+        font-size: 1.55rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+        color: var(--hero-gold);
+    }
+    /* 2. Μότο: μικρότερο, χωρίς αναμονή */
+    .hero-motto-type {
+        font-size: clamp(1.9rem, 9.4vw, 2.8rem);
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+    }
+    .hero-motto {
+        animation: heroMottoIn 0.35s ease both, heroMottoFill 0.9s cubic-bezier(.6,0,.2,1) 0.3s forwards;
+    }
+    .hero-mask .hero-motto-type {
+        animation: heroMaskLight 0.9s cubic-bezier(.6,0,.2,1) 0.3s forwards;
+    }
+    /* 3–6. Υπότιτλος → τιμή → φράση → κουμπιά, όλα αμέσως ορατά */
+    .hero-bottom {
+        animation: none;
+        margin-top: 20px;
+        padding-top: 20px;
+        gap: 22px;
+    }
+    .hero-sub-tagline { font-size: 1.12rem; margin: 0 !important; }
+    .hero-desc { display: none; }
+    .hero-offer { gap: 16px; }
+    .hero-price-anchor { gap: 16px; }
+    .hero-price { font-size: 2.4rem; }
+    .hero-tagline { padding-left: 16px; }
+    .hero-fit { margin: 0 !important; font-size: 0.84rem; }
+    .hero .cta-button { padding: 16px 20px; }
 }
 
 /* --- Trust Bar --- */
