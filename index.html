@@ -20,6 +20,7 @@
   <!-- Favicon -->
   <link rel="preload" href="fonts/manrope-greek-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts/fonts.css">
+  <script>try{if(!sessionStorage.getItem('introSeen')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro');sessionStorage.setItem('introSeen','1')}}catch(e){}</script>
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 
@@ -561,6 +562,9 @@
             <source src="hero.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
+        <div class="hero-intro" aria-hidden="true"><div class="hero-intro-inner"><span class="hero-intro-kind" data-translate-key="hero-intro-kind">Custom websites από</span><span class="hero-intro-price">€190</span></div></div>
+        <div class="hero-flash" aria-hidden="true"></div>
+        <div class="hero-ring" aria-hidden="true"></div>
         <p class="hero-eyebrow"><span class="hero-eyebrow-kind">Custom websites</span><span class="hero-eyebrow-price" data-translate-key="hero-eyebrow-price">από €190</span></p>
         <div class="hero-stage">
             <!-- Μάσκα: μαύρο παντού, το βίντεο φαίνεται μόνο μέσα στα γράμματα -->

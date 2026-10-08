@@ -12,6 +12,7 @@ const translations = {
         // Hero
         "hero-motto": "Η ψηφιακή εικόνα της επιχείρησής σου",
         "hero-eyebrow-price": "από €190",
+        "hero-intro-kind": "Custom websites από",
         "hero-fit": "Ιδανικό για επαγγελματίες, νέες επιχειρήσεις και όσους θέλουν μια δυνατή online παρουσία χωρίς περιττό κόστος.",
         "hero-sub-tagline": "<span>Σχεδιασμένη γύρω από εσένα</span> <span>Χτισμένη για την επιχείρησή σου</span>",
         "hero-desc": "Custom ιστοσελίδες, σχεδιασμένες και κατασκευασμένες στα μέτρα της επιχείρησής σου, με σύγχρονο design, ταχύτητα και σωστή παρουσία σε κάθε συσκευή.",
@@ -163,6 +164,7 @@ const translations = {
         // Hero
         "hero-motto": "The digital image of your business",
         "hero-eyebrow-price": "from €190",
+        "hero-intro-kind": "Custom websites from",
         "hero-fit": "Ideal for professionals, new businesses and anyone who wants a strong online presence without unnecessary cost.",
         "hero-sub-tagline": "<span>Designed around you</span> <span>Built for your business</span>",
         "hero-desc": "Custom websites, designed and built to fit your business — with modern design, speed, and a strong presence on every device.",

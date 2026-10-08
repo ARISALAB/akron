@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const skip = () => root.classList.add('intro-skip');
         ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach(ev =>
             window.addEventListener(ev, skip, { once: true, passive: true }));
-        setTimeout(skip, 2700);
+        setTimeout(skip, 7000);
     }
 
     // --- Hero video: αργή κίνηση ---
