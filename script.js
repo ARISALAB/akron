@@ -378,6 +378,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Intro: κόβεται με οποιαδήποτε κίνηση του επισκέπτη ---
+    const root = document.documentElement;
+    if (root.classList.contains('intro')) {
+        const skip = () => root.classList.add('intro-skip');
+        ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach(ev =>
+            window.addEventListener(ev, skip, { once: true, passive: true }));
+        setTimeout(skip, 2700);
+    }
+
     // --- Hero video: αργή κίνηση ---
     // Ταχύτητα βίντεο: 1 = κανονική, 0.75 = ήρεμη, 0.5 = πολύ αργή (λιγότερο ομαλή)
     const heroVideo = document.getElementById('hero-video');
